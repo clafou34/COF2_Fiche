@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fiche personnage Chroniques Oubliées 2e</title>
+        <link rel="stylesheet" href="css/fiche.css">
+    </head>
+    <body>
+        <form id="FORM_FICHE">
+            <fieldset id="INTRO">
+                <legend>Introduction</legend>
+                <div>
+                    <label for="NOM">Nom du personnage</label>
+                    <input type="text" id="NOM" name="NOM"/>
+                </div>
+            </fieldset>
+            <div class="col_container">
+                <div class="colonne">
+                    <fieldset id="PERSONNALITE" class="niv1">
+                        <legend>PERSONNALIT&Eacute;</legend>
+                        <div id="zonePersonnalite">
+                            <label for="SEL_PEUPLE">PEUPLE</label>
+                            <span><select id="SEL_PEUPLE" name="SEL_PEUPLE"></select></span>
+                            <label for="TXT_NIVEAU">Niveau</label>
+                            <span><input type="number" id="TXT_NIVEAU" min="1" max="30"/></span>
+                            <label for="SEL_FAMILLE">Famille</label>
+                            <span><select id="SEL_FAMILLE" name="SEL_FAMILLE"></select></span>
+                            <label for="SEL_PROFIL">Profil</label>
+                            <span><select id="SEL_PROFIL" name="SEL_PROFIL"></select></span>
+                            <label for="IDEAL">Idéal héroîque</label>
+                            <span><input type="text" id="IDEAL" name="IDEAL"/></span>
+                            <label for="TRAVERS">Travers</label>
+                            <span><input type="text" id="TRAVERS" name="TRAVERS"/></span>
+                            <label for="TXT_DESCRIPTION_PERSO">Description</label>
+                            <span><textarea id="TXT_DESCRIPTION_PERSO"></textarea></span>
+                        </div>
+                    </fieldset>
+                    <fieldset id="CARAC" class="niv1">
+                        <legend>Caractéristiques</legend>
+                        <div id="zoneCaracteristique">
+                            <label for="SEL_AGI" class="labelSelectCarac" title="Agilité">AGI</label>
+                            <select id="SEL_AGI" class="selectCaract"></select>
+                            <input type="text" id="AGI_NOTE" name="AGI_NOTE" class="txtNoteCarac" title="Notes et bonus pour l'agilité"/>
+                            <label for="SEL_CON" class="labelSelectCarac" title="Constitution">CON</label>
+                            <select id="SEL_CON" class="selectCaract"></select>
+                            <input type="text" id="CON_NOTE" name="CON_NOTE" class="txtNoteCarac" title="Notes et bonus pour la constitution"/>
+                            <label for="SEL_FOR" class="labelSelectCarac" title="Force">FOR</label>
+                            <select id="SEL_FOR" class="selectCaract"></select>
+                            <input type="text" id="FOR_NOTE" name="FOR_NOTE" class="txtNoteCarac" title="Notes et bonus pour la force"/>
+                            <label for="SEL_PER" class="labelSelectCarac" title="Perception">PER</label>
+                            <select id="SEL_PER" class="selectCaract"></select>
+                            <input type="text" id="PER_NOTE" name="PER_NOTE" class="txtNoteCarac" title="Notes et bonus pour la perception"/>
+                            <label for="SEL_CHA" class="labelSelectCarac" title="Charisme">CHA</label>
+                            <select id="SEL_CHA" class="selectCaract"></select>
+                            <input type="text" id="CHA_NOTE" name="CHA_NOTE" class="txtNoteCarac" title="Notes et bonus pour le charisme"/>
+                            <label for="SEL_INT" class="labelSelectCarac" title="Intelligence">INT</label>
+                            <select id="SEL_INT" class="selectCaract"></select>
+                            <input type="text" id="INT_NOTE" name="INT_NOTE" class="txtNoteCarac" title="Notes et bonus pour l'intelligence"/>
+                            <label for="SEL_VOL" class="labelSelectCarac" title="Volonté">VOL</label>
+                            <select id="SEL_VOL" class="selectCaract"></select>
+                            <input type="text" id="VOL_NOTE" name="VOL_NOTE" class="txtNoteCarac" title="Notes et bonus pour la volonté"/>
+                        </div>
+                    </fieldset>
+                    <fieldset id="ATTAQUES" class="niv1">
+                        <legend>ATTAQUES</legend>
+                        <div id="zoneAttaque">
+                            <div>
+                                <label for="TXT_ATT_CONTACT">CONTACT</label>
+                                <input type="text" id="TXT_ATT_CONTACT" readonly/>
+                                = NIV.: <input type="text" id="ATT_CONTACT_NIV" readonly title="Règle : Niveau au maximum à 10."/>
+                                <span class="caractAtt">+ FOR:</span><input type="text" id="ATT_FOR" readonly/>
+                            </div>
+                            <div>
+                                <label for="TXT_ATT_DISTANCE">DISTANCE</label>
+                                <input type="text" id="TXT_ATT_DISTANCE" readonly/>
+                                = NIV.: <input type="text" id="ATT_DISTANCE_NIV" readonly title="Règle : Niveau au maximum à 10."/>
+                                <span class="caractAtt">+ AGI:</span><input type="text" id="ATT_AGI" readonly/>
+                            </div>
+                            <div>
+                                <label for="TXT_ATT_MAGIQUE">MAGIQUE</label>
+                                <input type="text" id="TXT_ATT_MAGIQUE" readonly/>
+                                = NIV.: <input type="text" id="ATT_MAGIQUE_NIV" readonly title="Règle : Niveau au maximum à 10."/>
+                                <span class="caractAtt">+ VOL:</span><input type="text" id="ATT_VOL" readonly/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="colonne">
+                    <fieldset id="ETAT" class="niv1">
+                        <legend>&Eacute;TAT</legend>
+                        <div id="zoneEtat">
+                            <div id="zoneInitiative" class="niv2" title="Initiative">
+                                <span>INIT</span>
+                                <div>
+                                    <input type="number" id="INITIATIVE_COURANTE" name="INITIATIVE_COURANTE"/>
+                                </div>
+                            </div>
+                            <div id="zonePointsVigueur" class="niv2" title="Points de vigueur">
+                                <span>POINTS DE VIGUEUR</span>
+                                <div>
+                                    <label for="TXT_PTS_VIGUEUR_UTILISES">Utilisés</label>
+                                    <input type="text" id="TXT_PTS_VIGUEUR_UTILISES" title="Points de vigueur utilisés"/>
+                                    <span>/</span>
+                                    <input type="text" id="TXT_PTS_VIGUEUR_MAX" title="Points de vigueur maximum"/>
+                                </div>
+                            </div>
+                            <div id="zoneDefense" class="niv2" title="Défense">
+                                <span>DEF</span>
+                                <div>
+                                    <input type="text" id="TXT_DEFENSE" readonly title="Défense totale"/>
+                                    = 10 + AGI: <input type="text" id="TXT_DEF_AGI" readonly title="Agilité"/> 
+                                    + ARMURE: <input type="text" id="TXT_DEF_ARMURE" readonly title="Somme des défenses des armures portées"/> 
+                                    + AUTRE: <input type="number" id="TXT_DEF_AUTRE" title="Autre bonus de défense"/>
+                                </div>
+                            </div>
+                            <div id="zonePointsChance" class="niv2" title="Points de chance">
+                                <span>POINTS DE CHANCE</span>
+                                <div>
+                                    <label for="TXT_PTS_CHANCE_UTILISES">Utilisés</label>
+                                    <input type="text" id="TXT_PTS_CHANCE_UTILISES" title="Points de chance utilisés"/>
+                                    <span>/</span>
+                                    <input type="text" id="TXT_PTS_CHANCE_MAX" title="Points de chance maximum"/>
+                                    <div class="txtExplicatif">+10 à un test</div>
+                                </div>
+                            </div>
+                            <div id="zoneDesRecuperation" class="niv2" title="Dés de récupération">
+                                <span>DES DE RECUPERATION</span>
+                                <div>
+                                    <div ID="ZONE_NB_DES">
+                                        <label for="TXT_DES_RECUP_UTILISES">Utilisés</label>
+                                        <input type="text" id="TXT_DES_RECUP_UTILISES" title="Nombre de dés de récupération utilisés"/>
+                                        <span>/</span>
+                                        <input type="text" id="TXT_DES_RECUP_MAX" title="Nombre de dés de récupération maximum"/>
+                                        <label for="TXT_DES_RECUP">Type de dés</label>
+                                        <input type="text" id="TXT_DES_RECUP" readonly/>
+                                    </div>
+                                </div>
+                                <div class="txtExplicatif">Restauration PV = (d+1/2 niv.) PV</div>
+                            </div>
+                            <div id="zonePointsDeMana" class="niv2" title="Points de mana">
+                                <span>POINTS DE MANA</span>
+                                <div>
+                                    <label for="TXT_PTS_MANA_UTILISES">Utilisés</label>
+                                    <input type="text" id="TXT_PTS_MANA_UTILISES" title="Points de mana utilisés"/>
+                                    <span>/</span>
+                                    <input type="text" id="TXT_PTS_MANA_MAX" title="Points de mana maximum"/>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset id="BOURSE" class="niv1">
+                        <legend>BOURSE</legend>
+                        <div>
+                            PO: <input type="number" id="TXT_NB_PO" title="Nombre de pièces d'or"/>
+                            PA: <input type="number" id="TXT_NB_PA" title="Nombre de pièces d'argent"/>
+                            PC: <input type="number" id="TXT_NB_PC" title="Nombre de pièces de cuivre"/>
+                        </div>
+                    </fieldset>
+                    <fieldset id="EQUIPEMENT" class="niv1">
+                        <legend>EQUIPEMENT</legend>
+                        <div>
+                            <textarea id="TXT_EQUIPEMENT"></textarea>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="colonne">
+                    <fieldset id="ARMES" class="niv1">
+                        <legend>ARMES</legend>
+                        <fieldset id="ARME_1">
+                            <div class="zoneArme">
+                                <label for="NOM_ARME_1">Nom</label>
+                                <span><input type="text" id="NOM_ARME_1" class="txtNomArme"/></span>
+                                <label for="SELECT_TYPE_ATTAQUE_1">Attaque</label>
+                                <span>
+                                    <select id="SELECT_TYPE_ATTAQUE_1" class="selectTypeAttaque"></select>
+                                    <span class="txtDesAttaqueArme"></span>
+                                </span>
+                                <label for="DM_ARME_1">DM</label>
+                                <span><input type="text" id="DM_ARME_1" class="txtDmArme"/></span>
+                                <label for="SPECIAL_ARME_1">Spécial/Portée</label>
+                                <span><input type="text" id="SPECIAL_ARME_1" class="txtSpecialArme"/></span>
+                            </div>
+                        </fieldset>
+                        <fieldset id="ARME_2">
+                            <div class="zoneArme">
+                                <label for="NOM_ARME_2">Nom</label>
+                                <span><input type="text" id="NOM_ARME_2" class="txtNomArme"/></span>
+                                <label for="SELECT_TYPE_ATTAQUE_2">Attaque</label>
+                                <span>
+                                    <select id="SELECT_TYPE_ATTAQUE_2" class="selectTypeAttaque"></select>
+                                    <span class="txtDesAttaqueArme"></span>
+                                </span>
+                                <label for="DM_ARME_2">DM</label>
+                                <span><input type="text" id="DM_ARME_2" class="txtDmArme"/></span>
+                                <label for="SPECIAL_ARME_2">Spécial/Portée</label>
+                                <span><input type="text" id="SPECIAL_ARME_2" class="txtSpecialArme"/></span>
+                            </div>
+                        </fieldset>
+                        <fieldset id="ARME_3">
+                            <div class="zoneArme">
+                                <label for="NOM_ARME_3">Nom</label>
+                                <span><input type="text" id="NOM_ARME_3" class="txtNomArme"/></span>
+                                <label for="SELECT_TYPE_ATTAQUE_3">Attaque</label>
+                                <span>
+                                    <select id="SELECT_TYPE_ATTAQUE_3" class="selectTypeAttaque"></select>
+                                    <span class="txtDesAttaqueArme"></span>
+                                </span>
+                                <label for="DM_ARME_3">DM</label>
+                                <span><input type="text" id="DM_ARME_3" class="txtDmArme"/></span>
+                                <label for="SPECIAL_ARME_3">Spécial/Portée</label>
+                                <span><input type="text" id="SPECIAL_ARME_3" class="txtSpecialArme"/></span>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                    <fieldset id="ARMURES" class="niv1">
+                        <legend>ARMURES</legend>
+                        <fieldset id="ARMURE_1">
+                            <div class="zoneArmure">
+                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_1" value="Oui" title="Armure portée" class="chkArmure"></span>
+                                <label for="TXT_NOM_ARMURE_1">Nom</label>
+                                <input type="text" id="TXT_NOM_ARMURE_1" class="txtNomArmure"/>
+                                <label for="TXT_DEF_ARMURE_1">DEF</label>
+                                <span>
+                                    <input type="number" id="TXT_DEF_ARMURE_1" class="txtDefArmure"/>
+                                    <label for="TXT_AGI_ARMURE_1">AGI. MAX.</label>
+                                    <input type="text" id="TXT_AGI_ARMURE_1" class="txtAgiArmure"/>
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset id="ARMURE_2">
+                            <div class="zoneArmure">
+                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_2" value="Oui" title="Armure portée" class="chkArmure"></span>
+                                <label for="TXT_NOM_ARMURE_2">Nom</label>
+                                <input type="text" id="TXT_NOM_ARMURE_2" class="txtNomArmure"/>
+                                <label for="TXT_DEF_ARMURE_2">DEF</label>
+                                <span>
+                                    <input type="number" id="TXT_DEF_ARMURE_2" class="txtDefArmure"/>
+                                    <label for="TXT_AGI_ARMURE_2">AGI. MAX.</label>
+                                    <input type="text" id="TXT_AGI_ARMURE_2" class="txtAgiArmure"/>
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset id="ARMURE_3">
+                            <div class="zoneArmure">
+                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_3" value="Oui" title="Armure portée" class="chkArmure"></span>
+                                <label for="TXT_NOM_ARMURE_3">Nom</label>
+                                <input type="text" id="TXT_NOM_ARMURE_3" class="txtNomArmure"/>
+                                <label for="TXT_DEF_ARMURE_3">DEF</label>
+                                <span>
+                                    <input type="number" id="TXT_DEF_ARMURE_3" class="txtDefArmure"/>
+                                    <label for="TXT_AGI_ARMURE_3">AGI. MAX.</label>
+                                    <input type="text" id="TXT_AGI_ARMURE_3" class="txtAgiArmure"/>
+                                </span>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                </div>
+            </div>
+            <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie niv1">
+                <legend>Voie du peuple</legend>
+                <label for="SEL_VOIE_PEUPLE">Voie choisie</label>
+                <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
+                <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
+                <fieldset name="CAPACITE1" class="zoneCapacite">
+                    <legend>Rang 1</legend>
+                    <div class="chkCapacite">
+                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
+                    </div>
+                    <div class="contenuCapacite">
+                        <div class="txtCapacite"></div>
+                        <textarea name="COMMENT_CAPACITE"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset name="CAPACITE2" class="zoneCapacite">
+                    <legend>Rang 2</legend>
+                    <div class="chkCapacite">
+                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
+                    </div>
+                    <div class="contenuCapacite">
+                        <div class="txtCapacite" ></div>
+                        <textarea name="COMMENT_CAPACITE"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset name="CAPACITE3" class="zoneCapacite">
+                    <legend>Rang 3</legend>
+                    <div class="chkCapacite">
+                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
+                    </div>
+                    <div class="contenuCapacite">
+                        <div class="txtCapacite"></div>
+                        <textarea name="COMMENT_CAPACITE"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset name="CAPACITE4" class="zoneCapacite">
+                    <legend>Rang 4</legend>
+                    <div class="chkCapacite">
+                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
+                    </div>
+                    <div class="contenuCapacite">
+                        <div class="txtCapacite"></div>
+                        <textarea name="COMMENT_CAPACITE"></textarea>
+                    </div>
+                </fieldset>
+                <fieldset name="CAPACITE5" class="zoneCapacite">
+                    <legend>Rang 5</legend>
+                    <div class="chkCapacite">
+                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
+                    </div>
+                    <div class="contenuCapacite">
+                        <div class="txtCapacite"></div>
+                        <textarea name="COMMENT_CAPACITE"></textarea>
+                    </div>
+                </fieldset>
+            </fieldset>
+        </form>
+
+
+    </body>
+
+    <script type="text/javascript" src="data/armes.js"></script>
+    <script type="text/javascript" src="data/caracteristiques.js"></script>
+    <script type="text/javascript" src="data/familles.js"></script>
+    <script type="text/javascript" src="data/peuples.js"></script>
+    <script type="text/javascript" src="data/voies.js"></script>
+    <script type="text/javascript" src="js/fiche.js"></script>
+
+</html>
