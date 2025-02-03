@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fiche personnage Chroniques Oubliées 2e</title>
-        <link rel="stylesheet" href="css/fiche.css">
+        <link href="css/fiche.css" rel="stylesheet">
     </head>
     <body>
         <form id="FORM_FICHE">
@@ -68,20 +68,20 @@
                             <div>
                                 <label for="TXT_ATT_CONTACT">CONTACT</label>
                                 <input type="text" id="TXT_ATT_CONTACT" readonly/>
-                                = NIV.: <input type="text" id="ATT_CONTACT_NIV" readonly title="Règle : Niveau au maximum à 10."/>
-                                <span class="caractAtt">+ FOR:</span><input type="text" id="ATT_FOR" readonly/>
+                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAttaque" id="lblAttContactNiv" title="Règle : Niveau au maximum à 10."></span>
+                                    <span class="labelAide">+ FOR:</span><span class="labelAide valeurAttaque" id="lblAttContactFor"></span>
                             </div>
                             <div>
                                 <label for="TXT_ATT_DISTANCE">DISTANCE</label>
                                 <input type="text" id="TXT_ATT_DISTANCE" readonly/>
-                                = NIV.: <input type="text" id="ATT_DISTANCE_NIV" readonly title="Règle : Niveau au maximum à 10."/>
-                                <span class="caractAtt">+ AGI:</span><input type="text" id="ATT_AGI" readonly/>
+                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAttaque" id="lblAttDistanceNiv" title="Règle : Niveau au maximum à 10."></span>
+                                    <span class="labelAide">+ AGI:</span><span class="labelAide valeurAttaque" id="lblAttContactAgi"></span>
                             </div>
                             <div>
                                 <label for="TXT_ATT_MAGIQUE">MAGIQUE</label>
                                 <input type="text" id="TXT_ATT_MAGIQUE" readonly/>
-                                = NIV.: <input type="text" id="ATT_MAGIQUE_NIV" readonly title="Règle : Niveau au maximum à 10."/>
-                                <span class="caractAtt">+ VOL:</span><input type="text" id="ATT_VOL" readonly/>
+                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAttaque" id="lblAttMagiqueNiv" title="Règle : Niveau au maximum à 10."></span>
+                                    <span class="labelAide">+ VOL:</span><span class="labelAide valeurAttaque" id="lblAttContactVol"></span>
                             </div>
                         </div>
                     </fieldset>
@@ -121,7 +121,7 @@
                                     <input type="text" id="TXT_PTS_CHANCE_UTILISES" title="Points de chance utilisés"/>
                                     <span>/</span>
                                     <input type="text" id="TXT_PTS_CHANCE_MAX" title="Points de chance maximum"/>
-                                    <div class="txtExplicatif">+10 à un test</div>
+                                    <div class="labelAide">(+10 à un test)</div>
                                 </div>
                             </div>
                             <div id="zoneDesRecuperation" class="niv2" title="Dés de récupération">
@@ -136,7 +136,7 @@
                                         <input type="text" id="TXT_DES_RECUP" readonly/>
                                     </div>
                                 </div>
-                                <div class="txtExplicatif">Restauration PV = (d+1/2 niv.) PV</div>
+                                <div class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</div>
                             </div>
                             <div id="zonePointsDeMana" class="niv2" title="Points de mana">
                                 <span>POINTS DE MANA</span>

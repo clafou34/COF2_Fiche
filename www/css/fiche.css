@@ -13,6 +13,13 @@ input:invalid {
     background:red;
 }
 
+.labelAide {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size:80%;
+    color: #444444;
+}
+
 /******************************************
 Les groupes de champs de niveau 1
 *******************************************/
@@ -58,13 +65,14 @@ div.niv2 {
     border-width: 2px;
     border-color: grey;
     position : relative;
-    padding-bottom:20px;
+    padding-top:20px;
+    padding-bottom:2px;
     margin-bottom:8px;
 }
 
 div.niv2 > span {
     position : absolute;
-    bottom: -1px;
+    top: -2px;
     left:0;
     background-color: grey;
     font-weight: bold;
@@ -155,6 +163,15 @@ Zone des attaques
 #zoneAttaque {
     width: 100%;
     text-align: center;
+}
+
+.valeurAttaque {
+    font-weight: bold;
+    text-align: center;
+    width: 1.5em;
+    display: inline-block;
+    margin:0;
+    padding:0;
 }
 
 fieldset#ATTAQUES > div > div > label {
