@@ -55,7 +55,8 @@ function initCaracteristiques() {
  Remplissage de la somme des défense.
  ********************************************************************/
 function remplirDefense() {
-    document.getElementById("TXT_DEF_AGI").value = document.getElementById("SEL_AGI").value;
+    let varValeurAgi = Number(document.getElementById("SEL_AGI").value);
+    document.getElementById("lblAgiDefense").innerHTML = String(varValeurAgi);
     
     // Récupération de la somme des armures sélectionnées
     let tabZoneArmure = document.getElementsByClassName("zoneArmure");
@@ -68,7 +69,7 @@ function remplirDefense() {
                 defArmure = defArmure + Number(varTxtDefArmure);
         };
     }
-    document.getElementById("TXT_DEF_ARMURE").value = defArmure;
+    document.getElementById("lblDefenseArmure").innerHTML = String(defArmure);
     
     // Récupération des autres bonus
     let defAutre = 0;
@@ -78,7 +79,7 @@ function remplirDefense() {
     }
     
     // Affichage
-    document.getElementById("TXT_DEFENSE").value = 10 + Number(document.getElementById("TXT_DEF_AGI").value) + defArmure + defAutre;
+    document.getElementById("TXT_DEFENSE").value = String(10 + varValeurAgi + defArmure + defAutre);
 }
 
 /********************************************************************

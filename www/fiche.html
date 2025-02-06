@@ -68,52 +68,55 @@
                             <div>
                                 <label for="TXT_ATT_CONTACT">CONTACT</label>
                                 <input type="text" id="TXT_ATT_CONTACT" readonly/>
-                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAttaque" id="lblAttContactNiv" title="Règle : Niveau au maximum à 10."></span>
-                                    <span class="labelAide">+ FOR:</span><span class="labelAide valeurAttaque" id="lblAttContactFor"></span>
+                                <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttContactNiv" title="Règle : Niveau au maximum à 10."></span>
+                                <span class="labelAide">+ FOR:</span><span class="labelAide valeurAide" id="lblAttContactFor"></span>
                             </div>
                             <div>
                                 <label for="TXT_ATT_DISTANCE">DISTANCE</label>
                                 <input type="text" id="TXT_ATT_DISTANCE" readonly/>
-                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAttaque" id="lblAttDistanceNiv" title="Règle : Niveau au maximum à 10."></span>
-                                    <span class="labelAide">+ AGI:</span><span class="labelAide valeurAttaque" id="lblAttContactAgi"></span>
+                                <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttDistanceNiv" title="Règle : Niveau au maximum à 10."></span>
+                                <span class="labelAide">+ AGI:</span><span class="labelAide valeurAide" id="lblAttContactAgi"></span>
                             </div>
                             <div>
                                 <label for="TXT_ATT_MAGIQUE">MAGIQUE</label>
                                 <input type="text" id="TXT_ATT_MAGIQUE" readonly/>
-                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAttaque" id="lblAttMagiqueNiv" title="Règle : Niveau au maximum à 10."></span>
-                                    <span class="labelAide">+ VOL:</span><span class="labelAide valeurAttaque" id="lblAttContactVol"></span>
+                                <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttMagiqueNiv" title="Règle : Niveau au maximum à 10."></span>
+                                <span class="labelAide">+ VOL:</span><span class="labelAide valeurAide" id="lblAttContactVol"></span>
                             </div>
                         </div>
                     </fieldset>
                 </div>
                 <div class="colonne">
+                    <div class="ligne_niv1">
+                        <fieldset id="zoneInitiative" class="niv1" title="Initiative">
+                            <legend>INIT</legend>
+                            <div>
+                                <input type="number" id="INITIATIVE_COURANTE" name="INITIATIVE_COURANTE"/>
+                            </div>
+                        </fieldset>
+                        <fieldset id="zoneVigueur" class="niv1" title="Points de vigueur">
+                            <legend>POINTS DE VIGUEUR</legend>
+                            <div>
+                                <label for="TXT_PTS_VIGUEUR_UTILISES">Utilisés</label>
+                                <input type="text" id="TXT_PTS_VIGUEUR_UTILISES" title="Points de vigueur utilisés"/>
+                                <span>/</span>
+                                <input type="text" id="TXT_PTS_VIGUEUR_MAX" title="Points de vigueur maximum"/>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <fieldset id="zoneDefense" class="niv1" title="Défense">
+                        <legend>DEF</legend>
+                        <div>
+                            <input type="text" id="TXT_DEFENSE" readonly title="Défense totale"/>
+                            <span class="labelAide">=&nbsp;</span><span class="labelAide valeurAide">10</span>
+                            <span class="labelAide">+ AGI:</span><span id="lblAgiDefense" class="labelAide valeurAide"></span>
+                            <span class="labelAide">+ ARMURE: </span><span id="lblDefenseArmure" class="labelAide valeurAide" title="Somme des défenses des armures portées"/></span>
+                            <span class="labelAide">+ AUTRE: </span><input type="number" id="TXT_DEF_AUTRE" title="Autre bonus de défense"/>
+                        </div>
+                    </fieldset>
                     <fieldset id="ETAT" class="niv1">
                         <legend>&Eacute;TAT</legend>
                         <div id="zoneEtat">
-                            <div id="zoneInitiative" class="niv2" title="Initiative">
-                                <span>INIT</span>
-                                <div>
-                                    <input type="number" id="INITIATIVE_COURANTE" name="INITIATIVE_COURANTE"/>
-                                </div>
-                            </div>
-                            <div id="zonePointsVigueur" class="niv2" title="Points de vigueur">
-                                <span>POINTS DE VIGUEUR</span>
-                                <div>
-                                    <label for="TXT_PTS_VIGUEUR_UTILISES">Utilisés</label>
-                                    <input type="text" id="TXT_PTS_VIGUEUR_UTILISES" title="Points de vigueur utilisés"/>
-                                    <span>/</span>
-                                    <input type="text" id="TXT_PTS_VIGUEUR_MAX" title="Points de vigueur maximum"/>
-                                </div>
-                            </div>
-                            <div id="zoneDefense" class="niv2" title="Défense">
-                                <span>DEF</span>
-                                <div>
-                                    <input type="text" id="TXT_DEFENSE" readonly title="Défense totale"/>
-                                    = 10 + AGI: <input type="text" id="TXT_DEF_AGI" readonly title="Agilité"/> 
-                                    + ARMURE: <input type="text" id="TXT_DEF_ARMURE" readonly title="Somme des défenses des armures portées"/> 
-                                    + AUTRE: <input type="number" id="TXT_DEF_AUTRE" title="Autre bonus de défense"/>
-                                </div>
-                            </div>
                             <div id="zonePointsChance" class="niv2" title="Points de chance">
                                 <span>POINTS DE CHANCE</span>
                                 <div>

@@ -18,6 +18,24 @@ input:invalid {
     padding-bottom: 4px;
     font-size:80%;
     color: #444444;
+    display: inline-block;
+}
+.valeurAide {
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin:0;
+    padding:0;
+}
+
+/********************************************
+Ligne de niveau 1
+*********************************************/
+.ligne_niv1 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin:0;
+    padding:0;
 }
 
 /******************************************
@@ -165,15 +183,6 @@ Zone des attaques
     text-align: center;
 }
 
-.valeurAttaque {
-    font-weight: bold;
-    text-align: center;
-    width: 1.5em;
-    display: inline-block;
-    margin:0;
-    padding:0;
-}
-
 fieldset#ATTAQUES > div > div > label {
     width: 5em;
     text-align: left;
@@ -188,30 +197,49 @@ fieldset#ATTAQUES > div > div input {
     width: 2em;
 }
 
-/******************************************
-Zone de l'état
-*******************************************/
-#zoneEtat {
-    padding-top: 4px;
-    padding-left: 4px;
-    padding-right: 4px;
+/*******************************************
+Sous-zone de l'initiative
+********************************************/
+fieldset#zoneInitiative {
+    width : 50%;
+    text-align: center;
 }
 
-/*------------------------------------------
-Sous-zone de l'initiative
---------------------------------------------*/
-#zoneInitiative {
+fieldset#zoneInitiative div {
     text-align: center;
     width: 5em;
 }
 
-#zoneInitiative input#INITIATIVE_COURANTE {
+fieldset#zoneInitiative input#INITIATIVE_COURANTE {
     width: 4em;
 }
 
-/*------------------------------------------
+/*******************************************
+Sous-zone des points de vigueur
+*********************************************/
+fieldset#zoneVigueur {
+    width : 50%;
+    text-align: center;
+}
+
+fieldset#zoneVigueur div {
+    width: 10em;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+fieldset#zoneVigueur div input {
+    width: 2em;
+}
+
+/*******************************************
 Sous-zone de la défense
---------------------------------------------*/
+*********************************************/
+#zoneDefense {
+    text-align: center;
+}
 
 #zoneDefense input#TXT_DEFENSE {
     width: 2em;
@@ -229,16 +257,13 @@ Sous-zone de la défense
     width: 4em;
 }
 
-/*------------------------------------------
-Sous-zone de la vigueur
---------------------------------------------*/
-
-#zonePointsVigueur {
-    width: 12em;
-}
-
-#zonePointsVigueur input {
-    width: 2em;
+/******************************************
+Zone de l'état
+*******************************************/
+#zoneEtat {
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 /*------------------------------------------
