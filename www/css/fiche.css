@@ -4,6 +4,7 @@
 }
 
 label {
+    vertical-align: middle;
     display: inline-block;
     font-weight: bold;
     font-size:85%;
@@ -28,29 +29,41 @@ input:invalid {
     padding:0;
 }
 
-/********************************************
-Ligne de niveau 1
-*********************************************/
-.ligne_niv1 {
+/******************************************
+Les colonnes
+*******************************************/
+div.col_container {
     display: flex;
-    flex-wrap: nowrap;
-    margin:0;
-    padding:0;
+    flex-direction: row;
+    max-width: 1600px;
+    row-gap: 4px;
+}
+
+@media (max-width: 900px) {
+    div.col_container {
+        flex-direction: column;
+    }
+}
+
+.colonne {
+    min-width: 290px;
+    width:100%;
 }
 
 /******************************************
-Les groupes de champs de niveau 1
+Les groupes de champs
 *******************************************/
 
 fieldset.niv1 {
     padding-right: 0;
     padding-left: 0;
-    padding-top:0;
+    padding-top: 26px;
     border-width: 4px;
-    border-top:0;
+    border:0;
     border-style: solid;
     border-color: #ac8a3c;
     margin:6px;
+    position: relative;
 }
 
 fieldset.niv1 > legend {
@@ -63,67 +76,79 @@ fieldset.niv1 > legend {
     padding-top: 4px;
     padding-bottom: 4px;
     text-transform: uppercase;
+    position: absolute;
+    top:0px;
 }
 
-fieldset.niv1 > div {
-    padding-top : 10px;
+fieldset.niv1 > div.groupe_unique {
+    margin-top: 8px; 
     padding-left : 10px;
     padding-right : 10px;
-    padding-bottom : 0;
-    display: inline-block;
     width:100%;
 }
 
-/******************************************
-Les groupes de champs de niveau 2
-*******************************************/
-
-div.niv2 {
+fieldset.niv1 > div.groupe_multiple {
     border-style: solid;
     border-width: 2px;
-    border-color: grey;
-    position : relative;
-    padding-top:20px;
-    padding-bottom:2px;
-    margin-bottom:8px;
+    border-radius: 4px;
+    border-color: #ac8a3c;
+    padding:8px;
+    margin-top:8px;
+    margin-bottom:0px;
 }
 
-div.niv2 > span {
-    position : absolute;
-    top: -2px;
-    left:0;
-    background-color: grey;
-    font-weight: bold;
-    color: white;
-    font-size: 80%;
-    padding-bottom: 2px;
-    padding-top: 2px;
+/********************************************
+Ligne de niveau 1
+*********************************************/
+.ligne_niv1 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin:0;
+    padding:0;
     width: 100%;
-    text-align: center;
-}
-
-div.niv2 > div {
-    margin:4px;
 }
 
 /******************************************
-Les colonnes
+Les champs isolés de niveau 1
 *******************************************/
-div.col_container {
-    display: flex;
-    flex-direction: row;
-    max-width: 1600px;
-    row-gap: 4px;
+
+fieldset.champs_niv1 {
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top:0;
+    padding-bottom: 20px;
+    border-right: 2px;
+    border-left: 2px;
+    border-top:2px;
+    border-bottom:0;
+    border-style: solid;
+    border-color: #ac8a3c;
+    margin:6px;
+    width: 100%;
 }
 
-@media (max-width: 800px) {
-    div.col_container {
-        flex-direction: column;
-    }
+fieldset.champs_niv1 > legend {
+    background-color: #ac8a3c;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    width : 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    font-size: 85%;
 }
 
-.colonne {
+fieldset.champs_niv1 > div {
+    display: inline-block;
     width:100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /******************************************
@@ -162,7 +187,7 @@ fieldset#PERSONNALITE textarea {
 /******************************************
 Zone des caractéristiques.
 *******************************************/
-#zoneCaracteristique {
+fieldset#CARAC #zoneCaracteristique {
     display: grid;
     grid-template-columns: 2.5em 3em auto;
     column-gap: 0.5em;
@@ -173,6 +198,10 @@ Zone des caractéristiques.
 fieldset#CARAC > div > .labelSelectCarac {
     float: left;
     width: 3em;
+}
+
+fieldset#CARAC .txtNoteCarac {
+    min-width: 3em;
 }
 
 /******************************************
@@ -226,8 +255,6 @@ fieldset#zoneVigueur div {
     width: 10em;
     margin-left: 4px;
     margin-right: 4px;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 fieldset#zoneVigueur div input {
@@ -257,26 +284,73 @@ Sous-zone de la défense
     width: 4em;
 }
 
-/******************************************
-Zone de l'état
-*******************************************/
-#zoneEtat {
-    padding-top: 4px;
+/*******************************************
+Sous-zone de la chance
+*********************************************/
+fieldset#zonePointsChance {
+    width : 50%;
+    text-align: center;
+}
+
+fieldset#zonePointsChance > div {
+    padding-left: 4px;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+fieldset#zonePointsChance > div > span {
     padding-left: 4px;
     padding-right: 4px;
 }
 
-/*------------------------------------------
-Sous-zone de la chance
---------------------------------------------*/
-
-#zonePointsChance input {
+fieldset#zonePointsChance input {
     width: 2em;
 }
 
-/*------------------------------------------
+/********************************************
+Sous-zone des point de MANA
+**********************************************/
+fieldset#zonePointsDeMana {
+    width : 50%;
+    text-align: center;
+}
+
+fieldset#zonePointsDeMana > div {
+    padding-left: 4px;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+fieldset#zonePointsDeMana > div > span {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+fieldset#zonePointsDeMana input {
+    width: 2em;
+}
+
+/*******************************************
 Sous-zone du dés de récupération
---------------------------------------------*/
+*********************************************/
+fieldset#zoneDesRecuperation > div {
+    padding-left: 4px;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+fieldset#zoneDesRecuperation > div > span {
+    margin-bottom: 4px;
+}
 
 #zoneDesRecuperation input#TXT_DES_RECUP {
     width:3em;
@@ -291,35 +365,49 @@ Sous-zone du dés de récupération
     margin-right: 2em;
 }
 
-/*------------------------------------------
-Sous-zone des point de MANA
---------------------------------------------*/
-#zonePointsDeMana input {
-    width: 2em;
+/******************************************
+Zone de l'équipement
+*******************************************/
+fieldset#EQUIPEMENT div {
+    padding-left : 4px;
+    padding-right : 4px;
+    width:100%;
+}
+
+fieldset#EQUIPEMENT textarea {
+    width: 100%;
+    height: 6em;
 }
 
 /******************************************
 Zone de la bourse
 *******************************************/
 
-fieldset#BOURSE input {
-    width:5em;
+fieldset#zoneBourse input {
+    width:4em;
 }
 
-fieldset#BOURSE input#TXT_NB_PO {
+fieldset#zoneBourse > div {
+    padding-left: 4px;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+fieldset#zoneBourse > div > span {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+}
+
+fieldset#zoneBourse input#TXT_NB_PO {
     margin-right: 1.5em;
 }
 
-fieldset#BOURSE input#TXT_NB_PA {
+fieldset#zoneBourse input#TXT_NB_PA {
     margin-right: 1.5em;
-}
-
-/******************************************
-Zone de l'équipement
-*******************************************/
-fieldset#EQUIPEMENT textarea {
-    width: 100%;
-    height: 6em;
 }
 
 /******************************************
@@ -328,7 +416,7 @@ Zone des armes
 
 div.zoneArme {
     display: grid;
-    grid-template-columns: 7em auto;
+    grid-template-columns: 2em auto;
     column-gap: 0.5em;
     row-gap: 0.3em;
     width: 100%;
@@ -339,19 +427,34 @@ div.zoneArme input.txtNomArme {
 }
 
 fieldset#ARMES input.txtDmArme {
-    width:2em;
+    width:3em;
+    margin-right:1.5em;
 }
 
 fieldset#ARMES input.txtAttaqueArme {
     width:2em;
 }
 
-fieldset#ARMES span.txtDesAttaqueArme {
-    display: inline-block;
+fieldset#ARMES .detailArme {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
-div.zoneArme input.txtSpecialArme {
+fieldset#ARMES .detailArme > span {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     width: 100%;
+}
+
+fieldset#ARMES .detailArme > span > label {
+    margin-right: 0.5em;
+    flex-grow: 1;
+}
+
+fieldset#ARMES .detailArme > span > input  {
+    width:100%; flex-grow: 2;
 }
 
 /******************************************
