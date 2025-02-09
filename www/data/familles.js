@@ -34,7 +34,7 @@ let dataFamilles = {
         {"nom": "Magicien", "id": "MA_MA"},
         {"nom": "Sorcier", "id": "MA_SO"}
       ],
-      "groupe_voies" : "VOIES_PEUPLES",
+      "groupe_voies" : "PEUPLES",
       "voies": ["MAGE"],
       "des_de_recup" : "d6"
     },

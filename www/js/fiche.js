@@ -233,7 +233,7 @@ function initVoiePeuple() {
   let selVoiePeuple = document.getElementById("SEL_VOIE_PEUPLE");
   let tabVoies = [];
   let peupleCourant = document.getElementById("SEL_PEUPLE").value
-  let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "VOIES_PEUPLES").voies;
+  let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
 
   // Vidange de la liste des voies de peuple
   while (selVoiePeuple.options.length > 0) {
@@ -470,7 +470,7 @@ function initVoiesFamille() {
   let selVoieFamille = document.getElementById("SEL_VOIE_FAMILLE");
   let tabVoies = [];
   let idFamilleCourante = document.getElementById("SEL_FAMILLE").value
-  let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "VOIES_PEUPLES").voies;
+  let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
 
   // Vidange de la liste des voies de famille
   while (selVoieFamille.options.length > 0) {
