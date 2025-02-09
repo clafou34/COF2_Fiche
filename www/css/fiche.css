@@ -4,10 +4,10 @@
 }
 
 label {
-    vertical-align: middle;
     display: inline-block;
     font-weight: bold;
     font-size:85%;
+    margin-top: 4px;
 }
 
 input:invalid {
@@ -16,7 +16,7 @@ input:invalid {
 
 .labelAide {
     padding-top: 4px;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
     font-size:80%;
     color: #444444;
     display: inline-block;
@@ -29,13 +29,22 @@ input:invalid {
     padding:0;
 }
 
+body {
+    max-width: 1600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+textarea {
+    font-size:80%;
+}
+
 /******************************************
 Les colonnes
 *******************************************/
 div.col_container {
     display: flex;
     flex-direction: row;
-    max-width: 1600px;
     row-gap: 4px;
 }
 
@@ -155,31 +164,26 @@ fieldset.champs_niv1 > div {
 Zone de la personnalité
 *******************************************/
 
-fieldset#PERSONNALITE > div {
+#zonePersonnalite > div {
     display: grid;
     grid-template-columns: 8em auto;
-    column-gap: 0.5em;
-    row-gap: 0.3em;
-    width: 100%;
+    vertical-align: middle;
+    margin-bottom : 4px;
 }
 
-fieldset#PERSONNALITE label {
-    text-align: left;
-}
-
-fieldset#PERSONNALITE input#TXT_NIVEAU {
+#zonePersonnalite input#TXT_NIVEAU {
     width: 4em;
 }
 
-fieldset#PERSONNALITE input#IDEAL {
+#zonePersonnalite input#IDEAL {
     width: 100%;
 }
 
-fieldset#PERSONNALITE input#TRAVERS {
+#zonePersonnalite input#TRAVERS {
     width: 100%;
 }
 
-fieldset#PERSONNALITE textarea {
+#zonePersonnalite textarea {
     width: 100%;
     height: 6em;
 }
@@ -414,12 +418,12 @@ fieldset#zoneBourse input#TXT_NB_PA {
 Zone des armes
 *******************************************/
 
-div.zoneArme {
+div.zoneArme > div {
     display: grid;
     grid-template-columns: 2em auto;
     column-gap: 0.5em;
-    row-gap: 0.3em;
     width: 100%;
+    margin-bottom: 4px;
 }
 
 div.zoneArme input.txtNomArme {
@@ -488,21 +492,33 @@ Toutes les zones de voies
 fieldset.zoneVoie {
 }
 
-fieldset.zoneVoie > fieldset.zoneCapacite > div.chkCapacite {
-    float: left;
-    width:8%
+div.zoneCapacite {
+    padding: 0;
 }
 
-fieldset.zoneVoie > fieldset.zoneCapacite > div.chkCapacite > input {
+div.groupe_voie {
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-color: #ac8a3c;
+    padding:4px;
+    margin-bottom:0px;
+}
+
+div.zoneCapacite > div.chkCapacite > input {
     width: 1em;
 }
 
-fieldset.zoneVoie > fieldset.zoneCapacite > div.contenuCapacite {
-    float: left;
-    width: 92%;
+div.contenuCapacite > .txtCapacite {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size:75%;
+    color: black;
 }
 
-fieldset.zoneVoie > fieldset.zoneCapacite > div.contenuCapacite > textarea {
+div.zoneCapacite > .commentCapacite > textarea {
     width: 100%;
 }
 

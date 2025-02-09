@@ -303,16 +303,17 @@ function remplirCapacitesVoiePeuple() {
   }
 
   let varTabVoieAffichable = [];
-  let varTxtCapacite1 = "<b>" + varObjVoieAAfficher.capacite_1.nom + " : </b>" + varObjVoieAAfficher.capacite_1.description;
+  let varTxtCapacite1 = varObjVoieAAfficher.capacite_1.description;
   if (varObjVoieFamille !== null) {
     varTxtCapacite1 = varTxtCapacite1 + "<br> <b><u> Capacité du peuple :</u> " + varObjVoiePeuple.capacite_1.nom + " : </b>" + varObjVoiePeuple.capacite_1.description;
   }
-  varTabVoieAffichable[0] = {"textCapacite" : varTxtCapacite1};
-  varTabVoieAffichable[1] = {"textCapacite" : "<b>" + varObjVoieAAfficher.capacite_2.nom + " : </b>" + varObjVoieAAfficher.capacite_2.description};
-  varTabVoieAffichable[2] = {"textCapacite" : "<b>" + varObjVoieAAfficher.capacite_3.nom + " : </b>" + varObjVoieAAfficher.capacite_3.description};
-  varTabVoieAffichable[3] = {"textCapacite" : "<b>" + varObjVoieAAfficher.capacite_4.nom + " : </b>" + varObjVoieAAfficher.capacite_4.description};
-  varTabVoieAffichable[4] = {"textCapacite" : "<b>" + varObjVoieAAfficher.capacite_5.nom + " : </b>" + varObjVoieAAfficher.capacite_5.description};
-  afficheVoie("ZONE_VOIE_PEUPLE", varTabVoieAffichable);
+  
+  varTabVoieAffichable[0] = {"nomCapacite" : varObjVoieAAfficher.capacite_1.nom , "textCapacite" : varTxtCapacite1};
+  varTabVoieAffichable[1] = {"nomCapacite" : varObjVoieAAfficher.capacite_2.nom , "textCapacite" : varObjVoieAAfficher.capacite_2.description};
+  varTabVoieAffichable[2] = {"nomCapacite" : varObjVoieAAfficher.capacite_3.nom , "textCapacite" : varObjVoieAAfficher.capacite_3.description};
+  varTabVoieAffichable[3] = {"nomCapacite" : varObjVoieAAfficher.capacite_4.nom , "textCapacite" : varObjVoieAAfficher.capacite_4.description};
+  varTabVoieAffichable[4] = {"nomCapacite" : varObjVoieAAfficher.capacite_5.nom , "textCapacite" : varObjVoieAAfficher.capacite_5.description};
+  remplirVoie("ZONE_VOIE_PEUPLE", varTabVoieAffichable);
 
 }
 
@@ -325,14 +326,17 @@ function remplirCapacitesVoiePeuple() {
  "textCapacite" : "Contenu de la capacité";
  }
  ************************************************************************************/
-function afficheVoie(parIdZoneVoie, parTabVoieAffichable) {
+function remplirVoie(parIdZoneVoie, parTabVoieAffichable) {
   // Récupération des zones (fieldset) de chaque capacité
   let varTabZonesVoie = document.getElementById(parIdZoneVoie).getElementsByClassName("zoneCapacite");
 
   let indexVoie = 0;
   for (let varZoneVoie of varTabZonesVoie) {
+    let varTexteDeLaVoie;
     if (indexVoie>=parTabVoieAffichable.length) {break;}
-    varZoneVoie.getElementsByClassName("txtCapacite")[0].innerHTML = parTabVoieAffichable[indexVoie].textCapacite;
+    varTexteDeLaVoie = "<b>" + String(indexVoie + 1) + ". " + parTabVoieAffichable[indexVoie].nomCapacite + " : </b>";
+    varTexteDeLaVoie = varTexteDeLaVoie + parTabVoieAffichable[indexVoie].textCapacite;
+    varZoneVoie.getElementsByClassName("txtCapacite")[0].innerHTML = varTexteDeLaVoie;
     indexVoie++;
   }
 

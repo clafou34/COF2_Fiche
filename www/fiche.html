@@ -20,20 +20,34 @@
                     <fieldset id="PERSONNALITE" class="niv1">
                         <legend>PERSONNALIT&Eacute;</legend>
                         <div id="zonePersonnalite" class="groupe_unique">
-                            <label for="SEL_PEUPLE">PEUPLE</label>
-                            <span><select id="SEL_PEUPLE" name="SEL_PEUPLE"></select></span>
-                            <label for="TXT_NIVEAU">Niveau</label>
-                            <span><input type="number" id="TXT_NIVEAU" min="1" max="30"/></span>
-                            <label for="SEL_FAMILLE">Famille</label>
-                            <span><select id="SEL_FAMILLE" name="SEL_FAMILLE"></select></span>
-                            <label for="SEL_PROFIL">Profil</label>
-                            <span><select id="SEL_PROFIL" name="SEL_PROFIL"></select></span>
-                            <label for="IDEAL">Idéal héroîque</label>
-                            <span><input type="text" id="IDEAL" name="IDEAL"/></span>
-                            <label for="TRAVERS">Travers</label>
-                            <span><input type="text" id="TRAVERS" name="TRAVERS"/></span>
-                            <label for="TXT_DESCRIPTION_PERSO">Description</label>
-                            <span><textarea id="TXT_DESCRIPTION_PERSO"></textarea></span>
+                            <div>
+                                <label for="SEL_PEUPLE">PEUPLE</label>
+                                <span><select id="SEL_PEUPLE" name="SEL_PEUPLE"></select></span>
+                            </div>
+                            <div>
+                                <label for="TXT_NIVEAU">Niveau</label>
+                                <span><input type="number" id="TXT_NIVEAU" min="1" max="30"/></span>
+                            </div>
+                            <div>
+                                <label for="SEL_FAMILLE">Famille</label>
+                                <span><select id="SEL_FAMILLE" name="SEL_FAMILLE"></select></span>
+                            </div>
+                            <div>
+                                <label for="SEL_PROFIL">Profil</label>
+                                <span><select id="SEL_PROFIL" name="SEL_PROFIL"></select></span>
+                            </div>
+                            <div>
+                                <label for="IDEAL">Idéal héroîque</label>
+                                <span><input type="text" id="IDEAL" name="IDEAL"/></span>
+                            </div>
+                            <div>
+                                <label for="TRAVERS">Travers</label>
+                                <span><input type="text" id="TRAVERS" name="TRAVERS"/></span>
+                            </div>
+                            <div>
+                                <label for="TXT_DESCRIPTION_PERSO">Description</label>
+                                <span><textarea id="TXT_DESCRIPTION_PERSO"></textarea></span>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset id="CARAC" class="niv1">
@@ -194,59 +208,77 @@
                         <legend>ARMES</legend>
                         <div id="ARME_1" class="groupe_multiple">
                             <div class="zoneArme">
-                                <label for="NOM_ARME_1">Nom</label>
-                                <span><input type="text" id="NOM_ARME_1" class="txtNomArme"/></span>
-                                <label for="SELECT_TYPE_ATTAQUE_1">Type</label>
-                                <span class="labelAide">
-                                    <select id="SELECT_TYPE_ATTAQUE_1" class="selectTypeAttaque"></select>
-                                    <span class="txtDesAttaqueArme"></span>
-                                </span>
-                                <label for="DM_ARME_1">DM</label>
-                                <span class="detailArme">
-                                    <input type="text" id="DM_ARME_1" class="txtDmArme"/>
-                                    <span title="Caractéristiques spéciales / Portée">
-                                        <label for="SPECIAL_ARME_1">Info</label>
-                                        <input type="text" id="SPECIAL_ARME_1"/>
+                                <div>
+                                    <label for="NOM_ARME_1">Nom</label>
+                                    <span><input type="text" id="NOM_ARME_1" class="txtNomArme"/></span>
+                                </div>
+                                <div>
+                                    <label for="SELECT_TYPE_ATTAQUE_1">Type</label>
+                                    <span>
+                                        <select id="SELECT_TYPE_ATTAQUE_1" class="selectTypeAttaque"></select>
+                                        <span class="txtDesAttaqueArme labelAide"></span>
                                     </span>
-                                </span>
+                                </div>
+                                <div>
+                                    <label for="DM_ARME_1">DM</label>
+                                    <span class="detailArme">
+                                        <input type="text" id="DM_ARME_1" class="txtDmArme"/>
+                                        <span title="Caractéristiques spéciales / Portée">
+                                            <label for="SPECIAL_ARME_1">Info</label>
+                                            <input type="text" id="SPECIAL_ARME_1"/>
+                                        </span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div id="ARME_2" class="groupe_multiple">
                             <div class="zoneArme">
-                                <label for="NOM_ARME_2">Nom</label>
-                                <span><input type="text" id="NOM_ARME_2" class="txtNomArme"/></span>
-                                <label for="SELECT_TYPE_ATTAQUE_2">Type</label>
-                                <span class="labelAide">
-                                    <select id="SELECT_TYPE_ATTAQUE_2" class="selectTypeAttaque"></select>
-                                    <span class="txtDesAttaqueArme"></span>
-                                </span>
-                                <label for="DM_ARME_2">DM</label>
-                                <span class="detailArme">
-                                    <input type="text" id="DM_ARME_2" class="txtDmArme"/>
-                                    <span title="Caractéristiques spéciales / Portée">
-                                        <label for="SPECIAL_ARME_2">Info</label>
-                                        <input type="text" id="SPECIAL_ARME_2"/>
+                                <div>
+                                    <label for="NOM_ARME_2">Nom</label>
+                                    <span><input type="text" id="NOM_ARME_2" class="txtNomArme"/></span>
+                                </div>
+                                <div>
+                                    <label for="SELECT_TYPE_ATTAQUE_2">Type</label>
+                                    <span>
+                                        <select id="SELECT_TYPE_ATTAQUE_2" class="selectTypeAttaque"></select>
+                                        <span class="txtDesAttaqueArme labelAide"></span>
                                     </span>
-                                </span>
+                                </div>
+                                <div>
+                                    <label for="DM_ARME_2">DM</label>
+                                    <span class="detailArme">
+                                        <input type="text" id="DM_ARME_2" class="txtDmArme"/>
+                                        <span title="Caractéristiques spéciales / Portée">
+                                            <label for="SPECIAL_ARME_2">Info</label>
+                                            <input type="text" id="SPECIAL_ARME_2"/>
+                                        </span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div id="ARME_3" class="groupe_multiple">
                             <div class="zoneArme">
-                                <label for="NOM_ARME_3">Nom</label>
-                                <span><input type="text" id="NOM_ARME_3" class="txtNomArme"/></span>
-                                <label for="SELECT_TYPE_ATTAQUE_3">Type</label>
-                                <span class="labelAide">
-                                    <select id="SELECT_TYPE_ATTAQUE_3" class="selectTypeAttaque"></select>
-                                    <span class="txtDesAttaqueArme"></span>
-                                </span>
-                                <label for="DM_ARME_3">DM</label>
-                                <span class="detailArme">
-                                    <input type="text" id="DM_ARME_3" class="txtDmArme"/>
-                                    <span title="Caractéristiques spéciales / Portée">
-                                        <label for="SPECIAL_ARME_3">Info</label>
-                                        <input type="text" id="SPECIAL_ARME_3" class="txtSpecialArme"/>
+                                <div>
+                                    <label for="NOM_ARME_3">Nom</label>
+                                    <span><input type="text" id="NOM_ARME_3" class="txtNomArme"/></span>
+                                </div>
+                                <div>
+                                    <label for="SELECT_TYPE_ATTAQUE_3">Type</label>
+                                    <span>
+                                        <select id="SELECT_TYPE_ATTAQUE_3" class="selectTypeAttaque"></select>
+                                        <span class="txtDesAttaqueArme labelAide"></span>
                                     </span>
-                                </span>
+                                </div>
+                                <div>
+                                    <label for="DM_ARME_3">DM</label>
+                                    <span class="detailArme">
+                                        <input type="text" id="DM_ARME_3" class="txtDmArme"/>
+                                        <span title="Caractéristiques spéciales / Portée">
+                                            <label for="SPECIAL_ARME_3">Info</label>
+                                            <input type="text" id="SPECIAL_ARME_3" class="txtSpecialArme"/>
+                                        </span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -288,62 +320,67 @@
                     </fieldset>
                 </div>
             </div>
-            <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie niv1">
-                <legend>Voie du peuple</legend>
-                <label for="SEL_VOIE_PEUPLE">Voie choisie</label>
-                <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
-                <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
-                <fieldset name="CAPACITE1" class="zoneCapacite">
-                    <legend>Rang 1</legend>
-                    <div class="chkCapacite">
-                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
-                    </div>
-                    <div class="contenuCapacite">
-                        <div class="txtCapacite"></div>
-                        <textarea name="COMMENT_CAPACITE"></textarea>
-                    </div>
-                </fieldset>
-                <fieldset name="CAPACITE2" class="zoneCapacite">
-                    <legend>Rang 2</legend>
-                    <div class="chkCapacite">
-                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
-                    </div>
-                    <div class="contenuCapacite">
-                        <div class="txtCapacite" ></div>
-                        <textarea name="COMMENT_CAPACITE"></textarea>
-                    </div>
-                </fieldset>
-                <fieldset name="CAPACITE3" class="zoneCapacite">
-                    <legend>Rang 3</legend>
-                    <div class="chkCapacite">
-                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
-                    </div>
-                    <div class="contenuCapacite">
-                        <div class="txtCapacite"></div>
-                        <textarea name="COMMENT_CAPACITE"></textarea>
-                    </div>
-                </fieldset>
-                <fieldset name="CAPACITE4" class="zoneCapacite">
-                    <legend>Rang 4</legend>
-                    <div class="chkCapacite">
-                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
-                    </div>
-                    <div class="contenuCapacite">
-                        <div class="txtCapacite"></div>
-                        <textarea name="COMMENT_CAPACITE"></textarea>
-                    </div>
-                </fieldset>
-                <fieldset name="CAPACITE5" class="zoneCapacite">
-                    <legend>Rang 5</legend>
-                    <div class="chkCapacite">
-                        <input type="checkbox" name="CHK_CAPACITE" value="Oui">
-                    </div>
-                    <div class="contenuCapacite">
-                        <div class="txtCapacite"></div>
-                        <textarea name="COMMENT_CAPACITE"></textarea>
-                    </div>
-                </fieldset>
-            </fieldset>
+            <div class="col_container">
+                <div class="colonne">
+                    <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie niv1">
+                        <legend>Voie du peuple</legend>
+                        <div class="groupe_voie">
+                            <label for="SEL_VOIE_PEUPLE">Voie choisie</label>
+                            <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
+                            <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
+                        </div>
+                        <div id="CAPACITE1" class="zoneCapacite groupe_voie">
+                            <div class="contenuCapacite">
+                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="txtCapacite"></span>
+                            </div>
+                            <div class="commentCapacite">
+                                <textarea name="COMMENT_CAPACITE"></textarea>
+                            </div>
+                        </div>
+                        <div id="CAPACITE2" class="zoneCapacite groupe_voie">
+                            <div class="contenuCapacite">
+                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="txtCapacite"></span>
+                            </div>
+                            <div class="commentCapacite">
+                                <textarea name="COMMENT_CAPACITE"></textarea>
+                            </div>
+                        </div>
+                        <div id="CAPACITE3" class="zoneCapacite groupe_voie">
+                            <div class="contenuCapacite">
+                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="txtCapacite"></span>
+                            </div>
+                            <div class="commentCapacite">
+                                <textarea name="COMMENT_CAPACITE"></textarea>
+                            </div>
+                        </div>
+                        <div id="CAPACITE4" class="zoneCapacite groupe_voie">
+                            <div class="contenuCapacite">
+                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="txtCapacite"></span>
+                            </div>
+                            <div class="commentCapacite">
+                                <textarea name="COMMENT_CAPACITE"></textarea>
+                            </div>
+                        </div>
+                        <div id="CAPACITE5" class="zoneCapacite groupe_voie">
+                            <div class="contenuCapacite">
+                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="txtCapacite"></span>
+                            </div>
+                            <div class="commentCapacite">
+                                <textarea name="COMMENT_CAPACITE"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="colonne">
+                </div>
+                <div class="colonne">
+                </div>
+            </div>
         </form>
 
 
