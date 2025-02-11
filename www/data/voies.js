@@ -6,33 +6,6 @@
  **************************************************************************/
 let dataVoies = {
     "groupesVoies": [
-
-        /** Pattern d'une voie
-         {
-         "id" : "",
-         "nom" : "", // Nom de la voie sans le "Voie de ..."
-         "capacite_1" : {
-         "nom" : "",
-         "description" : ""
-         },
-         "capacite_2" : {
-         "nom" : "",
-         "description" : ""
-         },
-         "capacite_3" : {
-         "nom" : "",
-         "description" : ""
-         },
-         "capacite_4" : {
-         "nom" : "",
-         "description" : ""
-         },
-         "capacite_5" : {
-         "nom" : "",
-         "description" : ""
-         }
-         },
-         **/
         /***************************************************************************
          Voies des peuples
          ****************************************************************************/
@@ -169,7 +142,7 @@ let dataVoies = {
                 },
                 {
                     "id": "HALFELIN",
-                    "nom": "HALFELIN", // Nom de la voie sans le "Voie de ..."
+                    "nom": "HALFELIN",
                     "capacite_1": {
                         "nom": "Petite taille",
                         "description": "Le halfelin obtient un bonus de +1 en DEF et de +3 à tous les tests de discrétion" +
@@ -523,10 +496,10 @@ let dataVoies = {
                     "capacite_2": {
                         "nom": "Feinte (L)",
                         "description": "Le barde effectue une attaque fictive pour déséquilibrer son adversaire et réalise " +
-                        "ensuite une attaque mortelle. Faites un test opposé de CHA contre la PER de votre adversaire à ce " +
-                        "round. Au round suivant, vous obtenez un bonus en attaque égal au double de votre rang dans la voie " +
-                        "de l’escrime (+4 au rang 2, par exemple) sur votre première attaque au contact contre cet adversaire " +
-                        "et, si votre feinte a réussi, +2d4° aux DM."
+                                "ensuite une attaque mortelle. Faites un test opposé de CHA contre la PER de votre adversaire à ce " +
+                                "round. Au round suivant, vous obtenez un bonus en attaque égal au double de votre rang dans la voie " +
+                                "de l’escrime (+4 au rang 2, par exemple) sur votre première attaque au contact contre cet adversaire " +
+                                "et, si votre feinte a réussi, +2d4° aux DM."
                     },
                     "capacite_3": {
                         "nom": "Intelligence du combat (M)",
@@ -548,8 +521,704 @@ let dataVoies = {
                                 "+2d4° aux DM de son attaque (les dés bonus ne sont jamais multipliés en cas de critique)."
                     }
                 },
+                {
+                    "id": "MUSICIEN",
+                    "nom": "MUSICIEN",
+                    "capacite_1": {
+                        "nom": "Chant des héros (L)*",
+                        "description": "Le barde peut chanter et inspirer ses compagnons, tous ses alliés à portée de voix " +
+                                "et lui obtiennent un bonus de +1 à tous leurs tests pendant un nombre de minutes égal à " +
+                                "sa valeur de CHA. Pendant toute la durée du sort, il fredonne (action gratuite qui ne " +
+                                "l’empêche pas de lancer d’autres sorts de barde). Le bonus passe à +2 au rang 5. En plus " +
+                                "de ce sort, le barde ajoute son rang + 2 aux tests pour jouer d’un instrument de musique " +
+                                "ou chanter."
+                    },
+                    "capacite_2": {
+                        "nom": "Chant de réconfort (L)*",
+                        "description": "Le barde chante ou joue de la musique pendant toute la durée d’une récupération " +
+                                "rapide (30 min). Le barde et ses alliés dans un rayon de 10 m, récupèrent 1d4° PV. Les " +
+                                "soins passent à 2d4° au rang 4."
+                    },
+                    "capacite_3": {
+                        "nom": "Attaque sonore (A)*",
+                        "description": "Le barde pousse un cri dont les effets sont dévastateurs (ou produit un son avec " +
+                                "un instrument à cette même fin). Il inflige [2d4° + CHA] DM à toutes les cibles dans un " +
+                                "cône de 10 m (de long et de large). Les cibles peuvent diviser les DM par 2 si elles " +
+                                "réussissent un test de CON difficulté [10 + CHA du barde]."
+                    },
+                    "capacite_4": {
+                        "nom": "Zone de silence (A)*",
+                        "description": "Le barde crée une zone de silence fixe de 5 m de diamètre, jusqu’à une portée de " +
+                                "30 m, pendant un nombre de minutes égal à sa valeur de CHA. Tous les sons émis dans " +
+                                "cette sphère sont annulés. Dans cette zone, il faut réussir un test d’INT difficulté " +
+                                "10 pour lancer un sort."
+                    },
+                    "capacite_5": {
+                        "nom": "Danse irrésistible (A)*",
+                        "description": "Le barde joue une gigue endiablée aux effets magiques. S’il réussit un test " +
+                                "d’attaque magique opposé contre sa cible (portée 10 m), celle‐ci se met à danser pendant " +
+                                "[1d4° + CHA] rounds, elle subit un dé malus aux tests d’attaque et ‐5 en DEF. Si la cible " +
+                                "est d’un niveau (NC) supérieur ou égal au barde, elle ne danse qu’un seul round."
+                    }
+                },
+                {
+                    "id": "SALTIMBANQUE",
+                    "nom": "SALTIMBANQUE",
+                    "capacite_1": {
+                        "nom": "Acrobate",
+                        "description": "Le barde ajoute son rang + 2 à tous les tests qu’il effectue pour réaliser des " +
+                                "acrobaties, tenir en équilibre, faire des sauts ou de l’escalade."
+                    },
+                    "capacite_2": {
+                        "nom": "Grâce féline",
+                        "description": "Le barde gagne son CHA en Initiative et +1 en DEF (+2 au rang 4). De plus, le " +
+                                "barde ajoute son rang + 2 aux tests de danse, de mime ou de jonglerie."
+                    },
+                    "capacite_3": {
+                        "nom": "Lanceur de couteau (G)",
+                        "description": "Une fois par round, en plus de ses autres actions, le barde peut lancer un " +
+                                "couteau sur une cible à distance (portée 10 m) en réussissant un test d’attaque à " +
+                                "distance. Cette attaque occasionne [1d4 + AGI] DM. Il peut exécuter cette action sans " +
+                                "pénalité, même s’il est engagé en combat au contact avec un autre adversaire. Les " +
+                                "DM passent à 1d4° au rang 5."
+                    },
+                    "capacite_4": {
+                        "nom": "Liberté d’action",
+                        "description": "Le barde est immunisé à la peur et à tous les sorts qui asservissent l’esprit " +
+                                "(possession, charme), il est immunisé aux états ralenti et immobilisé."
+                    },
+                    "capacite_5": {
+                        "nom": "Esquive acrobatique (G)",
+                        "description": "Une fois par round, le barde peut réaliser une esquive en réussissant un test " +
+                                "d’attaque à distance contre une difficulté égale au résultat obtenu par son adversaire, " +
+                                "lors de son attaque. En cas de réussite, le barde ne subit aucun DM. Si cette attaque " +
+                                "était un critique, il subit tout de même des DM normaux (il annule donc l’effet " +
+                                "critique « dommages doublés »)."
+                    }
+                },
+                {
+                    "id": "SÉDUCTION",
+                    "nom": "SÉDUCTION",
+                    "capacite_1": {
+                        "nom": "Charmant",
+                        "description": "Le barde ajoute son rang + 2 aux tests effectués pour séduire, convaincre, mentir " +
+                                "ou baratiner. Désormais, il peut dépenser 1 point de chance pour améliorer l’action d’un " +
+                                "compagnon en vue, ce PC permet d’ajouter [1d4° + CHA] sur le résultat du test (au lieu " +
+                                "de +10)."
+                    },
+                    "capacite_2": {
+                        "nom": "Dentelles et rapière",
+                        "description": "Le barde ne met pas d’armure, cela ne sied point en société. Sa seule armure est " +
+                                "la dentelle, sa seule défense, la rapière. Lorsqu’il ne porte aucune armure, le barde " +
+                                "ajoute son CHA en DEF (en plus de son AGI), toutefois ce bonus ne peut pas dépasser le " +
+                                "rang atteint dans la voie."
+                    },
+                    "capacite_3": {
+                        "nom": "Baratineur de génie",
+                        "description": "Si le barde peut passer 10 minutes avec un humanoïde dont le niveau est inférieur " +
+                                "ou égal à 1 (NC 1), il peut dépenser un 1 PC pour le charmer. La cible répond " +
+                                "favorablement à vos requêtes dans la limite de ce que ferait un ami et ce lien peut se " +
+                                "renforcer avec le temps. Si vous ne partagez pas une langue commune, cela vous coûte 2 PC."
+                    },
+                    "capacite_4": {
+                        "nom": "Charisme héroïque",
+                        "description": "Le barde augmente sa valeur de CHA de +1. Désormais, il obtient un dé bonus aux " +
+                                "tests de CHA. De plus, le barde peut désormais utiliser son CHA au lieu de sa VOL pour " +
+                                "calculer le nombre de PM dont il dispose."
+                    },
+                    "capacite_5": {
+                        "nom": "Suggestion (A)*",
+                        "description": "Le barde peut suggérer une action à une créature en réussissant un test opposé " +
+                                "d’attaque magique. En cas de réussite, la créature fera tout son possible pour satisfaire " +
+                                "cette demande pendant 1 heure ou jusqu’à avoir réussi. Elle évitera les actions " +
+                                "suicidaires (ce qui lui donnerait immédiatement un test d’INT difficulté 10 pour échapper " +
+                                "au sort). Le sort ne peut pas affecter une créature de niveau supérieur ou égal à celui du " +
+                                "lanceur."
+                    }
+                },
+                {
+                    "id": "VAGABOND",
+                    "nom": "VAGABOND",
+                    "capacite_1": {
+                        "nom": "Rumeurs et légendes",
+                        "description": "À force de voyager, le barde possède une culture générale très vaste, il ajoute " +
+                                "son rang + 2 aux tests d’INT pour se « souvenir » d’une information historique, politique, " +
+                                "géographique ou occulte ou encore pour identifier un objet magique difficulté " +
+                                "(25 – (2 x niveau de magie de l’objet))."
+                    },
+                    "capacite_2": {
+                        "nom": "Éclectique",
+                        "description": "Le barde obtient un bonus de +1 à tous les tests de compétence (absolument tous, de " +
+                                "se cacher dans les ombres jusqu’à forger une épée, en passant par traduire une langue " +
+                                "ancienne). Ce bonus ne peut se cumuler à aucun autre bonus de compétence sauf celui du " +
+                                "rang 1 de la voie de peuple. Il augmente de +1 chaque fois qu’il atteint le rang 4 dans " +
+                                "une voie de barde."
+                    },
+                    "capacite_3": {
+                        "nom": "Attirail",
+                        "description": "Le barde possède toutes sortes de choses dans son sac ou ses poches. En dépensant 1 " +
+                                "PC, il peut sortir un objet improbable qu’il avait sur lui, mais qui n’est pas inscrit sur " +
+                                "sa fiche de PJ, par exemple un livre de poésie, une bouteille d’un excellent vin, un jouet " +
+                                "pour enfant, un os pour le chien, une lettre de recommandation, etc. (pour une valeur " +
+                                "maximale de 10 pa). Il peut aussi bricoler un objet avec trois bouts de ficelles et un " +
+                                "clou (système D)."
+                    },
+                    "capacite_4": {
+                        "nom": "Compréhension des langues (A)*",
+                        "description": "Ce sort permet au barde de lire, écrire et parler une langue vivante étrangère. " +
+                                "Le sort a une durée maximale de CHA heures, mais il peut aussi être lancé sur un allié au " +
+                                "contact et dans ce cas, il ne dure que CHA minutes. À partir du rang 5, il peut aussi " +
+                                "déchiffrer une inscription dans une langue morte."
+                    },
+                    "capacite_5": {
+                        "nom": "Déguisement (A)*",
+                        "description": "Ce sort permet au barde de prendre l’apparence de n’importe quelle humanoïde de " +
+                                "taille à peu près équivalente (avec une marge d’environ 50 cm). S’il veut imiter une " +
+                                "personne en particulier, il lui faudra réussir un test de CHA difficulté 15 (20 s’il ne " +
+                                "la connaît pas mais l’a seulement vue, 10 s’il la connaît très bien). Le sort a une durée " +
+                                "maximale de CHA heures, mais il peut aussi être lancé sur un allié au contact et dans ce " +
+                                "cas, il ne dure que CHA minutes."
+                    }
+                },
+            ]
+        },
+
+        /***************************************************************************
+         Voies du rôdeur
+         ****************************************************************************/
+        {
+            "id": "RÔDEUR",
+            "voies": [
+                {
+                    "id": "ARCHER",
+                    "nom": "ARCHER",
+                    "capacite_1": {
+                        "nom": "Archer émérite",
+                        "description": "Le rôdeur ajoute sa PER aux DM qu’il inflige à l’arc et +1 par rang dans la voie " +
+                                "en initiative. Le joueur peut souhaiter une variante de cette capacité s’appliquant aux " +
+                                "armes de jet (dague, hachette, javelot) plutôt qu’à l’arc (rebaptisez‐la voie du lancer). " +
+                                "Dans ce cas, le PJ ajoute sa FOR aux DM qu’il inflige et double la portée de jet (pas de " +
+                                "bonus d’Init.). Par ailleurs, toutes les capacités de la voie qui suivent s’appliquent aux " +
+                                "armes de jet plutôt qu’à l’arc."
+                    },
+                    "capacite_2": {
+                        "nom": "Tir chirurgical",
+                        "description": "Le rôdeur peut tirer sur une cible engagée en mêlée sans pénalité (mais pas sur une " +
+                                "cible à couvert). Il ne risque jamais de toucher un allié, même en cas d’échec critique."
+                    },
+                    "capacite_3": {
+                        "nom": "Dans le mille",
+                        "description": "Pour une attaque à distance, le rôdeur peut choisir de s’imposer un dé malus en " +
+                                "attaque. Si elle est réussie, il ajoute 2d4° aux DM. Cette capacité peut être utilisée avec " +
+                                "Tir rapide ou Flèche de mort par exemple. Transformez cette capacité en action limitée (L) " +
+                                "pour obtenir +3d4° aux DM au lieu de 2d4°."
+                    },
+                    "capacite_4": {
+                        "nom": "Tir rapide (L)",
+                        "description": "Le rôdeur peut faire deux attaques à distance pendant son tour avec un malus de ‐2."
+                    },
+                    "capacite_5": {
+                        "nom": "Flèche de mort (L)",
+                        "description": "Vous obtenez un dé bonus en attaque à distance et vous ajoutez 1d4° aux DM. Au lieu " +
+                                "du dé bonus et de +1d4° aux DM, vous pouvez infliger un état préjudiciable de votre choix " +
+                                "parmi aveuglé, affaibli, ralenti ou immobilisé pendant 1 round à une cible d’un NC inférieur " +
+                                "au vôtre. Vous ne pouvez infliger chaque état préjudiciable qu’une seule fois par combat. <br> " +
+                                "Note : Si le MJ le permet, cette voie peut être déclinée pour une autre catégorie d’arme à " +
+                                "distance : arbalètes, armes à poudre, etc. <br>Conseil aux joueurs : utilisez plutôt Flèche de " +
+                                "mort contre une cible avec une haute DEF et Tir rapide contre des cibles multiples et une " +
+                                "faible DEF."
+                    }
+                },
+                {
+                    "id": "COMPAGNON_ANIMAL",
+                    "nom": "COMPAGNON ANIMAL",
+                    "capacite_1": {
+                        "nom": "Le loup",
+                        "description": "Le rôdeur obtient un loup pour compagnon animal. En combat, le loup attaque en même temps " +
+                                "que le rôdeur. Le loup comprend des ordres simples comme : garde, reste, apporte, attaque, etc. <br> " +
+                                "<b>AGI</b> +1; <b>CON</b> +1*; <b>FOR</b> +2; <b>PER</b> +2*; <b>CHA</b> -2; <b>INT</b> -3; <b>VOL</b> +2; " +
+                                "<b>DEF</b> [12 + rang dans la voie]; <b>PV</b> [niv. du rôdeur × 4]; <b>INIT</b> [Init. du rôdeur]; " +
+                                "<b>Attaque au contact</b> [attaque magique du rôdeur]; <b>DM</b> 1d4+2"
+                    },
+                    "capacite_2": {
+                        "nom": "Travail d’équipe",
+                        "description": "Lorsque le loup et le rôdeur sont au contact, le loup obtient un dé bonus en attaque " +
+                                "et le rôdeur obtient un dé bonus aux tests effectués pour pister ou pour éviter d’être " +
+                                "surpris (Vigilance)."
+                    },
+                    "capacite_3": {
+                        "nom": "Lien empathique (L)",
+                        "description": "Le rôdeur peut communiquer avec son loup par télépathie et le guérir à distance en " +
+                                "dépensant ses propres PV (1 PV du rôdeur pour 1 PV octroyé au loup, sans limitation de " +
+                                "quantité) au prix d’une action limitée."
+                    },
+                    "capacite_4": {
+                        "nom": "Loup alpha",
+                        "description": "Le loup du rôdeur devient un spécimen particulièrement puissant. <br> " +
+                                "<b>CON</b> +3*; <b>FOR</b> +5; <b>DEF</b> 18; <b>PV</b> [Niveau × 5]; <b>DM</b> 1d4°+5 "
+                    },
+                    "capacite_5": {
+                        "nom": "Tactiques de meute",
+                        "description": "Lorsque le loup attaque la même cible que le rôdeur, il obtient un bonus de 1d4° aux " +
+                                "DM. Chaque fois que le rôdeur dépense 1 PV pour soigner son loup, le loup récupère 2 PV. " +
+                                "De plus, le rôdeur et son loup augmentent leur DEF de +1 chaque fois que le personnage " +
+                                "atteint le rang 5 dans une voie de rôdeur (celle‐ci incluse)."
+                    }
+                },
+                {
+                    "id": "SURVIE",
+                    "nom": "SURVIE",
+                    "capacite_1": {
+                        "nom": "Survie",
+                        "description": "Le rôdeur ajoute son rang + 2 à tous les tests d’escalade et de survie en milieu " +
+                                "naturel (s’orienter, trouver un abri et de la nourriture, etc.) dont les tests de " +
+                                "récupération effectués chaque nuit. Lorsqu’il dort en milieu naturel, s’il dépense 1 " +
+                                "dé de récupération (DR), il guérit 1d4° PV supplémentaire (en plus de [DR max + 1⁄2 niveau])."
+                    },
+                    "capacite_2": {
+                        "nom": "Nature nourricière",
+                        "description": "Une fois par jour, si le rôdeur passe 1d6 h en milieu naturel sauvage (pas dans un " +
+                                "champ), il trouve de quoi nourrir une personne par rang pour une journée et, s’il réussit un " +
+                                "test de PER (Survie) difficulté 10, il trouve des plantes médicinales pour soigner 1d4° PV " +
+                                "par rang. Les plantes doivent être utilisées immédiatement (10 min de préparation et autant " +
+                                "pour faire effet) et les dés peuvent être répartis sur plusieurs patients."
+                    },
+                    "capacite_3": {
+                        "nom": "Grand pas (G)",
+                        "description": "En milieu naturel, le rôdeur obtient +1 en DEF (ce bonus passe à +2 au rang 5) et 10 m " +
+                                "de déplacement en action gratuite (à son tour de jeu). Enfin, il n’est pas gêné par les " +
+                                "terrains difficiles naturels, mais il n’obtient pas alors de déplacement supplémentaire."
+                    },
+                    "capacite_4": {
+                        "nom": "Constitution héroïque",
+                        "description": "Le rôdeur augmente sa valeur de CON de +1. Désormais, il obtient un dé bonus aux " +
+                                "tests de CON."
+                    },
+                    "capacite_5": {
+                        "nom": "Increvable (L)",
+                        "description": "Une fois par combat, lorsqu’il tombe à 0PV, le rôdeur peut récupérer [4d4° + CON] PV " +
+                                "au début de son prochain tour. Lorsqu’il se relève, il bénéficie d’un bonus de +5 en DEF " +
+                                "pendant 1 round et il se débarrasse de tous les états préjudiciables non permanents qui " +
+                                "l’affectent."
+                    }
+                },
+                {
+                    "id": "TRAQUEUR",
+                    "nom": "TRAQUEUR",
+                    "capacite_1": {
+                        "nom": "Éclaireur",
+                        "description": "En milieu naturel, le rôdeur ajoute son rang + 2 à ses tests de discrétion et de " +
+                                "vigilance ainsi qu’aux tests pour pister. De plus, le rôdeur peut remplacer le bonus de +1 " +
+                                "PC de la famille des aventuriers par un bonus de +1 DR si le joueur le souhaite."
+                    },
+                    "capacite_2": {
+                        "nom": "Attaque éclair (L)",
+                        "description": "Le rôdeur peut effectuer une attaque au contact très rapide. Il ajoute son AGI en " +
+                                "attaque et aux DM pour cette attaque. À partir du rang 5, cette attaque peut être associée à " +
+                                "10 m de déplacement."
+                    },
+                    "capacite_3": {
+                        "nom": "Chasseur émérite",
+                        "description": "Le rôdeur obtient +1d4° aux DM de ses attaques au contact ou à distance lorsqu’il " +
+                                "combat des animaux (même géants). Chaque fois qu’il atteint le rang 5 dans une voie de rôdeur, " +
+                                "il peut choisir un ennemi juré contre lequel il obtient le même avantage parmi les goblinoïdes, " +
+                                "les géants, les dragons, les morts‐vivants, les insectes*, les démons. <br> * arthropodes inclus."
+                    },
+                    "capacite_4": {
+                        "nom": "Perception héroïque",
+                        "description": "Le rôdeur augmente sa valeur de PER de +1.Désormais, il obtient un dé bonus aux tests de PER."
+                    },
+                    "capacite_5": {
+                        "nom": "Repli (L)",
+                        "description": "En milieu naturel, le rôdeur se déplace de 30 m en s’éloignant de ses ennemis. Le joueur " +
+                                "fait un test d’AGI difficulté 10, en cas de succès, il disparaît de la vue de ses poursuivants. " +
+                                "Il peut s’éloigner ou rester caché sans risque d’être retrouvé ou rattrapé. Si le terrain est " +
+                                "découvert (désert, plaine), la difficulté passe à 15."
+                    }
+                },
+                {
+                    "id": "COMBAT_2_ARMES",
+                    "nom": "COMBAT À DEUX ARMES",
+                    "capacite_1": {
+                        "nom": "Attaque à suivre (G)",
+                        "description": "Une fois par round, lorsqu’il rate une attaque de sa main principale, le rôdeur peut " +
+                                "porter une attaque en action gratuite de son autre main avec une arme parmi dague (dague de " +
+                                "lancer), hachette (hache de lancer) ou épée courte. S’il utilise une arme à une main en dehors " +
+                                "de cette liste, il subit un dé malus sur cette attaque."
+                    },
+                    "capacite_2": {
+                        "nom": "Parade croisée",
+                        "description": "Le rôdeur obtient un bonus de +1 en DEF lorsqu’il combat avec une arme dans chaque " +
+                                "main. Ce bonus passe à +2 au rang 5 de la voie. Au début de son tour, s’il renonce à toute " +
+                                "attaque de la main secondaire, il double ce bonus jusqu’à son prochain tour."
+                    },
+                    "capacite_3": {
+                        "nom": "Droite ‐ gauche (G)",
+                        "description": "Une fois par round, lorsqu’il attaque de sa main principale, le rôdeur obtient aussi une " +
+                                "attaque de sa main secondaire en action gratuite. Si la cible n’est pas la même que celle de la main " +
+                                "principale, il subit un dé malus au test. Cette capacité se substitue à Attaque à suivre."
+                    },
+                    "capacite_4": {
+                        "nom": "Combattant héroïque",
+                        "description": "Le rôdeur augmente sa valeur d’AGI de +1 et obtient un dé bonus aux tests d’AGI (lancer " +
+                                "deux d20 et conserver le plus haut résultat). Plutôt qu’augmenter son AGI, le personnage " +
+                                "peut choisir d’augmenter sa valeur de FOR de +1 (pas de dé bonus aux tests) et peut désormais " +
+                                "attaquer avec la même arme dans la main secondaire sans subir de dé malus (par exemple deux " +
+                                "épées longues)."
+                    },
+                    "capacite_5": {
+                        "nom": "Double peine",
+                        "description": "Si les deux armes du rôdeur atteignent la même cible lors d’un même tour, le personnage " +
+                                "obtient un effet d’enchaînement qui ajoute 1d4° DM à l’une des deux attaques de son choix."
+                    }
+                },
+            ]
+        },
+        {
+            "id": "VOLEUR",
+            "voies": [
+                {
+                    "id": "ASSASSIN",
+                    "nom": "ASSASSIN",
+                    "capacite_1": {
+                        "nom": "Discrétion",
+                        "description": "Le voleur ajoute son rang + 2 à tous les tests de discrétion, de déguisement ou " +
+                                "pour cacher une arme sur lui. Il apprend le langage silencieux à base de signe des voleurs " +
+                                "(argotien) et enfin il obtient un dé bonus en attaque lorsqu’il attaque un adversaire surpris."
+                    },
+                    "capacite_2": {
+                        "nom": "Attaque sournoise (L)",
+                        "description": "Une fois par round, quand il attaque un adversaire surpris ou de dos** avec une arme " +
+                                "légère, le voleur inflige +2d4° DM supplémentaires. Les DM infligés par cette capacité " +
+                                "augmentent de 1d4° à chaque fois qu’il atteint le rang 4 dans une voie de voleur (pour un " +
+                                "maximum de 7d4°). Cette capacité nécessite l’utilisation d’une arme légère (dague, " +
+                                "éventuellement lancée, épée courte, rapière) dans tous les autres cas, le bonus aux DM " +
+                                "est divisé par deux (cela comprend les armes à distance). <br> " +
+                                "** Attaquer de dos : lorsque le voleur attaque la même créature qu’un allié au contact " +
+                                "de cette cible, on considère qu’il peut attaquer celle‐ci de dos (sauf si la cible peut " +
+                                "se placer dos à un obstacle infranchissable)."
+                    },
+                    "capacite_3": {
+                        "nom": "Attaque par surprise (A)",
+                        "description": "Contre un adversaire surpris, le voleur peut réaliser une attaque sournoise en " +
+                                "utilisant une action d’attaque plutôt qu’une action limitée et il augmente les DM de " +
+                                "son attaque sournoise de 2d4°."
+                    },
+                    "capacite_4": {
+                        "nom": "Disparition (M)",
+                        "description": "Une fois par combat, le voleur peut disparaître dans un flash lumineux et un " +
+                                "nuage de fumée. Aucun adversaire ne peut l’attaquer pendant qu’il a disparu, mais il " +
+                                "peut subir des DM de zone. Il ne réapparaît qu’au début de son prochain tour à une " +
+                                "distance maximale de 20 m de sa position initiale. À ce moment, si le voleur a " +
+                                "l’initiative, il peut réaliser une attaque sournoise."
+                    },
+                    "capacite_5": {
+                        "nom": "Ouverture mortelle (L)",
+                        "description": "Une fois par combat, le voleur obtient une réussite critique automatique " +
+                                "contre la cible de son choix. Il profite donc d’une réussite automatique, des dommages " +
+                                "multipliés par 2 prévus dans ce cas et d’une attaque sournoise (dont les DM ne sont " +
+                                "pas doublés)."
+                    }
+                },
+                {
+                    "id": "AVENTURIER",
+                    "nom": "AVENTURIER",
+                    "capacite_1": {
+                        "nom": "Baratin",
+                        "description": "Le voleur ajoute son rang + 2 aux tests destinés à baratiner, séduire, négocier, " +
+                                "mentir ou pour trouver un objet au marché noir. De plus, il devient capable d’utiliser " +
+                                "les parchemins ou les baguettes magiques en réussissant un test d’attaque magique (L) " +
+                                "contre une difficulté de (10 + (2 x rang du sort inscrit)). En cas d’échec, le sort " +
+                                "n’est pas lancé et le voleur peut faire une nouvelle tentative."
+                    },
+                    "capacite_2": {
+                        "nom": "Provocation (L)",
+                        "description": "Le voleur maîtrise l’art de se rendre désagréable, voire insupportable. S’il " +
+                                "emporte un test opposé de CHA contre INT d’un adversaire humanoïde à moins de 10 m, il " +
+                                "force la cible à l’attaquer à son prochain tour. À ce moment‐là, si le voleur est au " +
+                                "contact, il peut riposter par une attaque de contact gratuite pour laquelle il bénéficie " +
+                                "au choix d’une attaque sournoise ou d’un bonus de 1d4° aux DM."
+                    },
+                    "capacite_3": {
+                        "nom": "Souplesse du félin",
+                        "description": "Le voleur possède une démarche et une façon de se déplacer à la fois élégante, " +
+                                "féline et souple. Il ajoute +2 en DEF et en Initiative. Ce bonus passe à +3 au rang 5. " +
+                                "Il lui faut seulement une action de mouvement pour se relever."
+                    },
+                    "capacite_4": {
+                        "nom": "Charisme héroïque",
+                        "description": "Le voleur augmente sa valeur de CHA de +1.Désormais, il obtient un dé bonus aux " +
+                                "tests de CHA."
+                    },
+                    "capacite_5": {
+                        "nom": "Attaque paralysante (L)",
+                        "description": "Une fois par combat, le voleur peut, en réussissant une attaque de contact, " +
+                                "paralyser un adversaire humanoïde de douleur. La cible ne subit aucun DM, mais elle " +
+                                "est immobilisée pendant 1d4 rounds ou, si son NC est inférieur à la moitié du niveau " +
+                                "du voleur, elle est paralysée. De plus, le voleur peut désormais utiliser au choix " +
+                                "l’attaque sournoise (s’il détient cette capacité) ou infliger +1d4° DM contre tout " +
+                                "adversaire immobilisé ou paralysé."
+                    }
+                },
+                {
+                    "id": "DEPLACEMENT",
+                    "nom": "DÉPLACEMENT",
+                    "capacite_1": {
+                        "nom": "Agile",
+                        "description": "Le voleur ajoute son rang + 2 à tous tests liés à un déplacement (esquive, saut, " +
+                                "course, équilibre, escalade, se glisser entre des barreaux ou échapper à une créature qui " +
+                                "l’agrippe). De plus, il bénéficie d’un bonus de +1 en DEF et en Initiative. Ce bonus " +
+                                "passe à +2 au rang 3 et +3 au rang 5."
+                    },
+                    "capacite_2": {
+                        "nom": "Réflexes félins",
+                        "description": "Le voleur divise par 2 tous les DM de chute. De plus, une fois par combat, il " +
+                                "obtient une action de mouvement supplémentaire à son tour. Au rang 5, il peut réaliser " +
+                                "cet exploit 2 fois par combat (mais pas plus d’une fois par round)."
+                    },
+                    "capacite_3": {
+                        "nom": "Acrobaties (G)",
+                        "description": "Une fois par round, si le voleur réussit un test d’AGI difficulté 15, il peut " +
+                                "effectuer une acrobatie pour franchir un obstacle (qui peut être un adversaire) ou " +
+                                "attaquer de dos un adversaire au contact. Il peut alors au choix utiliser l’attaque " +
+                                "sournoise ou infliger +1d4° DM."
+                    },
+                    "capacite_4": {
+                        "nom": "Agilité héroïque",
+                        "description": "Le voleur augmente sa valeur d’AGI de +1. Désormais, il obtient un dé bonus aux " +
+                                "tests d’AGI."
+                    },
+                    "capacite_5": {
+                        "nom": "Esquive de la magie (G)",
+                        "description": "Une fois par round, lorsqu’un sort qui inflige des DM physiques (feu, froid, " +
+                                "projectile magique, etc.) le prend pour cible (y compris un sort de zone ou l’affectant " +
+                                "en plus de la personne visée), le voleur peut effectuer un test d’attaque à distance " +
+                                "opposé à un test d’attaque magique du lanceur sort. S’il réussit, il échappe au sort. " +
+                                "S’il échoue, il subit les DM normaux."
+                    }
+                },
+                {
+                    "id": "ROUBLARD",
+                    "nom": "ROUBLARD",
+                    "capacite_1": {
+                        "nom": "Doigts agiles",
+                        "description": "Le voleur ajoute son rang + 2 aux tests liés à la précision manuelle (crocheter " +
+                                "une serrure, désamorcer un piège, pickpocket...) ainsi qu’aux tests pour évaluer un " +
+                                "objet précieux (joyaux, bijoux, etc.). De plus il obtient +1 aux DM des attaques à " +
+                                "distance avec les dagues et couteaux. Ce bonus passe à +2 au rang 3 de la voie et " +
+                                "+3 au rang 5."
+                    },
+                    "capacite_2": {
+                        "nom": "Aux aguets",
+                        "description": "Le voleur ajoute son rang + 2 aux tests effectués pour fouiller une pièce à la " +
+                                "recherche d’un trésor, détecter un piège (même magique), un passage secret ou même une " +
+                                "embuscade (Vigilance). De plus, il divise par 2 les DM infligés par des pièges."
+                    },
+                    "capacite_3": {
+                        "nom": "Feindre la mort (G)",
+                        "description": "Une fois par combat, le voleur peut feindre la mort après avoir reçu une blessure " +
+                                "(même à 0 PV). Il peut ainsi passer pour mort aussi longtemps qu’il le souhaite et un test " +
+                                "d’INT difficulté 20 est nécessaire pour révéler la supercherie. Lorsqu’il décide de se " +
+                                "relever (action gratuite), le voleur récupère immédiatement 1d4° PV et s’il est au contact " +
+                                "d’un adversaire, celui‐ci est surpris. Un adversaire qui a déjà été victime de cette " +
+                                "stratégie du voleur lors d’un précédent combat ne se laisse pas surprendre une seconde " +
+                                "fois (sauf si son INT est de ‐4)."
+                    },
+                    "capacite_4": {
+                        "nom": "Expert en criminalité",
+                        "description": "Le voleur obtient un dé bonus sur tous les tests de recherche d’indice (Trouver une " +
+                                "preuve [PER], Faire une déduction [INT] et Obtenir un aveu [CHA]) ainsi que pour tous les " +
+                                "tests réalisés pour brouiller des pistes, réaliser de faux indices ou de faux documents. De " +
+                                "plus, lorsqu’il est dans un lieu, s’il dépense 1 PC, le MJ devra lui donner un indice qui " +
+                                "lui a échappé jusque‐là. S’il n’y a pas d’indice, le PC n’est pas dépensé."
+                    },
+                    "capacite_5": {
+                        "nom": "Maître du poison",
+                        "description": "Le voleur peut utiliser 3 doses de poison par jour sans risque de s’empoisonner " +
+                                "lui‐même. Une dose permet d’enduire une dague, une flèche ou un carreau pour infliger " +
+                                "+2d4° DM supplémentaire et demande un test de CON difficulté (10 + INT du voleur) ou une " +
+                                "cible vivante est affaiblie pour le reste du combat. Alternativement, une dose peut être " +
+                                "versée dans les aliments pour une personne ; si la cible rate son test de CON, elle sombre " +
+                                "dans l’inconscience pour 2d6 min (4d6 min pour 2 doses, etc.)."
+                    }
+                },
+                {
+                    "id": "SPADASSIN",
+                    "nom": "SPADASSIN",
+                    "capacite_1": {
+                        "nom": "Attaque en finesse",
+                        "description": "Le voleur ajoute son AGI à son Init. et peut remplacer sa FOR par son AGI pour ses " +
+                                "tests d’attaque au contact (mais pas aux DM) lorsqu’il utilise une arme légère à une main " +
+                                "(dague, épée courte ou rapière). Enfin, il obtient un bonus égal à son rang + 2 aux tests " +
+                                "d’intimidation."
+                    },
+                    "capacite_2": {
+                        "nom": "Esquive fatale (G)",
+                        "description": "Une fois par combat, le voleur peut esquiver une attaque et s’arranger pour que " +
+                                "celle‐ci affecte un autre adversaire à son contact. Comparez le test d’attaque à la " +
+                                "DEF de la nouvelle cible pour savoir si celle‐ci subit des DM. Cette capacité ne peut " +
+                                "pas être utilisée si le voleur n’a qu’un seul adversaire au contact et jamais contre une " +
+                                "réussite critique (un critique touche toujours sa cible)."
+                    },
+                    "capacite_3": {
+                        "nom": "Frappe chirurgicale",
+                        "description": "Par sa science de l’escrime (et de la fourberie), le voleur augmente ses chances de " +
+                                "faire des coups critiques avec une arme légère de 2 points (ainsi, au lieu de 20, le " +
+                                "critique standard est obtenu entre 18 et 20). Toutefois, la valeur minimale requise pour " +
+                                "obtenir un critique ne peut être inférieure à 16."
+                    },
+                    "capacite_4": {
+                        "nom": "Ambidextrie (G)",
+                        "description": "Avec sa main gauche, le voleur peut effectuer une attaque au contact gratuite avec " +
+                                "une dague ou une épée courte à chaque round. Cette attaque ne peut pas bénéficier des " +
+                                "avantages d’une attaque sournoise."
+                    },
+                    "capacite_5": {
+                        "nom": "Botte secrète",
+                        "description": "Lorsque le voleur obtient un critique sur le dé d’une attaque au contact de sa main " +
+                                "principale avec une arme légère (mais pas sur une ouverture mortelle), il inflige à sa " +
+                                "cible un état préjudiciable au choix parmi affaibli, aveuglé, étourdi, immobilisé ou " +
+                                "ralenti pendant 1 round. Vous ne pouvez infliger chaque état préjudiciable qu’une seule " +
+                                "fois par combat. Alternativement, le voleur peut choisir que l’attaque devienne une attaque " +
+                                "sournoise dont les DM s’ajoutent au critique (au lieu d’infliger un état préjudiciable)."
+                    }
+                },
             ]
         }
 
     ]
 };
+
+
+
+
+/***************************************************************************
+ Modèle de profil
+ 
+ {
+ "id": "",
+ "voies": [
+ {
+ "id": "",
+ "nom": "",
+ "capacite_1": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_2": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_3": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_4": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_5": {
+ "nom": "",
+ "description": ""
+ }
+ },
+ {
+ "id": "",
+ "nom": "",
+ "capacite_1": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_2": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_3": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_4": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_5": {
+ "nom": "",
+ "description": ""
+ }
+ },
+ {
+ "id": "",
+ "nom": "",
+ "capacite_1": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_2": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_3": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_4": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_5": {
+ "nom": "",
+ "description": ""
+ }
+ },
+ {
+ "id": "",
+ "nom": "",
+ "capacite_1": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_2": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_3": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_4": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_5": {
+ "nom": "",
+ "description": ""
+ }
+ },
+ {
+ "id": "",
+ "nom": "",
+ "capacite_1": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_2": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_3": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_4": {
+ "nom": "",
+ "description": ""
+ },
+ "capacite_5": {
+ "nom": "",
+ "description": ""
+ }
+ },
+ ]
+ }
+ 
+ */
