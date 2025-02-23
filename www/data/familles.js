@@ -4,10 +4,10 @@ let dataFamilles = {
       "nom": "Aventuriers",
       "id": "AV",
       "profils": [
-        {"nom": "Arquebusier", "id": "AV_AR"},
-        {"nom": "Barde", "id": "AV_BA"},
-        {"nom": "Rôdeur", "id": "AV_RO"},
-        {"nom": "Voleur", "id": "AV_VO"}
+        {"nom": "Arquebusier", "id": "ARQUEBUSIER"},
+        {"nom": "Barde", "id": "BARDE"},
+        {"nom": "Rôdeur", "id": "RODEUR"},
+        {"nom": "Voleur", "id": "VOLEUR"}
       ],
       "groupe_voies" : "",
       "voies": [],
@@ -17,9 +17,9 @@ let dataFamilles = {
       "nom": "Combattants",
       "id": "CO",
       "profils": [
-        {"nom": "Barbare", "id": "CO_BA"},
-        {"nom": "Chevalier", "id": "CO_CH"},
-        {"nom": "Guerrier", "id": "CO_GU"}
+        {"nom": "Barbare", "id": "BARBARE"},
+        {"nom": "Chevalier", "id": "CHEVALIER"},
+        {"nom": "Guerrier", "id": "GUERRIER"}
       ],
       "groupe_voies" : "",
       "voies": [],

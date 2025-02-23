@@ -6,7 +6,7 @@
         <title>Fiche personnage Chroniques Oubliées 2e</title>
         <link href="css/fiche.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload="bodyOnLoad()">
         <form id="FORM_FICHE">
             <fieldset id="INTRO">
                 <legend>Introduction</legend>
@@ -325,11 +325,11 @@
                     <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie niv1">
                         <legend>Voie du peuple</legend>
                         <div class="groupe_voie">
-                            <label for="SEL_VOIE_PEUPLE">Voie choisie</label>
+                            <label>Voie choisie</label>
                             <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
                             <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
                         </div>
-                        <div id="CAPACITE1" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -338,7 +338,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE2" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -347,7 +347,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE3" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -356,7 +356,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE4" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -365,7 +365,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE5" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -377,14 +377,19 @@
                     </fieldset>
                 </div>
                 <div class="colonne">
-                    <fieldset id="ZONE_VOIE_1" class="zoneVoie niv1">
+                    <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="1">
                         <legend>Voie 1</legend>
                         <div class="groupe_voie">
-                            <label for="SEL_VOIE_PEUPLE">Voie choisie</label>
-                            <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
-                            <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
+                            <select name="SEL_TYPE_VOIE_PROFIL" class="selectTypeVoieProfil">
+                                <option value="PROFIL">Profil</option>
+                                <option value="HYBRIDE">Hybride</option>
+                                <option value="PERSO">Personnalisée</option>
+                            </select>
+                            <label>Voie</label>
+                            <input type="text" name="TXT_VOIE_PROFIL" class="txtVoieProfil"/>
+                            <select name="SEL_VOIE_HYBRIDE" class="selectVoieHybride"></select>
                         </div>
-                        <div id="CAPACITE1" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -393,7 +398,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE2" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -402,7 +407,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE3" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -411,7 +416,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE4" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -420,7 +425,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE5" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -432,14 +437,19 @@
                     </fieldset>
                 </div>
                 <div class="colonne">
-                    <fieldset id="ZONE_VOIE_2" class="zoneVoie niv1">
+                    <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="2">
                         <legend>Voie 2</legend>
                         <div class="groupe_voie">
-                            <label for="SEL_VOIE_PEUPLE">Voie choisie</label>
-                            <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
-                            <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
+                            <select name="SEL_TYPE_VOIE_PROFIL" class="selectTypeVoieProfil">
+                                <option value="PROFIL">Profil</option>
+                                <option value="HYBRIDE">Hybride</option>
+                                <option value="PERSO">Personnalisée</option>
+                            </select>
+                            <label>Voie</label>
+                            <input type="text" name="TXT_VOIE_PROFIL" class="txtVoieProfil"/>
+                            <select name="SEL_VOIE_HYBRIDE" class="selectVoieHybride"></select>
                         </div>
-                        <div id="CAPACITE1" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -448,7 +458,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE2" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -457,7 +467,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE3" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -466,7 +476,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE4" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -475,7 +485,7 @@
                                 <textarea name="COMMENT_CAPACITE"></textarea>
                             </div>
                         </div>
-                        <div id="CAPACITE5" class="zoneCapacite groupe_voie">
+                        <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="txtCapacite"></span>
@@ -497,6 +507,6 @@
     <script type="text/javascript" src="data/familles.js"></script>
     <script type="text/javascript" src="data/peuples.js"></script>
     <script type="text/javascript" src="data/voies.js"></script>
-    <script type="text/javascript" src="js/fiche.js"></script>
-
+    <script type="text/javascript" src="js/fiche_metier.js"></script>
+    <script type="text/javascript" src="js/fiche_evt.js"></script>
 </html>
