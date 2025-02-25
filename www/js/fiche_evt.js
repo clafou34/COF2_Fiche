@@ -28,6 +28,9 @@ function initEventListners() {
     for (let varSelTypeVoieProfil of document.getElementsByClassName("selectTypeVoieProfil")) {
         varSelTypeVoieProfil.addEventListener('change', selTypeVoieProfilOnChange);
     }
+    for (let varSelVoieHybride of document.getElementsByClassName("selectVoieHybride")) {
+        varSelVoieHybride.addEventListener('change', selVoieHybrideOnChange);
+    }
 }
 
 /*******************************************************************************
@@ -49,7 +52,7 @@ function bodyOnLoad() {
     remplirCapacitesVoiePeuple();
     remplirDesRecuperation();
     remplirDefense();
-    gereTypesVoieProfil();
+    gereVoiesProfil();
 }
 
 /********************************************************************
@@ -125,14 +128,14 @@ function selFamilleOnChange() {
     initSelectVoiesFamille();
     remplirCapacitesVoiePeuple();
     remplirDesRecuperation();
-    gereTypesVoieProfil();
+    gereVoiesProfil();
 }
 
 /********************************************************************
  * Gestion de l'événement "OnChange" de la liste de choix des profils.
  ********************************************************************/
 function selProfilOnChange() {
-    gereTypesVoieProfil();
+    gereVoiesProfil();
 }
 
 /********************************************************************
@@ -154,8 +157,20 @@ function selVoieFamilleOnChange() {
 /*************************************************************************
  * Gestion de l'événement "OnChange" de la liste des types de voie
  * du profil.
- * @param {type} event Evénement permettant de retrouver la zone à gérer.
+ * @param {event} event Evénement permettant de retrouver la zone à gérer.
  **************************************************************************/
 function selTypeVoieProfilOnChange(event) {
-    gereTypeVoieProfil(event.currentTarget.parentNode.parentNode);
+    gereVoieProfil(event.currentTarget.parentNode.parentNode);
+}
+
+/********************************************************************
+ Gestion de l'événement "OnChange" de la liste de choix des voies
+ des profils hybrides.
+ * @param {event} event Evénement permettant de retrouver la zone à gérer.
+ ********************************************************************/
+function selVoieHybrideOnChange(event) {
+        // On affiche les capacités de la voie du profil hybride
+        let varTabIdVoieProfil = event.currentTarget.value.split(";");
+        let varObjVoie = getVoieWithGroupe(decodeURIComponent(varTabIdVoieProfil[1]), decodeURIComponent(varTabIdVoieProfil[0]));
+        remplirVoieAvecObjVoie(event.currentTarget.parentNode.parentNode, varObjVoie);
 }

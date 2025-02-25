@@ -81,19 +81,19 @@
                         <div id="zoneAttaque" class="groupe_unique">
                             <div>
                                 <label for="TXT_ATT_CONTACT">CONTACT</label>
-                                <input type="text" id="TXT_ATT_CONTACT" readonly/>
+                                <input type="text" id="TXT_ATT_CONTACT" disabled/>
                                 <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttContactNiv" title="Règle : Niveau au maximum à 10."></span>
                                 <span class="labelAide">+ FOR:</span><span class="labelAide valeurAide" id="lblAttContactFor"></span>
                             </div>
                             <div>
                                 <label for="TXT_ATT_DISTANCE">DISTANCE</label>
-                                <input type="text" id="TXT_ATT_DISTANCE" readonly/>
+                                <input type="text" id="TXT_ATT_DISTANCE" disabled/>
                                 <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttDistanceNiv" title="Règle : Niveau au maximum à 10."></span>
                                 <span class="labelAide">+ AGI:</span><span class="labelAide valeurAide" id="lblAttContactAgi"></span>
                             </div>
                             <div>
                                 <label for="TXT_ATT_MAGIQUE">MAGIQUE</label>
-                                <input type="text" id="TXT_ATT_MAGIQUE" readonly/>
+                                <input type="text" id="TXT_ATT_MAGIQUE" disabled/>
                                 <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttMagiqueNiv" title="Règle : Niveau au maximum à 10."></span>
                                 <span class="labelAide">+ VOL:</span><span class="labelAide valeurAide" id="lblAttContactVol"></span>
                             </div>
@@ -171,7 +171,7 @@
                                 </span>
                                 <span>
                                     <label for="TXT_DES_RECUP">Type de dés</label>
-                                    <input type="text" id="TXT_DES_RECUP" readonly/>
+                                    <input type="text" id="TXT_DES_RECUP" disabled/>
                                 </span>
                                 <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
                             </div>
@@ -325,7 +325,7 @@
                     <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie niv1">
                         <legend>Voie du peuple</legend>
                         <div class="groupe_voie">
-                            <label>Voie choisie</label>
+                            <label>Voie</label>
                             <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
                             <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
                         </div>
@@ -380,13 +380,14 @@
                     <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="1">
                         <legend>Voie 1</legend>
                         <div class="groupe_voie">
+                            <label>Voie</label>
                             <select name="SEL_TYPE_VOIE_PROFIL" class="selectTypeVoieProfil">
                                 <option value="PROFIL">Profil</option>
                                 <option value="HYBRIDE">Hybride</option>
                                 <option value="PERSO">Personnalisée</option>
                             </select>
-                            <label>Voie</label>
-                            <input type="text" name="TXT_VOIE_PROFIL" class="txtVoieProfil"/>
+                            <input type="text" name="TXT_VOIE_PROFIL_STANDARD" class="txtVoieProfilStandard" disabled/>
+                            <input type="text" name="TXT_VOIE_PROFIL_PERSO" class="txtVoieProfilPerso"/>
                             <select name="SEL_VOIE_HYBRIDE" class="selectVoieHybride"></select>
                         </div>
                         <div class="zoneCapacite groupe_voie">
@@ -440,13 +441,14 @@
                     <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="2">
                         <legend>Voie 2</legend>
                         <div class="groupe_voie">
+                            <label>Voie</label>
                             <select name="SEL_TYPE_VOIE_PROFIL" class="selectTypeVoieProfil">
                                 <option value="PROFIL">Profil</option>
                                 <option value="HYBRIDE">Hybride</option>
                                 <option value="PERSO">Personnalisée</option>
                             </select>
-                            <label>Voie</label>
-                            <input type="text" name="TXT_VOIE_PROFIL" class="txtVoieProfil"/>
+                            <input type="text" name="TXT_VOIE_PROFIL_STANDARD" class="txtVoieProfilStandard" disabled/>
+                            <input type="text" name="TXT_VOIE_PROFIL_PERSO" class="txtVoieProfilPerso"/>
                             <select name="SEL_VOIE_HYBRIDE" class="selectVoieHybride"></select>
                         </div>
                         <div class="zoneCapacite groupe_voie">

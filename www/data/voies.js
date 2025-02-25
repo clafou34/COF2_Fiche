@@ -597,7 +597,7 @@ let dataVoies = {
                     }
                 },
                 {
-                    "id": "SÉDUCTION",
+                    "id": "SEDUCTION",
                     "nom": "SÉDUCTION",
                     "capacite_1": {
                         "nom": "Charmant",
