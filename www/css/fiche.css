@@ -509,6 +509,7 @@ div.groupe_voie {
 
 div.zoneCapacite > div.chkCapacite > input {
     width: 1em;
+    vertical-align: middle;
 }
 
 div.contenuCapacite > .txtCapacite {
@@ -521,6 +522,21 @@ div.contenuCapacite > .txtCapacite {
 div.zoneCapacite > .commentCapacite > textarea {
     width: 100%;
 }
+
+div.zoneCapacite .btnModifCapacite img {
+    vertical-align: middle;
+    height: 1.3em;
+    width: 1.3em;
+    border: 2px solid #FFFFFF;
+    border-radius: 4px;
+}
+
+div.zoneCapacite .btnModifCapacite img:hover{
+    background-color: #AAAAAA;
+    border: 2px solid #AAAAAA;
+    border-radius: 4px;
+}
+
 
 /******************************************
 Zone de la voie du peuple

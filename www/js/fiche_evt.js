@@ -25,11 +25,15 @@ function initEventListners() {
     for (let varTxtDefArmure of document.getElementsByClassName("txtDefArmure")) {
         varTxtDefArmure.addEventListener('change', txtDefArmureOnChange);
     }
-    for (let varSelTypeVoieProfil of document.getElementsByClassName("selectTypeVoieProfil")) {
-        varSelTypeVoieProfil.addEventListener('change', selTypeVoieProfilOnChange);
+    document.getElementsByClassName("zoneVoiePeuple")[0].getElementsByClassName("selectTypeVoie")[0].addEventListener('change', selTypeVoiePeupleOnChange);
+    for (let varZoneVoieProfil of document.getElementsByClassName("zoneVoieProfil")) {
+        varZoneVoieProfil.getElementsByClassName("selectTypeVoie")[0].addEventListener('change', selTypeVoieProfilOnChange);
     }
     for (let varSelVoieHybride of document.getElementsByClassName("selectVoieHybride")) {
         varSelVoieHybride.addEventListener('change', selVoieHybrideOnChange);
+    }
+    for (let varZoneCapacite of document.getElementsByClassName("btnModifCapacite")) {
+        varZoneCapacite.addEventListener('click', zoneCapaciteOnClick);
     }
 }
 
@@ -46,6 +50,7 @@ function bodyOnLoad() {
     initSelectFamille();
     initSelectProfils();
     initSelectVoiesFamille();
+    initSelectTypeVoiePeuple();
     initSelectVoiePeuple();
     initSelectTypeAttaque();
     remplirAttaques();
@@ -53,6 +58,14 @@ function bodyOnLoad() {
     remplirDesRecuperation();
     remplirDefense();
     gereVoiesProfil();
+}
+
+/********************************************************************
+ * Gestion de l'évènement "OnClick" sur une capacité
+ ********************************************************************/
+function zoneCapaciteOnClick(event) {
+    // Ouverture de la fenêtre de gestion de la capacité avec l'item HTML de la zone
+    dlgCapaciteOuverture(event.currentTarget.parentNode.parentNode);
 }
 
 /********************************************************************
@@ -126,6 +139,7 @@ function selPeupleOnChange() {
 function selFamilleOnChange() {
     initSelectProfils();
     initSelectVoiesFamille();
+    initSelectTypeVoiePeuple();
     remplirCapacitesVoiePeuple();
     remplirDesRecuperation();
     gereVoiesProfil();
@@ -152,6 +166,13 @@ function selVoiePeupleOnChange() {
  ********************************************************************/
 function selVoieFamilleOnChange() {
     remplirCapacitesVoiePeuple();
+}
+
+/******************************************************************************
+ * Gestion de l'événement "OnChange" sur la liste du type de voie du peuple.
+ *******************************************************************************/
+function selTypeVoiePeupleOnChange() {
+    gereVoiePeuple();
 }
 
 /*************************************************************************

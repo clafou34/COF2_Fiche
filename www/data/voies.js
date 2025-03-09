@@ -16,21 +16,25 @@ let dataVoies = {
                     "id": "DEMI_ORC",
                     "nom": "DEMI‐ORC",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Impressionnant",
                         "description": "Le demi‐orc gagne un bonus de +3 à tous les tests d’intimidation. De plus, dans" +
                                 " le noir total, le demi‐orc voit comme dans la pénombre jusqu’à 30 m."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Talent pour la violence",
                         "description": "Le joueur choisit une capacité de rang 1 de n’importe quelle voie de barbare ou" +
                                 " de guerrier."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Critique brutal",
                         "description": "Le demi‐orc augmente de 1 point la zone de critique sur une attaque au contact" +
                                 " (19‐20 au d20) et ajoute +1d4° aux DM en cas de critique."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Attaque sanglante (L)",
                         "description": "Le demi‐orc réalise une attaque de contact qui provoque une hémorragie. En plus" +
                                 " des DM normaux, l’attaque produit un saignement qui inflige à la victime 1d4° DM à chaque" +
@@ -38,6 +42,7 @@ let dataVoies = {
                                 " utilisée à cet effet). On ne peut pas cumuler plusieurs effets de saignement."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Colosse",
                         "description": "Le demi‐orc augmente ses valeurs de FOR et de CON de +1."
                     }
@@ -46,17 +51,20 @@ let dataVoies = {
                     "id": "ELFE_HAUT",
                     "nom": "ELFE HAUT",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Lumière intérieure",
                         "description": "Pour un elfe, l’obscurité de la nuit sous la lumière des étoiles est considérée" +
                                 " comme de la pénombre. De plus, il gagne un bonus de +3 à tous les tests d’érudition (INT) et" +
                                 " artistiques (CHA)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Force d’âme",
                         "description": "L’elfe est immunisé à la peur et au sommeil magique. De plus, il obtient un bonus" +
                                 " égal à son rang lorsqu’il doit faire un test opposé d’attaque magique pour résister à un sort."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Talent pour la magie",
                         "description": "Le joueur choisit une capacité de rang 1 de n’importe quelle voie de magicien" +
                                 " ou d’ensorceleur. Il peut utiliser cette capacité en armure sans pénalité (mais pas une" +
@@ -64,12 +72,14 @@ let dataVoies = {
                                 " mais ne doit alors pas porter d’armure pour lancer le sort."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Immortel",
                         "description": "L’elfe n’a besoin que de la moitié du repos, de la nourriture ou de la boisson" +
                                 " d’un humain normal pour être en pleine forme. Il est immunisé aux effets des poisons" +
                                 " et des maladies."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Supériorité elfique",
                         "description": "L’elfe augmente sa valeur de VOL de +1 et sa valeur d’INT ou de CHA de +1."
                     }
@@ -78,24 +88,28 @@ let dataVoies = {
                     "id": "ELFE_SYLVAIN",
                     "nom": "ELFE SYLVAIN",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Lumière des étoiles",
                         "description": "Pour un elfe sylvain, l’obscurité de la nuit sous la lumière des étoiles est" +
                                 " considérée comme de la pénombre. De plus, l’elfe gagne un bonus de +3 à tous les tests" +
                                 " de survie en forêt (escalade, discrétion, chasse, etc.)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Enfant de la forêt",
                         "description": "Le joueur choisit une capacité de rang 1 de n’importe quelle voie de druide" +
                                 " ou de rôdeur. Il peut utiliser cette capacité en armure jusqu’à l’armure de cuir renforcé" +
                                 " sans pénalité."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Archer émérite",
                         "description": "L’elfe augmente de 1 la zone de critique lors qu’il utilise un arc (19‐20 au d20)" +
                                 " et ajoute +1d4° aux DM en cas de critique. Il sait utiliser les arcs courts, quel que soit" +
                                 " son profil."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Flèche sanglante (L)",
                         "description": "L’elfe fait une attaque à distance qui provoque une hémorragie. En plus des" +
                                 " DM normaux, la flèche produit un effet de saignement qui inflige à la victime 1d4° DM à" +
@@ -103,6 +117,7 @@ let dataVoies = {
                                 " action limitée utilisée à cet effet). On ne peut cumuler plusieurs effets de saignement."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Supériorité elfique",
                         "description": "L’elfe augmente ses valeurs d’AGI et PER de +1."
                     }
@@ -111,6 +126,7 @@ let dataVoies = {
                     "id": "GNOME",
                     "nom": "GNOME", // Nom de la voie sans le "Voie de ..."
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Don étrange",
                         "description": "Le gnome possède un talent inné pour les sciences, qu’elles soient occultes ou" +
                                 " plus ordinaires. Il gagne un bonus de +3 à tous les tests scientifiques (INT) et il choisit" +
@@ -119,23 +135,27 @@ let dataVoies = {
                                 " le gnome voit comme dans la pénombre jusqu’à 10 m."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Petit pote",
                         "description": "Le gnome est un compagnon sympathique et difficile à considérer comme dangereux" +
                                 " ou malintentionné. Il gagne +3 à tous les tests d’interaction sociale sauf pour intimider." +
                                 " Il gagne aussi 1 point de chance."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Insignifiant",
                         "description": "Le gnome sait comment échapper aux attaques des grandes créatures comme les" +
                                 " géants. Il gagne un bonus de +2 en DEF contre les créatures de taille grande ou supérieure." +
                                 " Ce bonus passe à +3 au rang 5."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Merveille technologique",
                         "description": "Le gnome sait utiliser les arbalètes (et les armes à poudre si votre MJ autorise" +
                                 " leur usage), quel que soit son profil. Il ajoute son AGI aux DM qu’il inflige avec ces armes."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Bonne nature",
                         "description": "Le gnome augmente ses valeurs de CON et de CHA de +1."
                     }
@@ -144,6 +164,7 @@ let dataVoies = {
                     "id": "HALFELIN",
                     "nom": "HALFELIN",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Petite taille",
                         "description": "Le halfelin obtient un bonus de +1 en DEF et de +3 à tous les tests de discrétion" +
                                 " ainsi qu’à tous les tests effectués pour subtiliser quelque chose (pickpocket, vol à l’étalage," +
@@ -153,22 +174,26 @@ let dataVoies = {
                                 " qui infligent plus de 1d10 DM. Il ne peut pas utiliser d’arc long ni d’arbalète lourde."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Résistance légendaire",
                         "description": "Le halfelin obtient un bonus égal à son rang à tous les tests opposés d’attaque" +
                                 " magique effectués pour résister à un sort."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Bon pour le moral",
                         "description": "Un halfelin qui mange bien est un halfelin heureux. À chaque repas (jusqu’à 4" +
                                 " fois par jour, espacés d’au moins 3 h) au cours duquel le personnage boit et mange des mets" +
                                 " de qualité et en quantité, il récupère 1d4° PV."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Petit veinard",
                         "description": "Le halfelin gagne 1 PC supplémentaire. De plus, il peut esquiver une attaque de" +
                                 " son choix par combat (avant d’avoir pris connaissance des DM, mais pas un critique)."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Vif et bien nourri",
                         "description": "Le halfelin augmente ses valeurs d’AGI et de CON de +1."
                     }
@@ -177,6 +202,7 @@ let dataVoies = {
                     "id": "HUMAIN",
                     "nom": "HUMAIN", // Nom de la voie sans le "Voie de ..."
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Diversité",
                         "description": "Un humain obtient un bonus de +3 aux tests de deux domaines associés à son origine" +
                                 " géographique ou sociale (Montagnard ==> escalade et résistance au froid; Citadin ==> commerce et" +
@@ -185,24 +211,28 @@ let dataVoies = {
                                 " Remarque : Le MJ peut proposer d'autres origines. De plus, il gagne 1 PC supplémentaire. "
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Instinct de survie",
                         "description": "Une fois par combat, lorsqu’une attaque devrait amener l’humain à 0 PV, les DM qu’elle" +
                                 " inflige sont divisés par 2 (minimum 1). Après avoir bénéficié de cette capacité, l’humain gagne" +
                                 " pour le reste du combat un bonus de +2 en DEF."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Touche‐à‐tout",
                         "description": "Le personnage obtient une capacité de rang 1 ou 2 de n’importe quel profil au choix du" +
                                 " joueur. Si la capacité est de rang 2 ou accorde un bonus de DEF, il doit respecter les limitations" +
                                 " d’armure."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Loup parmi les loups",
                         "description": "Une fois par round, l’humain gagne +1d4° aux DM qu’il inflige lorsqu’il combat un" +
                                 " adversaire humanoïde de taille moyenne. Ce bonus ne s’applique qu’aux DM initiaux d’une attaque," +
                                 " pas aux DM sur la durée."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Polyvalence",
                         "description": "Le personnage augmente sa caractéristique la plus faible de +1 et sa Volonté de +1."
                     }
@@ -211,29 +241,34 @@ let dataVoies = {
                     "id": "NAIN",
                     "nom": "NAIN", // Nom de la voie sans le "Voie de ..."
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Habitant des tunnels",
                         "description": "Dans le noir total, le nain voit comme dans la pénombre jusqu’à 30 m. De plus," +
                                 " il obtient un bonus de +3 à tous les tests en rapport avec la pierre, l’architecture ou" +
                                 " les mines ainsi qu’avec les passages secrets et les pièges dans les murs et les parois rocheuses."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Haches et marteaux",
                         "description": "Le nain gagne un bonus de +1 en attaque et aux DM lorsqu’il utilise une hache ou" +
                                 " un marteau de guerre. Il sait utiliser ces armes, quel que soit son profil."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Résistance à la magie",
                         "description": "Une fois par jour, le nain peut choisir d’ignorer les effets d’un sort qui le prend" +
                                 " pour cible (mais pas un sort de zone). Les créatures dont le niveau (NC) est au moins égal au" +
                                 " double du nain ignorent cette capacité."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Fils du roc",
                         "description": "Le nain réduit tous les DM subis de 2 points (mais il subit toujours au moins 1 DM" +
                                 " par attaque reçue). La réduction passe à 3 au niveau 10. Elle est cumulable avec d’autres sources" +
                                 " de réduction des DM comme la peau d’acier du barbare."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Ténacité",
                         "description": "Le nain augmente ses valeurs de CON et de VOL de +1."
                     }
@@ -242,11 +277,13 @@ let dataVoies = {
                     "id": "MAGE",
                     "nom": "MAGE", // Nom de la voie sans le "Voie de ..."
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Occultisme",
                         "description": "Le mage conserve sa capacité de peuple de rang 1. De plus, il ajoute son rang + 2" +
                                 " aux tests de connaissance et d’érudition en rapport avec la magie."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Maîtrise de la magie (L)*",
                         "description": "Le mage peut détecter la présence de magie (y compris la présence d’objets magiques)" +
                                 " dans un rayon de 10 m. Un test d’INT difficulté [10 + rang du sort] permet de déterminer la" +
@@ -255,6 +292,7 @@ let dataVoies = {
                                 " magique contre l’auteur du sort."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Tour de magie (G)*",
                         "description": "Le mage peut réaliser un tour de magie (portée 10 m) par round en action gratuite" +
                                 " sans dépenser aucun PM. Par exemple, fermer une porte à distance, éteindre ou allumer une" +
@@ -265,11 +303,13 @@ let dataVoies = {
                                 " capacité ; au total, en apprenant ce sort, le mage acquiert donc 3 PM d’un coup)."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Esprit supérieur",
                         "description": "Le mage augmente son INT et sa VOL de +1. Désormais, il obtient un dé bonus aux" +
                                 " tests d’INT."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Tempête de mana",
                         "description": "Lorsqu’il lance un sort, le mage peut augmenter les DM de +1d4° (en cas de DM sur" +
                                 " la durée, une seule fois) en payant +1 PM pour un sort à cible unique ou +3 PM pour un sort" +
@@ -288,6 +328,7 @@ let dataVoies = {
                     "id": "ARTILLEUR",
                     "nom": "ARTILLEUR",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Mécanismes",
                         "description": "L'arquebusier ajoute son rang + 2 à tous les tests visant à réparer ou à comprendre " +
                                 "des mécanismes (cela inclut le fait de désamorcer des pièges mécaniques et de manipuler " +
@@ -295,6 +336,7 @@ let dataVoies = {
                                 "siège (baliste, couleuvrine, canon, trébuchet, catapulte, etc.)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Arme à répétition",
                         "description": "L’arquebusier modifie jusqu’à deux armes de son choix pour les doter de chargeurs. " +
                                 "La capacité du chargeur est égale à [2 + INT] et elle augmente de 1 projectile supplémentaire " +
@@ -302,6 +344,7 @@ let dataVoies = {
                                 "doit être ensuite rechargé au rythme d’une action limitée (L) par projectile."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Tir de barrage (L)",
                         "description": "L’arquebusier surveille une zone de 20 m de large face à lui. Si une créature se déplace " +
                                 "dans cette zone avant son prochain tour, il peut faire une attaque à distance. En cas de succès " +
@@ -311,6 +354,7 @@ let dataVoies = {
                                 "qu’il n’a pas besoin de recharger."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Canon double",
                         "description": "L’arquebusier peut bricoler ses armes à poudre (mais pas une couleuvrine) pour les doter " +
                                 "d’un second canon. Il double le dé de DM de l’arme (mais pas les dés bonus ni les bonus). Il " +
@@ -319,6 +363,7 @@ let dataVoies = {
                                 "possible de décharger un seul canon à la fois."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Couleuvrine (L)",
                         "description": "L’arquebusier obtient une couleuvrine (un petit canon portatif). Sur un test d’attaque à " +
                                 "distance réussi (dé bonus), la couleuvrine inflige [5d4° + INT] DM à une portée de 100 m. Il faut " +
@@ -330,6 +375,7 @@ let dataVoies = {
                     "id": "EXPLOSIFS",
                     "nom": "EXPLOSIFS",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Tir de grenaille (L)",
                         "description": "L’arquebusier sait réaliser un mélange de poudre et de grenaille. Quand il charge " +
                                 "une arme à poudre, il peut choisir d’utiliser ce mélange à la place d’une munition normale " +
@@ -340,6 +386,7 @@ let dataVoies = {
                                 "exemple pour fabriquer et tirer des feux d’artifice)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Démolition",
                         "description": "L’arquebusier peut préparer un explosif qui lui permet de démolir facilement des " +
                                 "structures. Il lui faut 3 rounds complets pour préparer et poser son explosif. Celui‐ci " +
@@ -349,6 +396,7 @@ let dataVoies = {
                                 "capacités Démolition, Piège explosif ou Boulet explosif."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Poudre puissante",
                         "description": "L’arquebusier sait préparer une poudre plus puissante, il ajoute +10 m à la portée " +
                                 "et +1 aux DM des armes à poudre. Le bonus aux DM augmente de +1 à chaque fois que le " +
@@ -356,6 +404,7 @@ let dataVoies = {
                                 "elle permet à ses projectiles d’affecter les créatures immunisées aux armes non magiques."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Piège explosif (L)",
                         "description": "Il faut 1 min à l’arquebusier pour installer un piège qui explose dans un rayon de 5 m " +
                                 "en infligeant [5d4° + INT] DM de feu (test d’AGI difficulté 15 pour ne subir que la moitié " +
@@ -364,6 +413,7 @@ let dataVoies = {
                                 "[15 + INT de l’arquebusier] avant de le déclencher."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Boulet explosif (L)",
                         "description": "L’arquebusier sait fabriquer et lancer de petites boules de métal garnies de poudre et " +
                                 "d’une portée de 20 m qui explosent dans un rayon de 5 m en infligeant [4d4° + INT] DM perforants, " +
@@ -375,6 +425,7 @@ let dataVoies = {
                     "id": "MERCENAIRE",
                     "nom": "MERCENAIRE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Pilier de bar",
                         "description": "L’arquebusier obtient un bonus égal à son rang + 2 aux tests d’interaction sociale " +
                                 "dans les tavernes ou les auberges (renseignement, négociation, séduction, etc.) ainsi que " +
@@ -382,6 +433,7 @@ let dataVoies = {
                                 "et il divise par 2 tous les DM non létaux qu’on lui inflige."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Mort ou vif (L)",
                         "description": "L’arquebusier effectue une attaque au contact ou à distance (avec l’arme en main). " +
                                 "Si l’attaque est réussie, il inflige ses DM habituels (mais peut choisir d’infliger des DM " +
@@ -390,15 +442,18 @@ let dataVoies = {
                                 "il peut choisir de cumuler deux effets."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Combattant aguerri",
                         "description": "L’arquebusier choisit une capacité de rang 1 de son choix de guerrier, de voleur (armure " +
                                 "de cuir) ou de rôdeur (armure de cuir renforcé). Il gagne aussi +1 en DEF."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Constitution héroïque",
                         "description": "L’arquebusier augmente sa valeur de CON de +1 et il obtient un dé bonus aux tests de CON."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Combat de masse",
                         "description": "Si le combat implique au moins 10 créatures actives (en comptant l’arquebusier et ses " +
                                 "alliés), l’arquebusier obtient, au choix, une action"
@@ -408,28 +463,33 @@ let dataVoies = {
                     "id": "PISTOLERO",
                     "nom": "PISTOLERO",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Plus vite que son ombre",
                         "description": "Si son arme à poudre est chargée et tenue en main, l’arquebusier peut tirer avec " +
                                 "un bonus de +5 à son Initiative. De plus, il ne subit plus de dé malus lorsqu’il tire avec une " +
                                 "arme à poudre ou une arbalète en étant engagé en combat au contact (sauf avec la couleuvrine)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Ajuster le tir",
                         "description": "Après avoir raté une attaque à distance, l’arquebusier déclare qu’il s’agissait " +
                                 "d’un tir de réglage. Il obtient +5 sur le test de sa prochaine attaque à distance, si " +
                                 "son prochain tir vise la même cible avant la fin du prochain round."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Tir double (L)",
                         "description": "L’arquebusier est capable de tirer simultanément avec une pétoire (ou une arbalète " +
                                 "de poing) dans chaque main avec un malus de ‐2 à chaque attaque. S’il décharge ses deux " +
                                 "armes sur la même cible, il ne subit aucun malus."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Agilité héroïque",
                         "description": "L’arquebusier augmente sa valeur d’AGI de +1 et il obtient un dé bonus aux tests d’AGI."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "As de la gâchette",
                         "description": "Lors d’une attaque à distance avec une arme à poudre ou une arbalète, s’il obtient un " +
                                 "résultat d’attaque supérieur ou égal à la DEF de son adversaire +10 points, l’arquebusier " +
@@ -440,12 +500,14 @@ let dataVoies = {
                     "id": "PRECISION",
                     "nom": "PRÉCISION",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Joli coup",
                         "description": "L’arquebusier ignore la pénalité appliquée pour une couverture partielle de sa " +
                                 "cible (‐2 au test devient aucun malus) et réduit la pénalité pour une couverture " +
                                 "importante à ‐2 (au lieu de ‐5)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Défaut dans la cuirasse (A)",
                         "description": "L’arquebusier utilise une action d’attaque pour trouver le point faible de son " +
                                 "adversaire et le viser. Au prochain round*, il réalise ses attaques à distance sur cette " +
@@ -456,11 +518,13 @@ let dataVoies = {
                                 "aux tirs du round en cours."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Tir précis",
                         "description": "L’arquebusier inflige des critiques sur 19‐20 sur ses attaques avec une arme à " +
                                 "distance. La plage de critique passe à 18‐20 à partir du rang 5."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Tireur d’élite (L)",
                         "description": "L’arquebusier prend le temps d’ajuster une cible au loin (distance minimum de 10 m). " +
                                 "Il double la portée de son arme et ajoute +2d4° aux DM. Il ne peut pas utiliser cette " +
@@ -468,6 +532,7 @@ let dataVoies = {
                                 "dans un véhicule)."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Tir fatal (L)",
                         "description": "S’il tire sur une créature dont le niveau (NC) est inférieur à la moitié du sien " +
                                 "(arrondi au supérieur), l’arquebusier peut faire un test d’INT difficulté [10 + NC de la " +
@@ -488,12 +553,14 @@ let dataVoies = {
                     "id": "ESCRIME",
                     "nom": "ESCRIME",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Précision",
                         "description": "Le barde peut remplacer sa FOR par son AGI pour ses tests d’attaque au contact " +
                                 "(mais pas aux DM) lorsqu’il emploie une arme légère à une main (les armes légères sont " +
                                 "la dague, l’épée courte et la rapière)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Feinte (L)",
                         "description": "Le barde effectue une attaque fictive pour déséquilibrer son adversaire et réalise " +
                                 "ensuite une attaque mortelle. Faites un test opposé de CHA contre la PER de votre adversaire à ce " +
@@ -502,6 +569,7 @@ let dataVoies = {
                                 "et, si votre feinte a réussi, +2d4° aux DM."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Intelligence du combat (M)",
                         "description": "Une fois par combat, le barde peut au choix désarmer, renverser ou aveugler pour une " +
                                 "durée de 1 round un adversaire dont le NC est inférieur au sien en emportant un test opposé " +
@@ -509,12 +577,14 @@ let dataVoies = {
                                 "bonus de +5 au test d’INT."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Attaque flamboyante (L)",
                         "description": "Le style de combat du barde est flamboyant et surprenant : Il effectue une attaque de " +
                                 "contact avec une arme légère et obtient un bonus d’attaque et de DM égal à son CHA (en plus " +
                                 "de sa FOR ou de son AGI)."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Botte mortelle",
                         "description": "Lors d’une attaque au contact avec une arme légère, s’il obtient un résultat d’attaque " +
                                 "supérieur ou égal à (la DEF de son adversaire + 10 points), le barde obtient un bonus de " +
@@ -525,6 +595,7 @@ let dataVoies = {
                     "id": "MUSICIEN",
                     "nom": "MUSICIEN",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Chant des héros (L)*",
                         "description": "Le barde peut chanter et inspirer ses compagnons, tous ses alliés à portée de voix " +
                                 "et lui obtiennent un bonus de +1 à tous leurs tests pendant un nombre de minutes égal à " +
@@ -534,12 +605,14 @@ let dataVoies = {
                                 "ou chanter."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Chant de réconfort (L)*",
                         "description": "Le barde chante ou joue de la musique pendant toute la durée d’une récupération " +
                                 "rapide (30 min). Le barde et ses alliés dans un rayon de 10 m, récupèrent 1d4° PV. Les " +
                                 "soins passent à 2d4° au rang 4."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Attaque sonore (A)*",
                         "description": "Le barde pousse un cri dont les effets sont dévastateurs (ou produit un son avec " +
                                 "un instrument à cette même fin). Il inflige [2d4° + CHA] DM à toutes les cibles dans un " +
@@ -547,6 +620,7 @@ let dataVoies = {
                                 "réussissent un test de CON difficulté [10 + CHA du barde]."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Zone de silence (A)*",
                         "description": "Le barde crée une zone de silence fixe de 5 m de diamètre, jusqu’à une portée de " +
                                 "30 m, pendant un nombre de minutes égal à sa valeur de CHA. Tous les sons émis dans " +
@@ -554,6 +628,7 @@ let dataVoies = {
                                 "10 pour lancer un sort."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Danse irrésistible (A)*",
                         "description": "Le barde joue une gigue endiablée aux effets magiques. S’il réussit un test " +
                                 "d’attaque magique opposé contre sa cible (portée 10 m), celle‐ci se met à danser pendant " +
@@ -565,16 +640,19 @@ let dataVoies = {
                     "id": "SALTIMBANQUE",
                     "nom": "SALTIMBANQUE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Acrobate",
                         "description": "Le barde ajoute son rang + 2 à tous les tests qu’il effectue pour réaliser des " +
                                 "acrobaties, tenir en équilibre, faire des sauts ou de l’escalade."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Grâce féline",
                         "description": "Le barde gagne son CHA en Initiative et +1 en DEF (+2 au rang 4). De plus, le " +
                                 "barde ajoute son rang + 2 aux tests de danse, de mime ou de jonglerie."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Lanceur de couteau (G)",
                         "description": "Une fois par round, en plus de ses autres actions, le barde peut lancer un " +
                                 "couteau sur une cible à distance (portée 10 m) en réussissant un test d’attaque à " +
@@ -583,11 +661,13 @@ let dataVoies = {
                                 "DM passent à 1d4° au rang 5."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Liberté d’action",
                         "description": "Le barde est immunisé à la peur et à tous les sorts qui asservissent l’esprit " +
                                 "(possession, charme), il est immunisé aux états ralenti et immobilisé."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Esquive acrobatique (G)",
                         "description": "Une fois par round, le barde peut réaliser une esquive en réussissant un test " +
                                 "d’attaque à distance contre une difficulté égale au résultat obtenu par son adversaire, " +
@@ -600,6 +680,7 @@ let dataVoies = {
                     "id": "SEDUCTION",
                     "nom": "SÉDUCTION",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Charmant",
                         "description": "Le barde ajoute son rang + 2 aux tests effectués pour séduire, convaincre, mentir " +
                                 "ou baratiner. Désormais, il peut dépenser 1 point de chance pour améliorer l’action d’un " +
@@ -607,6 +688,7 @@ let dataVoies = {
                                 "de +10)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Dentelles et rapière",
                         "description": "Le barde ne met pas d’armure, cela ne sied point en société. Sa seule armure est " +
                                 "la dentelle, sa seule défense, la rapière. Lorsqu’il ne porte aucune armure, le barde " +
@@ -614,6 +696,7 @@ let dataVoies = {
                                 "rang atteint dans la voie."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Baratineur de génie",
                         "description": "Si le barde peut passer 10 minutes avec un humanoïde dont le niveau est inférieur " +
                                 "ou égal à 1 (NC 1), il peut dépenser un 1 PC pour le charmer. La cible répond " +
@@ -621,12 +704,14 @@ let dataVoies = {
                                 "renforcer avec le temps. Si vous ne partagez pas une langue commune, cela vous coûte 2 PC."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Charisme héroïque",
                         "description": "Le barde augmente sa valeur de CHA de +1. Désormais, il obtient un dé bonus aux " +
                                 "tests de CHA. De plus, le barde peut désormais utiliser son CHA au lieu de sa VOL pour " +
                                 "calculer le nombre de PM dont il dispose."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Suggestion (A)*",
                         "description": "Le barde peut suggérer une action à une créature en réussissant un test opposé " +
                                 "d’attaque magique. En cas de réussite, la créature fera tout son possible pour satisfaire " +
@@ -640,6 +725,7 @@ let dataVoies = {
                     "id": "VAGABOND",
                     "nom": "VAGABOND",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Rumeurs et légendes",
                         "description": "À force de voyager, le barde possède une culture générale très vaste, il ajoute " +
                                 "son rang + 2 aux tests d’INT pour se « souvenir » d’une information historique, politique, " +
@@ -647,6 +733,7 @@ let dataVoies = {
                                 "(25 – (2 x niveau de magie de l’objet))."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Éclectique",
                         "description": "Le barde obtient un bonus de +1 à tous les tests de compétence (absolument tous, de " +
                                 "se cacher dans les ombres jusqu’à forger une épée, en passant par traduire une langue " +
@@ -655,6 +742,7 @@ let dataVoies = {
                                 "une voie de barde."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Attirail",
                         "description": "Le barde possède toutes sortes de choses dans son sac ou ses poches. En dépensant 1 " +
                                 "PC, il peut sortir un objet improbable qu’il avait sur lui, mais qui n’est pas inscrit sur " +
@@ -664,6 +752,7 @@ let dataVoies = {
                                 "clou (système D)."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Compréhension des langues (A)*",
                         "description": "Ce sort permet au barde de lire, écrire et parler une langue vivante étrangère. " +
                                 "Le sort a une durée maximale de CHA heures, mais il peut aussi être lancé sur un allié au " +
@@ -671,6 +760,7 @@ let dataVoies = {
                                 "déchiffrer une inscription dans une langue morte."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Déguisement (A)*",
                         "description": "Ce sort permet au barde de prendre l’apparence de n’importe quelle humanoïde de " +
                                 "taille à peu près équivalente (avec une marge d’environ 50 cm). S’il veut imiter une " +
@@ -693,6 +783,7 @@ let dataVoies = {
                     "id": "ARCHER",
                     "nom": "ARCHER",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Archer émérite",
                         "description": "Le rôdeur ajoute sa PER aux DM qu’il inflige à l’arc et +1 par rang dans la voie " +
                                 "en initiative. Le joueur peut souhaiter une variante de cette capacité s’appliquant aux " +
@@ -702,11 +793,13 @@ let dataVoies = {
                                 "armes de jet plutôt qu’à l’arc."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Tir chirurgical",
                         "description": "Le rôdeur peut tirer sur une cible engagée en mêlée sans pénalité (mais pas sur une " +
                                 "cible à couvert). Il ne risque jamais de toucher un allié, même en cas d’échec critique."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Dans le mille",
                         "description": "Pour une attaque à distance, le rôdeur peut choisir de s’imposer un dé malus en " +
                                 "attaque. Si elle est réussie, il ajoute 2d4° aux DM. Cette capacité peut être utilisée avec " +
@@ -714,10 +807,12 @@ let dataVoies = {
                                 "pour obtenir +3d4° aux DM au lieu de 2d4°."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Tir rapide (L)",
                         "description": "Le rôdeur peut faire deux attaques à distance pendant son tour avec un malus de ‐2."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Flèche de mort (L)",
                         "description": "Vous obtenez un dé bonus en attaque à distance et vous ajoutez 1d4° aux DM. Au lieu " +
                                 "du dé bonus et de +1d4° aux DM, vous pouvez infliger un état préjudiciable de votre choix " +
@@ -733,6 +828,7 @@ let dataVoies = {
                     "id": "COMPAGNON_ANIMAL",
                     "nom": "COMPAGNON ANIMAL",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Le loup",
                         "description": "Le rôdeur obtient un loup pour compagnon animal. En combat, le loup attaque en même temps " +
                                 "que le rôdeur. Le loup comprend des ordres simples comme : garde, reste, apporte, attaque, etc. <br> " +
@@ -741,23 +837,27 @@ let dataVoies = {
                                 "<b>Attaque au contact</b> [attaque magique du rôdeur]; <b>DM</b> 1d4+2"
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Travail d’équipe",
                         "description": "Lorsque le loup et le rôdeur sont au contact, le loup obtient un dé bonus en attaque " +
                                 "et le rôdeur obtient un dé bonus aux tests effectués pour pister ou pour éviter d’être " +
                                 "surpris (Vigilance)."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Lien empathique (L)",
                         "description": "Le rôdeur peut communiquer avec son loup par télépathie et le guérir à distance en " +
                                 "dépensant ses propres PV (1 PV du rôdeur pour 1 PV octroyé au loup, sans limitation de " +
                                 "quantité) au prix d’une action limitée."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Loup alpha",
                         "description": "Le loup du rôdeur devient un spécimen particulièrement puissant. <br> " +
                                 "<b>CON</b> +3*; <b>FOR</b> +5; <b>DEF</b> 18; <b>PV</b> [Niveau × 5]; <b>DM</b> 1d4°+5 "
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Tactiques de meute",
                         "description": "Lorsque le loup attaque la même cible que le rôdeur, il obtient un bonus de 1d4° aux " +
                                 "DM. Chaque fois que le rôdeur dépense 1 PV pour soigner son loup, le loup récupère 2 PV. " +
@@ -769,6 +869,7 @@ let dataVoies = {
                     "id": "SURVIE",
                     "nom": "SURVIE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Survie",
                         "description": "Le rôdeur ajoute son rang + 2 à tous les tests d’escalade et de survie en milieu " +
                                 "naturel (s’orienter, trouver un abri et de la nourriture, etc.) dont les tests de " +
@@ -776,6 +877,7 @@ let dataVoies = {
                                 "dé de récupération (DR), il guérit 1d4° PV supplémentaire (en plus de [DR max + 1⁄2 niveau])."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Nature nourricière",
                         "description": "Une fois par jour, si le rôdeur passe 1d6 h en milieu naturel sauvage (pas dans un " +
                                 "champ), il trouve de quoi nourrir une personne par rang pour une journée et, s’il réussit un " +
@@ -784,17 +886,20 @@ let dataVoies = {
                                 "pour faire effet) et les dés peuvent être répartis sur plusieurs patients."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Grand pas (G)",
                         "description": "En milieu naturel, le rôdeur obtient +1 en DEF (ce bonus passe à +2 au rang 5) et 10 m " +
                                 "de déplacement en action gratuite (à son tour de jeu). Enfin, il n’est pas gêné par les " +
                                 "terrains difficiles naturels, mais il n’obtient pas alors de déplacement supplémentaire."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Constitution héroïque",
                         "description": "Le rôdeur augmente sa valeur de CON de +1. Désormais, il obtient un dé bonus aux " +
                                 "tests de CON."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Increvable (L)",
                         "description": "Une fois par combat, lorsqu’il tombe à 0PV, le rôdeur peut récupérer [4d4° + CON] PV " +
                                 "au début de son prochain tour. Lorsqu’il se relève, il bénéficie d’un bonus de +5 en DEF " +
@@ -806,18 +911,21 @@ let dataVoies = {
                     "id": "TRAQUEUR",
                     "nom": "TRAQUEUR",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Éclaireur",
                         "description": "En milieu naturel, le rôdeur ajoute son rang + 2 à ses tests de discrétion et de " +
                                 "vigilance ainsi qu’aux tests pour pister. De plus, le rôdeur peut remplacer le bonus de +1 " +
                                 "PC de la famille des aventuriers par un bonus de +1 DR si le joueur le souhaite."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Attaque éclair (L)",
                         "description": "Le rôdeur peut effectuer une attaque au contact très rapide. Il ajoute son AGI en " +
                                 "attaque et aux DM pour cette attaque. À partir du rang 5, cette attaque peut être associée à " +
                                 "10 m de déplacement."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Chasseur émérite",
                         "description": "Le rôdeur obtient +1d4° aux DM de ses attaques au contact ou à distance lorsqu’il " +
                                 "combat des animaux (même géants). Chaque fois qu’il atteint le rang 5 dans une voie de rôdeur, " +
@@ -825,10 +933,12 @@ let dataVoies = {
                                 "les géants, les dragons, les morts‐vivants, les insectes*, les démons. <br> * arthropodes inclus."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Perception héroïque",
                         "description": "Le rôdeur augmente sa valeur de PER de +1.Désormais, il obtient un dé bonus aux tests de PER."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Repli (L)",
                         "description": "En milieu naturel, le rôdeur se déplace de 30 m en s’éloignant de ses ennemis. Le joueur " +
                                 "fait un test d’AGI difficulté 10, en cas de succès, il disparaît de la vue de ses poursuivants. " +
@@ -840,6 +950,7 @@ let dataVoies = {
                     "id": "COMBAT_2_ARMES",
                     "nom": "COMBAT À DEUX ARMES",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Attaque à suivre (G)",
                         "description": "Une fois par round, lorsqu’il rate une attaque de sa main principale, le rôdeur peut " +
                                 "porter une attaque en action gratuite de son autre main avec une arme parmi dague (dague de " +
@@ -847,18 +958,21 @@ let dataVoies = {
                                 "de cette liste, il subit un dé malus sur cette attaque."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Parade croisée",
                         "description": "Le rôdeur obtient un bonus de +1 en DEF lorsqu’il combat avec une arme dans chaque " +
                                 "main. Ce bonus passe à +2 au rang 5 de la voie. Au début de son tour, s’il renonce à toute " +
                                 "attaque de la main secondaire, il double ce bonus jusqu’à son prochain tour."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Droite ‐ gauche (G)",
                         "description": "Une fois par round, lorsqu’il attaque de sa main principale, le rôdeur obtient aussi une " +
                                 "attaque de sa main secondaire en action gratuite. Si la cible n’est pas la même que celle de la main " +
                                 "principale, il subit un dé malus au test. Cette capacité se substitue à Attaque à suivre."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Combattant héroïque",
                         "description": "Le rôdeur augmente sa valeur d’AGI de +1 et obtient un dé bonus aux tests d’AGI (lancer " +
                                 "deux d20 et conserver le plus haut résultat). Plutôt qu’augmenter son AGI, le personnage " +
@@ -867,6 +981,7 @@ let dataVoies = {
                                 "épées longues)."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Double peine",
                         "description": "Si les deux armes du rôdeur atteignent la même cible lors d’un même tour, le personnage " +
                                 "obtient un effet d’enchaînement qui ajoute 1d4° DM à l’une des deux attaques de son choix."
@@ -885,12 +1000,14 @@ let dataVoies = {
                     "id": "ASSASSIN",
                     "nom": "ASSASSIN",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Discrétion",
                         "description": "Le voleur ajoute son rang + 2 à tous les tests de discrétion, de déguisement ou " +
                                 "pour cacher une arme sur lui. Il apprend le langage silencieux à base de signe des voleurs " +
                                 "(argotien) et enfin il obtient un dé bonus en attaque lorsqu’il attaque un adversaire surpris."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Attaque sournoise (L)",
                         "description": "Une fois par round, quand il attaque un adversaire surpris ou de dos** avec une arme " +
                                 "légère, le voleur inflige +2d4° DM supplémentaires. Les DM infligés par cette capacité " +
@@ -903,12 +1020,14 @@ let dataVoies = {
                                 "se placer dos à un obstacle infranchissable)."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Attaque par surprise (A)",
                         "description": "Contre un adversaire surpris, le voleur peut réaliser une attaque sournoise en " +
                                 "utilisant une action d’attaque plutôt qu’une action limitée et il augmente les DM de " +
                                 "son attaque sournoise de 2d4°."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Disparition (M)",
                         "description": "Une fois par combat, le voleur peut disparaître dans un flash lumineux et un " +
                                 "nuage de fumée. Aucun adversaire ne peut l’attaquer pendant qu’il a disparu, mais il " +
@@ -917,6 +1036,7 @@ let dataVoies = {
                                 "l’initiative, il peut réaliser une attaque sournoise."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Ouverture mortelle (L)",
                         "description": "Une fois par combat, le voleur obtient une réussite critique automatique " +
                                 "contre la cible de son choix. Il profite donc d’une réussite automatique, des dommages " +
@@ -928,6 +1048,7 @@ let dataVoies = {
                     "id": "AVENTURIER",
                     "nom": "AVENTURIER",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Baratin",
                         "description": "Le voleur ajoute son rang + 2 aux tests destinés à baratiner, séduire, négocier, " +
                                 "mentir ou pour trouver un objet au marché noir. De plus, il devient capable d’utiliser " +
@@ -936,6 +1057,7 @@ let dataVoies = {
                                 "n’est pas lancé et le voleur peut faire une nouvelle tentative."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Provocation (L)",
                         "description": "Le voleur maîtrise l’art de se rendre désagréable, voire insupportable. S’il " +
                                 "emporte un test opposé de CHA contre INT d’un adversaire humanoïde à moins de 10 m, il " +
@@ -944,17 +1066,20 @@ let dataVoies = {
                                 "au choix d’une attaque sournoise ou d’un bonus de 1d4° aux DM."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Souplesse du félin",
                         "description": "Le voleur possède une démarche et une façon de se déplacer à la fois élégante, " +
                                 "féline et souple. Il ajoute +2 en DEF et en Initiative. Ce bonus passe à +3 au rang 5. " +
                                 "Il lui faut seulement une action de mouvement pour se relever."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Charisme héroïque",
                         "description": "Le voleur augmente sa valeur de CHA de +1.Désormais, il obtient un dé bonus aux " +
                                 "tests de CHA."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Attaque paralysante (L)",
                         "description": "Une fois par combat, le voleur peut, en réussissant une attaque de contact, " +
                                 "paralyser un adversaire humanoïde de douleur. La cible ne subit aucun DM, mais elle " +
@@ -968,6 +1093,7 @@ let dataVoies = {
                     "id": "DEPLACEMENT",
                     "nom": "DÉPLACEMENT",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Agile",
                         "description": "Le voleur ajoute son rang + 2 à tous tests liés à un déplacement (esquive, saut, " +
                                 "course, équilibre, escalade, se glisser entre des barreaux ou échapper à une créature qui " +
@@ -975,12 +1101,14 @@ let dataVoies = {
                                 "passe à +2 au rang 3 et +3 au rang 5."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Réflexes félins",
                         "description": "Le voleur divise par 2 tous les DM de chute. De plus, une fois par combat, il " +
                                 "obtient une action de mouvement supplémentaire à son tour. Au rang 5, il peut réaliser " +
                                 "cet exploit 2 fois par combat (mais pas plus d’une fois par round)."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Acrobaties (G)",
                         "description": "Une fois par round, si le voleur réussit un test d’AGI difficulté 15, il peut " +
                                 "effectuer une acrobatie pour franchir un obstacle (qui peut être un adversaire) ou " +
@@ -988,11 +1116,13 @@ let dataVoies = {
                                 "sournoise ou infliger +1d4° DM."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Agilité héroïque",
                         "description": "Le voleur augmente sa valeur d’AGI de +1. Désormais, il obtient un dé bonus aux " +
                                 "tests d’AGI."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Esquive de la magie (G)",
                         "description": "Une fois par round, lorsqu’un sort qui inflige des DM physiques (feu, froid, " +
                                 "projectile magique, etc.) le prend pour cible (y compris un sort de zone ou l’affectant " +
@@ -1005,6 +1135,7 @@ let dataVoies = {
                     "id": "ROUBLARD",
                     "nom": "ROUBLARD",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Doigts agiles",
                         "description": "Le voleur ajoute son rang + 2 aux tests liés à la précision manuelle (crocheter " +
                                 "une serrure, désamorcer un piège, pickpocket...) ainsi qu’aux tests pour évaluer un " +
@@ -1013,12 +1144,14 @@ let dataVoies = {
                                 "+3 au rang 5."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Aux aguets",
                         "description": "Le voleur ajoute son rang + 2 aux tests effectués pour fouiller une pièce à la " +
                                 "recherche d’un trésor, détecter un piège (même magique), un passage secret ou même une " +
                                 "embuscade (Vigilance). De plus, il divise par 2 les DM infligés par des pièges."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Feindre la mort (G)",
                         "description": "Une fois par combat, le voleur peut feindre la mort après avoir reçu une blessure " +
                                 "(même à 0 PV). Il peut ainsi passer pour mort aussi longtemps qu’il le souhaite et un test " +
@@ -1029,6 +1162,7 @@ let dataVoies = {
                                 "fois (sauf si son INT est de ‐4)."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Expert en criminalité",
                         "description": "Le voleur obtient un dé bonus sur tous les tests de recherche d’indice (Trouver une " +
                                 "preuve [PER], Faire une déduction [INT] et Obtenir un aveu [CHA]) ainsi que pour tous les " +
@@ -1037,6 +1171,7 @@ let dataVoies = {
                                 "lui a échappé jusque‐là. S’il n’y a pas d’indice, le PC n’est pas dépensé."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Maître du poison",
                         "description": "Le voleur peut utiliser 3 doses de poison par jour sans risque de s’empoisonner " +
                                 "lui‐même. Une dose permet d’enduire une dague, une flèche ou un carreau pour infliger " +
@@ -1050,6 +1185,7 @@ let dataVoies = {
                     "id": "SPADASSIN",
                     "nom": "SPADASSIN",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Attaque en finesse",
                         "description": "Le voleur ajoute son AGI à son Init. et peut remplacer sa FOR par son AGI pour ses " +
                                 "tests d’attaque au contact (mais pas aux DM) lorsqu’il utilise une arme légère à une main " +
@@ -1057,6 +1193,7 @@ let dataVoies = {
                                 "d’intimidation."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Esquive fatale (G)",
                         "description": "Une fois par combat, le voleur peut esquiver une attaque et s’arranger pour que " +
                                 "celle‐ci affecte un autre adversaire à son contact. Comparez le test d’attaque à la " +
@@ -1065,6 +1202,7 @@ let dataVoies = {
                                 "réussite critique (un critique touche toujours sa cible)."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Frappe chirurgicale",
                         "description": "Par sa science de l’escrime (et de la fourberie), le voleur augmente ses chances de " +
                                 "faire des coups critiques avec une arme légère de 2 points (ainsi, au lieu de 20, le " +
@@ -1072,12 +1210,14 @@ let dataVoies = {
                                 "obtenir un critique ne peut être inférieure à 16."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Ambidextrie (G)",
                         "description": "Avec sa main gauche, le voleur peut effectuer une attaque au contact gratuite avec " +
                                 "une dague ou une épée courte à chaque round. Cette attaque ne peut pas bénéficier des " +
                                 "avantages d’une attaque sournoise."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Botte secrète",
                         "description": "Lorsque le voleur obtient un critique sur le dé d’une attaque au contact de sa main " +
                                 "principale avec une arme légère (mais pas sur une ouverture mortelle), il inflige à sa " +
@@ -1099,12 +1239,14 @@ let dataVoies = {
                     "id": "BRUTE",
                     "nom": "BRUTE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Argument de taille",
                         "description": "Le barbare ajoute sa FOR à son maximum de PV ainsi qu’à ses tests de CHA et à ceux " +
                                 "de ses alliés au contact pour les tests de négociation, de persuasion ou d’intimidation. " +
                                 "Allez savoir pourquoi, sa simple présence donne de la force aux arguments de ses alliés..."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Tour de force (G)",
                         "description": "Le barbare peut temporairement décupler ses ressources physiques pour faire usage " +
                                 "d’une force prodigieuse. Il obtient un bonus de +10 sur un test de FOR (pas un jet de DM " +
@@ -1113,6 +1255,7 @@ let dataVoies = {
                                 "capacités des voies de barbare auparavant autorisées avec une armure de cuir renforcé."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Attaque brutale (L)",
                         "description": "Le barbare effectue une puissante attaque au contact qui inflige +1d4° aux " +
                                 "DM. À la place, il peut choisir de s’imposer un malus de ‐3 au test d’attaque pour " +
@@ -1121,10 +1264,12 @@ let dataVoies = {
                                 "sacrifier 2d4° DM pour le renverser."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Force héroïque",
                         "description": "Le barbare augmente sa FOR de +1. Désormais, il obtient un dé bonus aux tests de FOR."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Briseur d’os",
                         "description": "Le barbare augmente de 1 point les chances d’obtenir un critique sur les attaques " +
                                 "au contact (par exemple 19‐20 au lieu de 20). Lorsqu’il obtient un critique sur une attaque " +
@@ -1137,12 +1282,14 @@ let dataVoies = {
                     "id": "PAGNE",
                     "nom": "PAGNE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Vigueur",
                         "description": "Le barbare est un athlète capable de prouesses physiques extraordinaires, il ajoute " +
                                 "son rang +2 aux tests de course, de saut ou d’escalade. De plus, il gagne 1 PV " +
                                 "supplémentaire par rang atteint dans la voie."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Peau de pierre",
                         "description": "Le barbare est particulièrement endurci, il encaisse les coups plutôt que de les " +
                                 "esquiver. Il peut choisir de remplacer son AGI par sa CON pour calculer sa DEF (la limitation " +
@@ -1151,6 +1298,7 @@ let dataVoies = {
                                 "en DEF et ce bonus passe à +2 au rang 4."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Tatouages",
                         "description": "Le barbare possède un tatouage magique qui améliore ses performances physiques ou " +
                                 "mentales. Au choix : Taureau (+3 aux tests de FOR), ours (+3 aux tests de CON), panthère " +
@@ -1159,10 +1307,12 @@ let dataVoies = {
                                 "il est seulement ralenti."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Constitution héroïque",
                         "description": "Le barbare augmente sa valeur de CON de +1 et obtient un dé bonus aux tests de CON."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Peau d’acier",
                         "description": "Le barbare ne sent plus la douleur et ignore les égratignures, il réduit tous les DM " +
                                 "subis de 3 points (RD 3). Une attaque lui inflige toujours au minimum 1 DM."
@@ -1172,24 +1322,28 @@ let dataVoies = {
                     "id": "POURFENDEUR",
                     "nom": "POURFENDEUR",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Réflexes éclair",
                         "description": "Le barbare ajoute son rang + 2 à tous les tests d’AGI destinés à esquiver (Explosion " +
                                 "de feu, souffle, pièges, etc.). De plus, il gagne +3 en Init. et +1 en DEF. Le bonus de DEF " +
                                 "passe à +2 au rang 5."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Charge (L)",
                         "description": "Le barbare se déplace en ligne droite entre 5 m et 10 m et effectue une attaque au " +
                                 "contact avec un dé bonus et +1d4° aux DM. Il ne peut pas lancer une charge s’il est au " +
                                 "contact d’un adversaire."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Enchaînement",
                         "description": "Chaque fois que le barbare réduit un adversaire à 0 PV avec une attaque de contact, " +
                                 "il bénéficie d’une action d’attaque gratuite sur un autre adversaire à son contact. Enchaînement " +
                                 "ne peut pas être cumulé à un déchaînement d’acier ou une attaque tourbillon."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Déchaînement d’acier (L)",
                         "description": "Le barbare parcourt 10 m en ligne droite en dépassant autant d’ennemis qu’il le souhaite. " +
                                 "Il porte une attaque avec un malus de ‐2 à chaque adversaire sur son passage. Il doit traverser " +
@@ -1197,6 +1351,7 @@ let dataVoies = {
                                 "endroit occupé par un ennemi."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Attaque tourbillon (L)",
                         "description": "Une fois par combat, le barbare tourne sur lui‐même en assénant des attaques à toutes " +
                                 "les cibles au contact. Il inflige automatiquement des DM correspondant à l’arme utilisée (plus " +
@@ -1207,17 +1362,20 @@ let dataVoies = {
                     "id": "PRIMITIF",
                     "nom": "PRIMITIF",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Proche de la nature",
                         "description": "Le barbare ajoute son rang + 2 à ses tests de survie (dont les tests de récupération) et " +
                                 "de discrétion en milieu naturel. De plus, il gagne 1 PV supplémentaire."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Armure de vent",
                         "description": "Lorsqu’il ne porte aucune armure, le barbare peut se relever par une action de mouvement " +
                                 "et il obtient +2 en DEF. Ce bonus passe à +3 au rang 5. S’il porte une armure, il gagne " +
                                 "seulement +1 en DEF."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Vigilance",
                         "description": "Le barbare possède des sens très affûtés, il est difficile de le surprendre, il ajoute " +
                                 "son rang + 2 à tous les tests effectués pour détecter les pièges mécaniques, magiques (ses " +
@@ -1225,6 +1383,7 @@ let dataVoies = {
                                 "ou à toute capacité similaire d’une créature de niveau inférieur au sien."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Résistance à la magie (G)",
                         "description": "Le barbare devient capable de résister à la magie. Lorsqu’il est la cible d’un sort, " +
                                 "une fois par round, il peut faire un test d’attaque magique (dés malus si hybride) opposé " +
@@ -1232,6 +1391,7 @@ let dataVoies = {
                                 "En cas de réussite, il n’en subit pas les effets."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Vitalité débordante",
                         "description": " Le barbare guérit à une vitesse presque surnaturelle. Tant que son niveau actuel " +
                                 "de PV est compris entre 1 et un tiers de son maximum, il récupère 1d4° PV par heure, de " +
@@ -1242,6 +1402,7 @@ let dataVoies = {
                     "id": "RAGE",
                     "nom": "RAGE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Cri de guerre (G)",
                         "description": "Une fois par combat, le barbare pousse un hurlement qui effraie ses adversaires " +
                                 "dans un rayon de 10 m. Les adversaires dont la FOR est inférieure à celle du barbare " +
@@ -1250,12 +1411,14 @@ let dataVoies = {
                                 "destinés à résister à la peur."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Défier la mort",
                         "description": "Une fois par combat, lorsque le barbare subit des DM d’une attaque qui devrait " +
                                 "l’amener à 0 PV, il peut réaliser un test de CON difficulté 10. En cas de réussite, il " +
                                 "conserve 1 PV. S’il est enragé, la réussite est automatique."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Rage du berserk (L)",
                         "description": "Une fois par jour, le barbare entre dans une rage berserk pour le reste du combat, " +
                                 "ce qui le rend particulièrement dangereux. Il obtient +1d4° DM sur ses attaques au contact, " +
@@ -1267,11 +1430,13 @@ let dataVoies = {
                                 "qu’il atteint dans une voie de barbare."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Même pas mal",
                         "description": "Une fois par combat, le barbare peut ignorer les DM d’un coup critique (il ne subit " +
                                 "aucun DM) et il peut alors immédiatement entrer en Rage par une action gratuite."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Furie du berserk (L)",
                         "description": "Au lieu de la Rage du berserk, le barbare peut entrer en Furie du berserk, mais " +
                                 "cela consomme deux utilisations de la rage. Cet état est similaire à la rage, mais le " +
@@ -1291,6 +1456,7 @@ let dataVoies = {
                     "id": "CAVALIER",
                     "nom": "CAVALIER",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Fidèle monture",
                         "description": "Le chevalier possède une fidèle monture (voir page suivante), un cheval de guerre " +
                                 "bien dressé qui comprend les ordres simples. À cheval, il peut ajouter un déplacement de " +
@@ -1307,12 +1473,14 @@ let dataVoies = {
                                 "caractéristiques : yack ou sanglier (nain), cerf ou orignal (elfe)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Cavalier émérite",
                         "description": "Lorsqu’il est en selle, le chevalier gagne un bonus de +1 aux DM de ses attaques " +
                                 "au contact, et sa monture obtient une DEF égale à celle du chevalier. Monter ou descendre " +
                                 "de cheval est désormais une action gratuite. Le bonus aux DM passe à +2 au rang 5."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Charge (L)",
                         "description": "À cheval, le chevalier peut effectuer un déplacement de 10 à 20 m en ligne droite " +
                                 "et faire une attaque de contact placée au moment de son choix. Le joueur obtient un dé " +
@@ -1322,6 +1490,7 @@ let dataVoies = {
                                 "et le tour du chevalier se termine."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Monture magique",
                         "description": "Le chevalier obtient une monture magique, qui peut apparaître et disparaître depuis " +
                                 "un autre plan à volonté. Il peut l’invoquer à tout moment (c’est une action limitée) et " +
@@ -1329,6 +1498,7 @@ let dataVoies = {
                                 "dans son plan d’origine, elle guérit l’ensemble de ses PV."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Monture fantastique",
                         "description": "Le chevalier obtient une monture puissante (cheval de guerre lourd, ours, félin " +
                                 "géant, etc.). <b>Init.</b> [Init. du chevalier], <b>DEF</b> 20, <b>PV</b> [10 + niveau du " +
@@ -1346,6 +1516,7 @@ let dataVoies = {
                     "id": "GUERRE",
                     "nom": "GUERRE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Armure sur mesure",
                         "description": "L’armure du chevalier est parfaitement ajustée, aussi il n’ajoute que la moitié de " +
                                 "sa DEF à la difficulté des tests pour lesquels l’armure inflige une pénalité. De plus, " +
@@ -1353,6 +1524,7 @@ let dataVoies = {
                                 "DEF à chaque fois qu’il atteint le rang 5 dans une voie de chevalier."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Encaisser un coup (M)",
                         "description": "Le chevalier se place de façon à dévier un coup sur son armure. Jusqu’à son tour au " +
                                 "round suivant, il peut retrancher la valeur de DEF de son armure (bonus de magie inclus si " +
@@ -1362,15 +1534,18 @@ let dataVoies = {
                                 "a décidé d’encaisser."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Frappe du justicier (L)",
                         "description": "Lorsque le chevalier réalise cette attaque au contact, si le test d’attaque est un " +
                                 "échec, il inflige tout de même 1⁄2 DM à sa cible. Un résultat de 1 au d20 n’inflige aucun DM."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Force héroïque",
                         "description": "Le chevalier augmente sa FOR de +1. Désormais, il obtient un dé bonus aux tests de FOR."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Mon armure est une arme (G)",
                         "description": "Une fois par combat, le chevalier peut donner un coup avec son armure (gantelet, " +
                                 "heaume, spallière, etc.) en action gratuite. Il inflige automatiquement [1d4° + FOR] DM, " +
@@ -1382,6 +1557,7 @@ let dataVoies = {
                     "id": "PREUX",
                     "nom": "PREUX",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Ignorer la douleur (G)",
                         "description": "Une fois par combat, le chevalier peut noter à part les DM subis par une attaque " +
                                 "(mais pas un critique). Il ne subira les DM que lorsque le combat sera terminé. De plus " +
@@ -1389,6 +1565,7 @@ let dataVoies = {
                                 "15 individus)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Piqûres d’insectes",
                         "description": "Le chevalier obtient une réduction des DM (RD) des attaques à distance (arcs, " +
                                 "arbalètes, lances, etc.) qui dépend de l’armure qu’il porte. Armure de plaques (complète " +
@@ -1396,6 +1573,7 @@ let dataVoies = {
                                 "(simple ou renforcée) RD 1. Les DM infligés par une attaque sont toujours au minimum d’un point."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Laissez‐le‐moi",
                         "description": "Le chevalier met un point d’honneur à combattre le leader ennemi. Lorsqu’il peut " +
                                 "aisément être identifié dans un groupe d’au moins 4 créatures, le chevalier lui inflige +1d4° " +
@@ -1404,10 +1582,12 @@ let dataVoies = {
                                 "d’autre adversaire que lui à son prochain tour."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Charisme héroïque",
                         "description": "Le chevalier augmente son CHA de +1. Désormais, il obtient un dé bonus aux tests de CHA."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Seul contre tous",
                         "description": "Le chevalier sait faire face à de nombreux adversaires. Lorsque au moins 3 adversaires " +
                                 "l’attaquent au contact à ce round, il obtient une action d’attaque (A) supplémentaire à ce round."
@@ -1417,12 +1597,14 @@ let dataVoies = {
                     "id": "MENEUR_HOMMES",
                     "nom": "MENEUR D’HOMMES",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Sans peur",
                         "description": "Le chevalier est immunisé aux effets de peur et il offre un bonus égal à son CHA aux " +
                                 "tests de tous ses alliés contre ce type d’effet. De plus, le chevalier ajoute son rang + 2 " +
                                 "aux tests de stratégie et de tactique militaire ou pour commander une troupe."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Intercepter (G)",
                         "description": "Une fois par round, le chevalier peut encaisser une attaque au contact ou à distance à " +
                                 "la place d’un allié à son contact. Il utilise sa DEF plutôt que celle de la cible initiale et " +
@@ -1431,11 +1613,13 @@ let dataVoies = {
                                 "d’intercepter avant de connaître le résultat de l’attaque."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Exemplaire (G)",
                         "description": "Une fois par round, le chevalier donne un dé bonus à un allié qui attaque un adversaire " +
                                 "à son contact. Le dé bonus doit être attribué avant de lancer les dés."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Charge fantastique (G)",
                         "description": "Une fois par combat, lorsque le chevalier déclare l’utilisation de cette capacité, " +
                                 "tous ses alliés en vue et lui obtiennent 10 m de déplacement supplémentaire au début de leur " +
@@ -1443,6 +1627,7 @@ let dataVoies = {
                                 "ni avec ordre de bataille."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Ordre de bataille (G)",
                         "description": "Le chevalier donne des ordres tactiques pertinents au cœur de la bataille. Une fois " +
                                 "par round, il octroie une action supplémentaire gratuite à un allié en vue (une action de " +
@@ -1454,12 +1639,14 @@ let dataVoies = {
                     "id": "NOBLESSE",
                     "nom": "NOBLESSE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Éduqué",
                         "description": "Le chevalier sait lire et écrire, et apprend à parler une langue supplémentaire. " +
                                 "De plus, il ajoute son rang + 2 à tous les tests d’histoire, d’héraldique et de géographie " +
                                 "ainsi qu’aux tests pour savoir se comporter dans la haute société."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Écuyer",
                         "description": "Le chevalier dispose d’un écuyer à son service (<b>Init.</b> [chevalier], <b>DEF</b> [10 + rang], " +
                                 "<b>PV</b> [niveau × 4], <b>Att</b> [attaque magique], <b>DM</b> 1d4°+1). Il est absolument loyal à son maître, " +
@@ -1471,6 +1658,7 @@ let dataVoies = {
                                 "Si l’écuyer vient à mourir, le chevalier en prendra un autre à son service au niveau suivant."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Autorité naturelle",
                         "description": "Le chevalier ajoute son rang + 2 aux tests réalisés pour donner des ordres ou " +
                                 "intimider. De plus, le noble chevalier reçoit la formation nécessaire au port de l’armure " +
@@ -1481,6 +1669,7 @@ let dataVoies = {
                                 "chemise de mailles pour les voies de barbare."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Massacrer la piétaille",
                         "description": "Le chevalier ajoute +1d4° aux DM contre la piétaille. S’il y a au moins 4 créatures " +
                                 "aux statistiques semblables impliquées dans le combat, elles sont assimilées à de la " +
@@ -1488,6 +1677,7 @@ let dataVoies = {
                                 "Les cavaliers ne sont jamais considérés comme de la piétaille."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Formation d’élite",
                         "description": "Le chevalier possède les moyens et la culture nécessaires pour obtenir une " +
                                 "formation dans n’importe quel domaine qui lui sied. Choisissez une capacité de rang " +
@@ -1508,6 +1698,7 @@ let dataVoies = {
                     "id": "BOUCLIER",
                     "nom": "BOUCLIER",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Protéger un allié (G)",
                         "description": "S’il n’est pas surpris, le guerrier peut " +
                                 "accorder un bonus de DEF de +2 à un allié à son contact contre " +
@@ -1516,6 +1707,7 @@ let dataVoies = {
                                 "rang + 2 à tous les tests destinés à éviter d’être surpris."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Parer un coup (M)",
                         "description": "Le guerrier utilise une action de mouvement pour se mettre " +
                                 "en posture défensive. Il peut alors essayer de parer une attaque à " +
@@ -1530,6 +1722,7 @@ let dataVoies = {
                                 "ce cas, il subit un dé malus au test opposé."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Défense au bouclier",
                         "description": "Le guerrier obtient un bonus de +1 en DEF lorsqu’il manie un " +
                                 "bouclier. Ce bonus passe à +2 au rang 5. De plus, lorsqu’il tient " +
@@ -1538,6 +1731,7 @@ let dataVoies = {
                                 "aux souffles) sauf s’il est surpris."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Absorber un sort",
                         "description": "Lorsqu’il s’est préparé à parer un coup, le guerrier peut " +
                                 "décider à la place d’absorber un sort. S’il réussit un test d’attaque " +
@@ -1547,6 +1741,7 @@ let dataVoies = {
                                 "d’un sort de zone, les autres cibles sont affectées normalement)."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Renvoi de sort (G)",
                         "description": "Le guerrier peut décider de renvoyer un sort qu’il vient " +
                                 "d’absorber grâce à sa capacité \"Absorber un sort\". Au lieu d’être " +
@@ -1559,17 +1754,20 @@ let dataVoies = {
                     "id": "COMBAT",
                     "nom": "COMBAT",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Vivacité",
                         "description": "Le guerrier gagne +3 en Initiative et aux tests d’AGI ou de FOR " +
                                 "pour éviter d’être immobilisé ou renversé. De plus, une fois par " +
                                 "combat, il obtient une action de mouvement supplémentaire à son tour."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Manœuvre",
                         "description": "Le guerrier obtient un dé bonus lorsqu’il exécute une manœuvre " +
                                 "en combat. "
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Attaque puissante",
                         "description": "Le guerrier peut choisir de s’imposer un dé malus sur une attaque " +
                                 "au contact et il ajoute +2d4° aux DM. Cette capacité peut être utilisée " +
@@ -1578,11 +1776,13 @@ let dataVoies = {
                                 "DM au lieu de +2d4°."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Double attaque (L)",
                         "description": "Le guerrier fait deux attaques au contact durant son tour avec un " +
                                 "malus de ‐2."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Attaque circulaire (L)",
                         "description": "Le guerrier peut faire une attaque au contact avec un malus de ‐2 " +
                                 "contre chaque adversaire engagé au contact avec lui (il fait un test " +
@@ -1593,6 +1793,7 @@ let dataVoies = {
                     "id": "MAITRE_ARMES",
                     "nom": "MAÎTRE D’ARMES",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Armes de prédilection",
                         "description": "Le guerrier choisit une catégorie d’armes de prédilection parmi " +
                                 "épées, haches, masses, lances (épieu, lance, pique) et enfin armes de " +
@@ -1602,12 +1803,14 @@ let dataVoies = {
                                 "la réputation martiale d’un adversaire."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Science du critique",
                         "description": "Le guerrier augmente de 1 point les chances d’obtenir un critique " +
                                 "sur les attaques effectuées avec une arme de prédilection (par exemple, " +
                                 "19‐20 au lieu de 20)."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Spécialisation",
                         "description": "Lorsque le guerrier emploie une arme de prédilection, il gagne un " +
                                 "bonus de +1 DM. Chaque fois que le personnage atteint le rang 5 dans " +
@@ -1618,6 +1821,7 @@ let dataVoies = {
                                 "les cinq voies)."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Attaque parfaite (L)",
                         "description": "Vous obtenez un dé bonus en attaque au contact (ou à distance pour " +
                                 "une arme de lancer) et ajoutez +1d4° DM. Vous devez utiliser une arme de " +
@@ -1626,6 +1830,7 @@ let dataVoies = {
                                 "inférieur à son bonus de DM de spécialisation."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Riposte (G)",
                         "description": "Lorsqu’un adversaire rate une attaque de contact contre lui, le " +
                                 "personnage obtient immédiatement une attaque au contact contre cet " +
@@ -1638,12 +1843,14 @@ let dataVoies = {
                     "id": "RESISTANCE",
                     "nom": "RÉSISTANCE",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Robustesse",
                         "description": "Le guerrier augmente sa valeur maximale de PV de rang + 2. De plus, " +
                                 "vous ajoutez votre rang + 2 à tous les tests destinés à résister aux efforts " +
                                 "physiques, à la chaleur ou au froid (conditions naturelles)."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Résilient",
                         "description": "Désormais, il suffit de 10 min au guerrier pour bénéficier des effets " +
                                 "d’une récupération rapide (au lieu de 30 min) et cela passe à 5 min au " +
@@ -1651,17 +1858,20 @@ let dataVoies = {
                                 "dans la voie pour tous les tests destinés à résister aux états étourdi et affaibli."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Armure lourde",
                         "description": "Au choix le guerrier gagne +1 en DEF ou il apprend à porter l’armure de " +
                                 "plaque (DEF +6) et désormais, il peut utiliser toutes les capacités de guerrier " +
                                 "avec cette armure."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Constitution héroïque",
                         "description": "Le guerrier augmente sa CON de +1. Désormais, il obtient un dé bonus aux " +
                                 "tests de CON."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Dur à cuire",
                         "description": "Le guerrier gagne +1 en DEF et, une fois par combat, lorsqu’il tombe à " +
                                 "0 PV, il peut encore agir un round avant de tomber inconscient. De plus, il " +
@@ -1673,6 +1883,7 @@ let dataVoies = {
                     "id": "SOLDAT",
                     "nom": "SOLDAT",
                     "capacite_1": {
+                        "rang": "1",
                         "nom": "Teigneux (G)",
                         "description": "Une fois par round, si une créature à votre contact tente de s’éloigner " +
                                 "de vous, vous obtenez une attaque au contact en action gratuite contre elle. " +
@@ -1680,6 +1891,7 @@ let dataVoies = {
                                 "à la privation de nourriture ou de sommeil."
                     },
                     "capacite_2": {
+                        "rang": "2",
                         "nom": "Prouesse (G)",
                         "description": "Le guerrier réussit souvent des exploits physiques hors‐norme. Une fois " +
                                 "par round, vous pouvez sacrifier 1d4° PV pour obtenir +5 sur un test de FOR ou de " +
@@ -1687,6 +1899,7 @@ let dataVoies = {
                                 "connaissance du résultat du test de caractéristique."
                     },
                     "capacite_3": {
+                        "rang": "3",
                         "nom": "Piqûre de rappel (G)",
                         "description": "Vous n’admettez pas qu’un adversaire vous ignore. Une fois par round, si " +
                                 "un adversaire à votre contact attaque une autre créature que vous, vous obtenez " +
@@ -1695,11 +1908,13 @@ let dataVoies = {
                                 "automatiquement pour cible lors de sa prochaine attaque."
                     },
                     "capacite_4": {
+                        "rang": "4",
                         "nom": "Force héroïque",
                         "description": "Le guerrier augmente sa FOR de +1. Désormais, il obtient un dé bonus aux " +
                                 "tests de FOR."
                     },
                     "capacite_5": {
+                        "rang": "5",
                         "nom": "Rempart",
                         "description": "Vous pouvez désormais utiliser \"Teigneux\" contre un nombre d’adversaires " +
                                 "égal à votre AGI + 2 à chaque round. Si vous réussissez cette attaque, le " +
@@ -1727,22 +1942,27 @@ let dataVoies = {
  "id": "",
  "nom": "",
  "capacite_1": {
+ "rang": "1",
  "nom": "",
  "description": ""
  },
  "capacite_2": {
+ "rang": "2",
  "nom": "",
  "description": ""
  },
  "capacite_3": {
+ "rang": "3",
  "nom": "",
  "description": ""
  },
  "capacite_4": {
+ "rang": "4",
  "nom": "",
  "description": ""
  },
  "capacite_5": {
+ "rang": "5",
  "nom": "",
  "description": ""
  }
@@ -1751,22 +1971,27 @@ let dataVoies = {
  "id": "",
  "nom": "",
  "capacite_1": {
+ "rang": "1",
  "nom": "",
  "description": ""
  },
  "capacite_2": {
+ "rang": "2",
  "nom": "",
  "description": ""
  },
  "capacite_3": {
+ "rang": "3",
  "nom": "",
  "description": ""
  },
  "capacite_4": {
+ "rang": "4",
  "nom": "",
  "description": ""
  },
  "capacite_5": {
+ "rang": "5",
  "nom": "",
  "description": ""
  }
@@ -1775,22 +2000,27 @@ let dataVoies = {
  "id": "",
  "nom": "",
  "capacite_1": {
+ "rang": "1",
  "nom": "",
  "description": ""
  },
  "capacite_2": {
+ "rang": "2",
  "nom": "",
  "description": ""
  },
  "capacite_3": {
+ "rang": "3",
  "nom": "",
  "description": ""
  },
  "capacite_4": {
+ "rang": "4",
  "nom": "",
  "description": ""
  },
  "capacite_5": {
+ "rang": "5",
  "nom": "",
  "description": ""
  }
@@ -1799,22 +2029,27 @@ let dataVoies = {
  "id": "",
  "nom": "",
  "capacite_1": {
+ "rang": "1",
  "nom": "",
  "description": ""
  },
  "capacite_2": {
+ "rang": "2",
  "nom": "",
  "description": ""
  },
  "capacite_3": {
+ "rang": "3",
  "nom": "",
  "description": ""
  },
  "capacite_4": {
+ "rang": "4",
  "nom": "",
  "description": ""
  },
  "capacite_5": {
+ "rang": "5",
  "nom": "",
  "description": ""
  }
@@ -1823,22 +2058,27 @@ let dataVoies = {
  "id": "",
  "nom": "",
  "capacite_1": {
+ "rang": "1",
  "nom": "",
  "description": ""
  },
  "capacite_2": {
+ "rang": "2",
  "nom": "",
  "description": ""
  },
  "capacite_3": {
+ "rang": "3",
  "nom": "",
  "description": ""
  },
  "capacite_4": {
+ "rang": "4",
  "nom": "",
  "description": ""
  },
  "capacite_5": {
+ "rang": "5",
  "nom": "",
  "description": ""
  }

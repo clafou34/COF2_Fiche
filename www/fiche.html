@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fiche personnage Chroniques Oubliées 2e</title>
         <link href="css/fiche.css" rel="stylesheet">
+        <link href="css/fiche_dialog.css" rel="stylesheet">
+        <link href="css/dlgCapacite.css" rel="stylesheet">
     </head>
     <body onload="bodyOnLoad()">
         <form id="FORM_FICHE">
@@ -322,57 +324,80 @@
             </div>
             <div class="col_container">
                 <div class="colonne">
-                    <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie niv1">
+                    <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie zoneVoiePeuple niv1">
                         <legend>Voie du peuple</legend>
+                        
+
+             
+                        
                         <div class="groupe_voie">
                             <label>Voie</label>
+                            <select class="selectTypeVoie">
+                                <option value="MAGE" data-type-famille="oui">Mage</option>
+                                <option value="PEUPLE">Peuple</option>
+                                <option value="PERSO">Personnalisée</option>
+                            </select>
                             <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
                             <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
                         </div>
+
+
+
+
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                     </fieldset>
                 </div>
@@ -381,7 +406,7 @@
                         <legend>Voie 1</legend>
                         <div class="groupe_voie">
                             <label>Voie</label>
-                            <select name="SEL_TYPE_VOIE_PROFIL" class="selectTypeVoieProfil">
+                            <select class="selectTypeVoie">
                                 <option value="PROFIL">Profil</option>
                                 <option value="HYBRIDE">Hybride</option>
                                 <option value="PERSO">Personnalisée</option>
@@ -393,47 +418,57 @@
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                     </fieldset>
                 </div>
@@ -442,7 +477,7 @@
                         <legend>Voie 2</legend>
                         <div class="groupe_voie">
                             <label>Voie</label>
-                            <select name="SEL_TYPE_VOIE_PROFIL" class="selectTypeVoieProfil">
+                            <select class="selectTypeVoie">
                                 <option value="PROFIL">Profil</option>
                                 <option value="HYBRIDE">Hybride</option>
                                 <option value="PERSO">Personnalisée</option>
@@ -454,61 +489,94 @@
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
                                 <span class="txtCapacite"></span>
                             </div>
-                            <div class="commentCapacite">
-                                <textarea name="COMMENT_CAPACITE"></textarea>
-                            </div>
+                            <input type="hidden" class="txtRangCapacite"/>
+                            <input type="hidden" class="txtNomCapacite"/>
+                            <input type="hidden" class="txtDescriptionCapacite"/>
+                            <input type="hidden" class="txtComplementCapacite"/>
                         </div>
                     </fieldset>
                 </div>
             </div>
         </form>
 
+        <dialog id="dlgCapacite">
+            <div class="dlgEntete">
+                <div title="Titre de la fenêtre">Modification d'une capacité</div>
+                <button onclick="dlgCapaciteHide()" title="Fermer sans valider"></button>
+            </div>
+            <form>
+                <div class="groupe_unique">
+                    <label for="DLGCAPACITE_TXT_RANG">Rang</label>
+                    <input type="number" id="DLGCAPACITE_TXT_RANG" title="Rang de la capacité"/>
+                    <label for="DLGCAPACITE_TXT_NOM">Nom</label>
+                    <input type="text" id="DLGCAPACITE_TXT_NOM" title="Nom de la capacité"/>
+                    <label for="DLGCAPACITE_TXT_DESCRIPTION">Description</label>
+                    <textarea id="DLGCAPACITE_TXT_DESCRIPTION"></textarea>
+                    <label for="DLGCAPACITE_TXT_COMPLEMENT">Complément</label>
+                    <textarea id="DLGCAPACITE_TXT_COMPLEMENT"></textarea>
+                </div>
+            </form>
+            <div class="dlgPied">
+                <button onclick="dlgCapaciteHide()">OK</button>
+            </div>
+        </dialog>
 
     </body>
 
+    <script type="text/javascript" src="lib/DOMPurify/purify.min.js"></script>
     <script type="text/javascript" src="data/armes.js"></script>
     <script type="text/javascript" src="data/caracteristiques.js"></script>
     <script type="text/javascript" src="data/familles.js"></script>
     <script type="text/javascript" src="data/peuples.js"></script>
     <script type="text/javascript" src="data/voies.js"></script>
+    <script type="text/javascript" src="js/fiche_dlgCapacite.js"></script>
     <script type="text/javascript" src="js/fiche_metier.js"></script>
     <script type="text/javascript" src="js/fiche_evt.js"></script>
 </html>

@@ -1,0 +1,68 @@
+dialog:open::backdrop {
+  background-color: rgba(0, 0, 0, 0.7 );
+}
+
+dialog {
+    border-color: #ac8a3c;
+    padding-top: 2em;
+    border-width: 4px;
+}
+
+dialog .dlgEntete {
+    background-color: #ac8a3c;;
+    border-bottom: 2px solid #ac8a3c;
+    width : 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
+dialog .dlgEntete div {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding-top: 2px;
+    padding-bottom: 3px
+
+}
+
+dialog .dlgEntete button {
+    position: absolute;
+    right: 1px;
+    top:1px;
+    margin:0;
+    border-width: 2px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    background-color: #ac8a3c;
+    border: 1px solid #ac8a3c;
+}
+
+dialog .dlgEntete button {
+  transition-duration: 0.4s;
+}
+
+dialog .dlgEntete button:hover {
+  background-color: #5f460d;
+  color: white;
+}
+
+dialog .dlgEntete button::after {
+    content: "X";
+}
+
+dialog .dlgPied {
+    width: 100%;
+    margin-top: 1em;
+    text-align: right;
+}
+
+dialog .dlgPied button {
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+}

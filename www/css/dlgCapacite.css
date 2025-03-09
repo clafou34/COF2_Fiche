@@ -1,0 +1,18 @@
+dialog#dlgCapacite {
+    width : 100%;
+    max-width: 700px;
+}
+
+dialog#dlgCapacite form div {
+    display: grid;
+    grid-template-columns: 6em auto;
+    column-gap: 0.5em;
+    row-gap: 0.3em;
+    width: 100%;
+}
+
+dialog#dlgCapacite #DLGCAPACITE_TXT_RANG {
+    width: 4em;
+}
+
+
