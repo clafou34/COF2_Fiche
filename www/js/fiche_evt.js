@@ -9,8 +9,6 @@ function initEventListners() {
     document.getElementById("SEL_PEUPLE").addEventListener('change', selPeupleOnChange);
     document.getElementById("SEL_FAMILLE").addEventListener('change', selFamilleOnChange);
     document.getElementById("SEL_PROFIL").addEventListener('change', selProfilOnChange);
-    document.getElementById("SEL_VOIE_PEUPLE").addEventListener('change', selVoiePeupleOnChange);
-    document.getElementById("SEL_VOIE_FAMILLE").addEventListener('change', selVoieFamilleOnChange);
     document.getElementById("TXT_NIVEAU").addEventListener('change', txtNiveauOnChange);
     document.getElementById("SEL_FOR").addEventListener('change', selForOnChange);
     document.getElementById("SEL_AGI").addEventListener('change', selAgiOnChange);
@@ -25,11 +23,11 @@ function initEventListners() {
     for (let varTxtDefArmure of document.getElementsByClassName("txtDefArmure")) {
         varTxtDefArmure.addEventListener('change', txtDefArmureOnChange);
     }
-    document.getElementsByClassName("zoneVoiePeuple")[0].getElementsByClassName("selectTypeVoie")[0].addEventListener('change', selTypeVoiePeupleOnChange);
-    for (let varZoneVoieProfil of document.getElementsByClassName("zoneVoieProfil")) {
-        varZoneVoieProfil.getElementsByClassName("selectTypeVoie")[0].addEventListener('change', selTypeVoieProfilOnChange);
+    
+    for (let varSelectTypeVoie of document.getElementsByClassName("selectTypeVoie")) {
+        varSelectTypeVoie.addEventListener('change', selTypeVoieOnChange);
     }
-    for (let varSelVoieHybride of document.getElementsByClassName("selectVoieHybride")) {
+    for (let varSelVoieHybride of document.getElementsByClassName("selectVoie")) {
         varSelVoieHybride.addEventListener('change', selVoieHybrideOnChange);
     }
     for (let varZoneCapacite of document.getElementsByClassName("btnModifCapacite")) {
@@ -49,19 +47,16 @@ function bodyOnLoad() {
     initSelectCaracteristiques();
     initSelectFamille();
     initSelectProfils();
-    initSelectVoiesFamille();
-    initSelectTypeVoiePeuple();
-    initSelectVoiePeuple();
     initSelectTypeAttaque();
     remplirAttaques();
-    remplirCapacitesVoiePeuple();
     remplirDesRecuperation();
     remplirDefense();
-    gereVoiesProfil();
+    gereVoies();
 }
 
 /********************************************************************
  * Gestion de l'évènement "OnClick" sur une capacité
+ * @param {event} event Evénement permettant de retrouver la zone à gérer.
  ********************************************************************/
 function zoneCapaciteOnClick(event) {
     // Ouverture de la fenêtre de gestion de la capacité avec l'item HTML de la zone
@@ -126,11 +121,10 @@ function selVolOnChange() {
 }
 
 /********************************************************************
- Gestion de l'événement "OnChange" de la liste de choix des peuples.
+ * Gestion de l'événement "OnChange" de la liste de choix des peuples.
  ********************************************************************/
 function selPeupleOnChange() {
-    initSelectVoiePeuple();
-    remplirCapacitesVoiePeuple();
+    gereVoies();
 }
 
 /********************************************************************
@@ -138,9 +132,8 @@ function selPeupleOnChange() {
  ********************************************************************/
 function selFamilleOnChange() {
     initSelectProfils();
-    initSelectVoiesFamille();
     initSelectTypeVoiePeuple();
-    remplirCapacitesVoiePeuple();
+
     remplirDesRecuperation();
     gereVoiesProfil();
 }
@@ -152,46 +145,19 @@ function selProfilOnChange() {
     gereVoiesProfil();
 }
 
-/********************************************************************
- Gestion de l'événement "OnChange" de la liste de choix des voies
- du peuple.
- ********************************************************************/
-function selVoiePeupleOnChange() {
-    remplirCapacitesVoiePeuple();
-}
-
-/********************************************************************
- Gestion de l'événement "OnChange" de la liste de choix des voies
- des familles.
- ********************************************************************/
-function selVoieFamilleOnChange() {
-    remplirCapacitesVoiePeuple();
-}
-
-/******************************************************************************
- * Gestion de l'événement "OnChange" sur la liste du type de voie du peuple.
- *******************************************************************************/
-function selTypeVoiePeupleOnChange() {
-    gereVoiePeuple();
-}
-
 /*************************************************************************
- * Gestion de l'événement "OnChange" de la liste des types de voie
- * du profil.
+ * Gestion de l'événement "OnChange" de la liste des types de voie.
  * @param {event} event Evénement permettant de retrouver la zone à gérer.
  **************************************************************************/
-function selTypeVoieProfilOnChange(event) {
-    gereVoieProfil(event.currentTarget.parentNode.parentNode);
+function selTypeVoieOnChange(event) {
+    gereVoie(event.currentTarget.parentNode.parentNode);
 }
 
 /********************************************************************
- Gestion de l'événement "OnChange" de la liste de choix des voies
- des profils hybrides.
+ * Gestion de l'événement "OnChange" de la liste de choix des voies dans une zone
+ * de voie.
  * @param {event} event Evénement permettant de retrouver la zone à gérer.
  ********************************************************************/
 function selVoieHybrideOnChange(event) {
-        // On affiche les capacités de la voie du profil hybride
-        let varTabIdVoieProfil = event.currentTarget.value.split(";");
-        let varObjVoie = getVoieWithGroupe(decodeURIComponent(varTabIdVoieProfil[1]), decodeURIComponent(varTabIdVoieProfil[0]));
-        remplirVoieAvecObjVoie(event.currentTarget.parentNode.parentNode, varObjVoie);
+        afficheCapacitesVoie(event.currentTarget.parentNode.parentNode);
 }

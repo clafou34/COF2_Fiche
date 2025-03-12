@@ -324,7 +324,7 @@
             </div>
             <div class="col_container">
                 <div class="colonne">
-                    <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie zoneVoiePeuple niv1">
+                    <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie zoneVoiePeuple niv1"  data-categ-voie="peuple">
                         <legend>Voie du peuple</legend>
                         
 
@@ -333,12 +333,12 @@
                         <div class="groupe_voie">
                             <label>Voie</label>
                             <select class="selectTypeVoie">
-                                <option value="MAGE" data-type-famille="oui">Mage</option>
-                                <option value="PEUPLE">Peuple</option>
+                                <option value="STANDARD">Peuple</option>
                                 <option value="PERSO">Personnalisée</option>
                             </select>
-                            <select id="SEL_VOIE_FAMILLE" name="SEL_VOIE_FAMILLE"></select>
-                            <select id="SEL_VOIE_PEUPLE" name="SEL_VOIE_PEUPLE"></select>
+                            <input type="text" class="txtVoieStandard" disabled/>
+                            <input type="text" class="txtVoiePerso"/>
+                            <select class="selectVoie"></select>
                         </div>
 
 
@@ -402,18 +402,18 @@
                     </fieldset>
                 </div>
                 <div class="colonne">
-                    <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="1">
+                    <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="1" data-categ-voie="profil">
                         <legend>Voie 1</legend>
                         <div class="groupe_voie">
                             <label>Voie</label>
                             <select class="selectTypeVoie">
-                                <option value="PROFIL">Profil</option>
+                                <option value="STANDARD">Profil</option>
                                 <option value="HYBRIDE">Hybride</option>
                                 <option value="PERSO">Personnalisée</option>
                             </select>
-                            <input type="text" name="TXT_VOIE_PROFIL_STANDARD" class="txtVoieProfilStandard" disabled/>
-                            <input type="text" name="TXT_VOIE_PROFIL_PERSO" class="txtVoieProfilPerso"/>
-                            <select name="SEL_VOIE_HYBRIDE" class="selectVoieHybride"></select>
+                            <input type="text" class="txtVoieStandard" disabled/>
+                            <input type="text" class="txtVoiePerso"/>
+                            <select class="selectVoie"></select>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
@@ -473,18 +473,18 @@
                     </fieldset>
                 </div>
                 <div class="colonne">
-                    <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="2">
+                    <fieldset class="zoneVoie zoneVoieProfil niv1" data-num-voie-profil="2"  data-categ-voie="profil">
                         <legend>Voie 2</legend>
                         <div class="groupe_voie">
                             <label>Voie</label>
                             <select class="selectTypeVoie">
-                                <option value="PROFIL">Profil</option>
+                                <option value="STANDARD">Profil</option>
                                 <option value="HYBRIDE">Hybride</option>
                                 <option value="PERSO">Personnalisée</option>
                             </select>
-                            <input type="text" name="TXT_VOIE_PROFIL_STANDARD" class="txtVoieProfilStandard" disabled/>
-                            <input type="text" name="TXT_VOIE_PROFIL_PERSO" class="txtVoieProfilPerso"/>
-                            <select name="SEL_VOIE_HYBRIDE" class="selectVoieHybride"></select>
+                            <input type="text" class="txtVoieStandard" disabled/>
+                            <input type="text" class="txtVoiePerso"/>
+                            <select class="selectVoie"></select>
                         </div>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">

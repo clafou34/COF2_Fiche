@@ -134,119 +134,6 @@ function remplirAttaques() {
 }
 
 
-/*****************************************************************
- Cette fonction remplie la liste de choix de la voie
- du peuple en récupérant les voies autorisées pour le peuple
- sélectionné et les voies autorisées pour la famille selectionnée.
- *****************************************************************/
-function initSelectVoiePeuple() {
-    let selVoiePeuple = document.getElementById("SEL_VOIE_PEUPLE");
-    let tabVoies = [];
-    let peupleCourant = document.getElementById("SEL_PEUPLE").value;
-    let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
-
-    // Vidange de la liste des voies de peuple
-    while (selVoiePeuple.options.length > 0) {
-        selVoiePeuple.remove(0);
-    }
-
-    // Récupération des voies du peuple actuellement sélectionné
-    if (peupleCourant !== "") {
-        let tabIdVoiesDuPeuple = searchObjectById(dataPeuples.peuples, peupleCourant).voies; // Tableau des voies du peuple sélectionné.
-        if (tabIdVoiesDuPeuple === undefined) {
-            console.error("Le peuple " + peupleCourant + " n'existe pas ou n'a pas d'attribut \"voies\".");
-            return;
-        }
-        if (tabIdVoiesDuPeuple.length > 0) {
-            for (let varIdVoie of tabIdVoiesDuPeuple) {
-                let varVoie = searchObjectById(tabToutesVoiesPeuple, varIdVoie);
-                if (varVoie !== null) {
-                    tabVoies.push(varVoie);
-                }
-            }
-        }
-    }
-
-    // Remplissage de la liste des voies du peuple.
-    for (let varVoie of tabVoies) {
-        let option = document.createElement('option');
-        option.text = varVoie.nom;
-        option.value = varVoie.id;
-        selVoiePeuple.add(option);
-    }
-}
-
-/*****************************************************************************************
- Prépare les données pour remplir la zone des données de la voie du peuple.
- *****************************************************************************************/
-function remplirCapacitesVoiePeuple() {
-    let selVoiePeuple = document.getElementById("SEL_VOIE_PEUPLE");
-    let selVoieFamille = document.getElementById("SEL_VOIE_FAMILLE");
-    let selFamille = document.getElementById("SEL_FAMILLE");
-
-    // Récupération de la voie du peuple
-    let varObjPeuple = searchObjectById(dataPeuples.peuples, selVoiePeuple.value);
-    if (varObjPeuple === null) {
-        console.error("Le peuple '" + selVoiePeuple.value + "' n'a pas pu être trouvé dans la collection des données des peuples.");
-        return;
-    }
-    let varObjVoiePeuple = getVoieWithGroupe(selVoiePeuple.value, varObjPeuple.groupe_voies);
-    if (varObjVoiePeuple === null)
-    {
-        console.error("La voie '" + selVoiePeuple.value + "' du groupe '" + varObjPeuple.groupe_voies + "' n'a pas été trouvée dans les données des voies.");
-        return;
-    }
-
-    // Récupération de la voie de la famille (si elle n'est pas vide)
-    let varObjVoieFamille = null;
-    if (selVoieFamille.value !== "") {
-        let varObjFamille = searchObjectById(dataFamilles.familles, selFamille.value);
-        if (varObjFamille !== null) {
-            varObjVoieFamille = getVoieWithGroupe(selVoieFamille.value, varObjFamille.groupe_voies);
-        }
-    }
-
-    // Remplissage des zones de la zone de la voie
-    let varObjVoieAAfficher = varObjVoiePeuple;
-    if (varObjVoieFamille !== null) {
-        varObjVoieAAfficher = varObjVoieFamille;
-    }
-
-    let varTabVoieAffichable = [];
-    let varTxtCapacite1 = varObjVoieAAfficher.capacite_1.description;
-    if (varObjVoieFamille !== null) {
-        varTxtCapacite1 = varTxtCapacite1 + "<br> <b><u> Capacité du peuple :</u> " + varObjVoiePeuple.capacite_1.nom + " : </b>" + varObjVoiePeuple.capacite_1.description;
-    }
-
-    varTabVoieAffichable[0] = {
-        "rang": varObjVoieAAfficher.capacite_1.rang,
-        "nom": varObjVoieAAfficher.capacite_1.nom,
-        "description": varTxtCapacite1,
-        "complement": ""};
-    varTabVoieAffichable[1] = {
-        "rang": varObjVoieAAfficher.capacite_2.rang,
-        "nom": varObjVoieAAfficher.capacite_2.nom,
-        "description": varObjVoieAAfficher.capacite_2.description,
-        "complement": ""};
-    varTabVoieAffichable[2] = {
-        "rang": varObjVoieAAfficher.capacite_3.rang,
-        "nom": varObjVoieAAfficher.capacite_3.nom,
-        "description": varObjVoieAAfficher.capacite_3.description,
-        "complement": ""};
-    varTabVoieAffichable[3] = {
-        "rang": varObjVoieAAfficher.capacite_4.rang,
-        "nom": varObjVoieAAfficher.capacite_4.nom,
-        "description": varObjVoieAAfficher.capacite_4.description,
-        "complement": ""};
-    varTabVoieAffichable[4] = {
-        "rang": varObjVoieAAfficher.capacite_5.rang,
-        "nom": varObjVoieAAfficher.capacite_5.nom,
-        "description": varObjVoieAAfficher.capacite_5.description,
-        "complement": ""};
-    remplirVoieAvecTabCapacite(document.getElementById("ZONE_VOIE_PEUPLE"), varTabVoieAffichable);
-
-}
-
 /************************************************************************************
  * Affiche les données d'une voie dans une zone d'affichage d'une voie.
  * @param {object} parZoneVoie : Objet DOM correspondant à la zone (FILDSET) de la 
@@ -286,7 +173,7 @@ function construireTextCapacite(parZoneCapacite) {
     let varValeurDescriptionCapacite = parZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value;
     let varComplementCapacite = parZoneCapacite.getElementsByClassName("txtComplementCapacite")[0].value;
     
-    varTexteDeLaCapacite = "<b>" + varValeurRangCapacite + ". " + varValeurNomCapacite + " : </b>";
+    let varTexteDeLaCapacite = "<b>" + varValeurRangCapacite + ". " + varValeurNomCapacite + " : </b>";
     varTexteDeLaCapacite = varTexteDeLaCapacite + varValeurDescriptionCapacite;
     
     parZoneCapacite.getElementsByClassName("txtCapacite")[0].innerHTML = DOMPurify.sanitize(varTexteDeLaCapacite);
@@ -420,59 +307,6 @@ function initSelectProfils() {
     }
 }
 
-/********************************************************************
- Initialisation de la liste des la voie de peuple qui dépend de la
- famille.
- ********************************************************************/
-function initSelectVoiesFamille() {
-    let selVoieFamille = document.getElementById("SEL_VOIE_FAMILLE");
-    let tabVoies = [];
-    let idFamilleCourante = document.getElementById("SEL_FAMILLE").value;
-    let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
-
-    // Vidange de la liste des voies de famille
-    while (selVoieFamille.options.length > 0) {
-        selVoieFamille.remove(0);
-    }
-
-    let option = document.createElement('option');
-    option.text = "";
-    option.value = "";
-    selVoieFamille.add(option);
-
-
-    // Récupération des voies de la famille actuellement sélectionnée.
-    if (idFamilleCourante !== "") {
-        let tabIdVoiesDeLaFamille = searchObjectById(dataFamilles.familles, idFamilleCourante).voies; // Tableau des voies de la famille sélectionnée.
-        if (tabIdVoiesDeLaFamille === undefined) {
-            console.error("La famille " + idFamilleCourante + " n'existe pas ou n'a pas d'attribut \"voies\".");
-            return;
-        }
-        if (tabIdVoiesDeLaFamille.length > 0) {
-            for (let varIdVoie of tabIdVoiesDeLaFamille) {
-                let varVoie = searchObjectById(tabToutesVoiesPeuple, varIdVoie);
-                if (varVoie !== null) {
-                    tabVoies.push(varVoie);
-                }
-            }
-
-            // Remplissage de la liste des voies de la famille.
-            for (let varVoie of tabVoies) {
-                let option = document.createElement('option');
-                option.text = varVoie.nom;
-                option.value = varVoie.id;
-                selVoieFamille.add(option);
-            }
-
-            // Affichage de la liste
-            selVoieFamille.style.display = "inline";
-        } else {
-            // Effacement de la liste
-            selVoieFamille.style.display = "none";
-        }
-    }
-}
-
 /*******************************************************************************
  * Rajoute à la liste des type de voie du peuple les voies
  * de la famille (si elle en a).
@@ -511,17 +345,129 @@ function initSelectTypeVoiePeuple() {
     }
 }
 
+/*****************************************************************************************
+ Prépare les données pour remplir la zone des données de la voie du peuple.
+ *****************************************************************************************/
+function remplirCapacitesVoiePeuple() {
+    let selVoiePeuple = document.getElementById("SEL_VOIE_PEUPLE");
+    let selVoieFamille = document.getElementById("SEL_VOIE_FAMILLE");
+    let selFamille = document.getElementById("SEL_FAMILLE");
+
+    // Récupération de la voie du peuple
+    let varObjPeuple = searchObjectById(dataPeuples.peuples, selVoiePeuple.value);
+    if (varObjPeuple === null) {
+        console.error("Le peuple '" + selVoiePeuple.value + "' n'a pas pu être trouvé dans la collection des données des peuples.");
+        return;
+    }
+    let varObjVoiePeuple = getVoieWithGroupe(selVoiePeuple.value, varObjPeuple.groupe_voies);
+    if (varObjVoiePeuple === null)
+    {
+        console.error("La voie '" + selVoiePeuple.value + "' du groupe '" + varObjPeuple.groupe_voies + "' n'a pas été trouvée dans les données des voies.");
+        return;
+    }
+
+    // Récupération de la voie de la famille (si elle n'est pas vide)
+    let varObjVoieFamille = null;
+    if (selVoieFamille.value !== "") {
+        let varObjFamille = searchObjectById(dataFamilles.familles, selFamille.value);
+        if (varObjFamille !== null) {
+            varObjVoieFamille = getVoieWithGroupe(selVoieFamille.value, varObjFamille.groupe_voies);
+        }
+    }
+
+    // Remplissage des zones de la zone de la voie
+    let varObjVoieAAfficher = varObjVoiePeuple;
+    if (varObjVoieFamille !== null) {
+        varObjVoieAAfficher = varObjVoieFamille;
+    }
+
+    let varTabVoieAffichable = [];
+    let varTxtCapacite1 = varObjVoieAAfficher.capacite_1.description;
+    if (varObjVoieFamille !== null) {
+        varTxtCapacite1 = varTxtCapacite1 + "<br> <b><u> Capacité du peuple :</u> " + varObjVoiePeuple.capacite_1.nom + " : </b>" + varObjVoiePeuple.capacite_1.description;
+    }
+
+    varTabVoieAffichable[0] = {
+        "rang": varObjVoieAAfficher.capacite_1.rang,
+        "nom": varObjVoieAAfficher.capacite_1.nom,
+        "description": varTxtCapacite1,
+        "complement": ""};
+    varTabVoieAffichable[1] = {
+        "rang": varObjVoieAAfficher.capacite_2.rang,
+        "nom": varObjVoieAAfficher.capacite_2.nom,
+        "description": varObjVoieAAfficher.capacite_2.description,
+        "complement": ""};
+    varTabVoieAffichable[2] = {
+        "rang": varObjVoieAAfficher.capacite_3.rang,
+        "nom": varObjVoieAAfficher.capacite_3.nom,
+        "description": varObjVoieAAfficher.capacite_3.description,
+        "complement": ""};
+    varTabVoieAffichable[3] = {
+        "rang": varObjVoieAAfficher.capacite_4.rang,
+        "nom": varObjVoieAAfficher.capacite_4.nom,
+        "description": varObjVoieAAfficher.capacite_4.description,
+        "complement": ""};
+    varTabVoieAffichable[4] = {
+        "rang": varObjVoieAAfficher.capacite_5.rang,
+        "nom": varObjVoieAAfficher.capacite_5.nom,
+        "description": varObjVoieAAfficher.capacite_5.description,
+        "complement": ""};
+    remplirVoieAvecTabCapacite(document.getElementById("ZONE_VOIE_PEUPLE"), varTabVoieAffichable);
+
+}
+
+/*****************************************************************
+* Cette fonction remplie la liste de choix de la voie
+* du peuple en récupérant les voies autorisées pour le peuple
+* sélectionné et les voies autorisées pour la famille selectionnée.
+* @param {item} parSelectVoie Item contenant la liste de choix (SELECT) des voies.
+******************************************************************/
+function initSelectVoiesPeuple(parSelectVoie) {
+    let tabVoies = [];
+    let peupleCourant = document.getElementById("SEL_PEUPLE").value;
+    let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
+
+    // Vidange de la liste des voies de peuple
+    while (parSelectVoie.options.length > 0) {
+        parSelectVoie.remove(0);
+    }
+
+    // Récupération des voies du peuple actuellement sélectionné
+    if (peupleCourant !== "") {
+        let tabIdVoiesDuPeuple = searchObjectById(dataPeuples.peuples, peupleCourant).voies; // Tableau des voies du peuple sélectionné.
+        if (tabIdVoiesDuPeuple === undefined) {
+            console.error("Le peuple " + peupleCourant + " n'existe pas ou n'a pas d'attribut \"voies\".");
+            return;
+        }
+        if (tabIdVoiesDuPeuple.length > 0) {
+            for (let varIdVoie of tabIdVoiesDuPeuple) {
+                let varVoie = searchObjectById(tabToutesVoiesPeuple, varIdVoie);
+                if (varVoie !== null) {
+                    tabVoies.push(varVoie);
+                }
+            }
+        }
+    }
+
+    // Remplissage de la liste des voies du peuple.
+    for (let varVoie of tabVoies) {
+        let option = document.createElement('option');
+        option.text = varVoie.nom;
+        option.value = varVoie.id;
+        parSelectVoie.add(option);
+    }
+}
 
 /*******************************************************************************
- * Rempli les listes de sélection des voies hybrides.
- * @param {item} parSelectVoieHybride Item contenant la liste de choix (SELECT) des profils.
+ * Rempli les listes de sélection des voies pour les profils hybride.
+ * @param {item} parSelectVoie Item contenant la liste de choix (SELECT) des voies.
  *******************************************************************************/
-function initSelectVoiesHybride(parSelectVoieHybride) {
+function initSelectVoiesProfil(parSelectVoie) {
     // Récupération du profil actuellement sélectionné
     let varProfilCourant = document.getElementById("SEL_PROFIL").value;
 
     // On commence par vider la liste
-    parSelectVoieHybride.innerText = "";
+    parSelectVoie.innerText = "";
 
     // Pour chaque famille
     for (let varFamille of dataFamilles.familles) {
@@ -532,7 +478,7 @@ function initSelectVoiesHybride(parSelectVoieHybride) {
                 // On ajoute un groupe "Famille => Profil" à la liste de sélection de profil hybride
                 let varOptGroup = document.createElement('optgroup');
                 varOptGroup.setAttribute("label", varFamille.nom + " - " + varProfil.nom);
-                parSelectVoieHybride.add(varOptGroup);
+                parSelectVoie.add(varOptGroup);
 
                 // Puis pour chaque voie du profil
                 let varDetailProfil = searchObjectById(dataVoies.groupesVoies, varProfil.id);
@@ -542,7 +488,7 @@ function initSelectVoiesHybride(parSelectVoieHybride) {
                         let varOption = document.createElement('option');
                         varOption.text = varVoie.nom;
                         varOption.value = encodeURIComponent(varProfil.id) + ";" + encodeURIComponent(varVoie.id);
-                        parSelectVoieHybride.add(varOption);
+                        parSelectVoie.add(varOption);
                     }
                 } else {
                     console.warn("Le détail des voies du profil \"" + varProfil.id + "\" n'a pas été trouvé.");
@@ -553,103 +499,223 @@ function initSelectVoiesHybride(parSelectVoieHybride) {
 }
 
 /******************************************************************************
- * Gère l'affichage de tous les zones de voie de profil et initialise
- * les listes de choix en fonction du profil du personnage.
+ * Gère les entêtes de toutes les zones de voie et initialise
+ * les listes de choix en fonction du personnage.
  ******************************************************************************/
-function gereVoiesProfil() {
+function gereVoies() {
     // Récupération des toutes les zones de voie
-    let varTabZoneVoie = document.getElementsByClassName("zoneVoieProfil");
+    let varTabZoneVoie = document.getElementsByClassName("zoneVoie");
 
     // Pour chaque zone de voie
     for (let varZoneVoie of varTabZoneVoie) {
-        // On rempli la liste de selection des voies hybrides
-        let varSelVoieHybride = varZoneVoie.getElementsByClassName("selectVoieHybride")[0];
-        initSelectVoiesHybride(varSelVoieHybride);
-        
-        // On gère les affichages de la zone
-        gereVoieProfil(varZoneVoie);
+        gereVoie(varZoneVoie);
     }
 }
 
 /******************************************************************************
- * Gère l'affichage de la zone de voie du peuple. 
- ******************************************************************************/
-function gereVoiePeuple() {
-    console.log("gereVoiePeuple");
-}
-
-/******************************************************************************
- * Gère l'affichage de la zone de voie de profil dont l'item (frameset) est
+ * Gère l'entête de la zone de voie dont l'item (frameset) est
  * passé en paramètre. 
  * @param {type} parZoneVoie Item contenant la zone de la voie.
  ******************************************************************************/
-function gereVoieProfil(parZoneVoie) {
+function gereVoie(parZoneVoie) {
+    let varCategVoie = parZoneVoie.getAttribute("data-categ-voie");
     
-    // Récupération du type de voie du profil
-    let varStrTypeVoieProfil = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
+    if (varCategVoie === "profil") {
+        gereVoieProfil(parZoneVoie);
+    }
+    else if (varCategVoie === "peuple") {
+        gereVoiePeuple(parZoneVoie);
+    }
+}
+
+/******************************************************************************
+ * Gère l'entête de la zone de voie profil dont l'item (frameset) est
+ * passé en paramètre. 
+ * @param {type} parZoneVoie Item contenant la zone de la voie de profil.
+ ******************************************************************************/
+function gereVoieProfil(parZoneVoie) {
+    // Récupération du numéro de la voie de profil
+    let varIntNumVoieProfil = Number(parZoneVoie.getAttribute("data-num-voie-profil"));
+        
+    // Récupération du type de voie
+    let varStrTypeVoie = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
+    
+
+    // Si c'est la voie standard
+    if (varStrTypeVoie === "STANDARD") {
+        // Récupération du profil actuellement sélectionné
+        let varProfilCourant = document.getElementById("SEL_PROFIL").value;
+        
+        // On affiche la zone de texte contenant le nom de la voie de profil standard
+        let varTxtVoieStandard = parZoneVoie.getElementsByClassName("txtVoieStandard")[0];
+        varTxtVoieStandard.style.display = "inline";
+        let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varProfilCourant);
+        if(varObjGroupeVoie !== null) {
+            varTxtVoieStandard.value = varObjGroupeVoie.voies[varIntNumVoieProfil].nom;
+        }
+            
+        // On efface la liste de choix des voies pour les profils hybrides
+        parZoneVoie.getElementsByClassName("selectVoie")[0].style.display = "none";
+        
+        // On efface la zone de texte contenant le nom de la voie personnalisée
+        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
+        varTxtVoiePerso.style.display = "none";
+        
+        afficheCapacitesVoieProfil(parZoneVoie);
+
+    } else if (varStrTypeVoie === "HYBRIDE") {
+        // On affiche la liste de choix des voies pour les profils hybrides ert on la rempli
+        let varSelVoie = parZoneVoie.getElementsByClassName("selectVoie")[0];
+        varSelVoie.style.display = "inline";
+        initSelectVoiesProfil(varSelVoie);
+
+        // On efface la zone de texte contenant le nom de la voie de profil standard
+        let varTxtVoieStandard = parZoneVoie.getElementsByClassName("txtVoieStandard")[0];
+        varTxtVoieStandard.style.display = "none";
+
+        // On efface la zone de texte contenant le nom de la voie personnalisée
+        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
+        varTxtVoiePerso.style.display = "none";
+        
+        afficheCapacitesVoieProfil(parZoneVoie);
+
+    } else if (varStrTypeVoie === "PERSO") {
+        // On efface la liste de choix des voies pour les profils hybrides
+        parZoneVoie.getElementsByClassName("selectVoie")[0].style.display = "none";
+
+        // On efface la zone de texte contenant le nom de la voie de profil standard
+        let varTxtVoieStandard = parZoneVoie.getElementsByClassName("txtVoieStandard")[0];
+        varTxtVoieStandard.style.display = "none";
+
+        // On affiche la zone de texte contenant le nom de la voie personnalisée
+        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
+        varTxtVoiePerso.style.display = "inline";
+    }
+}
+
+/******************************************************************************
+ * Gère l'affichage de la zone de voie de peuple dont l'item (frameset) est
+ * passé en paramètre. 
+ * @param {type} parZoneVoie Item contenant la zone de la voie de peuple.
+ ******************************************************************************/
+function gereVoiePeuple(parZoneVoie) {
+    
+    // Récupération du type de voie
+    let varStrTypeVoie = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
+    
+
+    // Si c'est la voie standard du peuple
+    if (varStrTypeVoie === "STANDARD") {
+        // On affiche la liste de choix des voies du peuple et on rempli la liste
+        let varSelVoie = parZoneVoie.getElementsByClassName("selectVoie")[0];
+        varSelVoie.style.display = "inline";
+        initSelectVoiesPeuple(varSelVoie);
+        
+        // On efface la zone de texte contenant le nom standard (inutile pour les peuple)
+        let varTxtVoieStandard = parZoneVoie.getElementsByClassName("txtVoieStandard")[0];
+        varTxtVoieStandard.style.display = "none";
+
+        // On efface la zone de texte contenant le nom de la voie personnalisée
+        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
+        varTxtVoiePerso.style.display = "none";
+        
+        afficheCapacitesVoiePeuple(parZoneVoie);
+
+    } else if (varStrTypeVoie === "PERSO") {
+        // On efface la liste de choix des voies pour les profils hybrides
+        parZoneVoie.getElementsByClassName("selectVoie")[0].style.display = "none";
+
+        // On efface la zone de texte contenant le nom de la voie de profil standard
+        let varTxtVoieStandard = parZoneVoie.getElementsByClassName("txtVoieStandard")[0];
+        varTxtVoieStandard.style.display = "none";
+
+        // On affiche la zone de texte contenant le nom de la voie personnalisée
+        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
+        varTxtVoiePerso.style.display = "inline";
+    }
+}
+
+/*******************************************************************************
+ * Affiche les capacités de la zone de voie passée en paramètre en fonction
+ * des zones de son entête.
+ * @param {type} parZoneVoie Item contenant la zone de la voie.
+ *******************************************************************************/
+function afficheCapacitesVoie(parZoneVoie) {
+    let varCategVoie = parZoneVoie.getAttribute("data-categ-voie");
+    
+    if (varCategVoie === "profil") {
+        afficheCapacitesVoieProfil(parZoneVoie);
+    }
+    else if (varCategVoie === "peuple") {
+        afficheCapacitesVoiePeuple(parZoneVoie);
+    }
+}
+
+
+/*******************************************************************************
+ * Affiche les capacité de la zone de voie de peuple passée en paramètre
+ * @param {type} parZoneVoie Item contenant la zone de la voie.
+ *******************************************************************************/
+function afficheCapacitesVoiePeuple(parZoneVoie) {
+    let varIdPeuple = document.getElementById("SEL_PEUPLE").value;
+    let varIdVoie = parZoneVoie.getElementsByClassName("selectVoie")[0].value;
+
+    // Récupération des données du peuple
+    let varObjPeuple = searchObjectById(dataPeuples.peuples, varIdPeuple);
+    if (varObjPeuple === null) {
+        console.error("Le peuple '" + varIdPeuple + "' n'a pas pu être trouvé dans la collection des données des peuples.");
+        return;
+    }
+    
+    // Récupération de la voie du peuple
+    let varObjVoiePeuple = getVoieWithGroupe(varIdVoie, varObjPeuple.groupe_voies);
+    if (varObjVoiePeuple === null) {
+        console.error("La voie '" + varIdVoie + "' du groupe '" + varObjPeuple.groupe_voies + "' n'a pas été trouvée dans les données des voies.");
+        return;
+    }
+
+    // On affiche les capacités de la voie standard du profil
+    remplirVoieAvecObjVoie(parZoneVoie, varObjVoiePeuple);
+}
+
+/*******************************************************************************
+ * Affiche les capacités de la zone de voie de profil passée en paramètre
+ * @param {type} parZoneVoie Item contenant la zone de la voie.
+ *******************************************************************************/
+function afficheCapacitesVoieProfil(parZoneVoie) {
+    let varObjVoie = null;
     
     // Récupération du numéro de la voie de profil
     let varIntNumVoieProfil = Number(parZoneVoie.getAttribute("data-num-voie-profil"));
-
-    // Si c'est la voie par défaut du profil
-    if (varStrTypeVoieProfil === "PROFIL") {
-        // On efface la liste de choix des voies pour les profils hybrides
-        parZoneVoie.getElementsByClassName("selectVoieHybride")[0].style.display = "none";
         
-        // On affiche la zone de texte contenant le nom de la voie de profil standard
-        let varTxtVoieProfilStandard = parZoneVoie.getElementsByClassName("txtVoieProfilStandard")[0];
-        varTxtVoieProfilStandard.style.display = "inline";
-
-        // On efface la zone de texte contenant le nom de la voie personnalisée
-        let varTxtVoieProfilPerso = parZoneVoie.getElementsByClassName("txtVoieProfilPerso")[0];
-        varTxtVoieProfilPerso.style.display = "none";
+    // Récupération du type de voie
+    let varStrTypeVoie = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
         
+    // Si c'est la voie standard
+    if (varStrTypeVoie === "STANDARD") {
         // Récupération du profil actuellement sélectionné
         let varProfilCourant = document.getElementById("SEL_PROFIL").value;
         
         // On récupère la voie du profil correspondant à l'ordre
         let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varProfilCourant);
         if(varObjGroupeVoie !== null) {
-            varTxtVoieProfilStandard.value = varObjGroupeVoie.voies[varIntNumVoieProfil].nom;
-        
             // On affiche les capacités de la voie standard du profil
-            remplirVoieAvecObjVoie(parZoneVoie, varObjGroupeVoie.voies[varIntNumVoieProfil]);
+            varObjVoie = varObjGroupeVoie.voies[varIntNumVoieProfil];
         }
         else {
             console.warn("Le détail de la voie du profil \"" + varProfilCourant + "\" n'a pas été trouvé.");
-        }
-        
-    } else if (varStrTypeVoieProfil === "HYBRIDE") {
-        // On affiche la liste de choix des voies pour les profils hybrides
-        parZoneVoie.getElementsByClassName("selectVoieHybride")[0].style.display = "inline";
+        }    
 
-        // On efface la zone de texte contenant le nom de la voie de profil standard
-        let varTxtVoieProfilStandard = parZoneVoie.getElementsByClassName("txtVoieProfilStandard")[0];
-        varTxtVoieProfilStandard.style.display = "none";
-
-        // On efface la zone de texte contenant le nom de la voie personnalisée
-        let varTxtVoieProfilPerso = parZoneVoie.getElementsByClassName("txtVoieProfilPerso")[0];
-        varTxtVoieProfilPerso.style.display = "none";
-        
+    } else if (varStrTypeVoie === "HYBRIDE") {
         // On affiche les capacités de la voie du profil hybride
-        let varTabIdVoieProfil = parZoneVoie.getElementsByClassName("selectVoieHybride")[0].value.split(";");
-        let varObjVoie = getVoieWithGroupe(decodeURIComponent(varTabIdVoieProfil[1]), decodeURIComponent(varTabIdVoieProfil[0]));
-        remplirVoieAvecObjVoie(parZoneVoie, varObjVoie);
-
-    } else if (varStrTypeVoieProfil === "PERSO") {
-        // On efface la liste de choix des voies pour les profils hybrides
-        parZoneVoie.getElementsByClassName("selectVoieHybride")[0].style.display = "none";
-
-        // On efface la zone de texte contenant le nom de la voie de profil standard
-        let varTxtVoieProfilStandard = parZoneVoie.getElementsByClassName("txtVoieProfilStandard")[0];
-        varTxtVoieProfilStandard.style.display = "none";
-
-        // On affiche la zone de texte contenant le nom de la voie personnalisée
-        let varTxtVoieProfilPerso = parZoneVoie.getElementsByClassName("txtVoieProfilPerso")[0];
-        varTxtVoieProfilPerso.style.display = "inline";
+        let varTabIdVoieProfil = parZoneVoie.getElementsByClassName("selectVoie")[0].value.split(";");
+        
+        // On affiche la voie sélectionnée
+        varObjVoie = getVoieWithGroupe(decodeURIComponent(varTabIdVoieProfil[1]), decodeURIComponent(varTabIdVoieProfil[0])); 
     }
+    
+    remplirVoieAvecObjVoie(parZoneVoie, varObjVoie);  
 }
-
 
 /*************************************************************************
  * Fonction recevant un tableau d'objet et qui retourne l'objet
