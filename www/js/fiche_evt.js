@@ -23,12 +23,11 @@ function initEventListners() {
     for (let varTxtDefArmure of document.getElementsByClassName("txtDefArmure")) {
         varTxtDefArmure.addEventListener('change', txtDefArmureOnChange);
     }
-    
     for (let varSelectTypeVoie of document.getElementsByClassName("selectTypeVoie")) {
         varSelectTypeVoie.addEventListener('change', selTypeVoieOnChange);
     }
     for (let varSelVoieHybride of document.getElementsByClassName("selectVoie")) {
-        varSelVoieHybride.addEventListener('change', selVoieHybrideOnChange);
+        varSelVoieHybride.addEventListener('change', selVoieOnChange);
     }
     for (let varZoneCapacite of document.getElementsByClassName("btnModifCapacite")) {
         varZoneCapacite.addEventListener('click', zoneCapaciteOnClick);
@@ -135,7 +134,7 @@ function selFamilleOnChange() {
     initSelectTypeVoiePeuple();
 
     remplirDesRecuperation();
-    gereVoiesProfil();
+    gereVoies();
 }
 
 /********************************************************************
@@ -158,6 +157,6 @@ function selTypeVoieOnChange(event) {
  * de voie.
  * @param {event} event Evénement permettant de retrouver la zone à gérer.
  ********************************************************************/
-function selVoieHybrideOnChange(event) {
+function selVoieOnChange(event) {
         afficheCapacitesVoie(event.currentTarget.parentNode.parentNode);
 }
