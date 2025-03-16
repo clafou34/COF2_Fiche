@@ -15,4 +15,7 @@ dialog#dlgCapacite #DLGCAPACITE_TXT_RANG {
     width: 4em;
 }
 
-
+dialog#dlgCapacite textarea {
+    resize: vertical;
+    height: auto;
+}

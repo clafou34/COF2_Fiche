@@ -26,8 +26,8 @@ function initEventListners() {
     for (let varSelectTypeVoie of document.getElementsByClassName("selectTypeVoie")) {
         varSelectTypeVoie.addEventListener('change', selTypeVoieOnChange);
     }
-    for (let varSelVoieHybride of document.getElementsByClassName("selectVoie")) {
-        varSelVoieHybride.addEventListener('change', selVoieOnChange);
+    for (let varSelectVoie of document.getElementsByClassName("selectVoie")) {
+        varSelectVoie.addEventListener('change', selVoieOnChange);
     }
     for (let varZoneCapacite of document.getElementsByClassName("btnModifCapacite")) {
         varZoneCapacite.addEventListener('click', zoneCapaciteOnClick);
@@ -141,7 +141,7 @@ function selFamilleOnChange() {
  * Gestion de l'événement "OnChange" de la liste de choix des profils.
  ********************************************************************/
 function selProfilOnChange() {
-    gereVoiesProfil();
+    gereVoies();
 }
 
 /*************************************************************************
@@ -158,5 +158,7 @@ function selTypeVoieOnChange(event) {
  * @param {event} event Evénement permettant de retrouver la zone à gérer.
  ********************************************************************/
 function selVoieOnChange(event) {
-        afficheCapacitesVoie(event.currentTarget.parentNode.parentNode);
+        let varZoneCapacite = event.currentTarget.parentNode.parentNode;
+        initZonesCapacites(varZoneCapacite);
+        afficherTextCapacite(varZoneCapacite);
 }

@@ -33,16 +33,18 @@ dialog .dlgEntete button {
     right: 1px;
     top:1px;
     margin:0;
-    border-width: 2px;
+    border: none;
     vertical-align: middle;
     text-align: center;
     font-weight: bold;
     background-color: #ac8a3c;
-    border: 1px solid #ac8a3c;
+    transition-duration: 0.4s;
+    outline: none;
 }
 
-dialog .dlgEntete button {
-  transition-duration: 0.4s;
+dialog .dlgEntete button:focus {
+    background-color: #5f460d;
+    outline: none;
 }
 
 dialog .dlgEntete button:hover {
