@@ -15,7 +15,21 @@ dialog#dlgCapacite #DLGCAPACITE_TXT_RANG {
     width: 4em;
 }
 
+dialog#dlgCapacite input:disabled {
+    appearance: none;
+    border: none;
+}
+
 dialog#dlgCapacite textarea {
     resize: vertical;
     height: auto;
+    width: 100%;
 }
+
+dialog#dlgCapacite .dlgCapaciteDisplay {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size:75%;
+    color: black;
+}
+

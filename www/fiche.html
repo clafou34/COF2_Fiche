@@ -28,7 +28,7 @@
                             </div>
                             <div>
                                 <label for="TXT_NIVEAU">Niveau</label>
-                                <span><input type="number" id="TXT_NIVEAU" min="1" max="30"/></span>
+                                <span><input type="number" inputmode="numeric" id="TXT_NIVEAU" min="1" max="30"/></span>
                             </div>
                             <div>
                                 <label for="SEL_FAMILLE">Famille</label>
@@ -107,7 +107,7 @@
                         <fieldset id="zoneInitiative" class="champs_niv1" title="Initiative">
                             <legend>INIT</legend>
                             <div>
-                                <input type="number" id="INITIATIVE_COURANTE" name="INITIATIVE_COURANTE"/>
+                                <input type="number"  inputmode="numeric" id="INITIATIVE_COURANTE" name="INITIATIVE_COURANTE"/>
                             </div>
                         </fieldset>
                         <fieldset id="zoneVigueur" class="champs_niv1" title="Points de vigueur">
@@ -128,7 +128,7 @@
                                 <span class="labelAide">=&nbsp;</span><span class="labelAide valeurAide">10</span>
                                 <span class="labelAide">+ AGI:</span><span id="lblAgiDefense" class="labelAide valeurAide"></span>
                                 <span class="labelAide">+ ARMURE: </span><span id="lblDefenseArmure" class="labelAide valeurAide" title="Somme des défenses des armures portées"/></span>
-                                <span class="labelAide">+ AUTRE: </span><input type="number" id="TXT_DEF_AUTRE" title="Autre bonus de défense"/>
+                                <span class="labelAide">+ AUTRE: </span><input type="number" inputmode="numeric" id="TXT_DEF_AUTRE" title="Autre bonus de défense"/>
                             </div>
                         </fieldset>
                     </div>
@@ -192,15 +192,15 @@
                         <div class="groupe_unique">
                             <span>
                                 <label for="TXT_NB_PO">PO </label>
-                                <input type="number" id="TXT_NB_PO" title="Nombre de pièces d'or"/>
+                                <input type="number" inputmode="numeric" id="TXT_NB_PO" title="Nombre de pièces d'or"/>
                             </span>
                             <span>
                                 <label for="TXT_NB_PA">PA </label>
-                                <input type="number" id="TXT_NB_PA" title="Nombre de pièces d'argent"/>
+                                <input type="number" inputmode="numeric" id="TXT_NB_PA" title="Nombre de pièces d'argent"/>
                             </span>
                             <span>
                                 <label for="TXT_NB_PC">PC </label>
-                                <input type="number" id="TXT_NB_PC" title="Nombre de pièces de cuivre"/>
+                                <input type="number" inputmode="numeric" id="TXT_NB_PC" title="Nombre de pièces de cuivre"/>
                             </span>
                         </div>
                     </fieldset>
@@ -292,7 +292,7 @@
                             <input type="text" id="TXT_NOM_ARMURE_1" class="txtNomArmure"/>
                             <label for="TXT_DEF_ARMURE_1">DEF</label>
                             <span>
-                                <input type="number" id="TXT_DEF_ARMURE_1" class="txtDefArmure"/>
+                                <input type="number" inputmode="numeric" id="TXT_DEF_ARMURE_1" class="txtDefArmure"/>
                                 <label for="TXT_AGI_ARMURE_1">AGI. MAX.</label>
                                 <input type="text" id="TXT_AGI_ARMURE_1" class="txtAgiArmure"/>
                             </span>
@@ -303,7 +303,7 @@
                             <input type="text" id="TXT_NOM_ARMURE_2" class="txtNomArmure"/>
                             <label for="TXT_DEF_ARMURE_2">DEF</label>
                             <span>
-                                <input type="number" id="TXT_DEF_ARMURE_2" class="txtDefArmure"/>
+                                <input type="number" inputmode="numeric" id="TXT_DEF_ARMURE_2" class="txtDefArmure"/>
                                 <label for="TXT_AGI_ARMURE_2">AGI. MAX.</label>
                                 <input type="text" id="TXT_AGI_ARMURE_2" class="txtAgiArmure"/>
                             </span>
@@ -314,7 +314,7 @@
                             <input type="text" id="TXT_NOM_ARMURE_3" class="txtNomArmure"/>
                             <label for="TXT_DEF_ARMURE_3">DEF</label>
                             <span>
-                                <input type="number" id="TXT_DEF_ARMURE_3" class="txtDefArmure"/>
+                                <input type="number" inputmode="numeric" id="TXT_DEF_ARMURE_3" class="txtDefArmure"/>
                                 <label for="TXT_AGI_ARMURE_3">AGI. MAX.</label>
                                 <input type="text" id="TXT_AGI_ARMURE_3" class="txtAgiArmure"/>
                             </span>
@@ -341,7 +341,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -352,7 +352,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -363,7 +363,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -374,7 +374,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -385,7 +385,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -411,7 +411,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -422,7 +422,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -433,7 +433,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -444,7 +444,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -455,7 +455,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -481,7 +481,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -492,7 +492,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -503,7 +503,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -514,7 +514,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -525,7 +525,7 @@
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
                                 <span class="btnModifCapacite"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                                <span class="txtCapacite"></span>
+                                <span class="displayTitreCapacite"></span><span class="displayDescriptionCapacite"></span>
                             </div>
                             <input type="hidden" class="txtRangCapacite"/>
                             <input type="hidden" class="txtNomCapacite"/>
@@ -545,13 +545,24 @@
             <form>
                 <div class="groupe_unique">
                     <label for="DLGCAPACITE_TXT_RANG">Rang</label>
-                    <input type="number" id="DLGCAPACITE_TXT_RANG" title="Rang de la capacité" min="1" max="20"/>
+                    <span>
+                        <input type="number" inputmode="numeric" id="DLGCAPACITE_TXT_RANG" title="Rang de la capacité" min="1" max="20"/>
+                        <span class="dlgCapaciteDisplayRang dlgCapaciteDisplay"></span>
+                    </span>
                     <label for="DLGCAPACITE_TXT_NOM">Nom</label>
-                    <input type="text" id="DLGCAPACITE_TXT_NOM" title="Nom de la capacité"/>
+                    <span>
+                        <input type="text" id="DLGCAPACITE_TXT_NOM" title="Nom de la capacité"/>
+                        <span class="dlgCapaciteDisplayNom dlgCapaciteDisplay"></span>
+                    </span>
                     <label for="DLGCAPACITE_TXT_DESCRIPTION">Description</label>
-                    <textarea id="DLGCAPACITE_TXT_DESCRIPTION"></textarea>
+                    <span>
+                        <textarea id="DLGCAPACITE_TXT_DESCRIPTION"></textarea>
+                        <span class="dlgCapaciteDisplayDescription dlgCapaciteDisplay"></span>
+                    </span>
                     <label for="DLGCAPACITE_TXT_COMPLEMENT">Complément</label>
-                    <textarea id="DLGCAPACITE_TXT_COMPLEMENT"></textarea>
+                    <span>
+                        <textarea id="DLGCAPACITE_TXT_COMPLEMENT"></textarea>
+                    </span>
                 </div>
             </form>
             <div class="dlgPied">
@@ -567,7 +578,7 @@
     <script type="text/javascript" src="data/familles.js"></script>
     <script type="text/javascript" src="data/peuples.js"></script>
     <script type="text/javascript" src="data/voies.js"></script>
-    <script type="text/javascript" src="js/fiche_dlgCapacite.js"></script>
+    <script type="text/javascript" src="js/dlgCapacite.js"></script>
     <script type="text/javascript" src="js/fiche_metier.js"></script>
     <script type="text/javascript" src="js/fiche_evt.js"></script>
 </html>

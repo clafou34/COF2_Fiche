@@ -523,15 +523,19 @@ div.zoneCapacite > div.chkCapacite > input {
     vertical-align: middle;
 }
 
-div.contenuCapacite > .txtCapacite {
+div.contenuCapacite > .displayDescriptionCapacite {
     padding-top: 2px;
     padding-bottom: 2px;
     font-size:75%;
     color: black;
 }
 
-div.zoneCapacite > .commentCapacite > textarea {
-    width: 100%;
+div.contenuCapacite > .displayTitreCapacite {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size:75%;
+    color: black;
+    font-weight: bold;
 }
 
 div.zoneCapacite .btnModifCapacite img {

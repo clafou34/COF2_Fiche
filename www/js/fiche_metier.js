@@ -137,21 +137,18 @@ function afficherTextCapacite(parZoneVoie) {
         let varValeurDescriptionCapacite = varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value;
         let varComplementCapacite = varZoneCapacite.getElementsByClassName("txtComplementCapacite")[0].value;
         
-        // Calcul du titre de la capacité
+        // Affichage du titre de la capacité
         let varTitreCapacite = "";
         if((varValeurRangCapacite!==null)&&(varValeurRangCapacite!==""))
             varTitreCapacite = varTitreCapacite + varValeurRangCapacite + ". ";
         if(varValeurNomCapacite!=="")
             varTitreCapacite = varTitreCapacite + varValeurNomCapacite;
+        if(varTitreCapacite.length>0)
+            varTitreCapacite = varTitreCapacite + " : ";
+        varZoneCapacite.getElementsByClassName("displayTitreCapacite")[0].innerText = varTitreCapacite;
         
-        // Calcul du contenu du texte
-        let varTexteDeLaCapacite = ""; 
-        if(varTitreCapacite!=="")
-            varTexteDeLaCapacite = varTexteDeLaCapacite + "<b>" + varTitreCapacite + " : </b>";
-        varTexteDeLaCapacite = varTexteDeLaCapacite + varValeurDescriptionCapacite;
-        
-        // Affichage du texte
-        varZoneCapacite.getElementsByClassName("txtCapacite")[0].innerHTML = DOMPurify.sanitize(varTexteDeLaCapacite);
+        // Affichage de la description de la capacité
+        varZoneCapacite.getElementsByClassName("displayDescriptionCapacite")[0].innerHTML = DOMPurify.sanitize(varValeurDescriptionCapacite);
     }
 }
 
