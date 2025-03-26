@@ -1,6 +1,23 @@
+/*
+ * Gestion de la boite de dialogue des capacités.
+ */
+
 const dlgCapacite = document.getElementById("dlgCapacite");
 let globalHtmlItemZoneCapacite = null;
 
+/*******************************************************************************
+ * Mise en place des gestionnaires d'évènement pour la boite de dialogue des capacités.
+ *******************************************************************************/
+function dlgCapaciteInitEventListners() {
+    document.getElementById("dlgCapaciteFerme").addEventListener('click', dlgCapaciteBtnCloseOnClick);
+    document.getElementById("dlgCapaciteOK").addEventListener('click', dlgCapaciteBtnOkOnClick);
+}
+
+/*******************************************************************************
+ * Affichage de la boite de dialogue de modification de la capacité pour la zone
+ * passée en paramètre.
+ * @param htmlitem parHtmlItemZoneCapacite Item contant la zone de la capacité (div)
+ *******************************************************************************/
 function dlgCapaciteOuverture(parHtmlItemZoneCapacite) {
     let varDlgCapaciteDisplayDescription = dlgCapacite.getElementsByClassName("dlgCapaciteDisplayDescription")[0];
     let varDlgCapaciteDisplayRang = dlgCapacite.getElementsByClassName("dlgCapaciteDisplayRang")[0];
@@ -45,6 +62,41 @@ function dlgCapaciteOuverture(parHtmlItemZoneCapacite) {
     dlgCapacite.showModal();
 }
 
-function dlgCapaciteHide () {
+/*******************************************************************************
+ * Evenement de click sur le bouton de fermeture de la boite de dialogue.
+ *******************************************************************************/
+function dlgCapaciteBtnCloseOnClick () {
     dlgCapacite.close();
 }
+
+/*******************************************************************************
+ * Evènement de click sur le bouton de validation ("OK") de la boite de dialogue
+ * des capacités.
+ *******************************************************************************/
+function dlgCapaciteBtnOkOnClick() {
+    dlgCapaciteValidation();
+}
+
+/*******************************************************************************
+ * Gestion de la validation de la modification de la capacité.
+ ********************************************************************************/
+function dlgCapaciteValidation() {
+    let varTypeVoie = globalHtmlItemZoneCapacite.parentNode.getElementsByClassName("selectTypeVoie")[0].value;
+    let varHtmlItemTxtRang = globalHtmlItemZoneCapacite.getElementsByClassName("txtRangCapacite")[0];
+    let varHtmlItemTxtNom = globalHtmlItemZoneCapacite.getElementsByClassName("txtNomCapacite")[0];
+    let varHtmlItemTxtDescription = globalHtmlItemZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0];
+    let varHtmlItemTxtComplement = globalHtmlItemZoneCapacite.getElementsByClassName("txtComplementCapacite")[0];
+    
+    if(varTypeVoie === "PERSO") {
+        varHtmlItemTxtRang.value = document.getElementById("DLGCAPACITE_TXT_RANG").value;
+        varHtmlItemTxtNom.value = document.getElementById("DLGCAPACITE_TXT_NOM").value;
+        varHtmlItemTxtDescription.value = document.getElementById("DLGCAPACITE_TXT_DESCRIPTION").value;
+    }
+    
+    varHtmlItemTxtComplement.value = document.getElementById("DLGCAPACITE_TXT_COMPLEMENT").value;
+    
+    afficherTextCapacite(globalHtmlItemZoneCapacite);
+    
+    dlgCapacite.close();
+}
+

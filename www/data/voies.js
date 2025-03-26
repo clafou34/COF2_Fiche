@@ -2009,6 +2009,561 @@ let dataVoies = {
                     ]
                 }
             ]
+        },
+        /***************************************************************************
+         Voies de l'ensorceleur
+         ****************************************************************************/
+        {
+            "id": "ENSORCELEUR",
+            "voies": [
+                {
+                    "id": "AIR",
+                    "nom": "AIR",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Murmures dans le vent (G)*",
+                            "description": "L’ensorceleur chuchote un message d’une dizaine de mots qui voyage jusqu’à son destinataire. " +
+                                    "Il peut entendre sa réponse immédiatement. La portée est de CHA × 100 m et le personnage doit connaître la " +
+                                    "cible ou la voir. En plus de ce sort, l’ensorceleur gagne un bonus permanent de +1 en Init. et en DEF, " +
+                                    "car parfois une bourrasque venue de nulle part vient gêner son attaquant, dévier un projectile ou lui permettre " +
+                                    "d’entendre un adversaire."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Sous tension (M)*",
+                            "description": "L’ensorceleur se charge d’énergie électrique pour CHA minutes. Pendant toute la durée " +
+                                    "du sort, une créature qui le blesse par une attaque de contact ou le touche reçoit une " +
+                                    "décharge infligeant 1d4° DM. De plus, il peut utiliser une action d’attaque à chaque " +
+                                    "round pour délivrer une décharge électrique (test d’attaque magique contre DEF de la " +
+                                    "cible, portée 10 m) infligeant [1d4°+CHA] DM."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Télékinésie (A)*",
+                            "description": "L’ensorceleur peut déplacer dans les airs un objet inerte (qui n’est pas tenu par " +
+                                    "un adversaire) ou une cible volontaire (par exemple lui‐même) dont le poids n’excède pas " +
+                                    "50 kg par rang, à une portée de 20 m et pendant CHA minutes. L’objet peut être maintenu " +
+                                    "en l’air ou déplacé de 5 m par action de mouvement. Il est possible de faire tomber un " +
+                                    "objet sur une cible surprise (test d’attaque magique, DM 1d6 par tranche de 50 kg)."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Foudre (A)*",
+                            "description": "L’ensorceleur produit un éclair sur une ligne de 10 m. Toutes les créatures sur " +
+                                    "la trajectoire subissent [4d4°+CHA] DM ou seulement la moitié pour celles qui réussissent " +
+                                    "un test d’AGI difficulté [10 + CHA]."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Forme éthérée (L)*",
+                            "description": "L’ensorceleur et tout son équipement deviennent translucides et intangibles pendant " +
+                                    "CHA minutes. Sous cette forme, il peut passer à travers murs et obstacles et ne peut subir " +
+                                    "aucun DM physiques (même infligés par une arme magique), ni en infliger, ni lancer de " +
+                                    "sorts. Il n’est pas affecté par la gravité et peut se déplacer dans toutes les directions. " +
+                                    "Il est stoppé par les barrières magiques et ne peut pas passer à travers les êtres vivants."
+                        }
+                    ]
+                },
+                {
+                    "id": "DIVINATION",
+                    "nom": "DIVINATION",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Divination (L)*",
+                            "description": "S’il emporte un test opposé d’attaque magique contre une créature de NC inférieur à " +
+                                    "son niveau (portée 10 m), l’ensorceleur devine son nom d’usage, son métier et quelques " +
+                                    "autres renseignements, tous de notoriété publique (si la cible agit sous couverture, ce " +
+                                    "sont les informations qui concernent la couverture que l’ensorceleur apprend). Si la cible " +
+                                    "du sort est volontaire et qu’il lit les lignes de sa main, il n’y a pas besoin de test et " +
+                                    "l’ensorceleur peut utiliser ce sort sur une créature de NC supérieur ou égal à son niveau. " +
+                                    "En plus de ce sort, l’ensorceleur gagne +1 en Init. et en DEF. Ce bonus augmente de +1 au rang " +
+                                    "3 de la voie et de +1 chaque fois que le personnage atteint le rang 5 dans une voie d’ensorceleur."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Détection de l’invisible (L)*",
+                            "description": "Pendant CHA minutes, l’ensorceleur détecte les créatures invisibles (le sort révèle " +
+                                    "une silhouette, mais pas l’apparence exacte de la créature) ou cachées à moins de 20 m et " +
+                                    "si un sort de Clairvoyance affecte l’endroit. Aveuglé (par magie ou dans l’obscurité), ce " +
+                                    "sort lui permet de détecter les créatures présentes (et donc d’attaquer sans malus), mais " +
+                                    "pas de distinguer son environnement."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Clairvoyance (A)*",
+                            "description": "L’ensorceleur peut voir et entendre à distance ce qui se passe dans un lieu qu’il " +
+                                    "connaît (pas de limite de portée) ou juste derrière une porte qu’il touche pendant CHA " +
+                                    "rounds (action limitée à chaque round). Les créatures présentes ont droit à un test de " +
+                                    "PER difficulté [12 + CHA de l’ensorceleur] : en cas de réussite, elles se sentent observées."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Perception héroïque",
+                            "description": "L’ensorceleur augmente sa valeur de PER de +1. Désormais, il obtient un dé bonus aux " +
+                                    "tests de PER, et il ajoute sa PER au nombre de PM dont il bénéficie."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Prescience",
+                            "description": "Une fois par combat, au début du round, le joueur peut décider qu’il a eu une vision " +
+                                    "des différents futurs possibles. Il bénéficie d’un bonus de +10 en attaque, en Défense " +
+                                    "et à tous les tests de PER pour tout le round, il divise tous les DM subis par 2 et il peut " +
+                                    "choisir d’agir à n’importe quel moment dans le round, sans considération d’initiative."
+                        }
+                    ]
+                },
+                {
+                    "id": "ENVOUTEUR",
+                    "nom": "ENVOÛTEUR",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Injonction (A)*",
+                            "description": "L’ensorceleur donne un ordre simple (mais pas suicidaire) de deux ou trois mots que " +
+                                    "la cible doit pouvoir comprendre. S’il réussit un test opposé d’attaque magique contre une " +
+                                    "cible à une portée de 20 m, la victime doit exécuter l’ordre pendant son prochain tour. " +
+                                    "En plus de ce sort, l’ensorceleur ajoute son rang + 2 aux tests de persuasion ou de séduction. " +
+                                    "Si la victime resiste, elle est immunisée 24h."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Sommeil (L)*",
+                            "description": "Une fois par combat, l’ensorceleur vise une zone de 10 m de diamètre à une portée " +
+                                    "maximale de 20 m. Le sort affecte jusqu’à [1d4° + CHA] créatures vivantes de NC inférieur à 1. " +
+                                    "Le sort affecte les créatures de NC inférieur à 2 au rang 4 puis à 3 au rang 5. Les créatures " +
+                                    "perdent conscience pendant CHA minutes. Il est possible de les réveiller en les cognant " +
+                                    "violemment (action d’attaque, 1 DM). " +
+                                    "Si la victime resiste, elle est immunisée 24h."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Confusion (A)*",
+                            "description": "En réussissant un test opposé d’attaque magique contre sa cible (portée 20 m), " +
+                                    "l’ensorceleur désoriente sa victime pendant CHA rounds. Au tour de la victime, celui qui " +
+                                    "l’incarne lance 1d6 : sur <b>1‐3</b> la victime n’agit pas, sur <b>4‐6</b> elle attaque la créature la " +
+                                    "plus proche (au hasard). À la fin de son tour, elle peut mettre fin au sort prématurément en " +
+                                    "réussissant un <b>test de VOL difficulté [12 + CHA de l’ensorceleur].</b> " +
+                                    "Si la victime resiste, elle est immunisée 24h."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Amitié (L)*",
+                            "description": "Si l’ensorceleur réussit un test opposé d’attaque magique (portée 10 m) contre une cible " +
+                                    "humanoïde de niveau ou NC inférieur au sien, celle‐ci se comporte comme un ami de longue " +
+                                    "date tant qu’elle n’est pas attaquée. La victime peut résister au sort avec un test de VOL " +
+                                    "difficulté [10 + CHA de l’ensorceleur] une fois par jour après chaque récupération complète. " +
+                                    "Si la cible est d’un niveau au moins égal au niveau du lanceur de sort, ce dernier obtient " +
+                                    "seulement un dé bonus à tous les tests de CHA qu’il effectue contre la victime pendant 10 min." +
+                                    "Si la victime resiste, elle est immunisée 24h."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Domination (A)*",
+                            "description": "En réussissant un test opposé d’attaque magique contre une cible de niveau ou NC " +
+                                    "inférieur au sien (portée 20 m), l’ensorceleur prend contrôle de sa cible pendant CHA minutes. " +
+                                    "Son propre corps devient inactif et s’écroule au sol. Si la créature meurt pendant la domination, " +
+                                    "l’ensorceleur réintègre son corps et subit 1d4° DM. Si la cible est d’un niveau trop élevé, il " +
+                                    "peut la forcer à faire une seule action de son choix (mouvement ou attaque) ; ensuite, il est " +
+                                    "éjecté et subit 1d4° DM." +
+                                    "Si la victime resiste, elle est immunisée 24h."
+                        }
+                    ]
+                },
+                {
+                    "id": "ILLUSIONS",
+                    "nom": "ILLUSIONS",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Mirage (L)*",
+                            "description": "L’ensorceleur crée une illusion visuelle et sonore immobile d’une durée de CHA minutes. " +
+                                    "Le volume maximal de l’illusion est de 2 m de côté par rang dans la voie (portée 50 m). À " +
+                                    "partir du rang 4, l’illusion peut être animée, mais dans ce cas sa durée est exprimée en rounds. " +
+                                    "En plus de ce sort, l’ensorceleur ajoute son rang + 2 aux tests de supercherie ou à tout test " +
+                                    "qui lui servirait à mentir."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Image décalée (M)*",
+                            "description": "L’ensorceleur crée des images décalées qui se superposent à sa silhouette pendant " +
+                                    "[1d4 + CHA] rounds. Lorsqu’une attaque au contact ou à distance le touche, l’ensorceleur " +
+                                    "lance 1d6 : sur 5‐6, il ne subit pas les DM."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Sort illusoire (A)*",
+                            "description": "L’ensorceleur lance un sort d’attaque qui n’est qu’une illusion. Il inflige [3d4°+CHA] " +
+                                    "DM contre une seule cible ou [2d4°+CHA] DM contre un maximum de cibles égal au rang atteint. " +
+                                    "Le joueur peut décrire la nature du sort à sa guise (une Explosion de feu, une nuée de criquets, " +
+                                    "une lance de glace, etc.), son imagination demeurant sa seule limite. Chaque cible peut faire " +
+                                    "un test de PER difficulté [10 + CHA de l’ensorceleur] pour ne subir aucun DM. Les créatures " +
+                                    "sans esprit (créatures artificielles, certaines plantes et morts‐vivants) sont immunisées à " +
+                                    "ce sort. Les PV perdus de cette façon se récupèrent normalement."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Imitation (A)*",
+                            "description": "Pendant CHA minutes, l’ensorceleur peut prendre l’apparence d’une créature de taille " +
+                                    "proche de la sienne (+ ou – 50 cm) qu’il voit au moment de l’incantation. Une créature qui " +
+                                    "touche l’ensorceleur se rend compte que quelque chose ne va pas et a le droit à un test " +
+                                    "d’INT difficulté [10 + CHA de l’ensorceleur] pour voir à travers l’illusion."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Exécution mentale (A)*",
+                            "description": "Ce sort invoque les pires terreurs d’une créature humanoïde vivante et lui fait " +
+                                    "croire à sa propre mort. L’ensorceleur doit faire un test opposé d’attaque magique contre " +
+                                    "sa cible (portée 20 m). En cas de succès la victime tombe à 0 PV ou si la cible est de " +
+                                    "niveau supérieur ou égal à l’ensorceleur, elle est étourdie (‐5 DEF et pas d’action) pendant " +
+                                    "1 round. Une créature ne peut être la cible de ce sort qu’une fois par jour. Les créatures " +
+                                    "sans esprit (créatures artificielles, certaines plantes et certains morts‐vivants) sont " +
+                                    "immunisées à ce sort."
+                        }
+                    ]
+                },
+                {
+                    "id": "INVOCATION",
+                    "nom": "INVOCATION",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Choc (A)*",
+                            "description": "Si l’ensorceleur réussit un test d’attaque magique réussi contre la DEF de son " +
+                                    "adversaire situé à une portée de 20 m, il lui inflige [1d4° + CHA] DM. Si la cible a un " +
+                                    "NC inférieur au rang atteint par l’ensorceleur dans la voie, elle doit réussir un test de " +
+                                    "FOR difficulté 10 pour ne pas être renversée."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Serviteur invisible (L)*",
+                            "description": "Ce sort crée une force invisible pendant CHA minutes. Le serviteur peut effectuer à " +
+                                    "distance des tâches simples ne nécessitant pas de test de réussite avec une AGI et une INT " +
+                                    "de +0 et une FOR égale au CHA de l’ensorceleur (portée 20 m). Il peut par exemple rapporter " +
+                                    "un objet ou actionner un levier, voire faire la vaisselle. Le serviteur invisible se déplace " +
+                                    "à la même vitesse que l’ensorceleur, ne pèse rien, ne parle pas, n’a pas vraiment d’existence " +
+                                    "et peut se déplacer dans toutes les directions. Concevez‐le davantage comme une force qui " +
+                                    "obéit aux injonctions télépathiques de son créateur que comme une créature. Il n’attaque pas et " +
+                                    "ne peut pas être combattu, mais il peut être dissipé grâce au sort de maîtrise de la magie."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Arme de mana (A)*",
+                            "description": "Le sort crée une lame d’énergie lumineuse pendant [rang] rounds. Dès le premier " +
+                                    "round et à chaque round suivant, l’ensorceleur peut lui ordonner d’attaquer une cible de " +
+                                    "son choix à portée (action gratuite, portée 20 m). La lame doit réussir un test d’attaque " +
+                                    "magique contre la DEF de l’adversaire. Elle inflige [1d4° + CHA] DM en cas de réussite. " +
+                                    "L’ensorceleur ne peut maintenir actif qu’un seul sort d’arme de mana à la fois."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Porte dimensionnelle (A)*",
+                            "description": "L’ensorceleur se téléporte lui‐même et jusqu’à un allié par point de CHA à une distance " +
+                                    "maximale de 60 m. Le lieu d’arrivée doit être en vue."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Mur de mana (A)*",
+                            "description": "L’ensorceleur crée un mur de force invisible et indestructible (portée 10 m, maximum " +
+                                    "5 m de haut et 10 m de long, vertical, sans coudes), ou bien un hémisphère de 3 m de rayon " +
+                                    "centré sur lui‐même, tous les deux immobiles. Le sort dure CHA minutes. Aucune matière ni " +
+                                    "force ne peut passer à travers le mur de force. En revanche, les attaques mentales ne sont " +
+                                    "pas stoppées et une porte dimensionnelle (ou une téléportation) permet de le franchir."
+                        }
+                    ]
+                }
+            ]
+        },
+        /***************************************************************************
+         Voies du forgesort
+         ****************************************************************************/
+        {
+            "id": "FORGESORT",
+            "voies": [
+                {
+                    "id": "ARTEFACTS",
+                    "nom": "ARTEFACTS",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Bâton de mage",
+                            "description": "Lorsqu’il utilise son bâton, le forgesort inflige [1d4°+INT] DM magiques. " +
+                                    "À partir du rang 3, au prix d’une action limitée, il peut utiliser sa valeur d’attaque " +
+                                    "magique pour une attaque au contact et il inflige [2d4°+INT] DM dans un éclair d’énergie " +
+                                    "! Si le forgesort fait l’acquisition d’un bâton magique, les bonus de celui‐ci s’ajouteront " +
+                                    "normalement à l’attaque et aux DM (de même pour le bonus de feu de la voie du métal)."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Ouverture ‐ fermeture (M)*",
+                            "description": "Le forgesort peut ouvrir une porte fermée à clef en la touchant, il doit " +
+                                    "réussir un test d’attaque magique contre la difficulté pour la crocheter. Il peut " +
+                                    "aussi sceller une porte ou un coffre pour INT minutes. Seul un mot de commande " +
+                                    "qu’il choisit permet d’ouvrir l’objet. Celui‐ci peut toujours être brisé par la " +
+                                    "force, mais il bénéficie d’un bonus de +5 en solidité et en RD pour toute la durée " +
+                                    "du sort. À partir du rang 4, le forgesort peut rendre ce sort permanent en " +
+                                    "sacrifiant une gemme d’une valeur de 100 pa et en prolongeant l’incantation par " +
+                                    "un rituel de 10 min."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Sac sans fond",
+                            "description": "Le forgesort possède un sac magique dans lequel il peut entreposer 50 kg " +
+                                    "de matériel par rang dans la voie, tandis que le sac semble toujours peser un " +
+                                    "kilogramme. Le sac ne fonctionne pas si on tente d’y mettre une créature vivante. " +
+                                    "Le sac est de plus capable de fournir au forgesort les objets qu’il désire. Une " +
+                                    "fois par heure, il peut en retirer un ou plusieurs objets dont la valeur totale " +
+                                    "ne dépasse pas 25 pa, le poids 50 kg, la circonférence 1 m et le volume 1 m3. Ces " +
+                                    "objets ont hélas la propriété de disparaître au bout d’une heure. De ce fait, " +
+                                    "la nourriture magique retirée du sac ne nourrit pas vraiment celui qui la consomme."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Frappe des arcanes (A)*",
+                            "description": "Le forgesort frappe le sol de son bâton et provoque une onde dévastatrice " +
+                                    "dans un rayon de 10 m autour de lui. Toutes les créatures dans la zone subissent " +
+                                    "automatiquement [3d4°+INT] DM et doivent réussir un test de FOR difficulté " +
+                                    "[10 + INT] pour ne pas être renversées."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Artefact étrange (L)",
+                            "description": "Le forgesort crée un artefact qu’il est le seul à pouvoir utiliser et dont " +
+                                    "la description est laissée au soin du joueur. L’artefact permet d’utiliser les " +
+                                    "capacités de rang 5 suivantes chacune une fois par jour au prix d’une action " +
+                                    "limitée : Téléportation (voie de la magie universelle, magicien), Interruption " +
+                                    "du temps (voie de la magie protectrice, magicien), Forme éthérée (voie de l’air, " +
+                                    "ensorceleur), Prescience (voie de la divination, ensorceleur). À chaque utilisation, " +
+                                    "le joueur doit lancer 1d6 : sur un résultat de 1 ou 2, l’artefact ne fonctionne " +
+                                    "pas, le forgesort doit réparer l’artefact lors d’une récupération rapide avant de " +
+                                    "pouvoir faire une nouvelle tentative de ce pouvoir (il peut tenter d’utiliser les " +
+                                    "autres pouvoirs normalement)."
+                        }
+                    ]
+                },
+                {
+                    "id": "ÉLIXIRS",
+                    "nom": "ELIXIRS",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Fortifiant (L)",
+                            "description": "Un breuvage qui guérit immédiatement 1d4° PV et permet de gagner un dé bonus " +
+                                    "aux trois prochains tests effectués dans une période de 30 min. En plus de cette " +
+                                    "recette, grâce à ses études, le forgesort ajoute son rang + 2 aux tests d’alchimie " +
+                                    "et de chimie ou pour identifier une potion (test difficulté 10 + rang du sort). " +
+                                    "Les élixirs doivent être préparée le matin et s'ils ne sont pas utilisés le jour même sont perdus."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Feu grégeois (L)",
+                            "description": "Le forgesort lance la fiole à une distance maximale de 10 m (réussite " +
+                                    "automatique). Le contenu explose dans un rayon de 3 m en infligeant 2d4° DM. Un " +
+                                    "test d’AGI difficulté [10 + INT du forgesort] réussi permet aux victimes de " +
+                                    "diviser les DM par deux. Les DM passent à 3d4° au rang 4 et 4d4° au rang 5. " +
+                                    "Les élixirs doivent être préparée le matin et s'ils ne sont pas utilisés le jour même sont perdus."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Élixir de guérison (L)",
+                            "description": "Le forgesort peut préparer un élixir qui soigne [2d4°+INT] PV au bout d’une " +
+                                    "minute ou guérit un empoisonnement de manière instantanée. " +
+                                    "Les élixirs doivent être préparée le matin et s'ils ne sont pas utilisés le jour même sont perdus."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Élixirs mineurs (L)",
+                            "description": "Le forgesort apprend à préparer des élixirs parmi Forme gazeuse, Maîtrise des " +
+                                    "éléments, Chute ralentie (voies de magicien) et Masque mortuaire (voie de sorcier). Il " +
+                                    "choisit un nombre d’élixirs égal à sa valeur d’INT (pour un maximum de 4). " +
+                                    "Les élixirs doivent être préparée le matin et s'ils ne sont pas utilisés le jour même sont perdus."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Élixirs majeurs (L)",
+                            "description": "Le forgesort apprend à préparer des élixirs parmi Invisibilité, Vol, Accélération " +
+                                    "(voies de magicien) et Masque du prédateur (voie de druide). Il choisit un nombre d’élixirs " +
+                                    "égal à sa valeur d’INT (pour un maximum de 4). Ces préparations comptent pour deux élixirs. " +
+                                    "Les élixirs doivent être préparée le matin et s'ils ne sont pas utilisés le jour même sont perdus."
+                        }
+                    ]
+                },
+                {
+                    "id": "METAL",
+                    "nom": "MÉTAL",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Morsure de la forge (M)*",
+                            "description": "Au prix d’une action de mouvement, le forgesort peut enflammer son bâton ou son " +
+                                    "marteau pendant INT minutes et ajoute +2 DM de feu sur les attaques au contact réalisées " +
+                                    "avec cette arme. Ce bonus augmente de +1 chaque fois que le personnage atteint le rang 4 " +
+                                    "dans une voie de forgesort. L’arme s’éteint immédiatement s’il la lâche. En plus de ce sort, " +
+                                    "le forgesort ajoute son rang + 2 aux tests d’orfèvrerie ou de forge."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Métal brûlant (M)*",
+                            "description": "Le forgesort doit réussir un test opposé d’attaque magique (portée 20 m) pour faire " +
+                                    "chauffer un objet métallique porté par sa cible pendant [1d4+INT] rounds. S’il s’agit d’une " +
+                                    "arme, elle inflige 1 DM par round à son porteur et un malus de ‐2 aux tests d’attaque. S’il " +
+                                    "s’agit d’une armure, elle inflige 1d4° DM par round à son porteur (au tour du forgesort). " +
+                                    "La victime peut se débarrasser précipitamment de son armure au prix d’une action limitée " +
+                                    "(elle perd le bonus de DEF associé ; dans le cas d’un adversaire, le MJ devra évaluer ce montant)."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Magnétisme (A)*",
+                            "description": "Le forgesort contrôle le magnétisme autour de lui pendant INT minutes. Il obtient un " +
+                                    "bonus de +2 en DEF contre les attaques des armes métalliques (au contact ou à distance). " +
+                                    "De plus, il divise par deux les DM de tous les projectiles à pointes métalliques (flèches, " +
+                                    "carreaux, armes de lancer, etc.)."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Métal hurlant (A)*",
+                            "description": "Sur un test opposé d’attaque magique réussi (portée 10 m), le forgesort déforme une " +
+                                    "pièce d’équipement métallique portée par sa cible. Une arme devient inutilisable et bonne " +
+                                    "pour le rebut, une armure impose l’utilisation d’un dé malus à tous les tests d’attaque et " +
+                                    "d’AGI de son porteur. La victime peut se débarrasser de son armure au prix d’une action " +
+                                    "limitée. Si l’objet est magique, le sort ne fait effet que pendant un seul round (et ne peut " +
+                                    "pas être renouvelé). Appliqué à une structure (par exemple, une porte blindée), ce sort inflige " +
+                                    "3d4° DM en divisant par deux sa RD."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Endurer",
+                            "description": "Le forgesort est habitué aux travaux et à la chaleur de la forge. Il divise par deux " +
+                                    "tous les DM de feu subis et augmente sa CON de +1. Désormais, il obtient un dé bonus aux tests " +
+                                    "de CON. Finalement, il peut ajouter sa valeur de CON au nombre de PM qu’il obtient."
+                        }
+                    ]
+                },
+                {
+                    "id": "GOLEM",
+                    "nom": "GOLEM",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Grosse tête",
+                            "description": "Le forgesort remplace la force brutale par un peu de réflexion. Il peut effectuer un " +
+                                    "test d’INT au lieu d’un test de FOR (par exemple, il utilise un levier pour déplacer une " +
+                                    "lourde charge). De plus, au premier niveau, il peut ajouter son INT à ses PV à la place de " +
+                                    "sa CON s’il le souhaite. Il ajoute son rang + 2 à tous les tests de bricolage ou de science."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Golem",
+                            "description": "Le golem est une créature humanoïde fabriquée par le forgesort pour lui servir de " +
+                                    "serviteur et de garde du corps. Il comprend des ordres simples, comme suivre, attaquer, " +
+                                    "monter la garde, mais il est incapable d’actions complexes ou nécessitant une motricité " +
+                                    "fine (comme de la couture par exemple !). <br>" +
+                                    "<span style=\"text-decoration: underline;\">GOLEM => CRÉATURE NON VIVANTE</span> : " +
+                                    "<b>AGI</b>:‐1 <b>CON</b>:+10 <b>FOR</b>:+1 <b>PER</b>:‐3 <b>CHA</b>:‐4 " +
+                                    "<b>INT</b>:‐3 <b>VOL</b>:+4 <b>Défense</b>:[10 + rang dans la voie] " +
+                                    "<b>Points de vigueur</b>:[niv. du forgesort × 5] <b>Initiative</b>:[Init. du forgesort] " +
+                                    "<b>Attaque</b>:[attaque magique du forgesort] <b>DM</b>:1d4°+1<br>" +
+                                    "PARTICULARITE : <ul>" + 
+                                    "<li><b>Soigner un golem</b> : le golem ne guérit pas naturellement, mais le forgesort " +
+                                    "peut le réparer au rythme de [1d6 par rang + INT] PV par heure.</li> " +
+                                    "<li><b>Golem à 0 PV</b> : si le golem est réduit à 0 PV, il cesse de fonctionner, mais le " +
+                                    "forgesort peut le réparer. </li>" +
+                                    "<li><b>Mort d’un golem</b> : si le golem est détruit ou perdu, le forgesort peut en " +
+                                    "construire un nouveau en 1d6 + 3 jours (+1d6 jours par amélioration de golem " +
+                                    "supérieur). Un forgesort peut utiliser tous les matériaux à sa disposition dans " +
+                                    "son environnement, par exemple pierre et bois s’il est dans une forêt.</li></ul>"
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Protecteur (G)",
+                            "description": "Une fois par round, s’il est au contact d’un personnage, le golem peut s’interposer " +
+                                    "et subir les DM d’une attaque à sa place."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Statuette (A)*",
+                            "description": "Le forgesort transforme son golem en statuette d’une douzaine de centimètres de " +
+                                    "haut, recouverte de runes. Sous forme de statuette, le golem ne peut pas agir, mais il " +
+                                    "bénéficie d’une RD 10. À tout moment, le forgesort peut utiliser une action de mouvement " +
+                                    "pour jeter la figurine au sol et lui rendre sa taille normale et toutes ses fonctions."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Golem supérieur",
+                            "description": "Le forgesort peut améliorer son golem en choisissant une option parmi les " +
+                                    "suivantes. Le joueur peut choisir une option différente supplémentaire à chaque " +
+                                    "fois qu’il atteint le rang 5 dans une voie de forgesort.<br> " +
+                                    "<b>Armure</b> : +5 en DEF. " +
+                                    "| <b>Forme de félin</b> : +3 en AGI et en DEF, dé bonus en AGI. " +
+                                    "| <b>Baliste</b> : portée 20 m, [1d4°+AGI] DM." + 
+                                    "| <b>Grande taille</b> : +2 PV par niveau et +1 en FOR et DM. " +
+                                    "| <b>Vol</b> : des « sauts » de 40 m en action limitée. " +
+                                    "| <b>Cerveau amélioré</b> : +2 en INT, PER et CHA, doué de parole. " +
+                                    "| <b>Puissant</b> : +2 en FOR et aux DM, dé bonus en FOR. " +
+                                    "| <b>Arme à deux mains</b> : +1d4° aux DM au contact."
+                        }
+                    ]
+                },
+                {
+                    "id": "RUNES",
+                    "nom": "RUNES",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Runes de défense",
+                            "description": "Le forgesort inscrit des runes de protection sur l’ensemble de son équipement et " +
+                                    "parfois jusque sur sa peau. Il obtient un bonus de +2 en DEF. Ce bonus augmente de +1 au " +
+                                    "rang 3 puis au rang 5. S’il possède un golem, il peut inscrire les runes sur celui‐ci avec " +
+                                    "le même effet. <br> " +
+                                    "PROFIL HYBRIDE : Exceptionnellement, un profil hybride peut utiliser cette capacité avec une " +
+                                    "armure qu’il est capable de porter, supérieure à l’armure de cuir, bien que, dans ce cas, " +
+                                    "le bonus de DEF soit alors divisé par deux (+1 en DEF au rang 1, +2 au rang 4). Bien que " +
+                                    "cette capacité ne soit pas considérée comme un sort, elle requiert au moins +1 en INT pour " +
+                                    "être apprise, comme toutes les runes de forgesort."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Rune de puissance (L)*",
+                            "description": "Le forgesort enchante une arme pour 24 h. Une fois par combat, celle‐ci peut d’infliger " +
+                                    "les DM maximaux sur une attaque au contact ou à distance. Les dés bonus ne sont pas maximisés " +
+                                    "(attaque sournoise ou puissante, rage, etc.). Le joueur doit annoncer l’utilisation de la rune " +
+                                    "avant de lancer les dés de DM."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Rune de protection (A)*",
+                            "description": "Le forgesort enchante une armure (ou des vêtements) pour 24 h. Une fois par jour, " +
+                                    "celle‐ci permet d’ignorer les dommages d’une attaque que le personnage subit (au contact, " +
+                                    "magique ou à distance). Si l’attaque est un critique, le personnage subit tout de même les " +
+                                    "DM normaux (non‐critique). Pour activer la rune, le personnage doit être conscient et ne " +
+                                    "pas être surpris (action gratuite). Le joueur doit activer la rune avant de connaître le " +
+                                    "montant des DM."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Rune d’énergie (A)*",
+                            "description": "Le forgesort enchante un bijou pour une durée de 24 h. Une fois par combat, celui‐ci " +
+                                    "permet d’obtenir un d20 bonus sur un test de son choix déterminé au moment où l’effet est " +
+                                    "utilisé : test d’attaque ou de caractéristique."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Rune de garde*",
+                            "description": "En réalisant un rituel de 10 min, le forgesort inscrit des runes invisibles au sol. Il " +
+                                    "protège une zone allant jusqu’à 10 m de diamètre pendant 12 h. À chaque fois qu’une créature " +
+                                    "(de taille au moins très petite) pénètre dans la zone protégée, le sort produit un effet choisi " +
+                                    "(voir ci‐après) au moment où le sort est lancé. Les créatures présentes dans la zone pendant " +
+                                    "le rituel ne déclenchent pas le sort. Ce sort peut aussi être utilisé sur une porte ou un coffre. " +
+                                    "Il est automatiquement lancé avec la règle de concentration et coûte seulement 3 PM pour être " +
+                                    "lancé. <br> " +
+                                    "<b>Alarme</b> : un puissant gong retentit et la cible est étourdie pendant 1 round à moins de " +
+                                    "réussir un test de CON difficulté 15. <br> " +
+                                    "<b>Feu</b> : [3d4°+INT] DM de feu (un autre élément peut être choisi parmi foudre, froid, acide)."
+                        }
+                    ]
+                }
+            ]
         }
 
 

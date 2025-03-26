@@ -127,29 +127,46 @@ function remplirAttaques() {
  * passée en paramètre.
  * @param {type} parZoneVoie Zone de voie à traiter.
  *******************************************************************************/
-function afficherTextCapacite(parZoneVoie) {
+function afficherTextCapacitesDeLaVoie(parZoneVoie) {
     // Récupération des zones (fieldset) de chaque capacité
     let varTabZonesCapacite = parZoneVoie.getElementsByClassName("zoneCapacite");
 
     for (let varZoneCapacite of varTabZonesCapacite) {
-        let varValeurRangCapacite = varZoneCapacite.getElementsByClassName("txtRangCapacite")[0].value;
-        let varValeurNomCapacite = varZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value;
-        let varValeurDescriptionCapacite = varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value;
-        let varComplementCapacite = varZoneCapacite.getElementsByClassName("txtComplementCapacite")[0].value;
-        
-        // Affichage du titre de la capacité
-        let varTitreCapacite = "";
-        if((varValeurRangCapacite!==null)&&(varValeurRangCapacite!==""))
-            varTitreCapacite = varTitreCapacite + varValeurRangCapacite + ". ";
-        if(varValeurNomCapacite!=="")
-            varTitreCapacite = varTitreCapacite + varValeurNomCapacite;
-        if(varTitreCapacite.length>0)
-            varTitreCapacite = varTitreCapacite + " : ";
-        varZoneCapacite.getElementsByClassName("displayTitreCapacite")[0].innerText = varTitreCapacite;
-        
-        // Affichage de la description de la capacité
-        varZoneCapacite.getElementsByClassName("displayDescriptionCapacite")[0].innerHTML = DOMPurify.sanitize(varValeurDescriptionCapacite);
+        afficherTextCapacite(varZoneCapacite);
     }
+}
+
+/*******************************************************************************
+ * Rempli le texte visible de la zone de capacité passée en paramètre.
+ * @param {type} parZoneCapacite Zone de la capacité à traiter.
+ *******************************************************************************/
+function afficherTextCapacite(parZoneCapacite) {
+    let varValeurRangCapacite = parZoneCapacite.getElementsByClassName("txtRangCapacite")[0].value;
+    let varValeurNomCapacite = parZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value;
+    let varValeurDescriptionCapacite = parZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value;
+    let varValeurComplementCapacite = parZoneCapacite.getElementsByClassName("txtComplementCapacite")[0].value;
+
+    // Affichage du titre de la capacité
+    let varTitreCapacite = "";
+    if ((varValeurRangCapacite !== null) && (varValeurRangCapacite !== ""))
+        varTitreCapacite = varTitreCapacite + varValeurRangCapacite + ". ";
+    if (varValeurNomCapacite !== "")
+        varTitreCapacite = varTitreCapacite + varValeurNomCapacite;
+    if (varTitreCapacite.length > 0)
+        varTitreCapacite = varTitreCapacite + " : ";
+    parZoneCapacite.getElementsByClassName("displayTitreCapacite")[0].innerText = varTitreCapacite;
+
+    
+    // Affichage de la description de la capacité
+    parZoneCapacite.getElementsByClassName("displayDescriptionCapacite")[0].innerHTML = DOMPurify.sanitize(varValeurDescriptionCapacite);
+    
+    // Affichage du commentaire de la capacité
+    if(varValeurComplementCapacite.length > 0)
+        parZoneCapacite.getElementsByClassName("displayCommentaireCapacite")[0].style.display = "block";
+    else
+        parZoneCapacite.getElementsByClassName("displayCommentaireCapacite")[0].style.display = "none";
+    parZoneCapacite.getElementsByClassName("displayCommentaireCapacite")[0].innerHTML = DOMPurify.sanitize(varValeurComplementCapacite);
+
 }
 
 /*******************************************************************************
@@ -229,6 +246,8 @@ function getVoieWithGroupe(parIdVoie, parIdGroupe) {
  ****************************************************************/
 function initSelectPeuples() {
     let selectPeuple = document.getElementById("SEL_PEUPLE");
+    let varOldSelectPeupleValue = selectPeuple.value;
+    
     for (let varPeuple of dataPeuples.peuples) {
         let option = document.createElement('option');
         option.text = varPeuple.nom;
@@ -334,13 +353,13 @@ function initSelectVoiesPeuple(parZoneVoie) {
     let tabVoies = [];
     let peupleCourant = document.getElementById("SEL_PEUPLE").value;
     let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
-        
+
     // Récupération de la liste de choix de le voie
     let varSelectVoie = parZoneVoie.getElementsByClassName("selectVoie")[0];
-    
+
     // On récupère l'ancienne valeur pour la sélectionner après rééinitialisation
     let varOldIdVoie = varSelectVoie.value;
-    
+
     // Vidange de la liste des voies de peuple
     while (varSelectVoie.options.length > 0) {
         varSelectVoie.remove(0);
@@ -368,7 +387,7 @@ function initSelectVoiesPeuple(parZoneVoie) {
         let option = document.createElement('option');
         option.text = varVoie.nom;
         option.value = varVoie.id;
-        if(varOldIdVoie === varVoie.id)
+        if (varOldIdVoie === varVoie.id)
             option.selected = true;
         varSelectVoie.add(option);
     }
@@ -408,7 +427,7 @@ function initSelectVoiesProfil(parZoneVoie) {
         // On ajoute le profil comme voie
         let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varIdProfilCourant);
         if (varObjGroupeVoie !== null) {
-            let varVoie = varObjGroupeVoie.voies[varIntNumVoieProfil];
+            let varVoie = varObjGroupeVoie.voies[varIntNumVoieProfil-1];
             let varOption = document.createElement('option');
             varOption.text = varVoie.nom;
             varOption.value = encodeURIComponent(varIdProfilCourant) + ";" + encodeURIComponent(varVoie.id);
@@ -436,7 +455,7 @@ function initSelectVoiesProfil(parZoneVoie) {
                             let varOption = document.createElement('option');
                             varOption.text = varVoie.nom;
                             varOption.value = encodeURIComponent(varProfil.id) + ";" + encodeURIComponent(varVoie.id);
-                            if(varOption.value === varOldIdVoie)
+                            if (varOption.value === varOldIdVoie)
                                 varOption.selected = true;
                             varSelectVoie.add(varOption);
                         }
@@ -480,7 +499,34 @@ function gereVoie(parZoneVoie) {
         gereVoieProfil(parZoneVoie);
     } else if (varCategVoie === "peuple") {
         gereVoiePeuple(parZoneVoie);
+    } else if (varCategVoie === "prestige") {
+        gereVoiePrestige(parZoneVoie);
     }
+}
+
+/******************************************************************************
+ * Gère l'entête de la zone de voie de prestige dont l'item (frameset) est
+ * passé en paramètre. 
+ * @param {type} parZoneVoie Item contenant la zone de la voie de prestige.
+ ******************************************************************************/
+function gereVoiePrestige(parZoneVoie) {
+    // Récupération du type de voie
+    let varStrTypeVoie = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
+    
+    if (varStrTypeVoie === "PERSO") {
+        // On efface la liste de choix des voies 
+        parZoneVoie.getElementsByClassName("selectVoie")[0].style.display = "none";
+
+        // On affiche la zone de texte contenant le nom de la voie personnalisée
+        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
+        varTxtVoiePerso.style.display = "inline";
+
+        // On vide les zones de capacités
+        videZonesCapacites(parZoneVoie);
+    }
+    
+    // Affichage des capacités avec les champs remplis
+    afficherTextCapacitesDeLaVoie(parZoneVoie);
 }
 
 /******************************************************************************
@@ -491,10 +537,10 @@ function gereVoie(parZoneVoie) {
 function gereVoieProfil(parZoneVoie) {
     // Récupération du type de voie
     let varStrTypeVoie = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
-    
+
     // Si c'est la voie standard
     if (varStrTypeVoie === "STANDARD") {
-        // On affiche la liste de choix des voies pour les profils hybrides ert on la rempli
+        // On affiche la liste de choix des voies pour les profils hybrides et on la rempli
         let varSelVoie = parZoneVoie.getElementsByClassName("selectVoie")[0];
         varSelVoie.style.display = "inline";
         initSelectVoiesProfil(parZoneVoie);
@@ -516,17 +562,17 @@ function gereVoieProfil(parZoneVoie) {
     } else if (varStrTypeVoie === "PERSO") {
         // On efface la liste de choix des voies pour les profils hybrides
         parZoneVoie.getElementsByClassName("selectVoie")[0].style.display = "none";
-        
+
         // On affiche la zone de texte contenant le nom de la voie personnalisée
         let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
         varTxtVoiePerso.style.display = "inline";
-        
+
         // On vide les zones de capacités
         videZonesCapacites(parZoneVoie);
     }
-    
+
     // Affichage des capacités avec les champs remplis
-    afficherTextCapacite(parZoneVoie);
+    afficherTextCapacitesDeLaVoie(parZoneVoie);
 }
 
 /******************************************************************************
@@ -560,7 +606,7 @@ function gereVoiePeuple(parZoneVoie) {
         // On affiche la zone de texte contenant le nom de la voie personnalisée
         let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
         varTxtVoiePerso.style.display = "inline";
-        
+
         // On vide les zones de capacités
         videZonesCapacites(parZoneVoie);
 
@@ -577,9 +623,9 @@ function gereVoiePeuple(parZoneVoie) {
         // On affiche les capacités de la voie de la famille
         initZonesCapacitesVoiePeuple(parZoneVoie);
     }
-    
+
     // Affichage des capacités avec les champs remplis
-    afficherTextCapacite(parZoneVoie);
+    afficherTextCapacitesDeLaVoie(parZoneVoie);
 }
 
 /*******************************************************************************
@@ -646,7 +692,7 @@ function initZonesCapacitesVoiePeuple(parZoneVoie) {
 
     // On affiche les capacités de la voie standard du profil
     initZonesCapacitesAvecObjVoie(parZoneVoie, varVoieAAfficher);
-    afficherTextCapacite(parZoneVoie);
+    afficherTextCapacitesDeLaVoie(parZoneVoie);
 }
 
 /*******************************************************************************
@@ -669,7 +715,7 @@ function initZonesCapacitesVoieProfil(parZoneVoie) {
         let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varProfilCourant);
         if (varObjGroupeVoie !== null) {
             // On affiche les capacités de la voie standard du profil
-            varObjVoie = varObjGroupeVoie.voies[varIntNumVoieProfil];
+            varObjVoie = varObjGroupeVoie.voies[varIntNumVoieProfil-1];
         } else {
             console.warn("Le détail de la voie du profil \"" + varProfilCourant + "\" n'a pas été trouvé.");
             return;

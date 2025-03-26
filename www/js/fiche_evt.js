@@ -38,8 +38,11 @@ function initEventListners() {
  * Gestion de la fin du chargement de la page.
  *******************************************************************************/
 function bodyOnLoad() {
-    // Initialisation des événements à écouter
+    // Initialisation des événements à écouter pour la fiche principale
     initEventListners();
+    
+    // Initialisation des événement à écouter pour la boite de dialogue des capacités
+    dlgCapaciteInitEventListners();
     
     // Remplir les données par défaut
     initSelectPeuples();
@@ -160,5 +163,5 @@ function selTypeVoieOnChange(event) {
 function selVoieOnChange(event) {
         let varZoneCapacite = event.currentTarget.parentNode.parentNode;
         initZonesCapacites(varZoneCapacite);
-        afficherTextCapacite(varZoneCapacite);
+        afficherTextCapacitesDeLaVoie(varZoneCapacite);
 }

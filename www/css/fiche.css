@@ -39,6 +39,10 @@ textarea {
     font-size:80%;
 }
 
+select {
+    background-color: #DDDDDD;
+}
+
 select:disabled {
     appearance: none;
     border-style: none;
@@ -46,6 +50,7 @@ select:disabled {
     font-weight: bold;
     font-size: 90%;
     color: #444444;
+    background-color: rgba(1,1,1,0);
 }
 
 /******************************************
@@ -501,6 +506,7 @@ fieldset#ARMURES input.txtAgiArmure {
 Toutes les zones de voies
 *******************************************/
 fieldset.zoneVoie {
+
 }
 
 div.zoneCapacite {
@@ -523,6 +529,14 @@ div.zoneCapacite > div.chkCapacite > input {
     vertical-align: middle;
 }
 
+div.contenuCapacite > .displayTitreCapacite {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size:75%;
+    color: black;
+    font-weight: bold;
+}
+
 div.contenuCapacite > .displayDescriptionCapacite {
     padding-top: 2px;
     padding-bottom: 2px;
@@ -530,12 +544,21 @@ div.contenuCapacite > .displayDescriptionCapacite {
     color: black;
 }
 
-div.contenuCapacite > .displayTitreCapacite {
+div.contenuCapacite > .displayCommentaireCapacite {
     padding-top: 2px;
     padding-bottom: 2px;
     font-size:75%;
+    font-style: italic;
     color: black;
-    font-weight: bold;
+    margin-top:0.5em;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+div.contenuCapacite > .displayCommentaireCapacite::before {
+    content: "Commentaire:";
+    text-decoration: underline;
+    margin-right : 1em;
 }
 
 div.zoneCapacite .btnModifCapacite img {
@@ -551,8 +574,3 @@ div.zoneCapacite .btnModifCapacite img:hover{
     border: 2px solid #AAAAAA;
     border-radius: 4px;
 }
-
-
-/******************************************
-Zone de la voie du peuple
-*******************************************/

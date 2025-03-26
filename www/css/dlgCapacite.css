@@ -10,6 +10,10 @@ dialog#dlgCapacite form div {
     row-gap: 0.3em;
     width: 100%;
 }
+dialog#dlgCapacite form div span {
+    margin-bottom: 1em;
+}
+
 
 dialog#dlgCapacite #DLGCAPACITE_TXT_RANG {
     width: 4em;
@@ -22,7 +26,7 @@ dialog#dlgCapacite input:disabled {
 
 dialog#dlgCapacite textarea {
     resize: vertical;
-    height: auto;
+    height: 10em;
     width: 100%;
 }
 

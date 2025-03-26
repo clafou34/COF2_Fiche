@@ -29,8 +29,8 @@ let dataFamilles = {
       "nom": "Mages",
       "id": "MA",
       "profils": [
-        {"nom": "Ensorceleur", "id": "MA_EN"},
-        {"nom": "Forgesort", "id": "MA_FO"},
+        {"nom": "Ensorceleur", "id": "ENSORCELEUR"},
+        {"nom": "Forgesort", "id": "FORGESORT"},
         {"nom": "Magicien", "id": "MA_MA"},
         {"nom": "Sorcier", "id": "MA_SO"}
       ],
