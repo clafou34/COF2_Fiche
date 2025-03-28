@@ -31,7 +31,7 @@ let dataFamilles = {
       "profils": [
         {"nom": "Ensorceleur", "id": "ENSORCELEUR"},
         {"nom": "Forgesort", "id": "FORGESORT"},
-        {"nom": "Magicien", "id": "MA_MA"},
+        {"nom": "Magicien", "id": "MAGICIEN"},
         {"nom": "Sorcier", "id": "MA_SO"}
       ],
       "groupe_voies" : "PEUPLES",
