@@ -2618,7 +2618,7 @@ let dataVoies = {
                             "description": "Le magicien projette un rayon mortel dont la portée est de 20 m et qui annule " +
                                     "la cohésion de la matière, ne laissant derrière lui qu’un amas de poussière. Un test " +
                                     "d’attaque magique réussi contre la DEF de la cible inflige [5d4°+INT] DM. Si le magicien " +
-                                    "vise un objet porté par une créature, le test d’attaque subit un dé malus. Les objets " + 
+                                    "vise un objet porté par une créature, le test d’attaque subit un dé malus. Les objets " +
                                     "magiques sont insensibles à ce sort et les objets normaux (jusqu’à 100 kg) sont réduits " +
                                     "en poussière. Une créature réduite à 0 PV par ce sort est proprement désintégrée, ne " +
                                     "laissant aucun cadavre derrière elle ! (Ses objets magiques sont épargnés)."
@@ -2793,7 +2793,7 @@ let dataVoies = {
                                     "le maître pourra à nouveau invoquer son familier dès qu’il aura terminé une récupération " +
                                     "complète (c’est toujours le même animal qui apparaît). Le familier récupère tous les " +
                                     "PV perdus après une récupération rapide. <br>" +
-                                    "<span style=\"text-decoration: underline;\">FAMILIER</span> : <b>AGI</b>:+3* " + 
+                                    "<span style=\"text-decoration: underline;\">FAMILIER</span> : <b>AGI</b>:+3* " +
                                     "<b>CON</b>:0 <b>FOR</b>:‐4 <b>PER</b>:+2 <b>CHA</b>:‐2 <b>INT</b>:‐2 <b>VOL</b>:+2 " +
                                     "<b>Défense</b>:[13 + rang dans la voie] <b>Points de vigueur</b>:[niveau du magicien] " +
                                     "<b>Initiative</b>:[Init. du magicien]. <br> " +
@@ -2826,8 +2826,546 @@ let dataVoies = {
                     ]
                 }
             ]
+        },
+        /***************************************************************************
+         Voies du sorcier
+         ****************************************************************************/
+        {
+            "id": "SORCIER",
+            "voies": [
+                {
+                    "id": "DEMON",
+                    "nom": "DÉMON",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Malédiction (M) ou (L)*",
+                            "description": "Le sorcier effectue un test opposé d’attaque magique contre une " +
+                                    "cible à moins de 20 m. En cas de succès, si l’incantation était une " +
+                                    "action de mouvement (M), la victime subit un dé malus à son prochain " +
+                                    "test. Si l’incantation était une action limitée (L), le dé malus " +
+                                    "s’applique à ses 3 prochains tests. Dans tous les cas, la cible ne " +
+                                    "peut subir les effets de ce sort qu’une fois par combat."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Beauté de la succube (L)*",
+                            "description": "Le sorcier acquiert une beauté fascinante pour INT minutes. Il gagne un " +
+                                    "dé bonus aux tests de CHA ainsi qu’une attaque de contact nécessitant un test " +
+                                    "d’attaque magique (contre DEF, action d’attaque), qui inflige [1d4°+INT] DM. " +
+                                    "Le sorcier récupère autant de PV (sans dépasser son maximum de PV) que la cible " +
+                                    "en a perdu."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Pacte démoniaque (G)",
+                            "description": "Le sorcier sacrifie 1d4° PV et gagne immédiatement +INT sur le résultat " +
+                                    "d’un d20 qu’il vient de lancer ou en DEF contre une attaque (avant de savoir si " +
+                                    "une attaque touche). De plus, il ajoute désormais sa VOL au nombre de dés de " +
+                                    "récupération (DR) qu’il possède."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Aspect du démon (A)*",
+                            "description": "Le sorcier prend l’apparence d’un démon ailé pendant INT minutes. Il gagne " +
+                                    "un dé bonus en attaque au contact et +5 en DEF et à tous les tests physiques " +
+                                    "(FOR, AGI, CON), mais il ne peut pas utiliser d’arme (ni les arts martiaux). Il " +
+                                    "peut faire deux attaques de griffes à [1d4°+INT] DM à chaque tour, en action limitée " +
+                                    "(une seule en action d’attaque) et il peut voler de 10 m par action de mouvement. " +
+                                    "Note : Ne se cumule pas avec la Beauté de la succube."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Invocation d’un démon (L)*",
+                            "description": "En sacrifiant 1d4° PV, le sorcier invoque un démon à son service pour INT " +
+                                    "minutes. Ce démon possède l’apparence d’un humanoïde musclé d’environ 2,30 m doté " +
+                                    "d’une épée et d’ailes de chauve‐souris. Le démon divise par deux tous les DM non " +
+                                    "magiques subis, les sorts et les armes magiques lui infligent des DM normaux. Il est " +
+                                    "capable de voler à une vitesse équivalente à un déplacement normal. Lorsque le sorcier " +
+                                    "atteint le niveau 15, le démon devient capable d’attaquer deux fois à son tour, au prix " +
+                                    "d’une action limitée.<br>" +
+                                    "<span style=\"text-decoration: underline;\">DÉMON</span> : <b>AGI</b>:+2 <b>CON</b>:+4* " +
+                                    "<b>FOR</b>:+5* <b>PER</b>:+2 <b>CHA</b>:+0 <b>INT</b>:+2 <b>VOL</b>:+4 <b>Défense</b>:18 " +
+                                    "<b>Points de vigueur</b>:[niveau du sorcier × 5] <b>Initiative</b>:[Init. du sorcier] " +
+                                    "<b>Attaque au contact</b>:[attaque magique du sorcier] <b>DM</b> 2d4°+5"
+                        }
+                    ]
+                },
+                {
+                    "id": "MORT",
+                    "nom": "MORT",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Siphon des âmes",
+                            "description": "Une fois par round, lorsqu’une créature humanoïde vivante meurt à moins de 20 m " +
+                                    "du sorcier, il récupère NC PV (arrondis à 1 pour NC 1⁄2). À partir du rang 3, si la " +
+                                    "créature est de NC supérieur à 4, il peut choisir de récupérer 1 PM au lieu des PV."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Masque mortuaire (M)*",
+                            "description": "Le sorcier prend l’apparence de la mort pendant INT minutes. Il est alors " +
+                                    "considéré non‐vivant et devient immunisé à la plupart des pouvoirs des morts‐vivants " +
+                                    "(drain de vigueur et affaiblissement, paralysie de la goule, etc.). De plus, ceux‐ci " +
+                                    "le prennent pour l’un des leurs. Il divise par deux tous les DM de froid. Il ne peut " +
+                                    "pas bénéficier de soins tant qu’il est sous l’effet de ce sort. <br> " +
+                                    "Note : Les créatures non vivantes sont infatigables, ne respirent pas et sont immunisées " +
+                                    "aux maladies, aux poisons et à la plupart des attaques qui demandent un test de CON. " +
+                                    "Elles voient dans le noir comme dans de la pénombre à une distance de 30 m."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Baiser du vampire (A)*",
+                            "description": "Ce sort nécessite la réussite d’un test opposé d’attaque magique (portée 30 m). " +
+                                    "La victime subit [2d4°+INT] DM et le sorcier récupère autant de PV (sans dépasser son " +
+                                    "maximum de PV). Note : Ne fonctionne pas sur une créature non vivante (golem, élémentaires, " +
+                                    "morts‐vivants...)."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Peur (A) ou (L)*",
+                            "description": "Le sorcier effectue un test opposé d’attaque magique contre une cible " +
+                                    "<span style=\"text-decoration: underline;\">vivante</span> (portée 20 m). S’il l’emporte, " +
+                                    "la victime fuit aussi loin du sorcier que possible pendant INT rounds (il lui faut " +
+                                    "généralement autant de temps pour revenir !). Les créatures dont le NC est supérieur " +
+                                    "ou égal au niveau du sorcier ne fuient qu’un seul round. Le sorcier peut choisir de " +
+                                    "lancer ce sort en action limitée et toutes les créatures à son contact sont affectées " +
+                                    "(faire un test d’attaque magique par adversaire)."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Briser les cœurs (A)*",
+                            "description": "Le sorcier fait mine d’arracher le cœur de sa victime, puis de broyer dans sa " +
+                                    "main (l’image du cœur de la victime apparaît dans la main du sorcier). Il doit faire " +
+                                    "un test opposé d’attaque magique contre une cible vivante (portée 20 m) et, en cas de " +
+                                    "réussite, il inflige [5d4°+INT] DM, la moitié en cas de test raté. Ce sort ne peut " +
+                                    "affecter une même cible qu’une seule fois par combat. Note : Ne fonctionne pas sur " +
+                                    "une créature non vivante (golem, élémentaires, morts‐vivants...)."
+                        }
+                    ]
+                },
+                {
+                    "id": "OUTRE_TOMBE",
+                    "nom": "OUTRE‐TOMBE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Un pied dans la tombe (A)*",
+                            "description": "Le sorcier désigne une cible vivante à portée (10 m) et doit réussir un test opposé " +
+                                    "d’attaque magique. En cas de succès, la cible ressent une douleur intense à l’emplacement " +
+                                    "du cœur, elle subit [1d4°+INT] DM et, si elle rate un test de CON difficulté 10, l’état " +
+                                    "ralenti durant 1 round."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Armure d’os",
+                            "description": "Le sorcier peut désormais porter une armure d’os (souvent camouflée sous une robe) " +
+                                    "qui lui offre un bonus de +3 en DEF et n’empêche pas l’utilisation des capacités de sorcier. " +
+                                    "Son bonus de DEF augmente de +1 chaque fois que le personnage atteint le rang 4 dans " +
+                                    "une voie de sorcier. Le sorcier doit confectionner cette armure lui‐même à partir " +
+                                    "d’ossements et l’entretenir par magie 10 min chaque jour."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Animation des morts (L)*",
+                            "description": "Le sorcier anime le cadavre d’un humanoïde de taille moyenne, décédé depuis moins " +
+                                    "d’INT jours. Le zombie comprend les ordres « Attaquer », « Suivre », « Garder » et " +
+                                    "« Pas bouger ». Le sorcier peut contrôler un seul zombie, plus un zombie chaque fois " +
+                                    "qu’il atteint le rang 5 dans une voie de sorcier. Un zombie réduit à 0 PV tombe en poussière.<br>" +
+                                    "<span style=\"text-decoration: underline;\">ZOMBIE</span> : <b>AGI</b>:‐1 <b>CON</b>:+1 " +
+                                    "<b>FOR</b>:+2 <b>PER</b>:‐2 <b>CHA</b>:‐4 <b>INT</b>:‐4 <b>VOL</b>:+6 <b>Défense</b>:10 " +
+                                    "<b>Points de vigueur</b>:[10 + niveau] <b>Initiative</b>:8 " +
+                                    "<b>Attaque au contact</b>:[attaque magique du sorcier] <b>DM</b>:1d4°+2 <br>" +
+                                    "Le zombie se déplace de 5 m par action de mouvement."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Ensevelissement (L)*",
+                            "description": "Une fois par combat, si le sorcier réussit un test opposé d’attaque magique " +
+                                    "(portée 20 m), des mains squelettiques surgissent sous les pieds d’une cible de taille moyenne " +
+                                    "ou inférieure et l’enterrent vivante. Tant qu’elle est ensevelie, elle subit 2d4° DM par " +
+                                    "round, ne peut agir ni être la cible d’attaques extérieures. À son tour, elle peut tenter de " +
+                                    "sortir de terre en réussissant un test de FOR ou d’AGI (au choix de la cible) difficulté 15 " +
+                                    "au prix d’une action limitée. Si elle tombe à 0 PV, elle reste enterrée et décède au tour " +
+                                    "suivant. Chaque personne qui creuse pour l’aider lui octroie un bonus de +2 sur son test " +
+                                    "(maximum +10)."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Armée des morts (L)*",
+                            "description": "Une fois par jour, le sorcier peut invoquer d’innombrables squelettes qui émergent " +
+                                    "du sol pour attaquer ses ennemis pendant [niveau du sorcier] rounds. Tous les adversaires " +
+                                    "situés dans un rayon de 10 m autour du sorcier subissent automatiquement 2d4° DM par round. " +
+                                    "Les squelettes se déplacent avec le sorcier, mais tous les déplacements dans cette zone " +
+                                    "(même ceux du sorcier) sont divisés par deux."
+                        }
+                    ]
+                },
+                {
+                    "id": "SANG",
+                    "nom": "SANG",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Saignements (A)*",
+                            "description": "Le sorcier doit réussir un test d’attaque magique (portée 10 m) contre une difficulté " +
+                                    "de [10 + CON de la cible]. Du sang s’écoule de la bouche, du nez, des oreilles et même des yeux " +
+                                    "de la victime, qui subit 1d4° DM par round pendant INT rounds."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Sang mordant (M)*",
+                            "description": "Pendant INT minutes, le sang du sorcier se transforme en un acide qui gicle lorsqu’il " +
+                                    "subit une blessure. Chaque fois qu’un ennemi au contact le blesse, ce dernier subit 1d4° DM d’acide."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Exsangue",
+                            "description": "Le corps du sorcier devient cadavérique. Il gagne +2 en DEF et ce bonus passe à +3 au " +
+                                    "rang 5 (Si le personnage porte une armure autre qu’une armure d’os de sorcier, le bonus est " +
+                                    "réduit de 1 point, donc +1 DEF et +2 DEF au rang 5). De plus, lorsqu’il tombe à 0 PV, il peut " +
+                                    "continuer à agir, mais avec un dé malus à tous ses tests. S’il subit encore au moins 1 DM, il " +
+                                    "sombre dans l’inconscience."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Rituel de sang (A)*",
+                            "description": "Le sorcier s’ouvre les veines et sacrifie 1d4° PV pour cibler une créature vivante " +
+                                    "(portée 20 m), la victime saigne à la moindre blessure. Tous les DM infligés à la cible par " +
+                                    "des armes tranchantes ou perçantes (griffes et crocs inclus) augmentent de +1d4° pendant INT rounds."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Lien de sang (A)*",
+                            "description": "En réussissant un test opposé d’attaque magique (portée 20 m), le sorcier tisse un lien " +
+                                    "avec sa victime. Pendant INT minutes, la moitié des DM reçus par le sorcier sont également " +
+                                    "subis par la cible (les DM infligés au sorcier ne sont pas pour autant réduits) et le sorcier " +
+                                    "peut lui lancer un sort sans la voir (si elle est à portée)."
+                        }
+                    ]
+                },
+                {
+                    "id": "SOMBRE_MAGIE",
+                    "nom": "SOMBRE MAGIE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Ténèbres (L)*",
+                            "description": "Le sorcier invoque une zone fixe de ténèbres magiques, de 10 m de diamètre, à une " +
+                                    "portée de 20 m pour une durée d’INT minutes. Toutes les créatures, même celles capables de " +
+                                    "voir dans le noir, sont aveuglées dans cette zone. En plus de ce sort, le sorcier ajoute son " +
+                                    "rang + 2 à tous les tests d’INT basés sur les savoirs sombres (démons, morts‐vivants, rituels " +
+                                    "impies, etc.)."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Reptation (M)*",
+                            "description": "Pendant INT minutes, le sorcier peut ramper de 5 m par action de mouvement sur les murs " +
+                                    "et les plafonds. Il peut lancer des sorts dans cette posture."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Strangulation (A)*",
+                            "description": "En réussissant un test opposé d’attaque magique (portée 20 m), le sorcier étouffe une " +
+                                    "créature vivante. La victime subit un dé malus à tous ses tests et [1d4°+INT] DM par round " +
+                                    "tant que le sorcier maintient sa concentration par une action de mouvement et la dépense de 1 " +
+                                    "PM par round. Si la victime sort de la portée du sort, il prend fin."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Manteau d’ombre (L)*",
+                            "description": "Le sorcier s’enveloppe d’ombre pendant INT minutes. Il gagne un dé bonus à tous les " +
+                                    "tests de discrétion et il impose un dé malus à tous les tests d’attaque à distance qui le " +
+                                    "prennent pour cible. S’il tombe à 0 PV pendant la durée du sort, il peut choisir de " +
+                                    "disparaître dans son ombre et de réapparaître à 1d6 km dans la direction de son choix avec " +
+                                    "1d4° PV, 1d6 min plus tard (une dissipation de la magie (Maîtrise de la magie, voie du mage) " +
+                                    "lancée sur la zone où le sorcier a disparu dans son ombre avant sa réapparition au loin " +
+                                    "fait apparaître son corps et annule l’effet). Ceci met fin au sort et interdit de le lancer " +
+                                    "de nouveau avant le prochain crépuscule."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Pacte ténébreux",
+                            "description": "Le sorcier augmente sa CON de +1. Désormais, il obtient un dé bonus aux tests de CON " +
+                                    "et voit dans le noir comme s’il s’agissait de pénombre. De plus, lorsqu’il lance un sort, " +
+                                    "il peut sacrifier 1d4° PV pour ajouter +2d4° aux DM de ce sort. S’il s’agit d’un sort dont " +
+                                    "les DM durent de round en round (comme strangulation), il peut sacrifier 1d4° PV chaque round."
+                        }
+                    ]
+                }
+            ]
+        },
+        /***************************************************************************
+         Voies du druide
+         ****************************************************************************/
+        {
+            "id": "DRUIDE",
+            "voies": [
+                {
+                    "id": "ANIMAUX",
+                    "nom": "ANIMAUX",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Langage des animaux",
+                            "description": "Le druide sait communiquer avec les mammifères. La communication reste " +
+                                    "primitive et limitée à l’intelligence de l’animal et à son point de vue (prédateur, " +
+                                    "proie, etc.). De plus, il ajoute son rang + 2 à tous les tests destinés à influencer " +
+                                    "un animal avec lequel il peut communiquer. Chaque fois que le personnage atteint le " +
+                                    "rang 4 dans une voie de druide, il apprend à communiquer avec une nouvelle catégorie " +
+                                    "d’animaux de son choix : les oiseaux, les reptiles (et les amphibiens), les poissons " +
+                                    "(et les mollusques) ou les arthropodes (insectes, araignées, scorpions, etc.) et enfin " +
+                                    "les animaux fantastiques (griffon, pégase, etc.)."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Petit compagnon",
+                            "description": "Le druide choisit un petit animal (écureuil, corbeau, chat). Il peut utiliser " +
+                                    "les sens de son familier (voir par ses yeux, entendre ce qu’il entend, etc.) et " +
+                                    "communiquer avec lui à distance illimitée. Il gagne +2 en DEF lorsque son familier " + 
+                                    "est en vue. Le familier récupère tous les PV perdus après une récupération rapide. " +
+                                    "S’il est réduit à 0 PV, le familier prend la fuite et réapparaît auprès de son maître " +
+                                    "24 h plus tard, complètement soigné. S’il est tué (lors d’un fait de jeu que le MJ juge " +
+                                    "inévitable), le druide perd 1d4° PV en contrecoup et pourra trouver un autre familier " +
+                                    "au prochain passage de niveau (pas forcément le même animal). " +
+                                    "<span style=\"text-decoration: underline;\">FAMILIER</span> : <b>AGI</b>:+3* <b>CON</b>:0 " +
+                                    "<b>FOR</b>:‐4 <b>PER</b>:+2* <b>INT</b>:‐2 <b>CHA</b>:‐2 <b>VOL</b>:+2 " +
+                                    "<b>Défense</b>:[13 + rang dans la voie] <b>Points de vigueur</b>:[niveau du druide × 2] " +
+                                    "<b>Initiative</b>:[Init. du druide]<br>" +
+                                    "Un familier est une créature trop petite pour attaquer et infliger des dommages.<br>" +
+                                    "<b>Note</b> : Petit compagnon est une version non magique du Familier du magicien (voie de la " +
+                                    "magie universelle). Si un personnage décide de faire l’acquisition de ces deux capacités, " +
+                                    "le bonus de DEF ne se cumule pas."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Nuée d’insectes (A)*",
+                            "description": "En réussissant un test d’attaque magique contre la DEF de sa cible (portée 20 m), " +
+                                    "le druide libère sur celle‐ci une nuée d’insectes volants qui piquent, aveuglent et la " +
+                                    "suivent pendant [3 + PER] rounds. La victime subit 1 DM par round et un malus de ‐2 à " +
+                                    "tous les tests. Les DM de zone détruisent la nuée."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Masque du prédateur (A)*",
+                            "description": "Pendant PER minutes, le druide prend les traits d’un fauve ou d’un loup. Il gagne " +
+                                    "+2 en Initiative, en DEF, en attaque et aux DM au contact et peut voir dans la nuit " +
+                                    "(comme un elfe)."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Forme animale (A)*",
+                            "description": "Pendant une durée de PER minutes, le druide peut prendre la forme d’un animal " +
+                                    "de taille moyenne ou inférieure (minimum une souris) d’une catégorie dont il maîtrise " +
+                                    "la communication (voir rang 1, à l’exception des animaux fantastiques). Il conserve " +
+                                    "seulement ses PV, ses valeur d’INT et de VOL, et acquiert les caractéristiques, les " +
+                                    "attaques, la DEF et les capacités naturelles de la forme choisie (le vol pour un oiseau, " +
+                                    "la respiration aquatique pour le poisson, etc.). Le druide ne peut ni utiliser son " +
+                                    "équipement ni ses propres capacités sous cette forme. Le druide peut reprendre sa " +
+                                    "forme humaine lorsqu’il le désire par une action de mouvement (M)."
+                        }
+                    ]
+                },
+                {
+                    "id": "FAUVE",
+                    "nom": "FAUVE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Vitesse du félin",
+                            "description": "Le druide ajoute son rang + 2 aux tests de course, d’escalade ou de saut. " +
+                                    "De plus, il gagne +3 en Initiative et +1 en DEF. Le bonus de DEF passe à +2 au " +
+                                    "rang 3 et +3 au rang 5."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Panthère",
+                            "description": "Le druide apprivoise une panthère (ou un puma) qui lui obéit au doigt et à " +
+                                    "l’œil.<br><span style=\"text-decoration: underline;\">PANTHÈRE</span> : " +
+                                    "<b>AGI</b>:+4* <b>CON</b>:+2 <b>FOR</b>:+2 <b>PER</b>:+2* <b>CHA</b>:‐2 <b>INT</b>:‐3 " +
+                                    "<b>VOL</b>:+2 <b>Défense</b>:[13 + rang dans la voie] " +
+                                    "<b>Points de vigueur</b>:[niveau du druide × 4] <b>Initiative</b>:[Init. du druide] " +
+                                    "<b>Attaque au contact</b>:[attaque magique] <b>DM</b>:1d4+2"
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Attaque bondissante (L)",
+                            "description": "Le druide ou son félin parcourt de 5 à 10 m et bénéficie d’un dé bonus au test " +
+                                    "d’attaque et de +1d4° aux DM contre sa cible. Il ne peut pas effectuer d’attaque " +
+                                    "bondissante s’il est au contact d’un adversaire."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Grand félin",
+                            "description": "La panthère devient un animal fabuleux ou est remplacée par un félin plus grand " +
+                                    "(tigre, lion). Le grand félin peut servir de monture au druide et il se déplace de 20 m " +
+                                    "par action de mouvement. Le druide peut communiquer avec son félin par télépathie et " +
+                                    "le guérir à distance en dépensant ses propres PV (‐1 PV au druide par PV octroyé au félin).<br>" +
+                                    "<span style=\"text-decoration: underline;\">ANIMAL FABULEUX</span> : <b>AGI</b>:+4* " +
+                                    "<b>CON</b>:+5 <b>FOR</b>:+5 <b>PER</b>:+2* <b>CHA</b>:‐2 <b>INT</b>:‐2 <b>VOL</b>:+4 " + 
+                                    "<b>Défense</b>:[15 + rang] <b>Points de vigueur</b>:[niveau du druide × 5] " +
+                                    "<b>Initiative</b>:[Init. du druide] <b>Attaque au contact</b>:[attaque magique] " +
+                                    "<b>DM</b>:1d4°+5"
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Les sept vies du chat",
+                            "description": "Cette capacité ne peut être utilisée que six fois, et pas plus d’une fois par niveau. " +
+                                    "Lorsque les PV du druide tombent à 0 ou qu’il meurt, le druide peut choisir d’ignorer ce qui " +
+                                    "a provoqué la mort ou l’inconscience ! Le MJ et le joueur doivent se mettre d’accord et " +
+                                    "trouver une raison plausible (ou pas !) pour expliquer la survie du personnage, et le " +
+                                    "faire réapparaître immédiatement ou un peu plus tard dans l’aventure si nécessaire."
+                        }
+                    ]
+                },
+                {
+                    "id": "NATURE",
+                    "nom": "NATURE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Maître de la survie",
+                            "description": "En milieu naturel, le druide ajoute son rang + 2 à tous les tests de survie (s’orienter, " +
+                                    "trouver un abri et de la nourriture, éviter les dangers, etc.) dont les tests de récupération " +
+                                    "effectués chaque nuit. Lorsqu’il dort en milieu naturel, s’il utilise 1 DR, il guérit 1d4° " +
+                                    "PV supplémentaire."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Terrains difficiles",
+                            "description": "Le druide ne subit aucune pénalité de déplacement en terrain difficile " +
+                                    "(natation, neige, boue, broussailles, pente abrupte, etc.). Il obtient un bonus de +3 en " +
+                                    "initiative, et +1 en attaque et en DEF lors d’un combat dans ces conditions."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Bâton de druide (L)",
+                            "description": "Le druide combat avec les deux extrémités de son bâton de bois noueux (ou de son épieu). " +
+                                    "Lorsqu’il utilise cette capacité, il effectue deux attaques de contact pour lesquelles il peut " +
+                                    "remplacer sa FOR par son AGI en attaque s’il le souhaite. Il inflige [1d4°+FOR ou AGI au choix] " +
+                                    "DM par attaque (plus d’éventuels bonus si l’arme est magique) et il gagne +2 en DEF pendant 1 round."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Constitution héroïque",
+                            "description": "Le druide augmente sa CON de +1. Désormais, il obtient un dé bonus aux tests de CON."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Résistant",
+                            "description": "Le druide divise par deux tous les DM « naturels non magiques » : froid, feu, chutes, " +
+                                    "poisons... mais aussi les DM provoqués par les animaux ou les insectes (même géants). Cette " +
+                                    "protection s’étend aussi à ses compagnons animaux."
+                        }
+                    ]
+                },
+                {
+                    "id": "PROTECTEUR",
+                    "nom": "PROTECTEUR",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Baies magiques (L)*",
+                            "description": "Le druide doit se trouver devant un buisson ou un arbre vivant. Son incantation fait " +
+                                    "pousser PER fruits qu’il peut cueillir. Chaque fruit offre l’équivalent d’un repas et rend " +
+                                    "[1d4°+rang] PV après 1 min à celui qui le consomme. Les effets de ces fruits ne fonctionnent " +
+                                    "qu’une fois par jour et par personnage. En plus de ce sort, le druide ajoute son rang + 2 " +
+                                    "à tous les tests de vigilance et de discrétion en pleine nature."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Forêt vivante*",
+                            "description": "Après un rituel de 30 min, la forêt s’éveille dans un rayon de 1 km par rang et " +
+                                    "devient une alliée du druide pendant 24 h. Dans ce périmètre, les ennemis du druide sont " +
+                                    "désorientés et gênés par les branches et les racines. Ils divisent leur déplacement par deux " +
+                                    "et subissent un dé malus à tous les tests de survie, d’orientation, de perception ou de " +
+                                    "discrétion. Le druide peut lancer ce sort une seule fois par jour. Si deux druides essaient " +
+                                    "d’influencer la forêt, c’est celui dont le niveau est le plus élevé qui l’emporte."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Régénération*",
+                            "description": "Une cible touchée par le druide récupère [3d4°+PER] PV par un rituel de 10 min " +
+                                    "(la cible et le druide doivent rester au calme). À partir du rang 5, ce sort permet aussi " +
+                                    "de faire repousser les membres ou les parties du corps amputées. Une cible peut bénéficier " +
+                                    "de ce sort seulement une fois par jour."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Perception héroïque",
+                            "description": "Le druide augmente sa PER de +1. Désormais, il obtient un dé bonus aux tests de PER. " +
+                                    "De plus, il ajoute désormais sa PER pour calculer ses PM (en plus de sa VOL)."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Forme d’arbre (A)*",
+                            "description": "Le druide peut se transformer en arbre (environ 5 m de hauteur) pendant PER " +
+                                    "minutes. Il prend les mêmes caractéristiques (à l’exception de l’INT, de la PER et " +
+                                    "de la VOL) que l’arbre animé (voir plus loin), y compris les PV. Sous cette forme, " +
+                                    "il ne peut pas parler, mais peut utiliser les sorts des voies du protecteur et des " +
+                                    "végétaux. À la fin du sort, ou s’il est réduit à 0 PV, il reprend forme humaine et " +
+                                    "retrouve les PV que le personnage avait au début du sort."
+                        }
+                    ]
+                },
+                {
+                    "id": "VEGETAUX",
+                    "nom": "VÉGÉTAUX",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Peau d’écorce (M)*",
+                            "description": "La peau du druide prend la consistance de l’écorce. Il bénéficie d’un bonus à " +
+                                    "la DEF égal à +2 pendant PER minutes. Ce bonus augmente de +1 aux rangs 3 et 5. Les " +
+                                    "effets du sort ne sont pas cumulables au bonus d’une armure métallique ou d’un autre " +
+                                    "sort de protection qui ajoute un bonus de DEF (à l’exception du Masque du prédateur). " +
+                                    "En plus de ce sort, le druide ajoute son rang + 2 aux tests pour identifier les " +
+                                    "plantes et connaître leurs propriétés."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Prison végétale (L)*",
+                            "description": "Le druide peut commander à la végétation de pousser et bloquer ses ennemis " +
+                                    "(mais pas ses alliés) dans une zone de 10 m de diamètre (portée 20 m) pendant PER " +
+                                    "minutes. Les cibles sont immobilisées. À son tour, une créature peut se libérer (action " +
+                                    "d’attaque) avec un test de FOR difficulté [10 + PER du druide]. En cas de réussite, " +
+                                    "elle n’est plus affectée par le sort pour le reste du combat."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Flèche vivante (A)*",
+                            "description": "En une action, le druide enchante une flèche et la tire (il doit tenir un arc " +
+                                    "en main). Cette flèche a pour particularité de prendre racine dans la plaie et de " +
+                                    "devenir un arbuste. S’il réussit un test d’attaque à distance, il inflige les DM " +
+                                    "habituels de son attaque, et au round suivant, la flèche inflige 3d4° DM supplémentaires. " +
+                                    "Si la victime est réduite à 0 PV par ce sort, un jeune arbuste pousse sur son cadavre."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Animation d’un arbre (L)*",
+                            "description": "Le druide peut animer un arbre en le touchant. Il combat à son service pendant " +
+                                    "[niveau du druide] rounds. Il peut animer un seul arbre à la fois.<br>" +
+                                    "<span style=\"text-decoration: underline;\">ARBRE ANIMÉ</span> : <b>AGI</b>:‐2 <b>CON</b>:+3 " +
+                                    "<b>FOR</b>:+3 <b>PER</b>:‐2 <b>CHA</b>:‐2 <b>INT</b>:‐2 <b>VOL</b>:+0 <b>Défense</b>:[10 + rang] " +
+                                    "<b>Points de vigueur</b>:[Niveau × 5] <b>Initiative</b>:8 " +
+                                    "<b>Attaque au contact</b>:[attaque magique] <b>DM</b>:1d4°+3 <b>Déplacement</b>:5 m par action de mouvement"
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Porte végétale (A)*",
+                            "description": "Une fois par jour, le druide peut pénétrer dans le tronc d’un gros arbre et sortir " +
+                                    "de celui d’un autre arbre appartenant à la même forêt et situé à une distance maximale de " +
+                                    "PER × 10 km. À partir du niveau 10 et tous les 4 niveaux supplémentaires, le druide peut " +
+                                    "emmener une personne avec lui."
+                        }
+                    ]
+                }
+            ]
         }
-        
+
+
+
 
     ]
 };

@@ -32,7 +32,7 @@ let dataFamilles = {
         {"nom": "Ensorceleur", "id": "ENSORCELEUR"},
         {"nom": "Forgesort", "id": "FORGESORT"},
         {"nom": "Magicien", "id": "MAGICIEN"},
-        {"nom": "Sorcier", "id": "MA_SO"}
+        {"nom": "Sorcier", "id": "SORCIER"}
       ],
       "groupe_voies" : "PEUPLES",
       "voies": ["MAGE"],
@@ -42,7 +42,7 @@ let dataFamilles = {
       "nom": "Mystiques",
       "id": "MY",
       "profils": [
-        {"nom": "Druide", "id": "MY_DR"},
+        {"nom": "Druide", "id": "DRUIDE"},
         {"nom": "Moine", "id": "MY_MO"},
         {"nom": "Prêtre", "id": "MY_PR"}
       ],
@@ -51,4 +51,4 @@ let dataFamilles = {
       "des_de_recup" : "d8"
     }
   ]
-}
+};
