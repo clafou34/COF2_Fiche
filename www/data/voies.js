@@ -568,7 +568,6 @@ let dataVoies = {
                 }
             ]
         },
-
         /***************************************************************************
          Voies du barde
          ****************************************************************************/
@@ -808,7 +807,6 @@ let dataVoies = {
                 }
             ]
         },
-
         /***************************************************************************
          Voies du rôdeur
          ****************************************************************************/
@@ -1035,7 +1033,6 @@ let dataVoies = {
                 }
             ]
         },
-
         /***************************************************************************
          Voies du voleur
          ****************************************************************************/
@@ -3123,7 +3120,7 @@ let dataVoies = {
                             "nom": "Petit compagnon",
                             "description": "Le druide choisit un petit animal (écureuil, corbeau, chat). Il peut utiliser " +
                                     "les sens de son familier (voir par ses yeux, entendre ce qu’il entend, etc.) et " +
-                                    "communiquer avec lui à distance illimitée. Il gagne +2 en DEF lorsque son familier " + 
+                                    "communiquer avec lui à distance illimitée. Il gagne +2 en DEF lorsque son familier " +
                                     "est en vue. Le familier récupère tous les PV perdus après une récupération rapide. " +
                                     "S’il est réduit à 0 PV, le familier prend la fuite et réapparaît auprès de son maître " +
                                     "24 h plus tard, complètement soigné. S’il est tué (lors d’un fait de jeu que le MJ juge " +
@@ -3203,7 +3200,7 @@ let dataVoies = {
                                     "par action de mouvement. Le druide peut communiquer avec son félin par télépathie et " +
                                     "le guérir à distance en dépensant ses propres PV (‐1 PV au druide par PV octroyé au félin).<br>" +
                                     "<span style=\"text-decoration: underline;\">ANIMAL FABULEUX</span> : <b>AGI</b>:+4* " +
-                                    "<b>CON</b>:+5 <b>FOR</b>:+5 <b>PER</b>:+2* <b>CHA</b>:‐2 <b>INT</b>:‐2 <b>VOL</b>:+4 " + 
+                                    "<b>CON</b>:+5 <b>FOR</b>:+5 <b>PER</b>:+2* <b>CHA</b>:‐2 <b>INT</b>:‐2 <b>VOL</b>:+4 " +
                                     "<b>Défense</b>:[15 + rang] <b>Points de vigueur</b>:[niveau du druide × 5] " +
                                     "<b>Initiative</b>:[Init. du druide] <b>Attaque au contact</b>:[attaque magique] " +
                                     "<b>DM</b>:1d4°+5"
@@ -3362,6 +3359,479 @@ let dataVoies = {
                     ]
                 }
             ]
+        },
+        /***************************************************************************
+         Voies du moine
+         ****************************************************************************/
+        {
+            "id": "MOINE",
+            "voies": [
+                {
+                    "id": "ENERGIE_VITALE",
+                    "nom": "ÉNERGIE VITALE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Mains d’énergie (L)",
+                            "description": "Par un effort de concentration, le moine peut rendre ses mains intangibles. " +
+                                    "Au prix d’une action limitée, à son tour, il peut faire une attaque à mains nues avec " +
+                                    "un bonus en attaque égal au rang + 2. De plus, même lorsqu’il n’utilise pas Mains " +
+                                    "d’énergie, toutes les attaques à mains nues du moine sont considérées comme magiques " +
+                                    "et il peut choisir de remplacer sa FOR aux DM par sa VOL."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Projection du ki (L)",
+                            "description": "Le moine projette une vague de force avec son corps et son esprit à une " +
+                                    "distance maximale de 20 m. Un test d’attaque magique réussi lui permet d’infliger " +
+                                    "[1d4°+ VOL] DM. Les DM passent à [2d4°+ VOL] au rang 4."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Invulnérable",
+                            "description": "Le moine ne reçoit que la moitié des DM de toutes les sources « élémentaires » : " +
+                                    "Feu, froid, foudre, acide... ainsi que des poisons ou des maladies. À partir du rang 5, " +
+                                    "il ne reçoit plus aucun DM ni effet des poisons et des maladies."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Pression mortelle (M)",
+                            "description": "Le moine frappe les points par lesquels circule l’énergie vitale d’une créature " +
+                                    "vivante. En touchant un point précis, il libère ensuite des effets dévastateurs. Lorsqu’il " +
+                                    "combat à mains nues, le joueur peut choisir de ne pas infliger immédiatement les DM de " +
+                                    "ses attaques, il les comptabilise à part et ajoute +1d4° aux DM de chaque attaque. À " +
+                                    "tout moment dans l’heure qui suit, il peut annoncer une Pression mortelle. Il doit alors " +
+                                    "réussir un test d’attaque au contact contre la DEF de la cible (action limitée), ce " +
+                                    "qui libère instantanément la totalité des DM infligés jusqu’alors. À partir du niveau " +
+                                    "10, le moine n’a plus besoin de toucher sa cible pour déclencher cet effet ; dans ce " +
+                                    "cas, il remplace le test d’attaque au contact par un test opposé d’attaque magique, " +
+                                    "mais n'a droit qu'à un seul essai."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Ascétisme",
+                            "description": "Le moine ne mange presque plus, et il peut subsister sans eau et sans sommeil " +
+                                    "pendant [5 + VOL] jour. Il ne subit aucune pénalité durant cette période. De plus, " +
+                                    "le moine augmente sa CON de +1 et obtient un dé bonus aux tests de CON."
+                        }
+                    ]
+                },
+                {
+                    "id": "MAITRISE",
+                    "nom": "MAÎTRISE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Agilité du singe",
+                            "description": "Le moine ajoute son rang + 2 à tous ses tests pour effectuer des acrobaties ou " +
+                                    "esquiver et il gagne +2 en DEF. Ce bonus passe à +3 au rang 4. Se relever (si le personnage " +
+                                    "est renversé) devient une action gratuite."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Griffes du tigre",
+                            "description": "Désormais, lorsque le moine obtient un résultat de 1 au dé de DM à mains nues, il " +
+                                    "le remplace par le résultat maximal du dé. De plus le moine peut choisir d’infliger des " +
+                                    "DM tranchants ou perforants lorsqu’il combat à mains nues au lieu de DM contondants."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Morsure du serpent",
+                            "description": "Lorsqu’il attaque à mains nues, le moine augmente de 1 point les chances d’obtenir " +
+                                    "un critique sur les attaques au contact (par exemple, 19‐20 au lieu de 20). De plus, ses " +
+                                    "coups critiques portés à mains nues sont désormais si douloureux que la cible est " +
+                                    "affaiblie pendant 1 round."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Fureur du dragon (L)",
+                            "description": "Une fois par combat, le moine peut effectuer une attaque tournoyante qui inflige " +
+                                    "automatiquement [3d4°+FOR] DM à tous les adversaires au contact et oblige ceux‐ci à " +
+                                    "réussir un test de FOR difficulté 10 pour ne pas être renversés."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Moment de perfection",
+                            "description": "Une fois par jour, le moine peut choisir de réussir toutes ses attaques " +
+                                    "automatiquement (pas de critique) et d’esquiver toutes celles qui le prennent pour " +
+                                    "cible pendant un round. Tout semble aller au ralenti autour de lui... Il peut utiliser " +
+                                    "cette capacité une fois de plus chaque jour par rang 5 atteint dans une autre voie de " +
+                                    "moine, mais pas plus d’une fois par combat. De plus le moine augmente définitivement de +1 " +
+                                    "la valeur de sa plus faible caractéristique (choisir en cas d’égalité)."
+                        }
+                    ]
+                },
+                {
+                    "id": "MEDITATION",
+                    "nom": "MÉDITATION",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Pacifisme",
+                            "description": "Tant que le moine n’a réalisé aucune action offensive dans un combat, il bénéficie " +
+                                    "d’un bonus de +5 en DEF et divise par deux tous les DM subis par des attaques. De plus, " +
+                                    "il obtient un bonus égal à son rang + 2 à tous les tests d’empathie (pour analyser l’état " +
+                                    "émotionnel d’un interlocuteur) ou à ceux effectués pour apaiser un auditoire ou le convaincre " +
+                                    "de ne pas avoir recours à la violence."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Transe de guérison",
+                            "description": "Le moine peut méditer pendant 10 min et récupérer ainsi [1d4°+VOL] PV. Les soins " +
+                                    "augmentent de +1d4° chaque fois que le personnage atteint le rang 4 dans une voie de " +
+                                    "moine. Il doit terminer une récupération rapide avant de pouvoir à nouveau utiliser " +
+                                    "cette capacité et il ne peut pas l’utiliser plus de trois fois par jour."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Maîtrise du ki",
+                            "description": "Le moine utilise sa force mentale pour augmenter son efficacité en combat. Il ajoute " +
+                                    "sa VOL à son Initiative et à ses PV. De plus, il gagne +2 en DEF (ce bonus passe à +3 au rang 5)."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Volonté héroïque",
+                            "description": "Le moine augmente sa VOL de +1. Désormais, il obtient un dé bonus aux tests de VOL."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Projection mentale (L)",
+                            "description": "Une fois par jour, le moine entre en méditation et projette son esprit hors de " +
+                                    "son corps pendant [1d4°+VOL] minutes. Il ressemble à un ectoplasme de couleur blanche " +
+                                    "qui se déplace en volant à la vitesse de 10 m par round. Il peut passer au travers " +
+                                    "des murs, mais pas des êtres vivants ou des barrières magiques. Le moine ne perçoit " +
+                                    "le monde que par sa projection mentale, mais ressent les DM qui sont infligés à son " +
+                                    "corps. Il peut utiliser cette capacité une fois de plus chaque jour par rang 5 atteint " +
+                                    "dans une autre voie de moine. De plus le moine augmente définitivement de +1 la valeur " +
+                                    "de sa plus faible caractéristique (choisir en cas d’égalité)."
+                        }
+                    ]
+                },
+                {
+                    "id": "POING",
+                    "nom": "POING",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Poings de fer",
+                            "description": "Lorsqu’il combat à mains nues, le moine peut (s’il le souhaite) remplacer sa " +
+                                    "FOR par son AGI pour ses tests d’attaque au contact et il inflige [1d6+FOR] DM létaux " +
+                                    "Ces DM augmentent à chaque rang suivant : 1d8 au rang 2, 1d10 au rang 3, 1d12 au rang 4 " +
+                                    "et enfin 2d6 au rang 5."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Peau de fer",
+                            "description": "Le moine gagne un bonus de +2 en DEF et il divise tous les DM temporaires subis " +
+                                    "par deux. Le bonus de DEF passe à +3 au rang 5."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Parade de projectiles (G)",
+                            "description": "Le moine peut dévier un projectile (flèche, javelot...) une fois par round (sauf " +
+                                    "si le test d’attaque est un critique ou si l’attaque vient d’une arme à poudre)."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Déluge de coups (L)",
+                            "description": "À son tour, le moine peut effectuer deux attaques au contact sur des cibles de " +
+                                    "son choix."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Puissance du ki",
+                            "description": "Le moine peut choisir de s’imposer un dé malus sur une attaque au contact et " +
+                                    "ajoute +2d4° aux DM. Cette capacité peut aussi être utilisée avec Projection du ki " +
+                                    "qui est une attaque magique."
+                        }
+                    ]
+                },
+                {
+                    "id": "VENT",
+                    "nom": "VENT",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Pas du vent",
+                            "description": "Le moine peut se déplacer avant et après avoir attaqué (mais il couvre toujours " +
+                                    "une distance normale, il divise son mouvement en deux). De plus, il gagne +3 en Initiative " +
+                                    "et son rang + 2 à tous les tests de saut, de course ou d’escalade."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Course du vent",
+                            "description": "Le moine se déplace à une vitesse surhumaine, il gagne +1 en DEF et une action " +
+                                    "de mouvement lui permet de couvrir 15 m. Au rang 5, le bonus de DEF passe à +2 et l’action " +
+                                    "de mouvement lui permet de couvrir 20 m."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Course des airs",
+                            "description": "Le moine défie les lois de la pesanteur et peut se déplacer sur des surfaces qui " +
+                                    "ne devraient pas supporter son poids. Il peut se déplacer sur l’eau, la neige, le feuillage " +
+                                    "des arbres ou courir sur un mur vertical. Il doit commencer et terminer son déplacement " +
+                                    "sur une surface normale. Il n’est plus ralenti par les terrains difficiles et il est " +
+                                    "désormais immunisé à l’état immobilisé."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Agilité héroïque",
+                            "description": "Le moine augmente son AGI de +1. Désormais, il obtient un dé bonus aux tests d’AGI."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Passe‐muraille (L)",
+                            "description": "Une fois par combat, le moine peut rendre son corps intangible le temps de passer " +
+                                    "au travers d’un mur d’une épaisseur maximal de VOL mètres. Il ne peut rester immatériel " +
+                                    "qu’un court instant et reprend corps dès qu’il émerge du mur. Si le mur est trop épais, " +
+                                    "la capacité ne fonctionne pas. De plus le moine augmente définitivement de +1 la valeur de " +
+                                    "sa plus faible caractéristique (choisir en cas d’égalité)."
+                        }
+                    ]
+                }
+            ]
+        },
+        /***************************************************************************
+         Voies du prêtre
+         ****************************************************************************/
+        {
+            "id": "PRETRE",
+            "voies": [
+                {
+                    "id": "FOI",
+                    "nom": "FOI",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Prédicateur",
+                            "description": "Le prêtre ajoute son rang + 2 aux tests visant à convaincre ou convertir son " +
+                                    "auditoire. De plus, une fois par jour, il récupère 1 PC s’il réussit à convertir une " +
+                                    "créature (ou un groupe) à sa religion ou à convaincre une créature peu encline à " +
+                                    "le faire à suivre ses préceptes."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Miracle mineur (A)*",
+                            "description": "Le prêtre réalise un petit miracle. Par exemple, purifier de l’eau croupie pour " +
+                                    "qu’elle devienne buvable ou des aliments avariés (mais il ne peut pas en créer), apaiser " +
+                                    "une douleur mineure (qui n’entraîne pas de malus) ou même une douleur majeure pendant " +
+                                    "un seul round, soigner une maladie bénigne (rhume, grippe, etc.). Ce sort permet " +
+                                    "aussi de rendre 1d4° PV à une créature à 0 PV."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Arme de lumière (M)* ou (L)*",
+                            "description": "Ce sort permet d’enchanter l’arme du prêtre pour une durée de CHA minutes. " +
+                                    "Elle produit de la lumière dans un rayon de 5 m et contre les démons et les morts‐vivants, " +
+                                    "elle offre un dé bonus en attaque et ajoute +1d4° aux DM. À partir du rang 5, le prêtre " +
+                                    "peut utiliser ce sort sur l’arme d’un allié au prix d’une action limitée ou, s’il " +
+                                    "utilise le sort sur son arme personnelle, infliger +2d4° DM (au lieu de 1d4°). Le sort " +
+                                    "prend immédiatement fin si l’arme quitte les mains du prêtre."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Ailes célestes (A)*",
+                            "description": "Des ailes divines poussent dans le dos du prêtre, qui peut voler à une vitesse " +
+                                    "équivalente à son déplacement normal pendant CHA minutes. Rester en vol stationnaire " +
+                                    "avec les ailes célestes est une action de mouvement."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Foudres divines (A)*",
+                            "description": "La foudre frappe toutes les créatures désignées dans un rayon de 10 m autour du " +
+                                    "prêtre et leur inflige [2d4°+CHA] DM (pas de test d’attaque requis). Ce sort est " +
+                                    "gourmand en énergie et son coût augmente de +1 PM à chaque utilisation tant que le " +
+                                    "prêtre n’a pas terminé une récupération rapide."
+                        }
+                    ]
+                },
+                {
+                    "id": "GUERRE_SAINTE",
+                    "nom": "GUERRE SAINTE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Arme bénie (A)*",
+                            "description": "Le prêtre effectue un court rituel et son arme est bénie pour une durée de 24 h. " +
+                                    "Lorsqu’il obtient un résultat de 1 sur son dé de DM, il relance le dé et garde le second " +
+                                    "résultat. Les DM de l’arme sont considérés comme magiques. L’arme n’est plus bénie si " +
+                                    "une autre créature l’utilise."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Bouclier de la foi",
+                            "description": "Le prêtre porte le symbole de sa foi sur son bouclier, ce qui lui confère un " +
+                                    "bonus supplémentaire de +1 en DEF lorsqu’il l’utilise. Ce bonus passe à +2 au rang 5. " +
+                                    "Comme pour l’arme bénie, le symbole de la foi n’est d’aucune utilité si le bouclier est " +
+                                    "utilisé par quelqu’un d’autre."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Châtiment divin (L)",
+                            "description": "Le prêtre effectue une attaque de contact avec un dé bonus et ajoute son CHA aux " +
+                                    "dommages. De plus, lorsqu’il utilise cette capacité, le prêtre peut dépenser 1 PM pour " +
+                                    "ajouter +1d4° aux DM d’une attaque au contact qui touche. Au rang 5, il peut dépenser " +
+                                    "2 PM pour ajouter +2d4°."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Marteau de la foi (A)*",
+                            "description": "Le prêtre effectue un test d’attaque magique contre la DEF se sa cible (portée de " +
+                                    "30 m). Un projectile d’énergie de la forme de l’arme du prêtre va percuter la cible, lui " +
+                                    "infligeant [2d4°+CHA] DM en cas de réussite. Si l’arme du prêtre est magique, il peut " +
+                                    "ajouter son bonus au test d’attaque et aux DM. Les DM du marteau de la foi augmentent " +
+                                    "de +1 chaque fois que le personnage atteint le rang 4 dans une autre voie de prêtre."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Mot de pouvoir (A)*",
+                            "description": "Une fois par jour, le prêtre peut prononcer un mot avec la voix de son dieu. Cela " +
+                                    "dépasse l’entendement des mortels et tous ses ennemis dans un rayon de 10 m sont " +
+                                    "étourdis pendant 1 round (pas d’action et ‐5 en DEF)."
+                        }
+                    ]
+                },
+                {
+                    "id": "PRIERE",
+                    "nom": "PRIÈRE",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Bénédiction (L)*",
+                            "description": "Le prêtre entonne un chant pour encourager ses compagnons en vue. Ses alliés et " +
+                                    "lui bénéficient d’un bonus de +1 à tous leurs tests de caractéristique et d’attaque " +
+                                    "pendant CHA minutes. Ce bonus passe à +2 au rang 5. De plus, le prêtre obtient un bonus " +
+                                    "égal à son rang + 2 à tous les tests de théologie ou de cosmologie."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Sanctuaire (L)*",
+                            "description": "Pendant 1 min (10 rounds), tous les adversaires qui veulent attaquer le prêtre " +
+                                    "doivent réussir un test d’INT difficulté [10 + CHA du prêtre]. S’ils échouent, ils ne " +
+                                    "peuvent pas l’attaquer pour la durée du sort. Ceux dont le niveau est inférieur à la " +
+                                    "moitié de celui du prêtre sont automatiquement affectés (pas de test d’INT). Si le " +
+                                    "prêtre commet une action offensive, le sort prend fin immédiatement et il ne peut plus " +
+                                    "être lancé avant de prendre une récupération rapide."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Destruction du mal (A)*",
+                            "description": "Tous les morts‐vivants et les démons dans un rayon de 10 m autour du prêtre " +
+                                    "subissent automatiquement [2d4°+CHA] DM. Les DM passent à 3d4° au rang 5."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Volonté héroïque",
+                            "description": "Le prêtre augmente sa VOL de +1. Désormais, il obtient un dé bonus aux tests de VOL."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Intervention divine (G)",
+                            "description": "Le prêtre fait appel à son dieu pour changer le cours des événements. Une fois " +
+                                    "par combat, il peut décider qu’un test du MJ ou des joueurs est une réussite ou un échec, " +
+                                    "même après que les dés ont révélé leur résultat. Il ne peut pas modifier le résultat du " +
+                                    "test obtenu par une créature d’un NC supérieur à son niveau."
+                        }
+                    ]
+                },
+                {
+                    "id": "SOINS",
+                    "nom": "SOINS",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Récupération mineure (A)*",
+                            "description": "Le prêtre peut apposer les mains sur un allié au contact (ou sur lui‐même) pour le " +
+                                    "soigner. Le patient récupère [1d4°+CHA du prêtre] PV. Ce sort peut être lancé une fois " +
+                                    "par jour par rang atteint dans la voie, plus une fois supplémentaire chaque fois que le " +
+                                    "personnage atteint le rang 3 dans une autre voie de prêtre. En plus de ce sort, le " +
+                                    "prêtre ajoute son rang + 2 à tous les tests de médecine et de premiers soins."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Vigueur divine (L)*",
+                            "description": "La cible au contact est guérie d’un poison ou d’une maladie. Si l’infection est " +
+                                    "surnaturelle, un test d’attaque magique (éventuellement opposé) peut être demandé par " +
+                                    "le MJ. De plus, le prêtre obtient un bonus égal au rang + 2 aux tests effectués pour " +
+                                    "résister aux maladies et aux poisons."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Récupération majeure (L)*",
+                            "description": "Le prêtre peut soigner une cible (ou lui‐même) à une portée de 20 m ; elle " +
+                                    "récupère immédiatement [3d4°+CHA du prêtre] PV. Le montant des soins prodigués augmente " +
+                                    "de 1d4° chaque fois que le personnage atteint le rang 5 dans une voie de prêtre."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Phénix",
+                            "description": "Une fois par jour, lorsque le personnage tombe à 0 PV, il se relève, nimbé d’une " +
+                                    "aura de lumière. Il produit alors une onde d’énergie positive qui restitue [2d4°+CHA " +
+                                    "du prêtre] PV à tous ses alliés dans un rayon de 20 m, et il récupère lui‐même le double " +
+                                    "de PV."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Rétablissement*",
+                            "description": "Une fois par jour, le prêtre peut soigner une créature par point de CHA. Chaque " +
+                                    "patient (éventuellement lui‐même inclus) obtient les mêmes effets qu’un sort de " +
+                                    "Récupération majeure. Le sort prend 10 min pendant lesquelles tous les patients doivent " +
+                                    "rester au repos dans un rayon de 5 m autour du prêtre qui se concentre et se nimbe de " +
+                                    "lumière divine. Ce sort ne peut pas être lancé avec la règle de concentration."
+                        }
+                    ]
+                },
+                {
+                    "id": "SPIRITUALITE",
+                    "nom": "SPIRITUALITÉ",
+                    "capacites": [
+                        {
+                            "rang": "1",
+                            "nom": "Vêtements sacrés",
+                            "description": "La tenue religieuse du prêtre est bénie et le protège. Lorsqu’il ne porte aucune " +
+                                    "armure (bouclier autorisé), il obtient un dé bonus à tous les tests pour résister à un " +
+                                    "contrôle mental (injonction, charme, domination...) et +2 en DEF. Ce bonus passe à +3 au " +
+                                    "rang 3 et +4 au rang 5. Éventuellement, si le prêtre prie une divinité guerrière, il peut " +
+                                    "choisir d’obtenir la maîtrise de la cotte de mailles (DEF +5) et l’autorisation d’utiliser " +
+                                    "les capacités des voies de prêtre avec cette armure (dans le cas d’un profil hybride, " +
+                                    "la maîtrise de la chemise de mailles est un prérequis pour bénéficier de cette variante)."
+                        },
+                        {
+                            "rang": "2",
+                            "nom": "Augure (L)*",
+                            "description": "Le prêtre entre en contact avec les forces de l’au‐delà et demande un avis sur " +
+                                    "les conséquences d’une action (par exemple « quelles seront les conséquences si j’ouvre " +
+                                    "cette porte ? »). Il doit faire un test de CHA difficulté 10. En cas de succès, il reçoit " +
+                                    "une réponse déterminée par le MJ parmi : bénéfique, incertain, risqué ou préjudiciable. " +
+                                    "Le MJ essaie de donner la réponse la plus utile possible au scénario."
+                        },
+                        {
+                            "rang": "3",
+                            "nom": "Délivrance (L)*",
+                            "description": "En touchant sa cible, le prêtre annule les pénalités infligées par les sorts, " +
+                                    "les malédictions et les capacités spéciales (peur, douleur, affaiblissement, poisons, " +
+                                    "pétrification, etc., et les états étourdi, paralysé, ralenti ou immobilisé), mais pas " +
+                                    "les mutilations ou les amputations. Si la pénalité était permanente, le MJ peut requérir " +
+                                    "un test d’attaque magique opposé et imposer un éventuel malus selon la force de l’effet."
+                        },
+                        {
+                            "rang": "4",
+                            "nom": "Charisme héroïque",
+                            "description": "Le prêtre augmente son CHA de +1. Désormais, il obtient un dé bonus aux tests de CHA."
+                        },
+                        {
+                            "rang": "5",
+                            "nom": "Marche des plans (L)*",
+                            "description": "Une fois par jour, le prêtre peut passer dans une dimension entre les plans " +
+                                    "d’existence où le temps et l’espace sont déformés pendant un maximum de CHA rounds. " +
+                                    "Il se déplace dans une sorte de brouillard gris où le paysage défile à toute vitesse. " +
+                                    "Pour chaque round de Marche des plans, il se déplace en réalité de 10 km. Le lieu de " +
+                                    "sortie n’est cependant pas très précis et le MJ doit déterminer une position au hasard " +
+                                    "autour du point visé (à 1d6 km près)."
+                        }
+                    ]
+                }
+            ]
         }
 
 
@@ -3369,10 +3839,6 @@ let dataVoies = {
 
     ]
 };
-
-
-
-
 /***************************************************************************
  Modèle de profil
  

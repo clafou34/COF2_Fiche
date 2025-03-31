@@ -43,8 +43,8 @@ let dataFamilles = {
       "id": "MY",
       "profils": [
         {"nom": "Druide", "id": "DRUIDE"},
-        {"nom": "Moine", "id": "MY_MO"},
-        {"nom": "Prêtre", "id": "MY_PR"}
+        {"nom": "Moine", "id": "MOINE"},
+        {"nom": "Prêtre", "id": "PRETRE"}
       ],
       "groupe_voies" : "",
       "voies": [],
