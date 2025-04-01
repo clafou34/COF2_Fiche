@@ -327,11 +327,11 @@
                     <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie zoneVoiePeuple niv1"  data-categ-voie="peuple">
                         <legend class="titreVoie">
                             <span class="btnModif"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                            <span>Voie du peuple : </span>
+                            <span>Voie du peuple</span> : 
                             <span class="lblNomVoie"></span>
                             <span class="lblTypeVoie"></span>
                         </legend>
-                        
+
                         <div class="groupe_voie">
                             <label>Voie</label>
                             <select class="selectTypeVoie">
@@ -895,6 +895,22 @@
             </div>
         </form>
 
+        <dialog id="dlgVoie">
+            <div class="dlgEntete">
+                <div title="Titre de la fenêtre">Modification de la voie</div>
+                <button id="dlgVoieFerme" title="Fermer sans valider"></button>
+            </div>
+            <form>
+                <div class="groupe_unique">
+                    <div class="dlgPied">
+                        <button id="dlgVoieOK">OK</button>
+                    </div>
+                </div>
+            </form>
+        </dialog>
+
+
+
         <dialog id="dlgCapacite">
             <div class="dlgEntete">
                 <div title="Titre de la fenêtre">Modification de la capacité</div>
@@ -937,6 +953,7 @@
     <script type="text/javascript" src="data/peuples.js"></script>
     <script type="text/javascript" src="data/voies.js"></script>
     <script type="text/javascript" src="js/dlgCapacite.js"></script>
+    <script type="text/javascript" src="js/dlgVoie.js"></script>
     <script type="text/javascript" src="js/fiche_metier.js"></script>
     <script type="text/javascript" src="js/fiche_evt.js"></script>
 </html>

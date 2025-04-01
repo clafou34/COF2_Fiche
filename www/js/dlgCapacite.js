@@ -16,7 +16,7 @@ function dlgCapaciteInitEventListners() {
 /*******************************************************************************
  * Affichage de la boite de dialogue de modification de la capacité pour la zone
  * passée en paramètre.
- * @param htmlitem parHtmlItemZoneCapacite Item contant la zone de la capacité (div)
+ * @param {type} parHtmlItemZoneCapacite Item contant la zone de la capacité (div)
  *******************************************************************************/
 function dlgCapaciteOuverture(parHtmlItemZoneCapacite) {
     let varDlgCapaciteDisplayDescription = dlgCapacite.getElementsByClassName("dlgCapaciteDisplayDescription")[0];

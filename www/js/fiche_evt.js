@@ -29,6 +29,8 @@ function initEventListners() {
     for (let varSelectVoie of document.getElementsByClassName("selectVoie")) {
         varSelectVoie.addEventListener('change', selVoieOnChange);
     }
+    for (let varBtnModifVoie of document.querySelectorAll(".zoneVoie > legend > span.btnModif")) 
+        varBtnModifVoie.addEventListener('click', zoneVoieOnClick);
     for (let varBtnModifCapacite of document.querySelectorAll(".contenuCapacite > span.btnModif")) 
         varBtnModifCapacite.addEventListener('click', zoneCapaciteOnClick);
 }
@@ -40,8 +42,9 @@ function bodyOnLoad() {
     // Initialisation des événements à écouter pour la fiche principale
     initEventListners();
     
-    // Initialisation des événement à écouter pour la boite de dialogue des capacités
+    // Initialisation des événement à écouter pour les boites de dialogue
     dlgCapaciteInitEventListners();
+    dlgVoieInitEventListners();
     
     // Remplir les données par défaut
     initSelectPeuples();
@@ -53,6 +56,15 @@ function bodyOnLoad() {
     remplirDesRecuperation();
     remplirDefense();
     gereVoies();
+}
+
+/********************************************************************
+ * Gestion de l'évènement "OnClick" sur une voie
+ * @param {event} event Evénement permettant de retrouver la zone à gérer.
+ ********************************************************************/
+function zoneVoieOnClick(event) {
+    // Ouverture de la fenêtre de gestion de la voie avec l'item HTML de la zone
+    dlgVoieOuverture(event.currentTarget.parentNode.parentNode);
 }
 
 /********************************************************************
