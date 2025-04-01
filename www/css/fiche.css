@@ -53,6 +53,21 @@ select:disabled {
     background-color: rgba(1,1,1,0);
 }
 
+.btnModif img {
+    vertical-align: middle;
+    height: 1.3em;
+    width: 1.3em;
+    border: 0px;
+    border-radius: 4px;
+    padding:2px;
+}
+
+.btnModif img:hover{
+    background-color: #AAAAAA;
+    border: 0;
+    border-radius: 4px;
+}
+
 /******************************************
 Les colonnes
 *******************************************/
@@ -509,6 +524,20 @@ fieldset.zoneVoie {
 
 }
 
+fieldset.zoneVoie > div.titreVoie {
+    float: left;
+    background-color: #ac8a3c;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    width : 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    position: absolute;
+    top:0px;
+}
+
 div.zoneCapacite {
     padding: 0;
 }
@@ -561,16 +590,4 @@ div.contenuCapacite > .displayCommentaireCapacite::before {
     margin-right : 1em;
 }
 
-div.zoneCapacite .btnModifCapacite img {
-    vertical-align: middle;
-    height: 1.3em;
-    width: 1.3em;
-    border: 2px solid #FFFFFF;
-    border-radius: 4px;
-}
 
-div.zoneCapacite .btnModifCapacite img:hover{
-    background-color: #AAAAAA;
-    border: 2px solid #AAAAAA;
-    border-radius: 4px;
-}

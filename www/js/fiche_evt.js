@@ -29,9 +29,8 @@ function initEventListners() {
     for (let varSelectVoie of document.getElementsByClassName("selectVoie")) {
         varSelectVoie.addEventListener('change', selVoieOnChange);
     }
-    for (let varZoneCapacite of document.getElementsByClassName("btnModifCapacite")) {
-        varZoneCapacite.addEventListener('click', zoneCapaciteOnClick);
-    }
+    for (let varBtnModifCapacite of document.querySelectorAll(".contenuCapacite > span.btnModif")) 
+        varBtnModifCapacite.addEventListener('click', zoneCapaciteOnClick);
 }
 
 /*******************************************************************************
