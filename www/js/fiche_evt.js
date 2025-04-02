@@ -145,7 +145,6 @@ function selPeupleOnChange() {
  ********************************************************************/
 function selFamilleOnChange() {
     initSelectProfils();
-    initSelectTypeVoiePeuple();
 
     remplirDesRecuperation();
     gereVoies();

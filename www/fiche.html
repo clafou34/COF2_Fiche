@@ -7,6 +7,7 @@
         <link href="css/fiche.css" rel="stylesheet">
         <link href="css/fiche_dialog.css" rel="stylesheet">
         <link href="css/dlgCapacite.css" rel="stylesheet">
+        <link href="css/dlgVoie.css" rel="stylesheet">
     </head>
     <body onload="bodyOnLoad()">
         <form id="FORM_FICHE">
@@ -327,20 +328,14 @@
                     <fieldset id="ZONE_VOIE_PEUPLE" class="zoneVoie zoneVoiePeuple niv1"  data-categ-voie="peuple">
                         <legend class="titreVoie">
                             <span class="btnModif"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
-                            <span>Voie du peuple</span> : 
+                            <span class="lblNomZoneVoie">Voie du peuple</span> : 
                             <span class="lblNomVoie"></span>
                             <span class="lblTypeVoie"></span>
+                            <input type="hidden" class="txtIdTypeVoie">
+                            <input type="hidden" class="txtIdGroupeVoie">
+                            <input type="hidden" class="txtIdVoie">
+                            <input type="hidden" class="txtNomVoie">
                         </legend>
-
-                        <div class="groupe_voie">
-                            <label>Voie</label>
-                            <select class="selectTypeVoie">
-                                <option value="STANDARD">Peuple</option>
-                                <option value="PERSO">Personnalisée</option>
-                            </select>
-                            <input type="text" class="txtVoiePerso"/>
-                            <select class="selectVoie"></select>
-                        </div>
 
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
@@ -902,10 +897,19 @@
             </div>
             <form>
                 <div class="groupe_unique">
-                    <div class="dlgPied">
-                        <button id="dlgVoieOK">OK</button>
-                    </div>
+                    <label for="DLGVOIE_SEL_TYPE_VOIE">Type de voie</label>
+                    <select class="dlgVoieSelectTypeVoie" id="DLGVOIE_SEL_TYPE_VOIE"></select>
+                    <label>Nom de la voie</label>
+                    <span>
+                        <input type="text" id="DLGVOIE_TXT_NOM" title="Nom de la voie"/>
+                        <span class="dlgVoieDisplayNom dlgVoieDisplay"></span>
+                        <select class="dlgVoieSelectVoie"></select>
+                    </span>
                 </div>
+                <div class="dlgPied">
+                    <button id="dlgVoieOK">OK</button>
+                </div>
+
             </form>
         </dialog>
 

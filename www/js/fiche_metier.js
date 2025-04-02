@@ -305,100 +305,7 @@ function initSelectProfils() {
     }
 }
 
-/*******************************************************************************
- * Rajoute à la liste des type de voie du peuple les voies
- * de la famille (si elle en a).
- *******************************************************************************/
-function initSelectTypeVoiePeuple() {
-    let selTypeVoiePeuple = document.getElementById("ZONE_VOIE_PEUPLE").getElementsByClassName("selectTypeVoie")[0];
-    let idFamilleCourante = document.getElementById("SEL_FAMILLE").value;
-    let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
-    // Vidange de la liste des types de voies du peuple des familles
-    for (let varOptTypeVoie of selTypeVoiePeuple.options) {
-        if (varOptTypeVoie.getAttribute("data-type-famille") === "oui")
-            varOptTypeVoie.remove(varOptTypeVoie.selectedIndex);
-    }
 
-// On rajoute les famille dans la liste de choix
-    if (idFamilleCourante !== "") {
-        let tabIdVoiesDeLaFamille = searchObjectById(dataFamilles.familles, idFamilleCourante).voies; // Tableau des voies de la famille sélectionnée.
-        if (tabIdVoiesDeLaFamille === undefined) {
-            console.error("La famille " + idFamilleCourante + " n'existe pas ou n'a pas d'attribut \"voies\".");
-            return;
-        }
-        if (tabIdVoiesDeLaFamille.length > 0) {
-            // Rajout des voies de la famille dans la liste de choix
-            for (let varIdVoie of tabIdVoiesDeLaFamille) {
-                let varVoie = searchObjectById(tabToutesVoiesPeuple, varIdVoie);
-                if (varVoie !== null) {
-                    let option = document.createElement('option');
-                    option.text = varVoie.nom;
-                    option.value = varVoie.id;
-                    option.setAttribute("data-type-famille", "oui");
-                    selTypeVoiePeuple.add(option);
-                }
-            }
-        }
-    }
-}
-
-/*****************************************************************
- * Cette fonction remplie la liste de choix de la voie
- * du peuple en récupérant les voies autorisées pour le peuple
- * sélectionné et les voies autorisées pour la famille selectionnée.
- * @param {item} parZoneVoie Item contenant zone de voie dont
- *                              la liste de choix (SELECT) des voies.
- ******************************************************************/
-function initSelectVoiesPeuple(parZoneVoie) {
-    let tabVoies = [];
-    let peupleCourant = document.getElementById("SEL_PEUPLE").value;
-    let tabToutesVoiesPeuple = searchObjectById(dataVoies.groupesVoies, "PEUPLES").voies;
-
-    // Récupération de la liste de choix de le voie
-    let varSelectVoie = parZoneVoie.getElementsByClassName("selectVoie")[0];
-
-    // On récupère l'ancienne valeur pour la sélectionner après rééinitialisation
-    let varOldIdVoie = varSelectVoie.value;
-
-    // Vidange de la liste des voies de peuple
-    while (varSelectVoie.options.length > 0) {
-        varSelectVoie.remove(0);
-    }
-
-    // Récupération des voies du peuple actuellement sélectionné
-    if (peupleCourant !== "") {
-        let tabIdVoiesDuPeuple = searchObjectById(dataPeuples.peuples, peupleCourant).voies; // Tableau des voies du peuple sélectionné.
-        if (tabIdVoiesDuPeuple === undefined) {
-            console.error("Le peuple " + peupleCourant + " n'existe pas ou n'a pas d'attribut \"voies\".");
-            return;
-        }
-        if (tabIdVoiesDuPeuple.length > 0) {
-            for (let varIdVoie of tabIdVoiesDuPeuple) {
-                let varVoie = searchObjectById(tabToutesVoiesPeuple, varIdVoie);
-                if (varVoie !== null) {
-                    tabVoies.push(varVoie);
-                }
-            }
-        }
-    }
-
-    // Remplissage de la liste des voies du peuple.
-    for (let varVoie of tabVoies) {
-        let option = document.createElement('option');
-        option.text = varVoie.nom;
-        option.value = varVoie.id;
-        if (varOldIdVoie === varVoie.id)
-            option.selected = true;
-        varSelectVoie.add(option);
-    }
-
-    // S'il n'y a qu'une option, on désactive la liste
-    if (varSelectVoie.length === 1) {
-        varSelectVoie.disabled = true;
-    } else {
-        varSelectVoie.disabled = false;
-    }
-}
 
 /*******************************************************************************
  * Rempli les listes de sélection des voies pour les profils hybride. Si la liste
@@ -581,45 +488,50 @@ function gereVoieProfil(parZoneVoie) {
  * @param {type} parZoneVoie Item contenant la zone de la voie de peuple.
  ******************************************************************************/
 function gereVoiePeuple(parZoneVoie) {
+    // Récupération des champs à gérer
+    varTxtIdTypeVoie = parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0];
+    varTxtIdGroupeVoie = parZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0];
+    varTxtIdVoie = parZoneVoie.getElementsByClassName("txtIdVoie")[0];
+    varTxtNomVoie = parZoneVoie.getElementsByClassName("txtNomVoie")[0];
+    
+    console.log("gereVoiePeuple varTxtIdTypeVoie.value=" + varTxtIdTypeVoie.value);
+    
+    // Si les champs sont vides, on initialise avec la voie par défaut du peuple
+    if(varTxtIdTypeVoie.value === "") {
+        // Récupération du peuple actuellement sélectionné
+        varPeupleCourant = document.getElementById("SEL_PEUPLE").value;
 
+        // On prend le type STANDARD par défaut
+        varTxtIdTypeVoie.value = "STANDARD";
+        
+        // On prend le groupe de voie correspondant au peuple
+        let varObjPeuple = searchObjectById(dataPeuples.peuples,varPeupleCourant);
+        varTxtIdGroupeVoie.value = varObjPeuple.groupe_voies;
+        
+        // On récupère la première voie compatible avec le peuple
+        let varObjGroupeVoies = searchObjectById(dataVoies.groupesVoies,varObjPeuple.groupe_voies);
+        let varObjVoie = searchObjectById(varObjGroupeVoies.voies,varObjPeuple.voies[0]);
+        varTxtIdVoie.value = varObjVoie.id;
+        varTxtNomVoie.value = varObjVoie.nom;
+    }
+    console.log("gereVoiePeuple varTxtIdTypeVoie.value=" + varTxtIdTypeVoie.value);
+    
     // Récupération du type de voie
-    let varStrTypeVoie = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
+    let varStrTypeVoie = varTxtIdTypeVoie.value;
+    
+    // On affiche le nom de la voie
+    parZoneVoie.getElementsByClassName("lblNomVoie")[0].innerText = varTxtNomVoie.value;
 
     // Si c'est la voie standard du peuple
     if (varStrTypeVoie === "STANDARD") {
-        // On affiche la liste de choix des voies du peuple et on rempli la liste
-        let varSelVoie = parZoneVoie.getElementsByClassName("selectVoie")[0];
-        varSelVoie.style.display = "inline";
-        initSelectVoiesPeuple(parZoneVoie);
-
-        // On efface la zone de texte contenant le nom de la voie personnalisée
-        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
-        varTxtVoiePerso.style.display = "none";
-
         // On affiche les capacités de la voie du peuple
         initZonesCapacitesVoiePeuple(parZoneVoie);
 
     } else if (varStrTypeVoie === "PERSO") {
-        // On efface la liste de choix des voies pour les profils hybrides
-        parZoneVoie.getElementsByClassName("selectVoie")[0].style.display = "none";
-
-        // On affiche la zone de texte contenant le nom de la voie personnalisée
-        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
-        varTxtVoiePerso.style.display = "inline";
-
         // On vide les zones de capacités
         videZonesCapacites(parZoneVoie);
 
     } else { // On est sur une famille
-        // On affiche la liste de choix des voies du peuple et on rempli la liste
-        let varSelVoie = parZoneVoie.getElementsByClassName("selectVoie")[0];
-        varSelVoie.style.display = "inline";
-        initSelectVoiesPeuple(parZoneVoie);
-
-        // On efface la zone de texte contenant le nom de la voie personnalisée
-        let varTxtVoiePerso = parZoneVoie.getElementsByClassName("txtVoiePerso")[0];
-        varTxtVoiePerso.style.display = "none";
-
         // On affiche les capacités de la voie de la famille
         initZonesCapacitesVoiePeuple(parZoneVoie);
     }
@@ -649,8 +561,8 @@ function initZonesCapacites(parZoneVoie) {
  *******************************************************************************/
 function initZonesCapacitesVoiePeuple(parZoneVoie) {
     let varIdPeuple = document.getElementById("SEL_PEUPLE").value;
-    let varIdVoie = parZoneVoie.getElementsByClassName("selectVoie")[0].value;
-    let varStrTypeVoie = parZoneVoie.getElementsByClassName("selectTypeVoie")[0].value;
+    let varIdVoie = parZoneVoie.getElementsByClassName("txtIdVoie")[0].value;
+    let varStrTypeVoie = parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value;
     let varVoieAAfficher = null;
 
     // Récupération des données du peuple
