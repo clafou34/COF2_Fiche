@@ -23,12 +23,6 @@ function initEventListners() {
     for (let varTxtDefArmure of document.getElementsByClassName("txtDefArmure")) {
         varTxtDefArmure.addEventListener('change', txtDefArmureOnChange);
     }
-    for (let varSelectTypeVoie of document.getElementsByClassName("selectTypeVoie")) {
-        varSelectTypeVoie.addEventListener('change', selTypeVoieOnChange);
-    }
-    for (let varSelectVoie of document.getElementsByClassName("selectVoie")) {
-        varSelectVoie.addEventListener('change', selVoieOnChange);
-    }
     for (let varBtnModifVoie of document.querySelectorAll(".zoneVoie > legend > span.btnModif")) 
         varBtnModifVoie.addEventListener('click', zoneVoieOnClick);
     for (let varBtnModifCapacite of document.querySelectorAll(".contenuCapacite > span.btnModif")) 
@@ -55,6 +49,7 @@ function bodyOnLoad() {
     remplirAttaques();
     remplirDesRecuperation();
     remplirDefense();
+    reinitVoies();
     gereVoies();
 }
 
@@ -137,6 +132,7 @@ function selVolOnChange() {
  * Gestion de l'événement "OnChange" de la liste de choix des peuples.
  ********************************************************************/
 function selPeupleOnChange() {
+    reinitVoies();
     gereVoies();
 }
 
@@ -155,23 +151,4 @@ function selFamilleOnChange() {
  ********************************************************************/
 function selProfilOnChange() {
     gereVoies();
-}
-
-/*************************************************************************
- * Gestion de l'événement "OnChange" de la liste des types de voie.
- * @param {event} event Evénement permettant de retrouver la zone à gérer.
- **************************************************************************/
-function selTypeVoieOnChange(event) {
-    gereVoie(event.currentTarget.parentNode.parentNode);
-}
-
-/********************************************************************
- * Gestion de l'événement "OnChange" de la liste de choix des voies dans une zone
- * de voie.
- * @param {event} event Evénement permettant de retrouver la zone à gérer.
- ********************************************************************/
-function selVoieOnChange(event) {
-        let varZoneCapacite = event.currentTarget.parentNode.parentNode;
-        initZonesCapacites(varZoneCapacite);
-        afficherTextCapacitesDeLaVoie(varZoneCapacite);
 }

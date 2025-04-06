@@ -4,10 +4,10 @@ let dataFamilles = {
       "nom": "Aventuriers",
       "id": "AV",
       "profils": [
-        {"nom": "Arquebusier", "id": "ARQUEBUSIER"},
-        {"nom": "Barde", "id": "BARDE"},
-        {"nom": "Rôdeur", "id": "RODEUR"},
-        {"nom": "Voleur", "id": "VOLEUR"}
+        {"nom": "Arquebusier", "id": "ARQUEBUSIER", "groupe_voies": "ARQUEBUSIER"},
+        {"nom": "Barde", "id": "BARDE", "groupe_voies": "BARDE"},
+        {"nom": "Rôdeur", "id": "RODEUR", "groupe_voies": "RODEUR"},
+        {"nom": "Voleur", "id": "VOLEUR", "groupe_voies": "VOLEUR"}
       ],
       "groupe_voies" : "",
       "voies": [],
@@ -17,9 +17,9 @@ let dataFamilles = {
       "nom": "Combattants",
       "id": "CO",
       "profils": [
-        {"nom": "Barbare", "id": "BARBARE"},
-        {"nom": "Chevalier", "id": "CHEVALIER"},
-        {"nom": "Guerrier", "id": "GUERRIER"}
+        {"nom": "Barbare", "id": "BARBARE", "groupe_voies": "BARBARE"},
+        {"nom": "Chevalier", "id": "CHEVALIER", "groupe_voies": "CHEVALIER"},
+        {"nom": "Guerrier", "id": "GUERRIER", "groupe_voies": "GUERRIER"}
       ],
       "groupe_voies" : "",
       "voies": [],
@@ -29,10 +29,10 @@ let dataFamilles = {
       "nom": "Mages",
       "id": "MA",
       "profils": [
-        {"nom": "Ensorceleur", "id": "ENSORCELEUR"},
-        {"nom": "Forgesort", "id": "FORGESORT"},
-        {"nom": "Magicien", "id": "MAGICIEN"},
-        {"nom": "Sorcier", "id": "SORCIER"}
+        {"nom": "Ensorceleur", "id": "ENSORCELEUR", "groupe_voies": "ENSORCELEUR"},
+        {"nom": "Forgesort", "id": "FORGESORT", "groupe_voies": "FORGESORT"},
+        {"nom": "Magicien", "id": "MAGICIEN", "groupe_voies": "MAGICIEN"},
+        {"nom": "Sorcier", "id": "SORCIER", "groupe_voies": "SORCIER"}
       ],
       "groupe_voies" : "PEUPLES",
       "voies": ["MAGE"],
@@ -42,9 +42,9 @@ let dataFamilles = {
       "nom": "Mystiques",
       "id": "MY",
       "profils": [
-        {"nom": "Druide", "id": "DRUIDE"},
-        {"nom": "Moine", "id": "MOINE"},
-        {"nom": "Prêtre", "id": "PRETRE"}
+        {"nom": "Druide", "id": "DRUIDE", "groupe_voies": "DRUIDE"},
+        {"nom": "Moine", "id": "MOINE", "groupe_voies": "MOINE"},
+        {"nom": "Prêtre", "id": "PRETRE", "groupe_voies": "PRETRE"}
       ],
       "groupe_voies" : "",
       "voies": [],

@@ -25,7 +25,7 @@ function dlgCapaciteOuverture(parHtmlItemZoneCapacite) {
     
     globalHtmlItemZoneCapacite = parHtmlItemZoneCapacite;
     
-    if(parHtmlItemZoneCapacite.parentNode.getElementsByClassName("selectTypeVoie")[0].value==="PERSO") {
+    if(parHtmlItemZoneCapacite.parentNode.getElementsByClassName("txtIdTypeVoie")[0].value==="PERSO") {
         // Affichage du rang modifiable
         document.getElementById("DLGCAPACITE_TXT_RANG").style.display = "inline";
         varDlgCapaciteDisplayRang.style.display = "none";
@@ -42,7 +42,7 @@ function dlgCapaciteOuverture(parHtmlItemZoneCapacite) {
         document.getElementById("DLGCAPACITE_TXT_DESCRIPTION").value = parHtmlItemZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value;
     }
     else {
-        // Affichage du non rang modifiable
+        // Affichage du rang non modifiable
         document.getElementById("DLGCAPACITE_TXT_RANG").style.display = "none";
         varDlgCapaciteDisplayRang.style.display = "inline";
         varDlgCapaciteDisplayRang.innerText = parHtmlItemZoneCapacite.getElementsByClassName("txtRangCapacite")[0].value;
@@ -81,7 +81,7 @@ function dlgCapaciteBtnOkOnClick() {
  * Gestion de la validation de la modification de la capacité.
  ********************************************************************************/
 function dlgCapaciteValidation() {
-    let varTypeVoie = globalHtmlItemZoneCapacite.parentNode.getElementsByClassName("selectTypeVoie")[0].value;
+    let varTypeVoie = globalHtmlItemZoneCapacite.parentNode.getElementsByClassName("txtIdTypeVoie")[0].value;
     let varHtmlItemTxtRang = globalHtmlItemZoneCapacite.getElementsByClassName("txtRangCapacite")[0];
     let varHtmlItemTxtNom = globalHtmlItemZoneCapacite.getElementsByClassName("txtNomCapacite")[0];
     let varHtmlItemTxtDescription = globalHtmlItemZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0];
