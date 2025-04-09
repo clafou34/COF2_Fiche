@@ -524,11 +524,10 @@ fieldset.zoneVoie {
 
 }
 
-fieldset.zoneVoie > div.titreVoie {
+fieldset.zoneVoie > .titreVoie {
     float: left;
     background-color: #ac8a3c;
     text-align: center;
-    font-weight: bold;
     color: white;
     width : 100%;
     padding-top: 4px;
@@ -536,6 +535,16 @@ fieldset.zoneVoie > div.titreVoie {
     text-transform: uppercase;
     position: absolute;
     top:0px;
+}
+
+fieldset.zoneVoie > .titreVoie > .lblNomVoie {
+    font-weight: bold;
+}
+
+fieldset.zoneVoie > .titreVoie .lblTypeVoie {
+    font-weight: normal;
+    font-size: 0.8em;
+    vertical-align: top;
 }
 
 div.zoneCapacite {

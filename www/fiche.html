@@ -805,16 +805,17 @@
             </div>
             <div class="col_container">
                 <div class="colonne">
-                    <fieldset class="zoneVoie zoneVoieProfil niv1" data-categ-voie="prestige">
-                        <legend>Voie de prestige</legend>
-                        <div class="groupe_voie">
-                            <label>Voie</label>
-                            <select class="selectTypeVoie">
-                                <option value="PERSO">Personnalisée</option>
-                            </select>
-                            <input type="text" class="txtVoiePerso"/>
-                            <select class="selectVoie"></select>
-                        </div>
+                    <fieldset class="zoneVoie zoneVoiePrestige niv1" data-categ-voie="prestige">
+                        <legend class="titreVoie">
+                            <span class="btnModif"><img alt="Modifier capacité" src="img/icone_crayon.png"/></span>
+                            <span class="lblNomZoneVoie">Voie de prestige</span> : 
+                            <span class="lblNomVoie"></span>
+                            <span class="lblTypeVoie"></span>
+                            <input type="hidden" class="txtIdTypeVoie">
+                            <input type="hidden" class="txtIdGroupeVoie">
+                            <input type="hidden" class="txtIdVoie">
+                            <input type="hidden" class="txtNomVoie">
+                        </legend>
                         <div class="zoneCapacite groupe_voie">
                             <div class="contenuCapacite">
                                 <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>

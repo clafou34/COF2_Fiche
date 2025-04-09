@@ -12,7 +12,7 @@ function dlgVoieInitEventListners() {
     document.getElementById("dlgVoieFerme").addEventListener('click', dlgVoieBtnCloseOnClick);
     document.getElementById("dlgVoieOK").addEventListener('click', dlgVoieBtnOkOnClick);
     document.getElementById("dlgVoieOK").addEventListener('click', dlgVoieBtnOkOnClick);
-    document.getElementById("DLGVOIE_SEL_TYPE_VOIE").addEventListener('change', dlgVoieSelTypeVoieOnChange)
+    document.getElementById("DLGVOIE_SEL_TYPE_VOIE").addEventListener('change', dlgVoieSelTypeVoieOnChange);
 }
 
 /*******************************************************************************
@@ -21,14 +21,24 @@ function dlgVoieInitEventListners() {
  * @param {type} parHtmlItemZoneVoie Item contant la zone de la voie (fieldset)
  *******************************************************************************/
 function dlgVoieOuverture(parHtmlItemZoneVoie) {
+    let selTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE");
+    let txtNomVoie = document.getElementById("DLGVOIE_TXT_NOM");
+    
     // Sauvegarde de la zone de voie à traiter
     globalHtmlItemZoneVoie = parHtmlItemZoneVoie;
 
     // Initialisation de la liste des types de voie
     dlgVoieInitSelectTypeVoie();
+    
+    // On se positionne sur le type de voie de la zone
+    selTypeVoie.value = globalHtmlItemZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value;
+
 
     // Gestion de l'affichage des champs en fonction du type de voie
     dlgVoieGereAffichage();
+    
+    // Récupération du nom de la voie
+    txtNomVoie.value = globalHtmlItemZoneVoie.getElementsByClassName("txtNomVoie")[0].value;
 
     // Affichage de la fenêtre
     dlgVoie.showModal();
@@ -101,6 +111,9 @@ function dlgVoieInitSelectTypeVoie() {
     else if (varCategorieVoie === "profil") {
         dlgVoieInitSelectTypeVoieProfil();
     }
+    else if (varCategorieVoie === "prestige") {
+        dlgVoieInitSelectTypeVoiePrestige();
+    }
 }
 
 /*******************************************************************************
@@ -147,8 +160,7 @@ function dlgVoieInitSelectTypeVoiePeuple() {
         }
     }
 
-    // On se positionne sur le type de voie actuel
-    selTypeVoie.value = globalHtmlItemZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value;
+    
 }
 
 /*******************************************************************************
@@ -173,11 +185,27 @@ function dlgVoieInitSelectTypeVoieProfil() {
     option.value = "PERSO";
     option.text = "Personnalisée";
     selTypeVoie.add(option);
+
 }
 
+/*******************************************************************************
+ * Initialise la liste des types de voies de prestige.
+ *******************************************************************************/
+function dlgVoieInitSelectTypeVoiePrestige() {
+    let selTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE");
+    
+    // Vidange de la liste des types de voies
+    selTypeVoie.innerHTML = "";
+    
+    // On rajoute les types standards
+    let option = document.createElement('option');
+    option.value = "PERSO";
+    option.text = "Personnalisée";
+    selTypeVoie.add(option);
+}
 
 /*******************************************************************************
- * Initialise la liste des des voies en tenant compte du type de la voie.
+ * Initialise la liste des voies en tenant compte du type de la voie.
  *******************************************************************************/
 function dlgVoieInitSelectVoie() {
     // Récupération de la catégorie de voie

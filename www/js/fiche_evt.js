@@ -143,6 +143,8 @@ function selFamilleOnChange() {
     initSelectProfils();
 
     remplirDesRecuperation();
+    
+    reinitVoies();
     gereVoies();
 }
 
@@ -150,5 +152,6 @@ function selFamilleOnChange() {
  * Gestion de l'événement "OnChange" de la liste de choix des profils.
  ********************************************************************/
 function selProfilOnChange() {
+    reinitVoies();
     gereVoies();
 }
