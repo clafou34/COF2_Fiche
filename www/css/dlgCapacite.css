@@ -3,7 +3,7 @@ dialog#dlgCapacite {
     max-width: 700px;
 }
 
-dialog#dlgCapacite form div {
+dialog#dlgCapacite form div.groupe_unique {
     display: grid;
     grid-template-columns: 6em auto;
     column-gap: 0.5em;

@@ -30,7 +30,7 @@ dialog .dlgEntete div {
 
 dialog .dlgEntete button {
     position: absolute;
-    right: 1px;
+    right: 8px;
     top:1px;
     margin:0;
     border: none;
@@ -67,4 +67,5 @@ dialog .dlgPied button {
     font-weight: bold;
     padding-left: 1em;
     padding-right: 1em;
+    display: inline;
 }

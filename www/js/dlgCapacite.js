@@ -10,7 +10,7 @@ let globalHtmlItemZoneCapacite = null;
  *******************************************************************************/
 function dlgCapaciteInitEventListners() {
     document.getElementById("dlgCapaciteFerme").addEventListener('click', dlgCapaciteBtnCloseOnClick);
-    document.getElementById("dlgCapaciteOK").addEventListener('click', dlgCapaciteBtnOkOnClick);
+    document.getElementById("DLG_CAPACITE_FORM").addEventListener('submit', dlgCapaciteFormOnSubmit);
 }
 
 /*******************************************************************************
@@ -70,11 +70,13 @@ function dlgCapaciteBtnCloseOnClick () {
 }
 
 /*******************************************************************************
- * Evènement de click sur le bouton de validation ("OK") de la boite de dialogue
- * des capacités.
+ * Evènement de validation du formulaire de la boite de dialogue.
+ * @param {type} e Evenement capturé.
  *******************************************************************************/
-function dlgCapaciteBtnOkOnClick() {
+function dlgCapaciteFormOnSubmit(e) {
+    e.preventDefault(); // On évite que le processus de validation du formulaire (POST/GET) se réalise.
     dlgCapaciteValidation();
+    return false;
 }
 
 /*******************************************************************************

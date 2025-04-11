@@ -3,14 +3,13 @@ dialog#dlgVoie {
     max-width: 500px;
 }
 
-dialog#dlgVoie form div {
+dialog#dlgVoie form div.groupe_unique {
     display: grid;
     grid-template-columns: 8em auto;
     column-gap: 0.5em;
     row-gap: 0.3em;
-    width: 100%;
 }
 
-dialog#dlgVoie form div span {
-    margin-bottom: 1em;
+dialog#dlgVoie form div.groupe_unique span {
+    margin-bottom: 0.2em;
 }

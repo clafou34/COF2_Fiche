@@ -10,9 +10,18 @@ let globalHtmlItemZoneVoie = null;
  *******************************************************************************/
 function dlgVoieInitEventListners() {
     document.getElementById("dlgVoieFerme").addEventListener('click', dlgVoieBtnCloseOnClick);
-    document.getElementById("dlgVoieOK").addEventListener('click', dlgVoieBtnOkOnClick);
-    document.getElementById("dlgVoieOK").addEventListener('click', dlgVoieBtnOkOnClick);
     document.getElementById("DLGVOIE_SEL_TYPE_VOIE").addEventListener('change', dlgVoieSelTypeVoieOnChange);
+    document.getElementById("DLG_VOIE_FORM").addEventListener('submit', dlgVoieFormOnSubmit);
+}
+
+/*******************************************************************************
+ * Evènement de validation du formulaire de la boite de dialogue.
+ * @param {type} e Evenement capturé.
+ *******************************************************************************/
+function dlgVoieFormOnSubmit(e) {
+    e.preventDefault(); // On évite que le processus de validation du formulaire (POST/GET) se réalise.
+    dlgVoieValidation();
+    return false;
 }
 
 /*******************************************************************************
@@ -50,13 +59,6 @@ function dlgVoieOuverture(parHtmlItemZoneVoie) {
 function dlgVoieSelTypeVoieOnChange() {
     // Gestion de l'affichage des champs en fonction du type de voie
     dlgVoieGereAffichage();
-}
-
-/*******************************************************************************
- * Evènement de click sur le bouton de validation ("OK") de la boite de dialogue.
- *******************************************************************************/
-function dlgVoieBtnOkOnClick() {
-    dlgVoieValidation();
 }
 
 /*******************************************************************************

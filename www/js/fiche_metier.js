@@ -339,7 +339,7 @@ function gereVoie(parZoneVoie) {
  * @param {type} parZoneVoie Item contenant la zone de la voie de prestige.
  ******************************************************************************/
 function gereVoiePrestige(parZoneVoie) {
-    console.log("gereVoiePrestige");
+
     // Récupération du type de voie
     let varTxtIdTypeVoie = parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0];
     let varTxtNomVoie = parZoneVoie.getElementsByClassName("txtNomVoie")[0];
@@ -582,6 +582,9 @@ function reinitVoies() {
         } else if (varCategVoie === "peuple") {
             reinitVoiePeuple(varZoneVoie);
         }
+        else if (varCategVoie === "prestige") {
+            reinitVoiePrestige(varZoneVoie);
+        }
     }
 }
 
@@ -630,8 +633,6 @@ function reinitVoieProfil(parZoneVoie) {
     let varTxtNomVoie = parZoneVoie.getElementsByClassName("txtNomVoie")[0];
     let varTxtIdTypeVoie = parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0];
 
-    console.log("reinitVoieProfil data-num-voie-profil=" + parZoneVoie.getAttribute("data-num-voie-profil"));
-
     if (varTxtIdTypeVoie.value !== "PERSO") {
         // Récupération du numéro de la voie de profil
         let varIntNumVoieProfil = Number(parZoneVoie.getAttribute("data-num-voie-profil"));
@@ -659,4 +660,23 @@ function reinitVoieProfil(parZoneVoie) {
         varTxtNomVoie.value = varObjVoie.nom;
     }
 
+}
+
+/*******************************************************************************
+ * Initialise la voie du peuple avec la valeur par défaut seulement si elle
+ * n'est pas déjà personnalisée.
+ * @param {type} parZoneVoie Zone dans laquelle la voie est à initialiser.
+ *******************************************************************************/
+function reinitVoiePrestige(parZoneVoie) {
+    let varTxtIdGroupeVoie = parZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0];
+    let varTxtIdVoie = parZoneVoie.getElementsByClassName("txtIdVoie")[0];
+    let varTxtNomVoie = parZoneVoie.getElementsByClassName("txtNomVoie")[0];
+    let varTxtIdTypeVoie = parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0];
+
+    if (varTxtIdTypeVoie.value !== "PERSO") {
+        varTxtIdTypeVoie.value = "PERSO";
+        varTxtIdGroupeVoie.value = "";
+        varTxtIdVoie.value = "";
+        varTxtNomVoie.value = ".";
+    }
 }

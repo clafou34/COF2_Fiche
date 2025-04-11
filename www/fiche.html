@@ -891,10 +891,10 @@
                 <div title="Titre de la fenêtre">Modification de la voie</div>
                 <button id="dlgVoieFerme" title="Fermer sans valider"></button>
             </div>
-            <form>
+            <form id="DLG_VOIE_FORM">
                 <div class="groupe_unique">
                     <label for="DLGVOIE_SEL_TYPE_VOIE">Type de voie</label>
-                    <select class="dlgVoieSelectTypeVoie" id="DLGVOIE_SEL_TYPE_VOIE"></select>
+                    <span><select class="dlgVoieSelectTypeVoie" id="DLGVOIE_SEL_TYPE_VOIE"></select></span>
                     <label>Nom de la voie</label>
                     <span>
                         <input type="text" id="DLGVOIE_TXT_NOM" title="Nom de la voie"/>
@@ -902,10 +902,10 @@
                         <select class="dlgVoieSelectVoie" id="DLGVOIE_SEL_VOIE"></select>
                     </span>
                 </div>
+                <div class="dlgPied">
+                    <button type="submit" id="dlgVoieOK">OK</button>
+                </div>
             </form>
-            <div class="dlgPied">
-                <button id="dlgVoieOK">OK</button>
-            </div>
         </dialog>
 
 
@@ -915,7 +915,7 @@
                 <div title="Titre de la fenêtre">Modification de la capacité</div>
                 <button id="dlgCapaciteFerme" title="Fermer sans valider"></button>
             </div>
-            <form>
+            <form  id="DLG_CAPACITE_FORM">
                 <div class="groupe_unique">
                     <label for="DLGCAPACITE_TXT_RANG">Rang</label>
                     <span>
@@ -937,10 +937,10 @@
                         <textarea id="DLGCAPACITE_TXT_COMPLEMENT"></textarea>
                     </span>
                 </div>
+                <div class="dlgPied">
+                    <button type="submit" id="dlgCapaciteOK">OK</button>
+                </div>
             </form>
-            <div class="dlgPied">
-                <button id="dlgCapaciteOK">OK</button>
-            </div>
         </dialog>
 
     </body>
