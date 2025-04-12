@@ -53,19 +53,25 @@ select:disabled {
     background-color: rgba(1,1,1,0);
 }
 
-.btnModif img {
-    vertical-align: middle;
+button.btnModif {
+    background:url(../img/icone_crayon.png);
+    background-repeat: no-repeat;
+    background-size: 1.3em 1.3em;
+    background-position-x: center;
+    background-position-y: center;
     height: 1.3em;
     width: 1.3em;
-    border: 0px;
+    vertical-align: middle;
+    border:0;
+    padding:0;
+    margin:0;
     border-radius: 4px;
-    padding:2px;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
-.btnModif img:hover{
+button.btnModif:hover{
     background-color: #AAAAAA;
-    border: 0;
-    border-radius: 4px;
 }
 
 /******************************************

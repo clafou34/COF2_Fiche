@@ -386,7 +386,6 @@ function gereVoieProfil(parZoneVoie) {
         initZonesCapacitesVoieProfil(parZoneVoie);
         parZoneVoie.getElementsByClassName("lblTypeVoie")[0].innerText = "HYBRIDE";
     } else if (varStrTypeVoie === "PERSO") {
-        videZonesCapacites(parZoneVoie);
         parZoneVoie.getElementsByClassName("lblTypeVoie")[0].innerText = "PERSO";
     }
 

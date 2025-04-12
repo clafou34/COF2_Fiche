@@ -23,9 +23,11 @@ function initEventListners() {
     for (let varTxtDefArmure of document.getElementsByClassName("txtDefArmure")) {
         varTxtDefArmure.addEventListener('change', txtDefArmureOnChange);
     }
-    for (let varBtnModifVoie of document.querySelectorAll(".zoneVoie > legend > span.btnModif")) 
+    for (let varBtnModifVoie of document.querySelectorAll(".zoneVoie > legend > .btnModif")) 
         varBtnModifVoie.addEventListener('click', zoneVoieOnClick);
     for (let varBtnModifCapacite of document.querySelectorAll(".contenuCapacite > span.btnModif")) 
+        varBtnModifCapacite.addEventListener('click', zoneCapaciteOnClick);
+    for (let varBtnModifCapacite of document.querySelectorAll(".contenuCapacite > .btnModif")) 
         varBtnModifCapacite.addEventListener('click', zoneCapaciteOnClick);
 }
 
@@ -58,8 +60,12 @@ function bodyOnLoad() {
  * @param {event} event Evénement permettant de retrouver la zone à gérer.
  ********************************************************************/
 function zoneVoieOnClick(event) {
+    event.preventDefault(); // On évite que le processus de validation du formulaire (POST/GET) se réalise.
+ 
     // Ouverture de la fenêtre de gestion de la voie avec l'item HTML de la zone
     dlgVoieOuverture(event.currentTarget.parentNode.parentNode);
+    
+    return false;
 }
 
 /********************************************************************

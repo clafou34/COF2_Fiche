@@ -65,25 +65,36 @@ function dlgVoieSelTypeVoieOnChange() {
  * Gestion de la validation de la modification.
  ********************************************************************************/
 function dlgVoieValidation() {
+    // Récupération des champs des nouvelles valeurs
     let selTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE");
     let selVoie = document.getElementById("DLGVOIE_SEL_VOIE");
     let txtNomVoie = document.getElementById("DLGVOIE_TXT_NOM");
+    
+    // Récupération des champs des ancienne valeurs.
+    let oldTxtNomVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtNomVoie")[0];
+    let oldTxtTypeVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtIdTypeVoie")[0];
+    let oldTxtIdVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtIdVoie")[0];
+    let oldTxtIdGroupeVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0];
+    
+    // Si on passe d'une voie non personalisée à une voie personnalisée, alors il faut vider les compétences.
+    if(selTypeVoie.value==="PERSO" && oldTxtTypeVoie.value!=="PERSO")
+        videZonesCapacites(globalHtmlItemZoneVoie);
 
     // Positionnement du type de la voie
-    globalHtmlItemZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value = selTypeVoie.value;
+    oldTxtTypeVoie.value = selTypeVoie.value;
 
     // Positionnement du groupe et de l'identifiant de la voie
     let varTabIdVoie = selVoie.value.split(";");
     let varIdVoie = decodeURIComponent(varTabIdVoie[1]);
     let varGroupeVoie = decodeURIComponent(varTabIdVoie[0]);
-    globalHtmlItemZoneVoie.getElementsByClassName("txtIdVoie")[0].value = varIdVoie;
-    globalHtmlItemZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0].value = varGroupeVoie;
+    oldTxtIdVoie.value = varIdVoie;
+    oldTxtIdGroupeVoie.value = varGroupeVoie;
 
     // Positionnement du nom de la voie
     if (selTypeVoie.value === "PERSO") {
-        globalHtmlItemZoneVoie.getElementsByClassName("txtNomVoie")[0].value = txtNomVoie.value;
+        oldTxtNomVoie.value = txtNomVoie.value;
     } else {
-        globalHtmlItemZoneVoie.getElementsByClassName("txtNomVoie")[0].value = selVoie.options[selVoie.selectedIndex].text;
+        oldTxtNomVoie.value = selVoie.options[selVoie.selectedIndex].text;
     }
 
     // Réinitialisation de la zone de la voie
