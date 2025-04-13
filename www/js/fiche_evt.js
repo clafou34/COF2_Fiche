@@ -161,3 +161,8 @@ function selProfilOnChange() {
     reinitVoies();
     gereVoies();
 }
+
+function btnSauverOnClick() {
+    ficheToObject();
+}
+

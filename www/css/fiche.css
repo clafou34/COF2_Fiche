@@ -33,6 +33,21 @@ body {
     max-width: 1600px;
     margin-left:auto;
     margin-right:auto;
+    margin-top:0;
+}
+
+#FORM_FICHE {
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    background:url(../img/fond_fiche2.jpg);    
+}
+
+@media (max-width: 640px) {
+    #FORM_FICHE {
+        padding-right: 0;
+        padding-left: 0;  
+    }
 }
 
 textarea {
@@ -75,6 +90,49 @@ button.btnModif:hover{
 }
 
 /******************************************
+ * Zone d'entete.
+ *******************************************/
+.entete {
+    height: 6em;
+}
+
+.zoneNomPersonnage {
+    height: 4em;
+    display: block;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.zoneNomPersonnage > div.zoneTxtNomPersonnage {
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.zoneNomPersonnage > div >input {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.zoneNomPersonnage > img {
+    margin-top:2px;
+    display: block;
+    width:100%;
+}
+
+.zoneNomPersonnage > label {
+    display: block;
+    text-transform : uppercase;
+    color: #ac8a3c;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/******************************************
 Les colonnes
 *******************************************/
 div.col_container {
@@ -101,7 +159,7 @@ Les groupes de champs
 fieldset.niv1 {
     padding-right: 0;
     padding-left: 0;
-    padding-top: 26px;
+    padding-top: 1.5em;
     border-width: 4px;
     border:0;
     border-style: solid;
@@ -117,11 +175,12 @@ fieldset.niv1 > legend {
     font-weight: bold;
     color: white;
     width : 100%;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
     text-transform: uppercase;
     position: absolute;
     top:0px;
+    height: 1.5em;
 }
 
 fieldset.niv1 > div.groupe_unique {
@@ -161,7 +220,7 @@ fieldset.champs_niv1 {
     padding-right: 0;
     padding-left: 0;
     padding-top:0;
-    padding-bottom: 20px;
+    padding-bottom: 1.3em;
     border-right: 2px;
     border-left: 2px;
     border-top:2px;
@@ -178,19 +237,20 @@ fieldset.champs_niv1 > legend {
     font-weight: bold;
     color: white;
     width : 100%;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
     text-transform: uppercase;
     position: absolute;
     bottom: 0;
-    font-size: 85%;
+    font-size: 0.9em;
+    height: 1.3em;
 }
 
 fieldset.champs_niv1 > div {
     display: inline-block;
     width:100%;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-left: 0;
     padding-right: 0;
 }
@@ -210,11 +270,11 @@ Zone de la personnalité
     width: 4em;
 }
 
-#zonePersonnalite input#IDEAL {
+#zonePersonnalite input#TXT_IDEAL {
     width: 100%;
 }
 
-#zonePersonnalite input#TRAVERS {
+#zonePersonnalite input#TXT_TRAVERS {
     width: 100%;
 }
 
@@ -279,7 +339,7 @@ fieldset#zoneInitiative div {
     width: 5em;
 }
 
-fieldset#zoneInitiative input#INITIATIVE_COURANTE {
+fieldset#zoneInitiative input#TXT_INITIATIVE {
     width: 4em;
 }
 
@@ -526,18 +586,12 @@ fieldset#ARMURES input.txtAgiArmure {
 /******************************************
 Toutes les zones de voies
 *******************************************/
-fieldset.zoneVoie {
-
-}
-
 fieldset.zoneVoie > .titreVoie {
     float: left;
     background-color: #ac8a3c;
     text-align: center;
     color: white;
     width : 100%;
-    padding-top: 4px;
-    padding-bottom: 4px;
     text-transform: uppercase;
     position: absolute;
     top:0px;

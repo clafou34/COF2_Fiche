@@ -14,7 +14,7 @@ let dataVoies = {
             "voies": [
                 {
                     "id": "DEMI_ORC",
-                    "nom": "DEMI‐ORC",
+                    "nom": "DEMI-ORC",
                     "capacites": [
                         {
                             "rang": "1",
