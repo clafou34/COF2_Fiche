@@ -13,3 +13,7 @@ dialog#dlgVoie form div.groupe_unique {
 dialog#dlgVoie form div.groupe_unique span {
     margin-bottom: 0.2em;
 }
+
+optgroup {
+    font-weight: bold;
+}

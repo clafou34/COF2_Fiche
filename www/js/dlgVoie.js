@@ -32,20 +32,26 @@ function dlgVoieFormOnSubmit(e) {
 function dlgVoieOuverture(parHtmlItemZoneVoie) {
     let selTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE");
     let txtNomVoie = document.getElementById("DLGVOIE_TXT_NOM");
-    
+    let selVoie = document.getElementById("DLGVOIE_SEL_VOIE");
+
+    // On commence par tout initialiser à vide
+    selTypeVoie.value = "";
+    txtNomVoie.value = "";
+    selVoie.value = "";
+
     // Sauvegarde de la zone de voie à traiter
     globalHtmlItemZoneVoie = parHtmlItemZoneVoie;
 
     // Initialisation de la liste des types de voie
     dlgVoieInitSelectTypeVoie();
-    
+
     // On se positionne sur le type de voie de la zone
     selTypeVoie.value = globalHtmlItemZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value;
 
 
     // Gestion de l'affichage des champs en fonction du type de voie
     dlgVoieGereAffichage();
-    
+
     // Récupération du nom de la voie
     txtNomVoie.value = globalHtmlItemZoneVoie.getElementsByClassName("txtNomVoie")[0].value;
 
@@ -69,32 +75,33 @@ function dlgVoieValidation() {
     let selTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE");
     let selVoie = document.getElementById("DLGVOIE_SEL_VOIE");
     let txtNomVoie = document.getElementById("DLGVOIE_TXT_NOM");
-    
+
     // Récupération des champs des ancienne valeurs.
     let oldTxtNomVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtNomVoie")[0];
     let oldTxtTypeVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtIdTypeVoie")[0];
     let oldTxtIdVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtIdVoie")[0];
     let oldTxtIdGroupeVoie = globalHtmlItemZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0];
-    
+
     // Si on passe d'une voie non personalisée à une voie personnalisée, alors il faut vider les compétences.
-    if(selTypeVoie.value==="PERSO" && oldTxtTypeVoie.value!=="PERSO")
+    if (selTypeVoie.value === "PERSO" && oldTxtTypeVoie.value !== "PERSO")
         videZonesCapacites(globalHtmlItemZoneVoie);
 
     // Positionnement du type de la voie
     oldTxtTypeVoie.value = selTypeVoie.value;
 
-    // Positionnement du groupe et de l'identifiant de la voie
-    let varTabIdVoie = selVoie.value.split(";");
-    let varIdVoie = decodeURIComponent(varTabIdVoie[1]);
-    let varGroupeVoie = decodeURIComponent(varTabIdVoie[0]);
-    oldTxtIdVoie.value = varIdVoie;
-    oldTxtIdGroupeVoie.value = varGroupeVoie;
-
-    // Positionnement du nom de la voie
+    // Positionnement du nom et du groupe de la voie
     if (selTypeVoie.value === "PERSO") {
         oldTxtNomVoie.value = txtNomVoie.value;
+        oldTxtIdGroupeVoie.value = "";
+        oldTxtIdVoie.value = "";
     } else {
+        let varTabIdVoie = selVoie.value.split(";");
+        let varIdVoie = decodeURIComponent(varTabIdVoie[1]);
+        let varGroupeVoie = decodeURIComponent(varTabIdVoie[0]);
+
         oldTxtNomVoie.value = selVoie.options[selVoie.selectedIndex].text;
+        oldTxtIdGroupeVoie.value = varGroupeVoie;
+        oldTxtIdVoie.value = varIdVoie;
     }
 
     // Réinitialisation de la zone de la voie
@@ -120,11 +127,9 @@ function dlgVoieInitSelectTypeVoie() {
 
     if (varCategorieVoie === "peuple") {
         dlgVoieInitSelectTypeVoiePeuple();
-    }
-    else if (varCategorieVoie === "profil") {
+    } else if (varCategorieVoie === "profil") {
         dlgVoieInitSelectTypeVoieProfil();
-    }
-    else if (varCategorieVoie === "prestige") {
+    } else if (varCategorieVoie === "prestige") {
         dlgVoieInitSelectTypeVoiePrestige();
     }
 }
@@ -173,7 +178,7 @@ function dlgVoieInitSelectTypeVoiePeuple() {
         }
     }
 
-    
+
 }
 
 /*******************************************************************************
@@ -181,10 +186,10 @@ function dlgVoieInitSelectTypeVoiePeuple() {
  *******************************************************************************/
 function dlgVoieInitSelectTypeVoieProfil() {
     let selTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE");
-    
+
     // Vidange de la liste des types de voies
     selTypeVoie.innerHTML = "";
-    
+
     // On rajoute les types standards
     let option = document.createElement('option');
     option.value = "STANDARD";
@@ -206,10 +211,10 @@ function dlgVoieInitSelectTypeVoieProfil() {
  *******************************************************************************/
 function dlgVoieInitSelectTypeVoiePrestige() {
     let selTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE");
-    
+
     // Vidange de la liste des types de voies
     selTypeVoie.innerHTML = "";
-    
+
     // On rajoute les types standards
     let option = document.createElement('option');
     option.value = "PERSO";
@@ -225,10 +230,9 @@ function dlgVoieInitSelectVoie() {
     let varCategorieVoie = globalHtmlItemZoneVoie.getAttribute("data-categ-voie");
 
     if (varCategorieVoie === "peuple") {
-        initSelectVoiesPeuple();
-    }
-    else if (varCategorieVoie === "profil") {
-        initSelectVoiesProfil();
+        dlgVoieInitSelectVoiesPeuple();
+    } else if (varCategorieVoie === "profil") {
+        dlgVoieInitSelectVoiesProfil();
     }
 }
 
@@ -237,7 +241,7 @@ function dlgVoieInitSelectVoie() {
  * du peuple en récupérant les voies autorisées pour le peuple
  * sélectionné et les voies autorisées pour la famille selectionnée.
  ******************************************************************/
-function initSelectVoiesPeuple() {
+function dlgVoieInitSelectVoiesPeuple() {
     let tabVoies = [];
     let peupleCourant = document.getElementById("SEL_PEUPLE").value;
     let varObjPeupleCourant = undefined;
@@ -250,9 +254,7 @@ function initSelectVoiesPeuple() {
     let varOldIdVoie = encodeURIComponent(globalHtmlItemZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0].value) + ";" + encodeURIComponent(globalHtmlItemZoneVoie.getElementsByClassName("txtIdVoie")[0].value);
 
     // Vidange de la liste des voies de peuple
-    while (varSelectVoie.options.length > 0) {
-        varSelectVoie.remove(0);
-    }
+    varSelectVoie.innerHTML = "";
 
     // Récupération des voies du peuple actuellement sélectionné
     if (peupleCourant !== "") {
@@ -300,7 +302,7 @@ function initSelectVoiesPeuple() {
  * Rempli les listes de sélection des voies pour les profils. Si la liste
  * ne contient qu'une valeur, elle est desactivée.
  *******************************************************************************/
-function initSelectVoiesProfil() {
+function dlgVoieInitSelectVoiesProfil() {
     // Récupération du profil actuellement sélectionné
     let varIdProfilCourant = document.getElementById("SEL_PROFIL").value;
 
@@ -314,7 +316,9 @@ function initSelectVoiesProfil() {
     let varStrTypeVoie = document.getElementById("DLGVOIE_SEL_TYPE_VOIE").value;
 
     // On commence par vider la liste
-    varSelectVoie.innerText = "";
+    varSelectVoie.innerHTML = "";
+    
+    // Puis on remplie la liste des voies
     if (varStrTypeVoie === "STANDARD") {
         // Récupération du numéro de la voie de profil
         let varIntNumVoieProfil = Number(globalHtmlItemZoneVoie.getAttribute("data-num-voie-profil"));

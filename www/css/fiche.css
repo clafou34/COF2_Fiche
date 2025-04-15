@@ -48,7 +48,7 @@ body {
     padding-top: 1em;
     padding-right: 1em;
     padding-left: 1em;
-    background:url(../img/fond_fiche2.jpg);    
+    background:url(../img/fond_fiche3.jpg);   
 }
 
 @media (max-width: 640px) {
@@ -647,11 +647,6 @@ div.groupe_voie {
     border-color: #ac8a3c;
     padding:4px;
     margin-bottom:0px;
-}
-
-div.zoneCapacite > div.chkCapacite > input {
-    width: 1em;
-    vertical-align: middle;
 }
 
 div.contenuCapacite > .displayTitreCapacite {

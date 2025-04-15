@@ -62,7 +62,7 @@ function ficheToObject() {
     // Armes
     objPersonnage.armes = [];
     for (let varZoneArme of document.getElementsByClassName("zoneArme")) {
-        var varObjArme = new Object();
+        let varObjArme = new Object();
         
         varObjArme.nomArme = varZoneArme.getElementsByClassName("txtNomArme")[0].value;
         varObjArme.typeAttaqueArme = varZoneArme.getElementsByClassName("selectTypeAttaque")[0].value;
@@ -74,7 +74,7 @@ function ficheToObject() {
     // Armures
     objPersonnage.armures = [];
     for (let varZoneArmure of document.getElementsByClassName("zoneArmure")) {
-        var varObjArmure = new Object();
+        let varObjArmure = new Object();
         if(varZoneArmure.getElementsByClassName("chkArmure")[0].checked)
             varObjArmure.selectionArmure = "1";
         else
@@ -88,7 +88,33 @@ function ficheToObject() {
     // Voies
     objPersonnage.voies = [];
     for (let varZoneVoie of document.getElementsByClassName("zoneVoie")) {
+        let varObjVoie = new Object();
+        varObjVoie.idTypeVoie = varZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value;
+        varObjVoie.idGroupeVoie = varZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0].value;
+        varObjVoie.idVoie = varZoneVoie.getElementsByClassName("txtIdVoie")[0].value;
+        varObjVoie.nomVoie = varZoneVoie.getElementsByClassName("txtNomVoie")[0].value;
         
+        varObjVoie.capacites = [];
+        for (let varZoneCapacite of varZoneVoie.getElementsByClassName("zoneCapacite")) {
+            let varObjCapacite = new Object();
+            if(varZoneCapacite.getElementsByClassName("chkCapacite")[0].checked)
+                varObjCapacite.selectionCapacite = "1";
+            else
+                varObjCapacite.selectionCapacite = "0";
+            varObjCapacite.rangCapacite = varZoneCapacite.getElementsByClassName("txtRangCapacite")[0].value;
+            if(varObjVoie.idTypeVoie==="PERSO") {
+                varObjCapacite.nomCapacite = varZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value;
+                varObjCapacite.descriptionCapacite = varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value;
+            }
+            else { // Pour les voies non personnalisées, on récupèrera le nom et la description de référence.
+                varObjCapacite.nomCapacite = "";
+                varObjCapacite.descriptionCapacite = "";
+            }
+            varObjCapacite.complementCapacite = varZoneCapacite.getElementsByClassName("txtComplementCapacite")[0].value;
+            varObjVoie.capacites.push(varObjCapacite);
+        }
+        
+        objPersonnage.voies.push(varObjVoie);
     }
 
     
