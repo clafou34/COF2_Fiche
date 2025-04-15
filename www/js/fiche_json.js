@@ -39,5 +39,58 @@ function ficheToObject() {
     // Défense
     objPersonnage.defenseAutre= document.getElementById("TXT_DEF_AUTRE").value;
     
+    // Points de chance
+    objPersonnage.chanceUtilisee= document.getElementById("TXT_PTS_CHANCE_UTILISES").value;
+    objPersonnage.chanceMax= document.getElementById("TXT_PTS_CHANCE_MAX").value;
+
+    // Points de mana
+    objPersonnage.manaUtilisee= document.getElementById("TXT_PTS_MANA_UTILISES").value;
+    objPersonnage.manaMax= document.getElementById("TXT_PTS_MANA_MAX").value;
+
+    // Dés de récupération
+    objPersonnage.recuperationUtilisee= document.getElementById("TXT_DES_RECUP_UTILISES").value;
+    objPersonnage.recuperationMax= document.getElementById("TXT_DES_RECUP_MAX").value;
+
+    // Equipement
+    objPersonnage.equipement= document.getElementById("TXT_EQUIPEMENT").value;
+
+    // Bourse
+    objPersonnage.PO= document.getElementById("TXT_NB_PO").value;
+    objPersonnage.PA= document.getElementById("TXT_NB_PA").value;
+    objPersonnage.PC= document.getElementById("TXT_NB_PC").value;
+    
+    // Armes
+    objPersonnage.armes = [];
+    for (let varZoneArme of document.getElementsByClassName("zoneArme")) {
+        var varObjArme = new Object();
+        
+        varObjArme.nomArme = varZoneArme.getElementsByClassName("txtNomArme")[0].value;
+        varObjArme.typeAttaqueArme = varZoneArme.getElementsByClassName("selectTypeAttaque")[0].value;
+        varObjArme.dmArme = varZoneArme.getElementsByClassName("txtDmArme")[0].value;
+        varObjArme.noteArme = varZoneArme.getElementsByClassName("txtNoteArme")[0].value;
+        objPersonnage.armes.push(varObjArme);
+    }
+
+    // Armures
+    objPersonnage.armures = [];
+    for (let varZoneArmure of document.getElementsByClassName("zoneArmure")) {
+        var varObjArmure = new Object();
+        if(varZoneArmure.getElementsByClassName("chkArmure")[0].checked)
+            varObjArmure.selectionArmure = "1";
+        else
+            varObjArmure.selectionArmure = "0";
+        varObjArmure.nomArmure = varZoneArmure.getElementsByClassName("txtNomArmure")[0].value;
+        varObjArmure.defenseArmure = varZoneArmure.getElementsByClassName("txtDefArmure")[0].value;
+        varObjArmure.agiliteMaxArmure = varZoneArmure.getElementsByClassName("txtAgiArmure")[0].value;
+        objPersonnage.armures.push(varObjArmure);
+    }
+
+    // Voies
+    objPersonnage.voies = [];
+    for (let varZoneVoie of document.getElementsByClassName("zoneVoie")) {
+        
+    }
+
+    
     console.log(JSON.stringify(objPersonnage, null, 2));
 }

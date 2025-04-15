@@ -10,890 +10,895 @@
         <link href="css/dlgVoie.css" rel="stylesheet">
     </head>
     <body onload="bodyOnLoad()">
-        <form id="FORM_FICHE">
+        <div class="fiche">
             <button OnClick="btnSauverOnClick()" type="button">Sauver</button>
-            <div class="entete">
-                <div class="zoneNomPersonnage">
-                    <div class="zoneTxtNomPersonnage">
-                        <input type="text" id="TXT_NOM" name="nom" maxlength="30">
+            <h1>Chroniques oubliées fantasy 2e</h1>
+            <form id="FORM_FICHE">
+                <div class="entete">
+                    <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
+                    <div class="zoneNomPersonnage">
+                        <div class="zoneTxtNomPersonnage">
+                            <input type="text" id="TXT_NOM" name="nom" maxlength="30">
+                        </div>
+                        <img src="./img/separateur.svg" alt="séparateur">
+                        <label for="TXT_NOM">Nom du personnage</label>
                     </div>
-                    <img src="./img/separateur.svg" alt="alt">
-                    <label for="TXT_NOM">Nom du personnage</label>
+                    <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
                 </div>
-            </div>
-            <div class="col_container">
-                <div class="colonne">
-                    <fieldset id="PERSONNALITE" class="niv1">
-                        <legend>PERSONNALIT&Eacute;</legend>
-                        <div id="zonePersonnalite" class="groupe_unique">
-                            <div>
-                                <label for="SEL_PEUPLE">PEUPLE</label>
-                                <span><select id="SEL_PEUPLE" name="idPeuple"></select></span>
-                            </div>
-                            <div>
-                                <label for="TXT_NIVEAU">Niveau</label>
-                                <span><input type="number" id="TXT_NIVEAU" name="niveau" min="1" max="30"></span>
-                            </div>
-                            <div>
-                                <label for="SEL_FAMILLE">Famille</label>
-                                <span><select id="SEL_FAMILLE" name="idFamille"></select></span>
-                            </div>
-                            <div>
-                                <label for="SEL_PROFIL">Profil</label>
-                                <span><select id="SEL_PROFIL" name="idProfil"></select></span>
-                            </div>
-                            <div>
-                                <label for="TXT_IDEAL">Idéal héroîque</label>
-                                <span><input type="text" id="TXT_IDEAL" name="idealHeroique" maxlength="100"></span>
-                            </div>
-                            <div>
-                                <label for="TXT_TRAVERS">Travers</label>
-                                <span><input type="text" id="TXT_TRAVERS" name="travers" maxlength="100"></span>
-                            </div>
-                            <div>
-                                <label for="TXT_DESCRIPTION">Description</label>
-                                <span><textarea id="TXT_DESCRIPTION" name="description" maxlength="500"></textarea></span>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset id="CARAC" class="niv1">
-                        <legend>Caractéristiques</legend>
-                        <div id="zoneCaracteristique" class="groupe_unique">
-                            <label for="SEL_AGI" class="labelSelectCarac" title="Agilité">AGI</label>
-                            <select id="SEL_AGI" name="AGI" class="selectCaract"></select>
-                            <input type="text" id="TXT_NOTE_AGI" name="noteAGI" class="txtNoteCarac" title="Notes et bonus pour l'agilité" maxlength="100">
-                            
-                            <label for="SEL_CON" class="labelSelectCarac" title="Constitution">CON</label>
-                            <select id="SEL_CON" name="CON" class="selectCaract"></select>
-                            <input type="text" id="TXT_NOTE_CON" name="noteCON" class="txtNoteCarac" title="Notes et bonus pour la constitution" maxlength="100">
-                            
-                            <label for="SEL_FOR" class="labelSelectCarac" title="Force">FOR</label>
-                            <select id="SEL_FOR" name="FOR" class="selectCaract"></select>
-                            <input type="text" id="TXT_NOTE_FOR" name="noteFOR" class="txtNoteCarac" title="Notes et bonus pour la force" maxlength="100">
-                            
-                            <label for="SEL_PER" class="labelSelectCarac" title="Perception">PER</label>
-                            <select id="SEL_PER" name="PER" class="selectCaract"></select>
-                            <input type="text" id="TXT_NOTE_PER" name="notePER" class="txtNoteCarac" title="Notes et bonus pour la perception" maxlength="100">
-                            
-                            <label for="SEL_CHA" class="labelSelectCarac" title="Charisme">CHA</label>
-                            <select id="SEL_CHA" name="CHA" class="selectCaract"></select>
-                            <input type="text" id="TXT_NOTE_CHA" name="noteCHA" class="txtNoteCarac" title="Notes et bonus pour le charisme" maxlength="100">
-                            
-                            <label for="SEL_INT" class="labelSelectCarac" title="Intelligence">INT</label>
-                            <select id="SEL_INT" name="INT" class="selectCaract"></select>
-                            <input type="text" id="TXT_NOTE_INT" name="noteINT" class="txtNoteCarac" title="Notes et bonus pour l'intelligence" maxlength="100">
-                            
-                            <label for="SEL_VOL" class="labelSelectCarac" title="Volonté">VOL</label>
-                            <select id="SEL_VOL" name="VOL" class="selectCaract"></select>
-                            <input type="text" id="TXT_NOTE_VOL" name="noteVOL" class="txtNoteCarac" title="Notes et bonus pour la volonté" maxlength="100">
-                        </div>
-                    </fieldset>
-                    <fieldset id="ATTAQUES" class="niv1">
-                        <legend>ATTAQUES</legend>
-                        <div id="zoneAttaque" class="groupe_unique">
-                            <div>
-                                <label for="TXT_ATT_CONTACT">CONTACT</label>
-                                <input type="text" id="TXT_ATT_CONTACT" disabled>
-                                <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttContactNiv" title="Règle : Niveau au maximum à 10."></span>
-                                <span class="labelAide">+ FOR:</span><span class="labelAide valeurAide" id="lblAttContactFor"></span>
-                            </div>
-                            <div>
-                                <label for="TXT_ATT_DISTANCE">DISTANCE</label>
-                                <input type="text" id="TXT_ATT_DISTANCE" disabled>
-                                <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttDistanceNiv" title="Règle : Niveau au maximum à 10."></span>
-                                <span class="labelAide">+ AGI:</span><span class="labelAide valeurAide" id="lblAttContactAgi"></span>
-                            </div>
-                            <div>
-                                <label for="TXT_ATT_MAGIQUE">MAGIQUE</label>
-                                <input type="text" id="TXT_ATT_MAGIQUE" disabled>
-                                <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttMagiqueNiv" title="Règle : Niveau au maximum à 10."></span>
-                                <span class="labelAide">+ VOL:</span><span class="labelAide valeurAide" id="lblAttContactVol"></span>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="colonne">
-                    <div class="ligne_niv1">
-                        <fieldset id="zoneInitiative" class="champs_niv1" title="Initiative">
-                            <legend>INIT</legend>
-                            <div>
-                                <input type="number" id="TXT_INITIATIVE" name="initiative">
+                <div class="col_container">
+                    <div class="colonne">
+                        <fieldset id="PERSONNALITE" class="niv1">
+                            <legend>PERSONNALIT&Eacute;</legend>
+                            <div id="zonePersonnalite" class="groupe_unique">
+                                <div>
+                                    <label for="SEL_PEUPLE">PEUPLE</label>
+                                    <span><select id="SEL_PEUPLE" name="idPeuple"></select></span>
+                                </div>
+                                <div>
+                                    <label for="TXT_NIVEAU">Niveau</label>
+                                    <span><input type="number" id="TXT_NIVEAU" name="niveau" min="1" max="30"></span>
+                                </div>
+                                <div>
+                                    <label for="SEL_FAMILLE">Famille</label>
+                                    <span><select id="SEL_FAMILLE" name="idFamille"></select></span>
+                                </div>
+                                <div>
+                                    <label for="SEL_PROFIL">Profil</label>
+                                    <span><select id="SEL_PROFIL" name="idProfil"></select></span>
+                                </div>
+                                <div>
+                                    <label for="TXT_IDEAL">Idéal héroîque</label>
+                                    <span><input type="text" id="TXT_IDEAL" name="idealHeroique" maxlength="100"></span>
+                                </div>
+                                <div>
+                                    <label for="TXT_TRAVERS">Travers</label>
+                                    <span><input type="text" id="TXT_TRAVERS" name="travers" maxlength="100"></span>
+                                </div>
+                                <div>
+                                    <label for="TXT_DESCRIPTION">Description</label>
+                                    <span><textarea id="TXT_DESCRIPTION" name="description" maxlength="500"></textarea></span>
+                                </div>
                             </div>
                         </fieldset>
-                        <fieldset id="zoneVigueur" class="champs_niv1" title="Points de vigueur">
-                            <legend>POINTS DE VIGUEUR</legend>
-                            <div>
-                                <label for="TXT_PTS_VIGUEUR_UTILISES">Utilisés</label>
-                                <input type="text" id="TXT_PTS_VIGUEUR_UTILISES" name="vigueurUtilisee" title="Points de vigueur utilisés">
-                                <span>/</span>
-                                <input type="text" id="TXT_PTS_VIGUEUR_MAX" name="vigueurMax" title="Points de vigueur maximum">
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="ligne_niv1">
-                        <fieldset id="zoneDefense" class="champs_niv1" title="Défense">
-                            <legend>DEF</legend>
-                            <div>
-                                <input type="text" id="TXT_DEFENSE" disabled title="Défense totale">
-                                <span class="labelAide">=&nbsp;</span><span class="labelAide valeurAide">10</span>
-                                <span class="labelAide">+ AGI:</span><span id="lblAgiDefense" class="labelAide valeurAide"></span>
-                                <span class="labelAide">+ ARMURE: </span><span id="lblDefenseArmure" class="labelAide valeurAide" title="Somme des défenses des armures portées"></span>
-                                <span class="labelAide">+ AUTRE: </span><input type="number" id="TXT_DEF_AUTRE" name="defenseAutre" title="Autre bonus de défense">
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="ligne_niv1">
-                        <fieldset id="zonePointsChance" class="champs_niv1" title="Points de chance">
-                            <legend>POINTS DE CHANCE</legend>
-                            <div>
-                                <span>
-                                    <label for="TXT_PTS_CHANCE_UTILISES">Utilisés</label>
-                                </span>
-                                <span>
-                                    <input type="text" id="TXT_PTS_CHANCE_UTILISES" title="Points de chance utilisés">
-                                    <span>/</span>
-                                    <input type="text" id="TXT_PTS_CHANCE_MAX" title="Points de chance maximum">
-                                </span>
-                                <span class="labelAide">(+10 à un test)</span>
-                            </div>
-                        </fieldset>
-                        <fieldset id="zonePointsDeMana" class="champs_niv1" title="Points de mana">
-                            <legend>POINTS DE MANA</legend>
-                            <div>
-                                <span>
-                                    <label for="TXT_PTS_MANA_UTILISES">Utilisés</label>
-                                </span>
-                                <span>
-                                    <input type="text" id="TXT_PTS_MANA_UTILISES" title="Points de mana utilisés">
-                                    <span>/</span>
-                                    <input type="text" id="TXT_PTS_MANA_MAX" title="Points de mana maximum">
-                                </span>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="ligne_niv1">
-                        <fieldset id="zoneDesRecuperation" class="champs_niv1" title="Dés de récupération">
-                            <legend>DES DE RECUPERATION</legend>
-                            <div>
-                                <span>
-                                    <label for="TXT_DES_RECUP_UTILISES">Utilisés</label>
-                                    <input type="text" id="TXT_DES_RECUP_UTILISES" title="Nombre de dés de récupération utilisés">
-                                    <span>/</span>
-                                    <input type="text" id="TXT_DES_RECUP_MAX" title="Nombre de dés de récupération maximum">
-                                </span>
-                                <span>
-                                    <label for="TXT_DES_RECUP">Type de dés</label>
-                                    <input type="text" id="TXT_DES_RECUP" disabled>
-                                </span>
-                                <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="ligne_niv1">
-                        <fieldset id="EQUIPEMENT" class="champs_niv1">
-                            <legend>EQUIPEMENT</legend>
-                            <div>
-                                <textarea id="TXT_EQUIPEMENT"></textarea>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <fieldset id="zoneBourse" class="niv1">
-                        <legend>BOURSE</legend>
-                        <div class="groupe_unique">
-                            <span>
-                                <label for="TXT_NB_PO">PO </label>
-                                <input type="number" id="TXT_NB_PO" title="Nombre de pièces d'or">
-                            </span>
-                            <span>
-                                <label for="TXT_NB_PA">PA </label>
-                                <input type="number" id="TXT_NB_PA" title="Nombre de pièces d'argent">
-                            </span>
-                            <span>
-                                <label for="TXT_NB_PC">PC </label>
-                                <input type="number" id="TXT_NB_PC" title="Nombre de pièces de cuivre">
-                            </span>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="colonne">
-                    <fieldset id="ARMES" class="niv1">
-                        <legend>ARMES</legend>
-                        <div id="ARME_1" class="groupe_multiple">
-                            <div class="zoneArme">
-                                <div>
-                                    <label for="NOM_ARME_1">Nom</label>
-                                    <span><input type="text" id="NOM_ARME_1" class="txtNomArme"></span>
-                                </div>
-                                <div>
-                                    <label for="SELECT_TYPE_ATTAQUE_1">Type</label>
-                                    <span>
-                                        <select id="SELECT_TYPE_ATTAQUE_1" class="selectTypeAttaque"></select>
-                                        <span class="txtDesAttaqueArme labelAide"></span>
-                                    </span>
-                                </div>
-                                <div>
-                                    <label for="DM_ARME_1">DM</label>
-                                    <span class="detailArme">
-                                        <input type="text" id="DM_ARME_1" class="txtDmArme">
-                                        <span title="Caractéristiques spéciales / Portée">
-                                            <label for="SPECIAL_ARME_1">Info</label>
-                                            <input type="text" id="SPECIAL_ARME_1">
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="ARME_2" class="groupe_multiple">
-                            <div class="zoneArme">
-                                <div>
-                                    <label for="NOM_ARME_2">Nom</label>
-                                    <span><input type="text" id="NOM_ARME_2" class="txtNomArme"></span>
-                                </div>
-                                <div>
-                                    <label for="SELECT_TYPE_ATTAQUE_2">Type</label>
-                                    <span>
-                                        <select id="SELECT_TYPE_ATTAQUE_2" class="selectTypeAttaque"></select>
-                                        <span class="txtDesAttaqueArme labelAide"></span>
-                                    </span>
-                                </div>
-                                <div>
-                                    <label for="DM_ARME_2">DM</label>
-                                    <span class="detailArme">
-                                        <input type="text" id="DM_ARME_2" class="txtDmArme">
-                                        <span title="Caractéristiques spéciales / Portée">
-                                            <label for="SPECIAL_ARME_2">Info</label>
-                                            <input type="text" id="SPECIAL_ARME_2">
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="ARME_3" class="groupe_multiple">
-                            <div class="zoneArme">
-                                <div>
-                                    <label for="NOM_ARME_3">Nom</label>
-                                    <span><input type="text" id="NOM_ARME_3" class="txtNomArme"></span>
-                                </div>
-                                <div>
-                                    <label for="SELECT_TYPE_ATTAQUE_3">Type</label>
-                                    <span>
-                                        <select id="SELECT_TYPE_ATTAQUE_3" class="selectTypeAttaque"></select>
-                                        <span class="txtDesAttaqueArme labelAide"></span>
-                                    </span>
-                                </div>
-                                <div>
-                                    <label for="DM_ARME_3">DM</label>
-                                    <span class="detailArme">
-                                        <input type="text" id="DM_ARME_3" class="txtDmArme">
-                                        <span title="Caractéristiques spéciales / Portée">
-                                            <label for="SPECIAL_ARME_3">Info</label>
-                                            <input type="text" id="SPECIAL_ARME_3" class="txtSpecialArme">
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset id="ARMURES" class="niv1">
-                        <legend>ARMURES</legend>
-                        <div id="ARMURE_1" class="zoneArmure groupe_multiple">
-                            <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_1" value="Oui" title="Armure portée" class="chkArmure"></span>
-                            <label for="TXT_NOM_ARMURE_1">Nom</label>
-                            <input type="text" id="TXT_NOM_ARMURE_1" class="txtNomArmure">
-                            <label for="TXT_DEF_ARMURE_1">DEF</label>
-                            <span>
-                                <input type="number" id="TXT_DEF_ARMURE_1" class="txtDefArmure">
-                                <label for="TXT_AGI_ARMURE_1">AGI. MAX.</label>
-                                <input type="text" id="TXT_AGI_ARMURE_1" class="txtAgiArmure">
-                            </span>
-                        </div>
-                        <div id="ARMURE_2" class="zoneArmure groupe_multiple">
-                            <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_2" value="Oui" title="Armure portée" class="chkArmure"></span>
-                            <label for="TXT_NOM_ARMURE_2">Nom</label>
-                            <input type="text" id="TXT_NOM_ARMURE_2" class="txtNomArmure">
-                            <label for="TXT_DEF_ARMURE_2">DEF</label>
-                            <span>
-                                <input type="number" id="TXT_DEF_ARMURE_2" class="txtDefArmure">
-                                <label for="TXT_AGI_ARMURE_2">AGI. MAX.</label>
-                                <input type="text" id="TXT_AGI_ARMURE_2" class="txtAgiArmure">
-                            </span>
-                        </div>
-                        <div id="ARMURE_3" class="zoneArmure groupe_multiple">
-                            <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_3" value="Oui" title="Armure portée" class="chkArmure"></span>
-                            <label for="TXT_NOM_ARMURE_3">Nom</label>
-                            <input type="text" id="TXT_NOM_ARMURE_3" class="txtNomArmure">
-                            <label for="TXT_DEF_ARMURE_3">DEF</label>
-                            <span>
-                                <input type="number" id="TXT_DEF_ARMURE_3" class="txtDefArmure">
-                                <label for="TXT_AGI_ARMURE_3">AGI. MAX.</label>
-                                <input type="text" id="TXT_AGI_ARMURE_3" class="txtAgiArmure">
-                            </span>
-                        </div>
-                    </fieldset>
-                </div>
-            </div>
-            <div class="col_container">
-                <div class="colonne">
-                    <fieldset class="zoneVoie niv1"  data-categ-voie="peuple">
-                        <legend class="titreVoie">
-                            <button class="btnModif" type="button"></button>
-                            <span class="lblNomZoneVoie">Voie du peuple</span> : 
-                            <span class="lblNomVoie"></span>
-                            <span class="lblTypeVoie"></span>
-                            <input type="hidden" class="txtIdTypeVoie">
-                            <input type="hidden" class="txtIdGroupeVoie">
-                            <input type="hidden" class="txtIdVoie">
-                            <input type="hidden" class="txtNomVoie">
-                        </legend>
+                        <fieldset id="CARAC" class="niv1">
+                            <legend>Caractéristiques</legend>
+                            <div id="zoneCaracteristique" class="groupe_unique">
+                                <label for="SEL_AGI" class="labelSelectCarac" title="Agilité">AGI</label>
+                                <select id="SEL_AGI" name="AGI" class="selectCaract"></select>
+                                <input type="text" id="TXT_NOTE_AGI" name="noteAGI" class="txtNoteCarac" title="Notes et bonus pour l'agilité" maxlength="100">
 
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="colonne">
-                    <fieldset class="zoneVoie niv1" data-num-voie-profil="1" data-categ-voie="profil">
-                        <legend class="titreVoie">
-                            <button class="btnModif" type="button"></button>
-                            <span class="lblNomZoneVoie">Voie 1</span> : 
-                            <span class="lblNomVoie"></span>
-                            <span class="lblTypeVoie"></span>
-                            <input type="hidden" class="txtIdTypeVoie">
-                            <input type="hidden" class="txtIdGroupeVoie">
-                            <input type="hidden" class="txtIdVoie">
-                            <input type="hidden" class="txtNomVoie">
-                        </legend>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <div class="displayCommentaireCapacite"></div>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="colonne">
-                    <fieldset class="zoneVoie niv1" data-num-voie-profil="2"  data-categ-voie="profil">
-                        <legend class="titreVoie">
-                            <button class="btnModif" type="button"></button>
-                            <span class="lblNomZoneVoie">Voie 2</span> : 
-                            <span class="lblNomVoie"></span>
-                            <span class="lblTypeVoie"></span>
-                            <input type="hidden" class="txtIdTypeVoie">
-                            <input type="hidden" class="txtIdGroupeVoie">
-                            <input type="hidden" class="txtIdVoie">
-                            <input type="hidden" class="txtNomVoie">
-                        </legend>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
-                            </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                    </fieldset>
-                </div>
-            </div>
+                                <label for="SEL_CON" class="labelSelectCarac" title="Constitution">CON</label>
+                                <select id="SEL_CON" name="CON" class="selectCaract"></select>
+                                <input type="text" id="TXT_NOTE_CON" name="noteCON" class="txtNoteCarac" title="Notes et bonus pour la constitution" maxlength="100">
 
-            <div class="col_container">
-                <div class="colonne">
-                    <fieldset class="zoneVoie niv1" data-num-voie-profil="3"  data-categ-voie="profil">
-                        <legend class="titreVoie">
-                            <button class="btnModif" type="button"></button>
-                            <span class="lblNomZoneVoie">Voie 3</span> : 
-                            <span class="lblNomVoie"></span>
-                            <span class="lblTypeVoie"></span>
-                            <input type="hidden" class="txtIdTypeVoie">
-                            <input type="hidden" class="txtIdGroupeVoie">
-                            <input type="hidden" class="txtIdVoie">
-                            <input type="hidden" class="txtNomVoie">
-                        </legend>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <label for="SEL_FOR" class="labelSelectCarac" title="Force">FOR</label>
+                                <select id="SEL_FOR" name="FOR" class="selectCaract"></select>
+                                <input type="text" id="TXT_NOTE_FOR" name="noteFOR" class="txtNoteCarac" title="Notes et bonus pour la force" maxlength="100">
+
+                                <label for="SEL_PER" class="labelSelectCarac" title="Perception">PER</label>
+                                <select id="SEL_PER" name="PER" class="selectCaract"></select>
+                                <input type="text" id="TXT_NOTE_PER" name="notePER" class="txtNoteCarac" title="Notes et bonus pour la perception" maxlength="100">
+
+                                <label for="SEL_CHA" class="labelSelectCarac" title="Charisme">CHA</label>
+                                <select id="SEL_CHA" name="CHA" class="selectCaract"></select>
+                                <input type="text" id="TXT_NOTE_CHA" name="noteCHA" class="txtNoteCarac" title="Notes et bonus pour le charisme" maxlength="100">
+
+                                <label for="SEL_INT" class="labelSelectCarac" title="Intelligence">INT</label>
+                                <select id="SEL_INT" name="INT" class="selectCaract"></select>
+                                <input type="text" id="TXT_NOTE_INT" name="noteINT" class="txtNoteCarac" title="Notes et bonus pour l'intelligence" maxlength="100">
+
+                                <label for="SEL_VOL" class="labelSelectCarac" title="Volonté">VOL</label>
+                                <select id="SEL_VOL" name="VOL" class="selectCaract"></select>
+                                <input type="text" id="TXT_NOTE_VOL" name="noteVOL" class="txtNoteCarac" title="Notes et bonus pour la volonté" maxlength="100">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                        </fieldset>
+                        <fieldset id="ATTAQUES" class="niv1">
+                            <legend>ATTAQUES</legend>
+                            <div id="zoneAttaque" class="groupe_unique">
+                                <div>
+                                    <label for="TXT_ATT_CONTACT">CONTACT</label>
+                                    <input type="text" id="TXT_ATT_CONTACT" disabled>
+                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttContactNiv" title="Règle : Niveau au maximum à 10."></span>
+                                    <span class="labelAide">+ FOR:</span><span class="labelAide valeurAide" id="lblAttContactFor"></span>
+                                </div>
+                                <div>
+                                    <label for="TXT_ATT_DISTANCE">DISTANCE</label>
+                                    <input type="text" id="TXT_ATT_DISTANCE" disabled>
+                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttDistanceNiv" title="Règle : Niveau au maximum à 10."></span>
+                                    <span class="labelAide">+ AGI:</span><span class="labelAide valeurAide" id="lblAttContactAgi"></span>
+                                </div>
+                                <div>
+                                    <label for="TXT_ATT_MAGIQUE">MAGIQUE</label>
+                                    <input type="text" id="TXT_ATT_MAGIQUE" disabled>
+                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttMagiqueNiv" title="Règle : Niveau au maximum à 10."></span>
+                                    <span class="labelAide">+ VOL:</span><span class="labelAide valeurAide" id="lblAttContactVol"></span>
+                                </div>
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
+                        </fieldset>
+                    </div>
+                    <div class="colonne">
+                        <div class="ligne_niv1">
+                            <fieldset id="zoneInitiative" class="champs_niv1" title="Initiative">
+                                <legend>INIT</legend>
+                                <div>
+                                    <input type="number" id="TXT_INITIATIVE" name="initiative">
+                                </div>
+                            </fieldset>
+                            <fieldset id="zoneVigueur" class="champs_niv1" title="Points de vigueur">
+                                <legend>POINTS DE VIGUEUR</legend>
+                                <div>
+                                    <label for="TXT_PTS_VIGUEUR_UTILISES">Utilisés</label>
+                                    <input type="text" id="TXT_PTS_VIGUEUR_UTILISES" name="vigueurUtilisee" title="Points de vigueur utilisés">
+                                    <span>/</span>
+                                    <input type="text" id="TXT_PTS_VIGUEUR_MAX" name="vigueurMax" title="Points de vigueur maximum">
+                                </div>
+                            </fieldset>
                         </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                        <div class="ligne_niv1">
+                            <fieldset id="zoneDefense" class="champs_niv1" title="Défense">
+                                <legend>DEF</legend>
+                                <div>
+                                    <input type="text" id="TXT_DEFENSE" disabled title="Défense totale">
+                                    <span class="labelAide">=&nbsp;</span><span class="labelAide valeurAide">10</span>
+                                    <span class="labelAide">+ AGI:</span><span id="lblAgiDefense" class="labelAide valeurAide"></span>
+                                    <span class="labelAide">+ ARMURE: </span><span id="lblDefenseArmure" class="labelAide valeurAide" title="Somme des défenses des armures portées"></span>
+                                    <span class="labelAide">+ AUTRE: </span><input type="number" id="TXT_DEF_AUTRE" name="defenseAutre" title="Autre bonus de défense">
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="ligne_niv1">
+                            <fieldset id="zonePointsChance" class="champs_niv1" title="Points de chance">
+                                <legend>POINTS DE CHANCE</legend>
+                                <div>
+                                    <span>
+                                        <label for="TXT_PTS_CHANCE_UTILISES">Utilisés</label>
+                                    </span>
+                                    <span>
+                                        <input type="text" id="TXT_PTS_CHANCE_UTILISES" name="chanceUtilisee" title="Points de chance utilisés">
+                                        <span>/</span>
+                                        <input type="text" id="TXT_PTS_CHANCE_MAX" name="chanceMax" title="Points de chance maximum">
+                                    </span>
+                                    <span class="labelAide">(+10 à un test)</span>
+                                </div>
+                            </fieldset>
+                            <fieldset id="zonePointsDeMana" class="champs_niv1" title="Points de mana">
+                                <legend>POINTS DE MANA</legend>
+                                <div>
+                                    <span>
+                                        <label for="TXT_PTS_MANA_UTILISES">Utilisés</label>
+                                    </span>
+                                    <span>
+                                        <input type="text" id="TXT_PTS_MANA_UTILISES" name="manaUtilisee" title="Points de mana utilisés">
+                                        <span>/</span>
+                                        <input type="text" id="TXT_PTS_MANA_MAX" name="manaMax" title="Points de mana maximum">
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="ligne_niv1">
+                            <fieldset id="zoneDesRecuperation" class="champs_niv1" title="Dés de récupération">
+                                <legend>DES DE RECUPERATION</legend>
+                                <div>
+                                    <span>
+                                        <label for="TXT_DES_RECUP_UTILISES">Utilisés</label>
+                                        <input type="text" id="TXT_DES_RECUP_UTILISES" name="recuperationUtilisee" title="Nombre de dés de récupération utilisés">
+                                        <span>/</span>
+                                        <input type="text" id="TXT_DES_RECUP_MAX" name="recuperationMax" title="Nombre de dés de récupération maximum">
+                                    </span>
+                                    <span>
+                                        <label for="TXT_DES_RECUP">Type de dés</label>
+                                        <input type="text" id="TXT_DES_RECUP" disabled>
+                                    </span>
+                                    <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="ligne_niv1">
+                            <fieldset id="EQUIPEMENT" class="champs_niv1">
+                                <legend>EQUIPEMENT</legend>
+                                <div>
+                                    <textarea id="TXT_EQUIPEMENT" name="equipement"></textarea>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <fieldset id="zoneBourse" class="niv1">
+                            <legend>BOURSE</legend>
+                            <div class="groupe_unique">
+                                <span>
+                                    <label for="TXT_NB_PO">PO </label>
+                                    <input type="number" id="TXT_NB_PO" name="PO" title="Nombre de pièces d'or">
+                                </span>
+                                <span>
+                                    <label for="TXT_NB_PA">PA </label>
+                                    <input type="number" id="TXT_NB_PA" name="PA" title="Nombre de pièces d'argent">
+                                </span>
+                                <span>
+                                    <label for="TXT_NB_PC">PC </label>
+                                    <input type="number" id="TXT_NB_PC" name="PC" title="Nombre de pièces de cuivre">
+                                </span>
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                        </fieldset>
+                    </div>
+                    <div class="colonne">
+                        <fieldset id="ARMES" class="niv1">
+                            <legend>ARMES</legend>
+                            <div id="ARME_1" class="groupe_multiple">
+                                <div class="zoneArme">
+                                    <div>
+                                        <label for="NOM_ARME_1">Nom</label>
+                                        <span><input type="text" id="NOM_ARME_1" class="txtNomArme" name="nomArme"></span>
+                                    </div>
+                                    <div>
+                                        <label for="SELECT_TYPE_ATTAQUE_1">Type</label>
+                                        <span>
+                                            <select id="SELECT_TYPE_ATTAQUE_1" class="selectTypeAttaque" name="typeAttaqueArme"></select>
+                                            <span class="txtDesAttaqueArme labelAide"></span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="DM_ARME_1">DM</label>
+                                        <span class="detailArme">
+                                            <input type="number" id="DM_ARME_1" class="txtDmArme" name="dmArme">
+                                            <span title="Caractéristiques spéciales / Portée">
+                                                <label for="TXT_NOTE_ARME_1">Info</label>
+                                                <input type="text" id="TXT_NOTE_ARME_1" name="noteArme" class="txtNoteArme">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div id="ARME_2" class="groupe_multiple">
+                                <div class="zoneArme">
+                                    <div>
+                                        <label for="NOM_ARME_2">Nom</label>
+                                        <span><input type="text" id="NOM_ARME_2" class="txtNomArme" name="nomArme"></span>
+                                    </div>
+                                    <div>
+                                        <label for="SELECT_TYPE_ATTAQUE_2">Type</label>
+                                        <span>
+                                            <select id="SELECT_TYPE_ATTAQUE_2" class="selectTypeAttaque" name="typeAttaqueArme"></select>
+                                            <span class="txtDesAttaqueArme labelAide"></span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="DM_ARME_2">DM</label>
+                                        <span class="detailArme">
+                                            <input type="number" id="DM_ARME_2" class="txtDmArme" name="dmArme">
+                                            <span title="Caractéristiques spéciales / Portée">
+                                                <label for="TXT_NOTE_ARME_2">Info</label>
+                                                <input type="text" id="TXT_NOTE_ARME_2" name="noteArme" class="txtNoteArme">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                    </fieldset>
+                            <div id="ARME_3" class="groupe_multiple">
+                                <div class="zoneArme">
+                                    <div>
+                                        <label for="NOM_ARME_3">Nom</label>
+                                        <span><input type="text" id="NOM_ARME_3" class="txtNomArme" name="nomArme"></span>
+                                    </div>
+                                    <div>
+                                        <label for="SELECT_TYPE_ATTAQUE_3">Type</label>
+                                        <span>
+                                            <select id="SELECT_TYPE_ATTAQUE_3" class="selectTypeAttaque" name="typeAttaqueArme"></select>
+                                            <span class="txtDesAttaqueArme labelAide"></span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <label for="DM_ARME_3">DM</label>
+                                        <span class="detailArme">
+                                            <input type="number" id="DM_ARME_3" class="txtDmArme" name="dmArme">
+                                            <span title="Caractéristiques spéciales / Portée">
+                                                <label for="TXT_NOTE_ARME_3">Info</label>
+                                                <input type="text" id="TXT_NOTE_ARME_3" name="noteArme" class="txtNoteArme">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset id="ARMURES" class="niv1">
+                            <legend>ARMURES</legend>
+                            <div id="ARMURE_1" class="zoneArmure groupe_multiple">
+                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_1" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
+                                <label for="TXT_NOM_ARMURE_1">Nom</label>
+                                <input type="text" id="TXT_NOM_ARMURE_1" class="txtNomArmure" name="nomArmure">
+                                <label for="TXT_DEF_ARMURE_1">DEF</label>
+                                <span>
+                                    <input type="number" id="TXT_DEF_ARMURE_1" class="txtDefArmure" name="defenseArmure">
+                                    <label for="TXT_AGI_ARMURE_1">AGI. MAX.</label>
+                                    <input type="text" id="TXT_AGI_ARMURE_1" class="txtAgiArmure" name="agiliteMaxArmure">
+                                </span>
+                            </div>
+                            <div id="ARMURE_2" class="zoneArmure groupe_multiple">
+                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_2" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
+                                <label for="TXT_NOM_ARMURE_2">Nom</label>
+                                <input type="text" id="TXT_NOM_ARMURE_2" class="txtNomArmure" name="nomArmure">
+                                <label for="TXT_DEF_ARMURE_2">DEF</label>
+                                <span>
+                                    <input type="number" id="TXT_DEF_ARMURE_2" class="txtDefArmure" name="defenseArmure">
+                                    <label for="TXT_AGI_ARMURE_2">AGI. MAX.</label>
+                                    <input type="text" id="TXT_AGI_ARMURE_2" class="txtAgiArmure" name="agiliteMaxArmure">
+                                </span>
+                            </div>
+                            <div id="ARMURE_3" class="zoneArmure groupe_multiple">
+                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_3" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
+                                <label for="TXT_NOM_ARMURE_3">Nom</label>
+                                <input type="text" id="TXT_NOM_ARMURE_3" class="txtNomArmure" name="nomArmure">
+                                <label for="TXT_DEF_ARMURE_3">DEF</label>
+                                <span>
+                                    <input type="number" id="TXT_DEF_ARMURE_3" class="txtDefArmure" name="defenseArmure">
+                                    <label for="TXT_AGI_ARMURE_3">AGI. MAX.</label>
+                                    <input type="text" id="TXT_AGI_ARMURE_3" class="txtAgiArmure" name="agiliteMaxArmure">
+                                </span>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
-                <div class="colonne">
-                    <fieldset class="zoneVoie niv1" data-num-voie-profil="4"  data-categ-voie="profil">
-                        <legend class="titreVoie">
-                            <button class="btnModif" type="button"></button>
-                            <span class="lblNomZoneVoie">Voie 4</span> : 
-                            <span class="lblNomVoie"></span>
-                            <span class="lblTypeVoie"></span>
-                            <input type="hidden" class="txtIdTypeVoie">
-                            <input type="hidden" class="txtIdGroupeVoie">
-                            <input type="hidden" class="txtIdVoie">
-                            <input type="hidden" class="txtNomVoie">
-                        </legend>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                <div class="col_container">
+                    <div class="colonne">
+                        <fieldset class="zoneVoie niv1"  data-categ-voie="peuple">
+                            <legend class="titreVoie">
                                 <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <span class="lblNomZoneVoie">Voie du peuple</span> : 
+                                <span class="lblNomVoie"></span>
+                                <span class="lblTypeVoie"></span>
+                                <input type="hidden" class="txtIdTypeVoie">
+                                <input type="hidden" class="txtIdGroupeVoie">
+                                <input type="hidden" class="txtIdVoie">
+                                <input type="hidden" class="txtNomVoie">
+                            </legend>
+
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="colonne">
+                        <fieldset class="zoneVoie niv1" data-num-voie-profil="1" data-categ-voie="profil">
+                            <legend class="titreVoie">
                                 <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <span class="lblNomZoneVoie">Voie 1</span> : 
+                                <span class="lblNomVoie"></span>
+                                <span class="lblTypeVoie"></span>
+                                <input type="hidden" class="txtIdTypeVoie">
+                                <input type="hidden" class="txtIdGroupeVoie">
+                                <input type="hidden" class="txtIdVoie">
+                                <input type="hidden" class="txtNomVoie">
+                            </legend>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <div class="displayCommentaireCapacite"></div>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="colonne">
+                        <fieldset class="zoneVoie niv1" data-num-voie-profil="2"  data-categ-voie="profil">
+                            <legend class="titreVoie">
                                 <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <span class="lblNomZoneVoie">Voie 2</span> : 
+                                <span class="lblNomVoie"></span>
+                                <span class="lblTypeVoie"></span>
+                                <input type="hidden" class="txtIdTypeVoie">
+                                <input type="hidden" class="txtIdGroupeVoie">
+                                <input type="hidden" class="txtIdVoie">
+                                <input type="hidden" class="txtNomVoie">
+                            </legend>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                    </fieldset>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
-                <div class="colonne">
-                    <fieldset class="zoneVoie niv1" data-num-voie-profil="5"  data-categ-voie="profil">
-                        <legend class="titreVoie">
-                            <button class="btnModif" type="button"></button>
-                            <span class="lblNomZoneVoie">Voie 5</span> : 
-                            <span class="lblNomVoie"></span>
-                            <span class="lblTypeVoie"></span>
-                            <input type="hidden" class="txtIdTypeVoie">
-                            <input type="hidden" class="txtIdGroupeVoie">
-                            <input type="hidden" class="txtIdVoie">
-                            <input type="hidden" class="txtNomVoie">
-                        </legend>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+
+                <div class="col_container">
+                    <div class="colonne">
+                        <fieldset class="zoneVoie niv1" data-num-voie-profil="3"  data-categ-voie="profil">
+                            <legend class="titreVoie">
                                 <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <span class="lblNomZoneVoie">Voie 3</span> : 
+                                <span class="lblNomVoie"></span>
+                                <span class="lblTypeVoie"></span>
+                                <input type="hidden" class="txtIdTypeVoie">
+                                <input type="hidden" class="txtIdGroupeVoie">
+                                <input type="hidden" class="txtIdVoie">
+                                <input type="hidden" class="txtNomVoie">
+                            </legend>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="colonne">
+                        <fieldset class="zoneVoie niv1" data-num-voie-profil="4"  data-categ-voie="profil">
+                            <legend class="titreVoie">
                                 <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <span class="lblNomZoneVoie">Voie 4</span> : 
+                                <span class="lblNomVoie"></span>
+                                <span class="lblTypeVoie"></span>
+                                <input type="hidden" class="txtIdTypeVoie">
+                                <input type="hidden" class="txtIdGroupeVoie">
+                                <input type="hidden" class="txtIdVoie">
+                                <input type="hidden" class="txtNomVoie">
+                            </legend>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="colonne">
+                        <fieldset class="zoneVoie niv1" data-num-voie-profil="5"  data-categ-voie="profil">
+                            <legend class="titreVoie">
                                 <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <span class="lblNomZoneVoie">Voie 5</span> : 
+                                <span class="lblNomVoie"></span>
+                                <span class="lblTypeVoie"></span>
+                                <input type="hidden" class="txtIdTypeVoie">
+                                <input type="hidden" class="txtIdGroupeVoie">
+                                <input type="hidden" class="txtIdVoie">
+                                <input type="hidden" class="txtNomVoie">
+                            </legend>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                    </fieldset>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
-            </div>
-            <div class="col_container">
-                <div class="colonne">
-                    <fieldset class="zoneVoie zoneVoiePrestige niv1" data-categ-voie="prestige">
-                        <legend class="titreVoie">
-                            <button class="btnModif" type="button"></button>
-                            <span class="lblNomZoneVoie">Voie de prestige</span> : 
-                            <span class="lblNomVoie"></span>
-                            <span class="lblTypeVoie"></span>
-                            <input type="hidden" class="txtIdTypeVoie">
-                            <input type="hidden" class="txtIdGroupeVoie">
-                            <input type="hidden" class="txtIdVoie">
-                            <input type="hidden" class="txtNomVoie">
-                        </legend>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                <div class="col_container">
+                    <div class="colonne">
+                        <fieldset class="zoneVoie zoneVoiePrestige niv1" data-categ-voie="prestige">
+                            <legend class="titreVoie">
                                 <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                                <span class="lblNomZoneVoie">Voie de prestige</span> : 
+                                <span class="lblNomVoie"></span>
+                                <span class="lblTypeVoie"></span>
+                                <input type="hidden" class="txtIdTypeVoie">
+                                <input type="hidden" class="txtIdGroupeVoie">
+                                <input type="hidden" class="txtIdVoie">
+                                <input type="hidden" class="txtNomVoie">
+                            </legend>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                        <div class="zoneCapacite groupe_voie">
-                            <div class="contenuCapacite">
-                                <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
-                                <button class="btnModif" type="button"></button>
-                                <span class="displayTitreCapacite"></span>
-                                <span class="displayDescriptionCapacite"></span>
-                                <span class="displayCommentaireCapacite"></span>
+                            <div class="zoneCapacite groupe_voie">
+                                <div class="contenuCapacite">
+                                    <span class="chkCapacite"><input type="checkbox" name="CHK_CAPACITE" value="Oui"></span>
+                                    <button class="btnModif" type="button"></button>
+                                    <span class="displayTitreCapacite"></span>
+                                    <span class="displayDescriptionCapacite"></span>
+                                    <span class="displayCommentaireCapacite"></span>
+                                </div>
+                                <input type="hidden" class="txtRangCapacite">
+                                <input type="hidden" class="txtNomCapacite">
+                                <input type="hidden" class="txtDescriptionCapacite">
+                                <input type="hidden" class="txtComplementCapacite">
                             </div>
-                            <input type="hidden" class="txtRangCapacite">
-                            <input type="hidden" class="txtNomCapacite">
-                            <input type="hidden" class="txtDescriptionCapacite">
-                            <input type="hidden" class="txtComplementCapacite">
-                        </div>
-                    </fieldset>
+                        </fieldset>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
 
         <dialog id="dlgVoie">
             <div class="dlgEntete">
