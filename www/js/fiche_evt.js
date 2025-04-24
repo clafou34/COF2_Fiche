@@ -163,6 +163,9 @@ function selProfilOnChange() {
 }
 
 function btnSauverOnClick() {
-    ficheToObject();
+    ficheSauve();
 }
 
+function btnLireOnClick() {
+    ficheLire();
+}
