@@ -126,12 +126,13 @@
                                 </div>
                             </fieldset>
                             <fieldset id="zoneVigueur" class="champs_niv1" title="Points de vigueur">
-                                <legend>POINTS DE VIGUEUR</legend>
-                                <div>
-                                    <label for="TXT_PTS_VIGUEUR_UTILISES">Utilisés</label>
-                                    <input type="text" id="TXT_PTS_VIGUEUR_UTILISES" name="vigueurUtilisee" title="Points de vigueur utilisés">
+                                <legend>PTS DE VIGUEUR</legend>
+                                <div class="gridVigueur">
+                                    <label class="labelDessous" for="TXT_PTS_VIGUEUR_ACTUELS">ACTUELS</label>
+                                    <input type="text" id="TXT_PTS_VIGUEUR_ACTUELS" name="vigueurActuelle" title="Nombre de points de vigueur actuels">
                                     <span>/</span>
-                                    <input type="text" id="TXT_PTS_VIGUEUR_MAX" name="vigueurMax" title="Points de vigueur maximum">
+                                    <label class="labelDessous" for="TXT_PTS_VIGUEUR_MAX">MAX</label>
+                                    <input type="text" id="TXT_PTS_VIGUEUR_MAX" name="vigueurMax" title="Nombre de points de vigueur maximum">
                                 </div>
                             </fieldset>
                         </div>
@@ -150,15 +151,12 @@
                         <div class="ligne_niv1">
                             <fieldset id="zonePointsChance" class="champs_niv1" title="Points de chance">
                                 <legend>POINTS DE CHANCE</legend>
-                                <div>
-                                    <span>
-                                        <label for="TXT_PTS_CHANCE_UTILISES">Utilisés</label>
-                                    </span>
-                                    <span>
-                                        <input type="text" id="TXT_PTS_CHANCE_UTILISES" name="chanceUtilisee" title="Points de chance utilisés">
-                                        <span>/</span>
-                                        <input type="text" id="TXT_PTS_CHANCE_MAX" name="chanceMax" title="Points de chance maximum">
-                                    </span>
+                                <div class="gridChance">
+                                    <label class="labelDessous" for="TXT_PTS_CHANCE_ACTUELS">ACTUELS</label>
+                                    <input type="text" id="TXT_PTS_CHANCE_ACTUELS" name="chanceUtilisee" title="Nombre de points de chance actuels">
+                                    <span>/</span>
+                                    <label class="labelDessous" for="TXT_PTS_CHANCE_MAX">MAX</label>
+                                    <input type="text" id="TXT_PTS_CHANCE_MAX" name="chanceMax" title="Nombre de points de chance maximum">
                                     <span class="labelAide">(+10 à un test)</span>
                                 </div>
                             </fieldset>

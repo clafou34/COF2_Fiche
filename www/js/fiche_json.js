@@ -34,14 +34,14 @@ function ficheSauve() {
     objPersonnage.initiative = document.getElementById("TXT_INITIATIVE").value;
 
     // Vigueur
-    objPersonnage.vigueurUtilisee = document.getElementById("TXT_PTS_VIGUEUR_UTILISES").value;
+    objPersonnage.vigueurActuelle = document.getElementById("TXT_PTS_VIGUEUR_ACTUELS").value;
     objPersonnage.vigueurMax = document.getElementById("TXT_PTS_VIGUEUR_MAX").value;
 
     // Défense
     objPersonnage.defenseAutre = document.getElementById("TXT_DEF_AUTRE").value;
 
     // Points de chance
-    objPersonnage.chanceUtilisee = document.getElementById("TXT_PTS_CHANCE_UTILISES").value;
+    objPersonnage.chanceActuelle = document.getElementById("TXT_PTS_CHANCE_ACTUELS").value;
     objPersonnage.chanceMax = document.getElementById("TXT_PTS_CHANCE_MAX").value;
 
     // Points de mana
@@ -160,4 +160,83 @@ function ficheLire() {
         document.getElementById("TXT_DESCRIPTION").value = objPersonnage.description;
     else
         document.getElementById("TXT_DESCRIPTION").value = "";
+    
+    // Zone des caractéristiques
+    if (objPersonnage.AGI !== undefined)
+        document.getElementById("SEL_AGI").value = objPersonnage.AGI;
+    else
+        document.getElementById("SEL_AGI").value = 0;
+    if (objPersonnage.noteAGI !== undefined)
+        document.getElementById("TXT_NOTE_AGI").value = objPersonnage.noteAGI;
+    else
+        document.getElementById("TXT_NOTE_AGI").value = "";
+    if (objPersonnage.CON !== undefined)
+        document.getElementById("SEL_CON").value = objPersonnage.CON;
+    else
+        document.getElementById("SEL_CON").value = 0;
+    if (objPersonnage.noteCON !== undefined)
+        document.getElementById("TXT_NOTE_CON").value = objPersonnage.noteCON;
+    else
+        document.getElementById("TXT_NOTE_CON").value = "";
+    if (objPersonnage.FOR !== undefined)
+        document.getElementById("SEL_FOR").value = objPersonnage.FOR;
+    else
+        document.getElementById("SEL_FOR").value = 0;
+    if (objPersonnage.noteFOR !== undefined)
+        document.getElementById("TXT_NOTE_FOR").value = objPersonnage.noteFOR;
+    else
+        document.getElementById("TXT_NOTE_FOR").value = "";
+    if (objPersonnage.PER !== undefined)
+        document.getElementById("SEL_PER").value = objPersonnage.PER;
+    else
+        document.getElementById("SEL_PER").value = 0;
+    if (objPersonnage.notePER !== undefined)
+        document.getElementById("TXT_NOTE_PER").value = objPersonnage.notePER;
+    else
+        document.getElementById("TXT_NOTE_PER").value = "";
+    if (objPersonnage.CHA !== undefined)
+        document.getElementById("SEL_CHA").value = objPersonnage.CHA;
+    else
+        document.getElementById("SEL_CHA").value = 0;
+    if (objPersonnage.noteCHA !== undefined)
+        document.getElementById("TXT_NOTE_CHA").value = objPersonnage.noteCHA;
+    else
+        document.getElementById("TXT_NOTE_CHA").value = "";
+    if (objPersonnage.INT !== undefined)
+        document.getElementById("SEL_INT").value = objPersonnage.INT;
+    else
+        document.getElementById("SEL_INT").value = 0;
+    if (objPersonnage.noteINT !== undefined)
+        document.getElementById("TXT_NOTE_INT").value = objPersonnage.noteINT;
+    else
+        document.getElementById("TXT_NOTE_INT").value = "";
+    if (objPersonnage.VOL !== undefined)
+        document.getElementById("SEL_VOL").value = objPersonnage.VOL;
+    else
+        document.getElementById("SEL_VOL").value = 0;
+    if (objPersonnage.noteVOL !== undefined)
+        document.getElementById("TXT_NOTE_VOL").value = objPersonnage.noteVOL;
+    else
+        document.getElementById("TXT_NOTE_VOL").value = "";
+
+    // Zone des scores d'attaque
+    remplirAttaques();
+    
+    // Initiative
+    if ((objPersonnage.initiative !== undefined) && (objPersonnage.initiative!==""))
+        document.getElementById("TXT_INITIATIVE").value = objPersonnage.initiative;
+    else
+        document.getElementById("TXT_INITIATIVE").value = String(10 + parseInt(document.getElementById("SEL_PER").value));
+
+    
+    // Vigueur
+    if (objPersonnage.vigueurActuelle !== undefined)
+        document.getElementById("TXT_PTS_VIGUEUR_ACTUELS").value = objPersonnage.vigueurActuelle;
+    else
+        document.getElementById("TXT_PTS_VIGUEUR_ACTUELS").value = "";
+    if (objPersonnage.vigueurMax !== undefined)
+        document.getElementById("TXT_PTS_VIGUEUR_MAX").value = objPersonnage.vigueurMax;
+    else
+        document.getElementById("TXT_PTS_VIGUEUR_MAX").value = "";
+
 }

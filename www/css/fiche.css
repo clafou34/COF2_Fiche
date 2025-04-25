@@ -18,17 +18,26 @@ label {
     margin-top: 4px;
 }
 
+.labelDessous {
+    padding-top: 0px;
+    padding-bottom: 2px;
+    font-size:75%;
+    color: #777777;
+    display: inline-block;
+}
+
 input:invalid {
     background:red;
 }
 
 .labelAide {
-    padding-top: 4px;
+    padding-top: 0px;
     padding-bottom: 2px;
     font-size:80%;
     color: #444444;
     display: inline-block;
 }
+
 .valeurAide {
     font-weight: bold;
     text-align: center;
@@ -48,13 +57,13 @@ body {
     padding-top: 1em;
     padding-right: 1em;
     padding-left: 1em;
-    background:url(../img/fond_fiche3.jpg);   
+    background:url(../img/fond_fiche3.jpg);
 }
 
 @media (max-width: 640px) {
     .fiche {
         padding-right: 0;
-        padding-left: 0;  
+        padding-left: 0;
     }
 }
 
@@ -115,7 +124,7 @@ button.btnModif:hover{
 
 @media (max-width: 640px) {
     .logoEntete {
-        display: none;  
+        display: none;
     }
 }
 
@@ -211,7 +220,7 @@ fieldset.niv1 > legend {
 }
 
 fieldset.niv1 > div.groupe_unique {
-    margin-top: 8px; 
+    margin-top: 8px;
     padding-left : 10px;
     padding-right : 10px;
     width:100%;
@@ -274,10 +283,7 @@ fieldset.champs_niv1 > legend {
 }
 
 fieldset.champs_niv1 > div {
-    display: inline-block;
-    width:100%;
     padding-top: 10px;
-    padding-bottom: 5px;
     padding-left: 0;
     padding-right: 0;
 }
@@ -351,6 +357,11 @@ fieldset#ATTAQUES span.caractAtt {
 
 fieldset#ATTAQUES > div > div input {
     width: 2em;
+    text-align: right;
+}
+
+fieldset#ATTAQUES .valeurAide {
+    width: 1.5em;
 }
 
 /*******************************************
@@ -358,12 +369,10 @@ Sous-zone de l'initiative
 ********************************************/
 fieldset#zoneInitiative {
     width : 50%;
-    text-align: center;
 }
 
 fieldset#zoneInitiative div {
     text-align: center;
-    width: 5em;
 }
 
 fieldset#zoneInitiative input#TXT_INITIATIVE {
@@ -378,15 +387,46 @@ fieldset#zoneVigueur {
     text-align: center;
 }
 
-fieldset#zoneVigueur div {
-    width: 10em;
-    margin-left: 4px;
-    margin-right: 4px;
+.gridVigueur {
+    display: grid;
+    grid-template-areas:
+        'input1 separateur input2'
+        'label1 . label2';
+    column-gap: 0;
+    grid-template-columns: 4em 1em 4em;
+    width: 9em;
+    padding-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-fieldset#zoneVigueur div input {
+.gridVigueur label:nth-of-type(1) {
+    grid-area: label1;
+    justify-self: center;
+}
+
+.gridVigueur input:nth-of-type(1) {
+    grid-area: input1;
+    justify-self: center;
     width: 2em;
 }
+
+.gridVigueur span:nth-of-type(1) {
+    grid-area: separateur;
+    justify-self: center;
+}
+
+.gridVigueur label:nth-of-type(2)  {
+    grid-area: label2;
+    justify-self: center;
+}
+
+.gridVigueur input:nth-of-type(2) {
+    grid-area: input2;
+    justify-self: center;
+    width: 2em;
+}
+
 
 /*******************************************
 Sous-zone de la défense
@@ -419,23 +459,52 @@ fieldset#zonePointsChance {
     text-align: center;
 }
 
-fieldset#zonePointsChance > div {
-    padding-left: 4px;
-    padding-right: 4px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+.gridChance {
+    display: grid;
+    grid-template-areas:
+        'input1 separateur input2'
+        'label1 . label2'
+        'aide aide aide';
+    column-gap: 0;
+    grid-template-columns: 4em 1em 4em;
+    width: 9em;
+    padding-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-fieldset#zonePointsChance > div > span {
-    padding-left: 4px;
-    padding-right: 4px;
+.gridChance label:nth-of-type(1) {
+    grid-area: label1;
+    justify-self: center;
 }
 
-fieldset#zonePointsChance input {
+.gridChance input:nth-of-type(1) {
+    grid-area: input1;
+    justify-self: center;
     width: 2em;
 }
+
+.gridChance span:nth-of-type(1) {
+    grid-area: separateur;
+    justify-self: center;
+}
+
+.gridChance label:nth-of-type(2)  {
+    grid-area: label2;
+    justify-self: center;
+}
+
+.gridChance input:nth-of-type(2) {
+    grid-area: input2;
+    justify-self: center;
+    width: 2em;
+}
+
+.gridChance span:nth-of-type(2) {
+    grid-area: aide;
+    justify-self: center;
+}
+
 
 /********************************************
 Sous-zone des point de MANA
@@ -582,7 +651,8 @@ fieldset#ARMES .detailArme > span > label {
 }
 
 fieldset#ARMES .detailArme > span > input  {
-    width:100%; flex-grow: 2;
+    width:100%;
+    flex-grow: 2;
 }
 
 /******************************************
@@ -593,7 +663,7 @@ fieldset#ARMURES .zoneArmure {
     grid-template-columns: 2em 3em auto ;
     column-gap: 0.5em;
     row-gap: 0.3em;
-    width: 100%;  
+    width: 100%;
 }
 
 fieldset#ARMURES .zoneChkArmure {

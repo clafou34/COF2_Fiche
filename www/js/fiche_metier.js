@@ -245,7 +245,11 @@ function getVoieWithGroupe(parIdVoie, parIdGroupe) {
  ****************************************************************/
 function initSelectPeuples() {
     let selectPeuple = document.getElementById("SEL_PEUPLE");
-
+    
+    // Vidange des options existantes
+    selectPeuple.innerHTML = "";
+    
+    // Remplissage de la liste des peuples
     for (let varPeuple of dataPeuples.peuples) {
         let option = document.createElement('option');
         option.text = varPeuple.nom;
@@ -260,6 +264,11 @@ function initSelectPeuples() {
  *********************************************************************/
 function initSelectFamille() {
     let selFamille = document.getElementById("SEL_FAMILLE");
+    
+    // Vidange des options existantes
+    selFamille.innerHTML = "";
+    
+    // Remplissage de la liste des familles
     for (let family of dataFamilles.familles) {
         let option = document.createElement('option');
         option.text = family.nom;
