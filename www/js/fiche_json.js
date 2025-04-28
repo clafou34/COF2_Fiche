@@ -45,11 +45,11 @@ function ficheSauve() {
     objPersonnage.chanceMax = document.getElementById("TXT_PTS_CHANCE_MAX").value;
 
     // Points de mana
-    objPersonnage.manaUtilisee = document.getElementById("TXT_PTS_MANA_UTILISES").value;
+    objPersonnage.manaActuelle = document.getElementById("TXT_PTS_MANA_ACTUELS").value;
     objPersonnage.manaMax = document.getElementById("TXT_PTS_MANA_MAX").value;
 
     // Dés de récupération
-    objPersonnage.recuperationUtilisee = document.getElementById("TXT_DES_RECUP_UTILISES").value;
+    objPersonnage.recuperationActuelle = document.getElementById("TXT_DES_RECUP_ACTUELS").value;
     objPersonnage.recuperationMax = document.getElementById("TXT_DES_RECUP_MAX").value;
 
     // Equipement
@@ -238,5 +238,12 @@ function ficheLire() {
         document.getElementById("TXT_PTS_VIGUEUR_MAX").value = objPersonnage.vigueurMax;
     else
         document.getElementById("TXT_PTS_VIGUEUR_MAX").value = "";
+
+    // Défense
+    if ((objPersonnage.defenseAutre === undefined) || (objPersonnage.defenseAutre === ""))
+        document.getElementById("TXT_DEF_AUTRE").value = "0";
+    else
+        document.getElementById("TXT_DEF_AUTRE").value = objPersonnage.defenseAutre;
+        
 
 }

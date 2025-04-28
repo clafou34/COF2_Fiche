@@ -150,10 +150,10 @@
                         </div>
                         <div class="ligne_niv1">
                             <fieldset id="zonePointsChance" class="champs_niv1" title="Points de chance">
-                                <legend>POINTS DE CHANCE</legend>
+                                <legend>PTS DE CHANCE</legend>
                                 <div class="gridChance">
                                     <label class="labelDessous" for="TXT_PTS_CHANCE_ACTUELS">ACTUELS</label>
-                                    <input type="text" id="TXT_PTS_CHANCE_ACTUELS" name="chanceUtilisee" title="Nombre de points de chance actuels">
+                                    <input type="text" id="TXT_PTS_CHANCE_ACTUELS" name="chanceActuelle" title="Nombre de points de chance actuels">
                                     <span>/</span>
                                     <label class="labelDessous" for="TXT_PTS_CHANCE_MAX">MAX</label>
                                     <input type="text" id="TXT_PTS_CHANCE_MAX" name="chanceMax" title="Nombre de points de chance maximum">
@@ -162,32 +162,26 @@
                             </fieldset>
                             <fieldset id="zonePointsDeMana" class="champs_niv1" title="Points de mana">
                                 <legend>POINTS DE MANA</legend>
-                                <div>
-                                    <span>
-                                        <label for="TXT_PTS_MANA_UTILISES">Utilisés</label>
-                                    </span>
-                                    <span>
-                                        <input type="text" id="TXT_PTS_MANA_UTILISES" name="manaUtilisee" title="Points de mana utilisés">
-                                        <span>/</span>
-                                        <input type="text" id="TXT_PTS_MANA_MAX" name="manaMax" title="Points de mana maximum">
-                                    </span>
+                                <div class="gridMana">
+                                    <label class="labelDessous" for="TXT_PTS_MANA_ACTUELS">ACTUELS</label>
+                                    <input type="text" id="TXT_PTS_MANA_ACTUELS" name="manaActuelle" title="Nombre de points de mana actuels">
+                                    <span>/</span>
+                                    <label class="labelDessous" for="TXT_PTS_MANA_MAX">MAX</label>
+                                    <input type="text" id="TXT_PTS_MANA_MAX" name="manaMax" title="Nombre de points de mana maximum">
                                 </div>
                             </fieldset>
                         </div>
                         <div class="ligne_niv1">
                             <fieldset id="zoneDesRecuperation" class="champs_niv1" title="Dés de récupération">
                                 <legend>DES DE RECUPERATION</legend>
-                                <div>
-                                    <span>
-                                        <label for="TXT_DES_RECUP_UTILISES">Utilisés</label>
-                                        <input type="text" id="TXT_DES_RECUP_UTILISES" name="recuperationUtilisee" title="Nombre de dés de récupération utilisés">
-                                        <span>/</span>
-                                        <input type="text" id="TXT_DES_RECUP_MAX" name="recuperationMax" title="Nombre de dés de récupération maximum">
-                                    </span>
-                                    <span>
-                                        <label for="TXT_DES_RECUP">Type de dés</label>
-                                        <input type="text" id="TXT_DES_RECUP" disabled>
-                                    </span>
+                                <div class="gridRecuperation">
+                                    <label class="labelDessous" for="TXT_DES_RECUP_ACTUELS">ACTUELS</label>
+                                    <input type="text" id="TXT_DES_RECUP_ACTUELS" name="recuperationActuelle" title="Nombre de dés de récupération actuels">
+                                    <span>/</span>
+                                    <label class="labelDessous" for="TXT_DES_RECUP_MAX">MAX</label>
+                                    <input type="text" id="TXT_DES_RECUP_MAX" name="recuperationMax" title="Nombre de dés de récupération maximum">
+                                    <label class="labelDessous" for="TXT_DES_RECUP">TYPE DE DES</label>
+                                    <input type="text" id="TXT_DES_RECUP" disabled>
                                     <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
                                 </div>
                             </fieldset>
