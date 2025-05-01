@@ -37,11 +37,13 @@ function initEventListners() {
 function bodyOnLoad() {
     // Initialisation des événements à écouter pour la fiche principale
     initEventListners();
-    
+
     // Initialisation des événement à écouter pour les boites de dialogue
     dlgCapaciteInitEventListners();
     dlgVoieInitEventListners();
-    
+
+      
+/*
     // Remplir les données par défaut
     initSelectPeuples();
     initSelectCaracteristiques();
@@ -52,7 +54,7 @@ function bodyOnLoad() {
     remplirDesRecuperation();
     remplirDefense();
     reinitVoies();
-    gereVoies();
+    gereVoies();*/
 }
 
 /********************************************************************

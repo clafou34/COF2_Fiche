@@ -1,7 +1,6 @@
 
 function ficheSauve() {
     const objPersonnage = new Object();
-    
     // Nom du personnage
     objPersonnage.nom = document.getElementById("TXT_NOM").value;
 
@@ -133,7 +132,7 @@ function ficheLire() {
         document.getElementById("TXT_NOM").value = "";
     else
         document.getElementById("TXT_NOM").value = objPersonnage.nom;
-    
+
     // Zone de la personnalité
     initSelectPeuples();
     if (objPersonnage.idPeuple !== undefined)
@@ -144,7 +143,7 @@ function ficheLire() {
         document.getElementById("TXT_NIVEAU").value = "1";
     initSelectFamille();
     if (objPersonnage.idFamille !== undefined)
-        document.getElementById("SEL_FAMILLE").value= objPersonnage.idFamille;
+        document.getElementById("SEL_FAMILLE").value = objPersonnage.idFamille;
     initSelectProfils();
     if (objPersonnage.idProfil !== undefined)
         document.getElementById("SEL_PROFIL").value = objPersonnage.idProfil;
@@ -160,8 +159,9 @@ function ficheLire() {
         document.getElementById("TXT_DESCRIPTION").value = objPersonnage.description;
     else
         document.getElementById("TXT_DESCRIPTION").value = "";
-    
+
     // Zone des caractéristiques
+    initSelectCaracteristiques();
     if (objPersonnage.AGI !== undefined)
         document.getElementById("SEL_AGI").value = objPersonnage.AGI;
     else
@@ -219,16 +219,13 @@ function ficheLire() {
     else
         document.getElementById("TXT_NOTE_VOL").value = "";
 
-    // Zone des scores d'attaque
-    remplirAttaques();
-    
     // Initiative
-    if ((objPersonnage.initiative !== undefined) && (objPersonnage.initiative!==""))
+    if ((objPersonnage.initiative !== undefined) && (objPersonnage.initiative !== ""))
         document.getElementById("TXT_INITIATIVE").value = objPersonnage.initiative;
     else
-        document.getElementById("TXT_INITIATIVE").value = String(10 + parseInt(document.getElementById("SEL_PER").value));
+        document.getElementById("TXT_INITIATIVE").value = "";
 
-    
+
     // Vigueur
     if (objPersonnage.vigueurActuelle !== undefined)
         document.getElementById("TXT_PTS_VIGUEUR_ACTUELS").value = objPersonnage.vigueurActuelle;
@@ -244,6 +241,154 @@ function ficheLire() {
         document.getElementById("TXT_DEF_AUTRE").value = "0";
     else
         document.getElementById("TXT_DEF_AUTRE").value = objPersonnage.defenseAutre;
-        
+
+    // Points de chance
+    if (objPersonnage.chanceActuelle !== undefined)
+        document.getElementById("TXT_PTS_CHANCE_ACTUELS").value = objPersonnage.chanceActuelle;
+    else
+        document.getElementById("TXT_PTS_CHANCE_ACTUELS").value = "";
+    if (objPersonnage.chanceMax !== undefined)
+        document.getElementById("TXT_PTS_CHANCE_MAX").value = objPersonnage.chanceMax;
+    else
+        document.getElementById("TXT_PTS_CHANCE_MAX").value = "";
+
+    // Points de mana
+    if (objPersonnage.manaActuelle !== undefined)
+        document.getElementById("TXT_PTS_MANA_ACTUELS").value = objPersonnage.manaActuelle;
+    else
+        document.getElementById("TXT_PTS_MANA_ACTUELS").value = "";
+    if (objPersonnage.manaMax !== undefined)
+        document.getElementById("TXT_PTS_MANA_MAX").value = objPersonnage.manaMax;
+    else
+        document.getElementById("TXT_PTS_MANA_MAX").value = "";
+
+    // Dés de récupération
+    if (objPersonnage.recuperationActuelle !== undefined)
+        document.getElementById("TXT_DES_RECUP_ACTUELS").value = objPersonnage.recuperationActuelle;
+    else
+        document.getElementById("TXT_DES_RECUP_ACTUELS").value = "";
+    if (objPersonnage.recuperationMax !== undefined)
+        document.getElementById("TXT_DES_RECUP_MAX").value = objPersonnage.recuperationMax;
+    else
+        document.getElementById("TXT_DES_RECUP_MAX").value = "";
+    remplirDesRecuperation();
+
+    // Equipement
+    if (objPersonnage.equipement !== undefined)
+        document.getElementById("TXT_EQUIPEMENT").value = objPersonnage.equipement;
+    else
+        document.getElementById("TXT_EQUIPEMENT").value = "";
+
+    // Bourse
+    if (objPersonnage.PO !== undefined)
+        document.getElementById("TXT_NB_PO").value = objPersonnage.PO;
+    else
+        document.getElementById("TXT_NB_PO").value = "";
+    if (objPersonnage.PA !== undefined)
+        document.getElementById("TXT_NB_PA").value = objPersonnage.PA;
+    else
+        document.getElementById("TXT_NB_PA").value = "";
+    if (objPersonnage.PC !== undefined)
+        document.getElementById("TXT_NB_PC").value = objPersonnage.PC;
+    else
+        document.getElementById("TXT_NB_PC").value = "";
+
+    // Armes
+    initSelectTypeAttaque();
+    if (objPersonnage.armes === undefined) {
+        for (let varZoneArme of document.getElementsByClassName("zoneArme")) {
+            varZoneArme.getElementsByClassName("txtNomArme")[0].value = "";
+            varZoneArme.getElementsByClassName("selectTypeAttaque")[0].value = "";
+            varZoneArme.getElementsByClassName("txtDmArme")[0].value = "";
+            varZoneArme.getElementsByClassName("txtNoteArme")[0].value = "";
+        }
+    } else {
+        let varIndexArme = 0;
+        for (let varZoneArme of document.getElementsByClassName("zoneArme")) {
+            if (objPersonnage.armes[varIndexArme] !== undefined) {
+                varZoneArme.getElementsByClassName("txtNomArme")[0].value = objPersonnage.armes[varIndexArme].nomArme;
+                varZoneArme.getElementsByClassName("selectTypeAttaque")[0].value = objPersonnage.armes[varIndexArme].typeAttaqueArme;
+                varZoneArme.getElementsByClassName("txtDmArme")[0].value = objPersonnage.armes[varIndexArme].dmArme;
+                varZoneArme.getElementsByClassName("txtNoteArme")[0].value = objPersonnage.armes[varIndexArme].noteArme;
+            } else {
+                varZoneArme.getElementsByClassName("txtNomArme")[0].value = "";
+                varZoneArme.getElementsByClassName("selectTypeAttaque")[0].value = "";
+                varZoneArme.getElementsByClassName("txtDmArme")[0].value = "";
+                varZoneArme.getElementsByClassName("txtNoteArme")[0].value = "";
+            }
+            varIndexArme++;
+        }
+    }
+
+    // Zone des scores d'attaque
+    remplirAttaques();
+
+    // Armures
+    if (objPersonnage.armures === undefined) {
+        for (let varZoneArmure of document.getElementsByClassName("zoneArmure")) {
+            varZoneArmure.getElementsByClassName("chkArmure")[0].checked = false;
+            varZoneArmure.getElementsByClassName("txtNomArmure")[0].value = "";
+            varZoneArmure.getElementsByClassName("txtDefArmure")[0].value = "";
+            varZoneArmure.getElementsByClassName("txtAgiArmure")[0].value = "";
+        }
+    } else {
+        let varIndexArmure = 0;
+        for (let varZoneArmure of document.getElementsByClassName("zoneArmure")) {
+            if (objPersonnage.armures[varIndexArmure] !== undefined) {
+                if (objPersonnage.armures[varIndexArmure].selectionArmure === "1")
+                    varZoneArmure.getElementsByClassName("chkArmure")[0].checked = true;
+                else
+                    varZoneArmure.getElementsByClassName("chkArmure")[0].checked = false;
+                varZoneArmure.getElementsByClassName("txtNomArmure")[0].value = objPersonnage.armures[varIndexArmure].nomArmure;
+                varZoneArmure.getElementsByClassName("txtDefArmure")[0].value = objPersonnage.armures[varIndexArmure].defenseArmure;
+                varZoneArmure.getElementsByClassName("txtAgiArmure")[0].value = objPersonnage.armures[varIndexArmure].agiliteMaxArmure;
+            } else {
+                varZoneArmure.getElementsByClassName("chkArmure")[0].checked = false;
+                varZoneArmure.getElementsByClassName("txtNomArmure")[0].value = "";
+                varZoneArmure.getElementsByClassName("txtDefArmure")[0].value = "";
+                varZoneArmure.getElementsByClassName("txtAgiArmure")[0].value = "";
+            }
+            varIndexArmure++;
+        }
+    }
+    remplirDefense();
+
+
+    // Voies
+    reinitVoies();
+    if (objPersonnage.voies !== undefined) {
+        let varIndexVoie = 0;
+        for (let varZoneVoie of document.getElementsByClassName("zoneVoie")) {
+            if (objPersonnage.voies[varIndexVoie] !== undefined) {
+                varZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value = objPersonnage.voies[varIndexVoie].idTypeVoie;
+                varZoneVoie.getElementsByClassName("txtIdGroupeVoie")[0].value = objPersonnage.voies[varIndexVoie].idGroupeVoie;
+                varZoneVoie.getElementsByClassName("txtIdVoie")[0].value = objPersonnage.voies[varIndexVoie].idVoie;
+                varZoneVoie.getElementsByClassName("txtNomVoie")[0].value = objPersonnage.voies[varIndexVoie].nomVoie;
+
+                let varIndexCapacite = 0;
+                for (let varZoneCapacite of varZoneVoie.getElementsByClassName("zoneCapacite")) {
+                    if (objPersonnage.voies[varIndexVoie].capacites[varIndexCapacite].selectionCapacite === "1")
+                        varZoneCapacite.getElementsByClassName("chkCapacite")[0].checked = true;
+                    else
+                        varZoneCapacite.getElementsByClassName("chkCapacite")[0].checked = false;
+                    varZoneCapacite.getElementsByClassName("txtRangCapacite")[0].value = objPersonnage.voies[varIndexVoie].capacites[varIndexCapacite].rangCapacite;
+                    if (objPersonnage.voies[varIndexVoie].idTypeVoie === "PERSO") {
+                        varZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value = objPersonnage.voies[varIndexVoie].capacites[varIndexCapacite].nomCapacite;
+                        varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value = objPersonnage.voies[varIndexVoie].capacites[varIndexCapacite].descriptionCapacite;
+                    } else {
+                        varZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value = "";
+                        varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value = "";
+                    }
+                    varZoneCapacite.getElementsByClassName("txtComplementCapacite")[0].value = objPersonnage.voies[varIndexVoie].capacites[varIndexCapacite].complementCapacite;
+
+
+                    varIndexCapacite++;
+                }
+            }
+            varIndexVoie++;
+        }
+    }
+    gereVoies();
+
 
 }

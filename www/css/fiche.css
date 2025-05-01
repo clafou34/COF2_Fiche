@@ -609,7 +609,7 @@ Sous-zone du dés de récupération
 .gridRecuperation input:nth-of-type(3) {
     grid-area: input3;
     justify-self: center;
-    width: 2em;
+    width: 3em;
 }
 
 .gridRecuperation span:nth-of-type(2) {
@@ -799,6 +799,7 @@ div.contenuCapacite > .displayCommentaireCapacite {
     margin-top:0.5em;
     word-break: break-word;
     white-space: pre-wrap;
+    display: none;
 }
 
 div.contenuCapacite > .displayCommentaireCapacite::before {

@@ -212,7 +212,7 @@ function videZonesCapacites(parZoneVoie) {
         if ((indexCapacite >= varTabZonesCapacite.length)) {
             break;
         }
-
+        
         varZoneCapacite.getElementsByClassName("txtRangCapacite")[0].value = "";
         varZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value = "";
         varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value = "";
@@ -221,8 +221,10 @@ function videZonesCapacites(parZoneVoie) {
 }
 
 /********************************************************************
- Retourne la voie appartenant au groupe dont l'identifiant est passé en
- paramètre (parIdGroupe) et dont l'identifiant de voie est parIdVoie.
+ * Retourne la voie appartenant au groupe dont l'identifiant est passé en
+ * paramètre (parIdGroupe) et dont l'identifiant de voie est parIdVoie.
+ * @param {object} parIdVoie : Identifiant de la voie.
+ * @param {object} parIdGroupe : Identifiant de groupe de voie.
  ********************************************************************/
 function getVoieWithGroupe(parIdVoie, parIdGroupe) {
     // Recherche du groupe
@@ -354,7 +356,7 @@ function gereVoiePrestige(parZoneVoie) {
     let varTxtNomVoie = parZoneVoie.getElementsByClassName("txtNomVoie")[0];
 
     if (varTxtIdTypeVoie.value === "PERSO") {
-        videZonesCapacites(parZoneVoie);
+        //videZonesCapacites(parZoneVoie);
 
         // On affiche le nom de la voie
         parZoneVoie.getElementsByClassName("lblNomVoie")[0].innerText = varTxtNomVoie.value;
@@ -445,7 +447,6 @@ function gereVoiePeuple(parZoneVoie) {
         let varIdGroupeVoieFamille = searchObjectById(dataFamilles.familles, varIdFamille).groupe_voies;
         let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varIdGroupeVoieFamille);
         let varObjVoieFamille = searchObjectById(varObjGroupeVoie.voies, parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value);
-        console.log("gereVoiePeuple varObjVoieFamille.nom=" + varObjVoieFamille.nom);
 
         parZoneVoie.getElementsByClassName("lblNomVoie")[0].innerText = varTxtNomVoie.value;
         parZoneVoie.getElementsByClassName("lblTypeVoie")[0].innerText = varObjVoieFamille.nom;
@@ -681,10 +682,8 @@ function reinitVoiePrestige(parZoneVoie) {
     let varTxtNomVoie = parZoneVoie.getElementsByClassName("txtNomVoie")[0];
     let varTxtIdTypeVoie = parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0];
 
-    if (varTxtIdTypeVoie.value !== "PERSO") {
-        varTxtIdTypeVoie.value = "PERSO";
-        varTxtIdGroupeVoie.value = "";
-        varTxtIdVoie.value = "";
-        varTxtNomVoie.value = ".";
-    }
+    varTxtIdTypeVoie.value = "PERSO";
+    varTxtIdGroupeVoie.value = "";
+    varTxtIdVoie.value = "";
+    varTxtNomVoie.value = ".";
 }
