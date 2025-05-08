@@ -4,17 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fiche personnage Chroniques Oubliées 2e</title>
+        <link href="css/commun.css" rel="stylesheet">
         <link href="css/fiche.css" rel="stylesheet">
         <link href="css/fiche_dialog.css" rel="stylesheet">
-        <link href="css/dlgCapacite.css" rel="stylesheet">
-        <link href="css/dlgVoie.css" rel="stylesheet">
+        <link href="css/fiche_dlgCapacite.css" rel="stylesheet">
+        <link href="css/fiche_dlgVoie.css" rel="stylesheet">
     </head>
     <body onload="bodyOnLoad()">
-        <div class="fiche">
-            <button OnClick="btnSauverOnClick()" type="button">Sauver</button>
-            <button OnClick="btnLireOnClick()" type="button">Lire</button>
-            <h1>Chroniques oubliées fantasy 2e</h1>
-            <form id="FORM_FICHE">
+        <form id="FORM_FICHE">
+            <header>
+                <button OnClick="btnSauverOnClick()" type="button"><span>Sauver</span></button>
+                <button OnClick="btnLireOnClick()" type="button"><span>Lire</span></button>
+                <h1>Chroniques oubliées fantasy 2e</h1>
+            </header>
+            <main>
                 <div class="entete">
                     <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
                     <div class="zoneNomPersonnage">
@@ -890,8 +893,8 @@
                         </fieldset>
                     </div>
                 </div>
-            </form>
-        </div>
+            </main>
+        </form>
 
         <dialog id="dlgVoie">
             <div class="dlgEntete">
@@ -910,7 +913,7 @@
                     </span>
                 </div>
                 <div class="dlgPied">
-                    <button type="submit" id="dlgVoieOK">OK</button>
+                    <button type="submit" id="dlgVoieOK"><span>OK</span></button>
                 </div>
             </form>
         </dialog>
@@ -945,7 +948,7 @@
                     </span>
                 </div>
                 <div class="dlgPied">
-                    <button type="submit" id="dlgCapaciteOK">OK</button>
+                    <button type="submit" id="dlgCapaciteOK"><span>OK</span></button>
                 </div>
             </form>
         </dialog>
@@ -956,8 +959,8 @@
         <script src="data/familles.js"></script>
         <script src="data/peuples.js"></script>
         <script src="data/voies.js"></script>
-        <script src="js/dlgCapacite.js"></script>
-        <script src="js/dlgVoie.js"></script>
+        <script src="js/fiche_dlgCapacite.js"></script>
+        <script src="js/fiche_dlgVoie.js"></script>
         <script src="js/fiche_metier.js"></script>
         <script src="js/fiche_evt.js"></script>
         <script src="js/fiche_json.js"></script>

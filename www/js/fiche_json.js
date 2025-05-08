@@ -1,8 +1,12 @@
 
 function ficheSauve() {
     const objPersonnage = new Object();
+
     // Nom du personnage
-    objPersonnage.nom = document.getElementById("TXT_NOM").value;
+    let varObjCommun = new Object();
+    varObjCommun.jeu = "COF2";
+    varObjCommun.nom_personnage = document.getElementById("TXT_NOM").value;
+    objPersonnage.commun = varObjCommun;
 
     // Zone de la personnalité
     objPersonnage.idPeuple = document.getElementById("SEL_PEUPLE").value;
@@ -117,7 +121,7 @@ function ficheSauve() {
 
     sessionStorage.setItem("ficheCOF2", JSON.stringify(objPersonnage));
 
-    //console.log(JSON.stringify(objPersonnage, null, 2));
+    console.log(JSON.stringify(objPersonnage, null, 2));
 }
 
 function ficheLire() {
@@ -128,10 +132,14 @@ function ficheLire() {
         objPersonnage = JSON.parse(jsonPersonnage);
 
     // Nom du personnage
-    if (objPersonnage.nom === undefined)
+    if (objPersonnage.commun === undefined)
         document.getElementById("TXT_NOM").value = "";
-    else
-        document.getElementById("TXT_NOM").value = objPersonnage.nom;
+    else {
+        if (objPersonnage.commun.nom_personnage === undefined)
+            document.getElementById("TXT_NOM").value = "";
+        else
+            document.getElementById("TXT_NOM").value = objPersonnage.commun.nom_personnage;
+    }
 
     // Zone de la personnalité
     initSelectPeuples();

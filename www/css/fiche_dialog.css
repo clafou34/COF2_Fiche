@@ -33,7 +33,16 @@ dialog .dlgEntete button {
     right: 8px;
     top:1px;
     margin:0;
-    border: none;
+    padding-top:0;
+    padding-bottom:0;
+    padding-left:1px;
+    padding-right:0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ac8a3c;
+    width : 17px;
+    height : 18px;
+    font-size: 16px;
     vertical-align: middle;
     text-align: center;
     font-weight: bold;
@@ -43,13 +52,15 @@ dialog .dlgEntete button {
 }
 
 dialog .dlgEntete button:focus {
-    background-color: #5f460d;
     outline: none;
+    border-style: dotted;
+    border-color: black;
 }
 
 dialog .dlgEntete button:hover {
+  border-color: #5f460d;
+  border-style: solid;
   background-color: #5f460d;
-  color: white;
 }
 
 dialog .dlgEntete button::after {
@@ -63,9 +74,5 @@ dialog .dlgPied {
 }
 
 dialog .dlgPied button {
-    font-size: 1em;
-    font-weight: bold;
-    padding-left: 1em;
-    padding-right: 1em;
     display: inline;
 }

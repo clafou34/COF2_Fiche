@@ -212,7 +212,7 @@ function videZonesCapacites(parZoneVoie) {
         if ((indexCapacite >= varTabZonesCapacite.length)) {
             break;
         }
-        
+
         varZoneCapacite.getElementsByClassName("txtRangCapacite")[0].value = "";
         varZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value = "";
         varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value = "";
@@ -247,10 +247,10 @@ function getVoieWithGroupe(parIdVoie, parIdGroupe) {
  ****************************************************************/
 function initSelectPeuples() {
     let selectPeuple = document.getElementById("SEL_PEUPLE");
-    
+
     // Vidange des options existantes
     selectPeuple.innerHTML = "";
-    
+
     // Remplissage de la liste des peuples
     for (let varPeuple of dataPeuples.peuples) {
         let option = document.createElement('option');
@@ -266,10 +266,10 @@ function initSelectPeuples() {
  *********************************************************************/
 function initSelectFamille() {
     let selFamille = document.getElementById("SEL_FAMILLE");
-    
+
     // Vidange des options existantes
     selFamille.innerHTML = "";
-    
+
     // Remplissage de la liste des familles
     for (let family of dataFamilles.familles) {
         let option = document.createElement('option');
@@ -444,12 +444,17 @@ function gereVoiePeuple(parZoneVoie) {
 
         // On affiche le nom de la voie précédé du nom de la voie de la famille
         let varIdFamille = document.getElementById("SEL_FAMILLE").value;
-        let varIdGroupeVoieFamille = searchObjectById(dataFamilles.familles, varIdFamille).groupe_voies;
-        let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varIdGroupeVoieFamille);
-        let varObjVoieFamille = searchObjectById(varObjGroupeVoie.voies, parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value);
+        let varObjFamille = searchObjectById(dataFamilles.familles, varIdFamille);
+        if (varObjFamille !== null) {
+            let varIdGroupeVoieFamille = varObjFamille.groupe_voies;
+            let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varIdGroupeVoieFamille);
+            let varObjVoieFamille = searchObjectById(varObjGroupeVoie.voies, parZoneVoie.getElementsByClassName("txtIdTypeVoie")[0].value);
 
-        parZoneVoie.getElementsByClassName("lblNomVoie")[0].innerText = varTxtNomVoie.value;
-        parZoneVoie.getElementsByClassName("lblTypeVoie")[0].innerText = varObjVoieFamille.nom;
+            parZoneVoie.getElementsByClassName("lblNomVoie")[0].innerText = varTxtNomVoie.value;
+            parZoneVoie.getElementsByClassName("lblTypeVoie")[0].innerText = varObjVoieFamille.nom;
+        }
+        else
+            console.warn("Impossible de récupérer la voie du peuple, car la famille n'est pas correctement renseignée.");
     }
 
     // Affichage des capacités avec les champs remplis
@@ -484,7 +489,7 @@ function initZonesCapacitesVoiePeuple(parZoneVoie) {
     // Récupération des données du peuple
     let varObjPeuple = searchObjectById(dataPeuples.peuples, varIdPeuple);
     if (varObjPeuple === null) {
-        console.error("Le peuple '" + varIdPeuple + "' n'a pas pu être trouvé dans la collection des données des peuples.");
+        console.warn("Le peuple '" + varIdPeuple + "' n'a pas pu être trouvé dans la collection des données des peuples.");
         return;
     }
 
@@ -590,8 +595,7 @@ function reinitVoies() {
             reinitVoieProfil(varZoneVoie);
         } else if (varCategVoie === "peuple") {
             reinitVoiePeuple(varZoneVoie);
-        }
-        else if (varCategVoie === "prestige") {
+        } else if (varCategVoie === "prestige") {
             reinitVoiePrestige(varZoneVoie);
         }
     }
@@ -615,19 +619,23 @@ function reinitVoiePeuple(parZoneVoie) {
 
         // Récupération des voies standards du peuple
         let varObjPeuple = searchObjectById(dataPeuples.peuples, varIdPeupleCourant);
-        let varTabVoiesPeuple = varObjPeuple.voies;
+        if (varObjPeuple !== null) {
+            let varTabVoiesPeuple = varObjPeuple.voies;
 
-        // On prend le type STANDARD par défaut
-        varTxtIdTypeVoie.value = "STANDARD";
+            // On prend le type STANDARD par défaut
+            varTxtIdTypeVoie.value = "STANDARD";
 
-        // On prend le groupe de voie correspondant au peuple
-        varTxtIdGroupeVoie.value = varObjPeuple.groupe_voies;
+            // On prend le groupe de voie correspondant au peuple
+            varTxtIdGroupeVoie.value = varObjPeuple.groupe_voies;
 
-        // On récupère la première voie compatible avec le peuple
-        let varObjGroupeVoies = searchObjectById(dataVoies.groupesVoies, varObjPeuple.groupe_voies);
-        let varObjVoie = searchObjectById(varObjGroupeVoies.voies, varTabVoiesPeuple[0]);
-        varTxtIdVoie.value = varObjVoie.id;
-        varTxtNomVoie.value = varObjVoie.nom;
+            // On récupère la première voie compatible avec le peuple
+            let varObjGroupeVoies = searchObjectById(dataVoies.groupesVoies, varObjPeuple.groupe_voies);
+            let varObjVoie = searchObjectById(varObjGroupeVoies.voies, varTabVoiesPeuple[0]);
+            varTxtIdVoie.value = varObjVoie.id;
+            varTxtNomVoie.value = varObjVoie.nom;
+        } else {
+            console.warn("Impossible d'initialiser la voie du peuple, car le peuple courant n'en a pas.");
+        }
     }
 }
 
@@ -650,23 +658,26 @@ function reinitVoieProfil(parZoneVoie) {
         let varIdFamilleCourante = document.getElementById("SEL_FAMILLE").value;
         let varObjFamille = searchObjectById(dataFamilles.familles, varIdFamilleCourante);
 
-        // Récupération du profil actuellement sélectionné
-        let varIdProfilCourant = document.getElementById("SEL_PROFIL").value;
-        let varObjProfil = searchObjectById(varObjFamille.profils, varIdProfilCourant);
+        if (varObjFamille !== null) {
+            // Récupération du profil actuellement sélectionné
+            let varIdProfilCourant = document.getElementById("SEL_PROFIL").value;
+            let varObjProfil = searchObjectById(varObjFamille.profils, varIdProfilCourant);
 
-        // On récupère le groupe de voies du profil
-        let varObjGroupeVoies = searchObjectById(dataVoies.groupesVoies, varObjProfil.groupe_voies);
+            // On récupère le groupe de voies du profil
+            let varObjGroupeVoies = searchObjectById(dataVoies.groupesVoies, varObjProfil.groupe_voies);
 
-        // On prend le type STANDARD par défaut
-        varTxtIdTypeVoie.value = "STANDARD";
+            // On prend le type STANDARD par défaut
+            varTxtIdTypeVoie.value = "STANDARD";
 
-        // On prend le groupe de voie correspondant au profil
-        varTxtIdGroupeVoie.value = varObjProfil.groupe_voies;
+            // On prend le groupe de voie correspondant au profil
+            varTxtIdGroupeVoie.value = varObjProfil.groupe_voies;
 
-        // On prend la voie correspondant au numéro de la voie de profil
-        let varObjVoie = varObjGroupeVoies.voies[varIntNumVoieProfil - 1];
-        varTxtIdVoie.value = varObjVoie.id;
-        varTxtNomVoie.value = varObjVoie.nom;
+            // On prend la voie correspondant au numéro de la voie de profil
+            let varObjVoie = varObjGroupeVoies.voies[varIntNumVoieProfil - 1];
+            varTxtIdVoie.value = varObjVoie.id;
+            varTxtNomVoie.value = varObjVoie.nom;
+        } else
+            console.warn("Impossible d'initailiser les voies de profil, car la famille sélectionnée n'a pas correctement renseignée.");
     }
 
 }
