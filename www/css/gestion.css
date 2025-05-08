@@ -1,0 +1,67 @@
+
+/******************************************************
+Barre de bouton
+*******************************************************/
+.barreBoutons {
+    text-align: center;
+}
+
+/******************************************************
+Liste des fichier
+*******************************************************/
+
+table#LIST_FICHIER {
+    margin-top:2em;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table#LIST_FICHIER tr {
+    border-bottom-style:solid;
+    border-bottom-width: 1px;
+    border-color : #666666;
+}
+
+table#LIST_FICHIER > tbody tr:hover {
+    background-color: #DDDDDD;
+}
+
+table#LIST_FICHIER tr > td:first-child  {
+    font-weight: bold;
+}
+
+table#LIST_FICHIER th {
+    color: #666666;
+}
+
+table#LIST_FICHIER td,th {
+    padding-top:0.3em;
+    padding-bottom:0.3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
+
+button.btnSuppr {
+    background:url(../img/trash.svg);
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    background-position-x: center;
+    background-position-y: center;
+    height: 1.7em;
+    width: 1.7em;
+    vertical-align: middle;
+    border:0;
+    padding:0;
+    margin:0;
+    border-radius: 4px;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size:0.9em;
+}
+
+button.btnSuppr:hover{
+    background-color: #AAAAAA;
+}
+

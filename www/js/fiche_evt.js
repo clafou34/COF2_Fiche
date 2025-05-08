@@ -5,7 +5,7 @@
 /*******************************************************************************
  * Initialise tous les événements des items de la fiche
  *******************************************************************************/
-function initEventListners() {
+function ficheInitEventListners() {
     document.getElementById("SEL_PEUPLE").addEventListener('change', selPeupleOnChange);
     document.getElementById("SEL_FAMILLE").addEventListener('change', selFamilleOnChange);
     document.getElementById("SEL_PROFIL").addEventListener('change', selProfilOnChange);
@@ -34,27 +34,14 @@ function initEventListners() {
 /*******************************************************************************
  * Gestion de la fin du chargement de la page.
  *******************************************************************************/
-function bodyOnLoad() {
+function ficheBodyOnLoad() {
     // Initialisation des événements à écouter pour la fiche principale
-    initEventListners();
+    ficheInitEventListners();
 
     // Initialisation des événement à écouter pour les boites de dialogue
     dlgCapaciteInitEventListners();
     dlgVoieInitEventListners();
 
-      
-/*
-    // Remplir les données par défaut
-    initSelectPeuples();
-    initSelectCaracteristiques();
-    initSelectFamille();
-    initSelectProfils();
-    initSelectTypeAttaque();
-    remplirAttaques();
-    remplirDesRecuperation();
-    remplirDefense();
-    reinitVoies();
-    gereVoies();*/
 }
 
 /********************************************************************
