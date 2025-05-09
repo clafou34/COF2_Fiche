@@ -10,11 +10,14 @@
  *  }
  *  
  *  Les metadonnées de tous les fichiers sont stockées dans un tableau sérialisé
- *  et persisté dans la variable "COF2_fichiers" du localstorage.
+ *  et persisté dans la variable "[fichier_Prefix]" du localstorage.
  *  
  *  Chaque données d'un fichier est stocké dans une variable du localstorage dont
- *  le nom est "COF2_fichier_[identifiant du fichier]".
+ *  le nom est "[fichier_Prefix]_[identifiant du fichier]".
  */
+
+// Préfixe des variables dans le localStorage
+const fichier_Prefix = "COF2_fichier";
 
 /*******************************************************************************************
  * Retourne une chaine de 23 caractères qui peut être considérée comme un identifant unique.
@@ -67,7 +70,9 @@ function fichier_creer(parNomFichier) {
 
     let varTabMetaFichier = [];
     try {
-        varTabMetaFichier = JSON.parse(localStorage.getItem("COF2_fichiers"));
+        varTabMetaFichier = JSON.parse(localStorage.getItem(fichier_Prefix));
+        if(varTabMetaFichier===null)
+            varTabMetaFichier = [];
     }
     catch(err) {
         varTabMetaFichier = [];
@@ -89,7 +94,11 @@ function fichier_creer(parNomFichier) {
     
     varTabMetaFichier.push(varObjMetaFichier);
     
-    localStorage.setItem("COF2_fichiers",JSON.stringify(varTabMetaFichier));
+    localStorage.setItem(fichier_Prefix,JSON.stringify(varTabMetaFichier));
+    
+    // Création des données vides
+    localStorage.setItem(fichier_Prefix + "_" + varIdFichier, "");
+
 }
 
 
@@ -97,20 +106,64 @@ function fichier_creer(parNomFichier) {
  * Récupère les méta données du fichier dont l'identifiant est passé en paramètre.
  * @param {string} parIdFichier Identifiant du fichier pour lequel il faut récupérer
  * les métas données.
- * @returns {object} Objet représentant les méta données du fichier.
+ * @returns {object} Objet représentant les méta données du fichier si elles
+ * existent, sinon null.
  *******************************************************************************/
 function fichier_getMeta(parIdFichier) {
+    // Récupération du tableau des fichiers.
+    let varTabMetaFichier = [];
+    try {
+        varTabMetaFichier = JSON.parse(localStorage.getItem(fichier_Prefix));
+    }
+    catch(err) {
+        console.error("Impossible de récupérer les métadonnées du fichier '" + parIdFichier + "', car le tableau des fichiers '" + fichier_Prefix + "' est invalide ou vide.");
+        return null;
+    }
     
+    // Recherche des métadonnées du fichier
+    let varObjetFichierARetourner=null;
+    for(let varObjFichier of varTabMetaFichier) {
+        if(varObjFichier.identifiant===parIdFichier) {
+            varObjetFichierARetourner = varObjFichier;
+            break;
+        }
+    }
+
+    // Retourne les métadonnées
+    if(varObjetFichierARetourner!==null) {
+        return Object.assign({}, varObjetFichierARetourner);
+    }
+    console.warn("Impossible de récupérer les métadonnées du fichier '" + parIdFichier + "', car le tableau des fichiers '" + fichier_Prefix + "' ne contient pas le fichier.");
+    return null;
 }
 
 /*******************************************************************************
  * Modifie le nom du fichier dont l'identifiant est passé en paramètre.
  * @param {string} parIdFichier Identifiant du fichier pour lequel on modifie le nom.
  * @param {string} parStrNom Nouveau nom du fichier
- * @returns {boolean} True si la mise à jour s'est bien passée, sinon False.
  *******************************************************************************/
 function fichier_setNom(parIdFichier, parStrNom) {
+    // Récupération du tableau des fichiers.
+    let varTabMetaFichier = [];
+    try {
+        varTabMetaFichier = JSON.parse(localStorage.getItem(fichier_Prefix));
+    }
+    catch(err) {
+        console.error("Impossible de récupérer les métadonnées du fichier '" + parIdFichier + "', car le tableau des fichiers '" + fichier_Prefix + "' est invalide ou vide.");
+        return null;
+    }
     
+    // Recherche des métadonnées pour changer la date de dernière modification.
+    for(let varObjFichier of varTabMetaFichier) {
+        if(varObjFichier.identifiant===parIdFichier) {
+            varObjFichier.dateModif = fichier_getTempsCourant();
+            varObjFichier.nom = parStrNom;
+            break;
+        }
+    }
+    
+    // Sauvegarde des métadonnées
+    localStorage.setItem(fichier_Prefix,JSON.stringify(varTabMetaFichier));  
 }
 
 /*******************************************************************************
@@ -118,21 +171,51 @@ function fichier_setNom(parIdFichier, parStrNom) {
  * Les données sont représentées dans une chaine de caractères.
  * @param {string} parIdFichier Identifiant du fichier pour lequel on veut
  * récupérer les données.
- * @returns {string} Chaine de caractères représentant les données
+ * @returns {string} Chaine de caractères représentant les données. "null" si les
+ * données n'ont pas été retrouvées.
  *******************************************************************************/
 function fichier_getDonnees(parIdFichier) {
+    let varStrDonnee = localStorage.getItem(fichier_Prefix + "_" + parIdFichier);
     
+    if(varStrDonnee===undefined) {
+        varStrDonnee=null;
+        console.warn("Les données du fichier '" + parIdFichier + "' n'ont pas été retrouvées.");
+    }
+    
+    return varStrDonnee;
 }
 
 /*******************************************************************************
  * Stocke les données passées en paramètre dans le fichier dont l'identifiant est
- * fourni.
+ * fourni, et modifie la date de dernière modification.
  * @param {string} parIdFichier Fichier pour lequel les données sont à modifier.
- * @param {string} parStrDonnees Contenu des données à stocker.
+ * @param {string} parStrDonnees Contenu des données à stocker en chaine de caractère.
  * @returns {boolean} True si la mise à jour s'est bien passée, sinon False.
  *******************************************************************************/
 function fichier_setDonnees(parIdFichier, parStrDonnees) {
+    // Récupération du tableau des fichiers.
+    let varTabMetaFichier = [];
+    try {
+        varTabMetaFichier = JSON.parse(localStorage.getItem(fichier_Prefix));
+    }
+    catch(err) {
+        console.error("Impossible de récupérer les métadonnées du fichier '" + parIdFichier + "', car le tableau des fichiers '" + fichier_Prefix + "' est invalide ou vide.");
+        return null;
+    }
     
+    // Recherche des métadonnées pour changer la date de dernière modification.
+    for(let varObjFichier of varTabMetaFichier) {
+        if(varObjFichier.identifiant===parIdFichier) {
+            varObjFichier.dateModif = fichier_getTempsCourant();
+            break;
+        }
+    }
+    
+    // Sauvegarde des métadonnées
+    localStorage.setItem(fichier_Prefix,JSON.stringify(varTabMetaFichier));
+    
+    // Sauvegarde des données
+    localStorage.setItem(fichier_Prefix + "_" + parIdFichier, parStrDonnees);
 }
 
 /*******************************************************************************
@@ -141,11 +224,10 @@ function fichier_setDonnees(parIdFichier, parStrDonnees) {
  * @returns {boolean} True si la suppression s'est bien passée et False sinon.
  *******************************************************************************/
 function fichier_delete(parIdFichier) {
-    
     // Récupération du tableau des fichiers.
     let varTabMetaFichier = [];
     try {
-        varTabMetaFichier = JSON.parse(localStorage.getItem("COF2_fichiers"));
+        varTabMetaFichier = JSON.parse(localStorage.getItem(fichier_Prefix));
     }
     catch(err) {
         varTabMetaFichier = [];
@@ -155,7 +237,6 @@ function fichier_delete(parIdFichier) {
     let elementTrouve=false;
     let indexElement=0;
     for(let varObjFichier of varTabMetaFichier) {
-        console.log("#" + varObjFichier.identifiant + "##" + parIdFichier + "#");
         if(varObjFichier.identifiant===parIdFichier) {
             elementTrouve=true;
             break;
@@ -168,10 +249,10 @@ function fichier_delete(parIdFichier) {
         varTabMetaFichier.splice(indexElement,1);
         
         // Sauvegarde du tableau du fichier
-        localStorage.setItem("COF2_fichiers",JSON.stringify(varTabMetaFichier));
+        localStorage.setItem(fichier_Prefix,JSON.stringify(varTabMetaFichier));
         
-        //Suppression des données
-        sessionStorage.removeItem("COF2_fichier_" + parIdFichier);
+        // Suppression des données
+        localStorage.removeItem(fichier_Prefix + "_" + parIdFichier);
     }
     else {
         console.warn("Le fichier " + parIdFichier + " n'a pas pu être supprimé, car il n'existe pas dans le tableau des fichiers.");
@@ -189,7 +270,9 @@ function fichier_list() {
     let varTabMetaFichier = [];
 
     try {
-        varTabMetaFichier = JSON.parse(localStorage.getItem("COF2_fichiers"));
+        varTabMetaFichier = JSON.parse(localStorage.getItem(fichier_Prefix));
+        if(varTabMetaFichier===null)
+            varTabMetaFichier = [];
     }
     catch(err) {
         varTabMetaFichier = [];

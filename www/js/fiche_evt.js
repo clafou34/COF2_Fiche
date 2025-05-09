@@ -6,7 +6,9 @@
  * Initialise tous les événements des items de la fiche
  *******************************************************************************/
 function ficheInitEventListners() {
-    document.getElementById("SEL_PEUPLE").addEventListener('change', selPeupleOnChange);
+    document.getElementById("btnSauver").addEventListener('click', btnSauverOnClick);
+    document.getElementById("btnImprimer").addEventListener('click', btnImprimerOnClick);
+    document.getElementById("btnQuitter").addEventListener('click', btnQuitterOnClick);
     document.getElementById("SEL_FAMILLE").addEventListener('change', selFamilleOnChange);
     document.getElementById("SEL_PROFIL").addEventListener('change', selProfilOnChange);
     document.getElementById("TXT_NIVEAU").addEventListener('change', txtNiveauOnChange);
@@ -42,6 +44,8 @@ function ficheBodyOnLoad() {
     dlgCapaciteInitEventListners();
     dlgVoieInitEventListners();
 
+    // Lecture de la fiche et initialisation
+    ficheLecture();
 }
 
 /********************************************************************
@@ -151,10 +155,24 @@ function selProfilOnChange() {
     gereVoies();
 }
 
+
+/********************************************************************
+ * Gestion de l'événement "OnClick" sur le bouton de sauvegarde.
+ ********************************************************************/
 function btnSauverOnClick() {
-    ficheSauve();
+    ficheSauvegarde();
 }
 
-function btnLireOnClick() {
-    ficheLire();
+/********************************************************************
+ * Gestion de l'événement "OnClick" sur le bouton d'impression.
+ ********************************************************************/
+function btnImprimerOnClick() {
+    ficheSauvegarde();
+}
+
+/********************************************************************
+ * Gestion de l'événement "OnClick" sur le bouton de fermeture.
+ ********************************************************************/
+function btnQuitterOnClick() {
+    ficheQuitter();
 }

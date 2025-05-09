@@ -1,5 +1,10 @@
 
-function ficheSauve() {
+/*******************************************************************************
+ * Récupère les données de la fiche de personnage pour créer un objet qui est
+ * retourné.
+ * @returns {object} Objet représentant les données de la fiche de personnage.
+ *******************************************************************************/
+function ficheConstruireJSON() {
     const objPersonnage = new Object();
 
     // Nom du personnage
@@ -119,17 +124,19 @@ function ficheSauve() {
         objPersonnage.voies.push(varObjVoie);
     }
 
-    sessionStorage.setItem("ficheCOF2", JSON.stringify(objPersonnage));
-
-    console.log(JSON.stringify(objPersonnage, null, 2));
+    //console.log(JSON.stringify(objPersonnage, null, 2));
+    
+    return objPersonnage;
 }
 
-function ficheLire() {
-    let jsonPersonnage = sessionStorage.getItem("ficheCOF2");
-    let objPersonnage = new Object();
-
-    if (jsonPersonnage !== null)
-        objPersonnage = JSON.parse(jsonPersonnage);
+/*******************************************************************************
+ * Initialise la fiche avec l'objet JSON passé en paramètre. Si l'objet n'est pas
+ * complet, les valeurs manquantes sont renmplacées par les valeurs par défaut.
+ * @param {object} parObjPersonnage Objet JSON contenant les données de la fiche.
+ *******************************************************************************/
+function ficheInitAvecJSON(parObjPersonnage) {
+    
+    let objPersonnage = parObjPersonnage;
 
     // Nom du personnage
     if (objPersonnage.commun === undefined)
@@ -397,6 +404,5 @@ function ficheLire() {
         }
     }
     gereVoies();
-
 
 }

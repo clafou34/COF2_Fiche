@@ -698,3 +698,65 @@ function reinitVoiePrestige(parZoneVoie) {
     varTxtIdVoie.value = "";
     varTxtNomVoie.value = ".";
 }
+
+/*******************************************************************************
+ * Initialise la fiche avec les données du fichier dont l'identifiant est dans
+ * la variable "fiche_courante" du sessionStorage.
+ *******************************************************************************/
+function ficheLecture() {
+    // Récupération de l'identifiant du fichier.
+    let varIdFichier = sessionStorage.getItem("fiche_courante");
+    if(varIdFichier===null) {
+        console.error("Impossible de récupérer l'identifiant du fichier dans la variable 'fiche_courante' du sessionStorage. Initialisation de la fiche abandonnée.");
+        return;
+    }
+    
+    // Récupération des métadonnées du fichier
+    let varStrMetaDonnees = fichier_getMeta(varIdFichier);
+    if(varStrMetaDonnees===null) {
+        console.error("Impossible de récupérer les métadonnées du fichier. Initialisation de la fiche abandonnée.");
+        return;        
+    }
+    
+    // Récupération des données
+    let strDonneesFiche = fichier_getDonnees(varIdFichier);
+    if(strDonneesFiche===null) {
+        console.error("Impossible de récupérer les données du fichier. Initialisation de la fiche abandonnée.");
+        return;        
+    }
+    let objDonneesFiche = {};
+    if(strDonneesFiche!=="")
+        objDonneesFiche = JSON.parse(strDonneesFiche);
+    
+    // Initialisation de la fiche.
+    ficheInitAvecJSON(objDonneesFiche);
+}
+
+/*******************************************************************************
+ * Gestion de la sauvegarde de la fiche.
+ *******************************************************************************/
+function ficheSauvegarde() {
+    // Récupération de l'identifiant du fichier.
+    let varIdFichier = sessionStorage.getItem("fiche_courante");
+    if(varIdFichier===null) {
+        console.error("Impossible de récupérer l'identifiant du fichier dans la variable 'fiche_courante' du sessionStorage. Sauvegarde abandonnées.");
+        return;
+    }
+    
+    // Récupération de l'objet contenant les données de la fiche.
+    let varObjDonnees = ficheConstruireJSON();
+    
+    // Transformation de l'objet en chaine de caractère.
+    let varStrDonnees = JSON.stringify(varObjDonnees);
+    
+    // Sauvegarde des données
+    fichier_setDonnees(varIdFichier, varStrDonnees);
+    
+    // Modification du nom de la fiche avec le nom du personnage
+    fichier_setNom(varIdFichier, varObjDonnees.commun.nom_personnage);
+    
+}
+
+function ficheQuitter() {
+    window.location.href = "gestion.html";
+}

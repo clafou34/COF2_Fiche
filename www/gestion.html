@@ -9,17 +9,20 @@
     </head>
     <body onload="gestionBodyOnLoad()">
         <header>
-            <h1>Chroniques oubliées fantasy 2e</h1>
-        </header>
-        <main>
+            <div class="titre">
+                <div><span>C</span><span>HRONIQUE</span><span>S</span></div>
+                <div><span>O</span><span>UBLIEE</span><span>S</span></div>
+                <div>FANTASY 2e</div>
+            </div>
             <div class="barreBoutons">
                 <button id="BTN_CREER"><span class="iconeBouton"><img src="img/add.svg"></span><span class="texteBouton">Nouvelle fiche</span></button>
             </div>
+        </header>
+        <main>
             <table id="LIST_FICHIER">
                 <thead>
                     <tr>
                         <th>Fiche</th>
-                        <th>Dernière modification</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,7 +31,7 @@
             </table>
         </main>
         <footer>
-            
+
         </footer>
         <script src="js/commun_fichier.js"></script>
         <script src="js/gestion.js"></script>

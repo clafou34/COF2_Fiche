@@ -23,7 +23,17 @@ header, main, footer {
 
 header {
     padding-top:0;
-    padding-bottom:1em;
+    padding-bottom:0;
+    display:flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index:1;
+}
+
+main {
+    padding-top:0.5em;
+    z-index:0;
 }
 
 footer {
@@ -39,13 +49,63 @@ footer {
     }
 }
 
-h1 {
+/******************************************************
+Titre de page
+*******************************************************/
+
+.titre  {
+    width: 200px;
+    height:80px;
     text-align: center;
     color: #ac8a3c;
-    font-family: "Brush Script MT", cursive;
-    font-size: 2.5em;
-    margin-top: 0;
-    margin-bottom: 0;
+}
+
+.titre * {
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.titre div:nth-child(1) {
+    font-size:25px;
+
+}
+
+.titre div:nth-child(2) {
+    font-size:25px;
+    position: relative;
+    top: -22px;
+}
+
+.titre div:nth-child(3) {
+    font-size:12px;
+    position: relative;
+    top: -34px;
+}
+
+.titre div span:nth-child(1) {
+    font-size:33px;
+}
+
+.titre div span:nth-child(2) {
+    vertical-align:4px;
+}
+
+.titre div span:nth-child(3) {
+    font-size:33px;
+}
+
+
+/******************************************************
+Barre de bouton
+*******************************************************/
+header div.barreBoutons {
+    height:80px;
+    padding-right:10px;
+}
+
+header div.barreBoutons button {
+    height:35px;
+    margin-top:10px;
 }
 
 /*****************************************
@@ -73,10 +133,22 @@ button span.texteBouton {
     display: inline-block;
 }
 
+
 button span.iconeBouton img {
     width:1em;
     height:1em;
     vertical-align: middle;
     display: inline-block;
     margin-right: 0.5em;
+}
+
+@media (max-width: 640px) {
+    button span.texteBouton {
+        display: none;
+    }
+    
+    button span.iconeBouton img {
+        margin-right: 0;
+    }
+    
 }
