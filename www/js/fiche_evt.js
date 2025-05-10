@@ -168,6 +168,7 @@ function btnSauverOnClick() {
  ********************************************************************/
 function btnImprimerOnClick() {
     ficheSauvegarde();
+    ficheImpression();
 }
 
 /********************************************************************

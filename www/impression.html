@@ -5,12 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fiche personnage Chroniques Oubliées 2e</title>
         <link href="css/commun.css" rel="stylesheet">
-        <link href="css/fiche.css" rel="stylesheet">
-        <link href="css/fiche_dialog.css" rel="stylesheet">
-        <link href="css/fiche_dlgCapacite.css" rel="stylesheet">
-        <link href="css/fiche_dlgVoie.css" rel="stylesheet">
+        <link href="css/impression.css" rel="stylesheet">
     </head>
-    <body onload="ficheBodyOnLoad()">
+    <body onload="impressionBodyOnLoad()">
         <form id="FORM_FICHE">
             <header>
                 <div class="titre">
@@ -18,19 +15,12 @@
                     <div><span>O</span><span>UBLIEE</span><span>S</span></div>
                     <div>FANTASY 2e</div>
                 </div>
-                <div class="barreBoutons">
-                    <button id="btnSauver" type="button" title="Enregistrer la fiche"><span class="iconeBouton"><img src="img/sauver.svg"></span><span class="texteBouton">Enregistrer</span></button>
-                    <button id="btnImprimer" type="button" title="Enregistrer la fiche"><span class="iconeBouton"><img src="img/imprimer.svg"></span><span class="texteBouton">Imprimer</span></button>
-                    <button id="btnQuitter" type="button" title="Ferme la fiche"><span class="iconeBouton"><img src="img/fermer.svg"></span><span class="texteBouton">Fermer</span></button>
-                </div>
             </header>
             <main>
                 <div class="entete">
                     <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
                     <div class="zoneNomPersonnage">
-                        <div class="zoneTxtNomPersonnage">
-                            <input type="text" id="TXT_NOM" name="nom" maxlength="40" required>
-                        </div>
+                        <div class="zoneTxtNomPersonnage"></div>
                         <img src="./img/separateur.svg" alt="séparateur">
                         <label for="TXT_NOM">Nom du personnage</label>
                     </div>
@@ -960,17 +950,12 @@
             </form>
         </dialog>
 
-        <script src="lib/DOMPurify/purify.min.js"></script>
+        <script src="js/impression.js"></script>
         <script src="data/armes.js"></script>
         <script src="data/caracteristiques.js"></script>
         <script src="data/familles.js"></script>
         <script src="data/peuples.js"></script>
         <script src="data/voies.js"></script>
-        <script src="js/fiche_dlgCapacite.js"></script>
-        <script src="js/fiche_dlgVoie.js"></script>
-        <script src="js/fiche_metier.js"></script>
-        <script src="js/fiche_evt.js"></script>
-        <script src="js/fiche_json.js"></script>
         <script src="js/commun_fichier.js"></script>
     </body>
 </html>

@@ -109,16 +109,11 @@ button.btnModif:hover{
 }
 
 .zoneNomPersonnage > div.zoneTxtNomPersonnage {
+    padding-top: 0.1em;
     padding-left:10px;
     padding-right:10px;
-}
-
-.zoneNomPersonnage > div > input {
-    display: block;
-    text-align: center;
-    width: 100%;
-    font-size: 1.2em;
     font-weight: bold;
+    font-size: 1.4em;
 }
 
 .zoneNomPersonnage > img {

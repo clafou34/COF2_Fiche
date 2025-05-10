@@ -53,6 +53,12 @@ footer {
 Titre de page
 *******************************************************/
 
+@font-face {
+  font-family: COF2Titre;
+  src: url(../font/Candal.ttf);
+  font-weight: bold;
+}
+
 .titre  {
     width: 200px;
     height:80px;
@@ -61,7 +67,7 @@ Titre de page
 }
 
 .titre * {
-    font-family: Georgia, serif;
+    font-family: COF2Titre, Times;
     font-weight: bold;
 }
 
@@ -73,25 +79,25 @@ Titre de page
 .titre div:nth-child(2) {
     font-size:25px;
     position: relative;
-    top: -22px;
+    top: -29px;
 }
 
 .titre div:nth-child(3) {
     font-size:12px;
     position: relative;
-    top: -34px;
+    top: -48px;
 }
 
 .titre div span:nth-child(1) {
-    font-size:33px;
+    font-size:34px;
 }
 
 .titre div span:nth-child(2) {
-    vertical-align:4px;
+    vertical-align:5px;
 }
 
 .titre div span:nth-child(3) {
-    font-size:33px;
+    font-size:34px;
 }
 
 
@@ -142,7 +148,7 @@ button span.iconeBouton img {
     margin-right: 0.5em;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
     button span.texteBouton {
         display: none;
     }

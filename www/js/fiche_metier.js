@@ -757,6 +757,16 @@ function ficheSauvegarde() {
     
 }
 
+/*******************************************************************************
+ * Ouverture de la page d'impression
+ *******************************************************************************/
+function ficheImpression() {
+    window.open("impression.html");
+}
+
+/*******************************************************************************
+ * Sortie de la fiche sans enregistrer.
+ *******************************************************************************/
 function ficheQuitter() {
     window.location.href = "gestion.html";
 }

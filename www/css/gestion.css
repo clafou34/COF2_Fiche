@@ -3,31 +3,31 @@
 Liste des fichier
 *******************************************************/
 
-table#LIST_FICHIER {
+table#FICHIERS {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
 }
 
-table#LIST_FICHIER tr {
+table#FICHIERS tr {
     border-bottom-style:solid;
     border-bottom-width: 1px;
     border-color : #666666;
 }
 
-table#LIST_FICHIER > tbody tr:hover {
+table#FICHIERS > tbody tr:hover {
     background-color: #DDDDDD;
 }
 
-table#LIST_FICHIER tr > td:first-child  {
+table#FICHIERS tr > td:first-child  {
     font-weight: bold;
 }
 
-table#LIST_FICHIER th {
+table#FICHIERS th {
     color: #666666;
 }
 
-table#LIST_FICHIER td,th {
+table#FICHIERS td,th {
     padding-top:0.3em;
     padding-bottom:0.3em;
     padding-left: 1em;
@@ -35,7 +35,7 @@ table#LIST_FICHIER td,th {
     text-align: center;
 }
 
-table#LIST_FICHIER td div {
+table#FICHIERS td div {
     font-size: 75%;
     color: #777777;
     font-weight:normal;
@@ -68,3 +68,10 @@ button.btnSuppr:hover{
     background-color: #AAAAAA;
 }
 
+#MSG_VIDE {
+    display:none;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: #777777;
+}

@@ -98,6 +98,8 @@ function fichier_creer(parNomFichier) {
     
     // Création des données vides
     localStorage.setItem(fichier_Prefix + "_" + varIdFichier, "");
+    
+    return varIdFichier;
 
 }
 
