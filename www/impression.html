@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fiche personnage Chroniques Oubliées 2e</title>
-        <link href="css/commun.css" rel="stylesheet">
         <link href="css/impression.css" rel="stylesheet">
     </head>
     <body onload="impressionBodyOnLoad()">
@@ -20,9 +19,9 @@
                 <div class="entete">
                     <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
                     <div class="zoneNomPersonnage">
-                        <div class="zoneTxtNomPersonnage"></div>
+                        <div id="TXT_NOM"></div>
                         <img src="./img/separateur.svg" alt="séparateur">
-                        <label for="TXT_NOM">Nom du personnage</label>
+                        <div id="LBL_NOM">Nom du personnage</div>
                     </div>
                     <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
                 </div>
@@ -119,22 +118,22 @@
                     </div>
                     <div class="colonne">
                         <div class="ligne_niv1">
-                            <fieldset id="zoneInitiative" class="champs_niv1" title="Initiative">
-                                <legend>INIT</legend>
-                                <div>
-                                    <input type="number" id="TXT_INITIATIVE" name="initiative" min="0" max="30" title="Nombre de point d'initiative">
+                            <div class="case1">
+                                <div class="legende_case1"><span>INIT</span></div>
+                                <div class="grille_case1">
+                                    <div class="valeur_case1"><span id="TXT_INITIATIVE"></span></div>
                                 </div>
-                            </fieldset>
-                            <fieldset id="zoneVigueur" class="champs_niv1" title="Points de vigueur">
-                                <legend>PTS DE VIGUEUR</legend>
-                                <div class="gridVigueur">
-                                    <label class="labelDessous" for="TXT_PTS_VIGUEUR_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_PTS_VIGUEUR_ACTUELS" name="vigueurActuelle"  min="0" max="30" title="Nombre de points de vigueur actuels">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_PTS_VIGUEUR_MAX">MAX</label>
-                                    <input type="number" id="TXT_PTS_VIGUEUR_MAX" name="vigueurMax"  min="0" max="30" title="Nombre de points de vigueur maximum">
+                            </div>
+                            <div class="case1">
+                                <div class="legende_case1"><span>PTS DE VIGUEUR</span></div>
+                                <div class="grille_case1">
+                                    <div class="valeur_case1"><span id="TXT_PTS_VIGUEUR_ACTUELS"></span></div>
+                                    <div class="valeur_case1">
+                                        <span id="TXT_PTS_VIGUEUR_MAX"></span>
+                                        <span class="labelFond">MAX</span>
+                                    </div>
                                 </div>
-                            </fieldset>
+                            </div>
                         </div>
                         <div class="ligne_niv1">
                             <fieldset id="zoneDefense" class="champs_niv1" title="Défense">

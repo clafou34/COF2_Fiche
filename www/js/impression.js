@@ -40,11 +40,28 @@ function impressionInitAvecJSON(parObjPersonnage) {
 
     // Nom du personnage
     if (objPersonnage.commun === undefined)
-        document.getElementsByClassName("zoneTxtNomPersonnage")[0].innerText = "";
+        document.getElementById("TXT_NOM").innerText = "";
     else {
         if (objPersonnage.commun.nom_personnage === undefined)
-            document.getElementsByClassName("zoneTxtNomPersonnage")[0].innerText = "";
+            document.getElementById("TXT_NOM").innerText = "";
         else
-            document.getElementsByClassName("zoneTxtNomPersonnage")[0].innerText = objPersonnage.commun.nom_personnage;
+            document.getElementById("TXT_NOM").innerText = objPersonnage.commun.nom_personnage;
     }
+    
+    // Initiative
+    if ((objPersonnage.initiative !== undefined) && (objPersonnage.initiative !== ""))
+        document.getElementById("TXT_INITIATIVE").innerText = objPersonnage.initiative;
+    else
+        document.getElementById("TXT_INITIATIVE").innerText = "";
+    
+    // Vigueur
+    if (objPersonnage.vigueurActuelle !== undefined)
+        document.getElementById("TXT_PTS_VIGUEUR_ACTUELS").innerText = objPersonnage.vigueurActuelle;
+    else
+        document.getElementById("TXT_PTS_VIGUEUR_ACTUELS").innerText = "";
+    if (objPersonnage.vigueurMax !== undefined)
+        document.getElementById("TXT_PTS_VIGUEUR_MAX").innerText = objPersonnage.vigueurMax;
+    else
+        document.getElementById("TXT_PTS_VIGUEUR_MAX").innerText = "";
+  
 }

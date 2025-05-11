@@ -1,3 +1,205 @@
+/*****************************************
+ * Style commun à la structure des pages.
+ *****************************************/
+* {
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+
+/******************************************************
+Titre de page
+*******************************************************/
+
+@font-face {
+  font-family: COF2Titre;
+  src: url(../font/Candal.ttf);
+  font-weight: bold;
+}
+
+.titre  {
+    width: 200px;
+    height:80px;
+    text-align: center;
+    color: #ac8a3c;
+}
+
+.titre * {
+    font-family: COF2Titre, Times;
+    font-weight: bold;
+}
+
+.titre div:nth-child(1) {
+    font-size:25px;
+
+}
+
+.titre div:nth-child(2) {
+    font-size:25px;
+    position: relative;
+    top: -29px;
+}
+
+.titre div:nth-child(3) {
+    font-size:12px;
+    position: relative;
+    top: -48px;
+}
+
+.titre div span:nth-child(1) {
+    font-size:34px;
+}
+
+.titre div span:nth-child(2) {
+    vertical-align:5px;
+}
+
+.titre div span:nth-child(3) {
+    font-size:34px;
+}
+
+/******************************************
+ * Zone d'entete.
+ *******************************************/
+.entete {
+    height: 6em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.logoEntete {
+    width: 4em;
+    height: 4em;
+}
+
+.logoEntete > img {
+    width: 4em;
+    height: 4em;
+    color: grey;
+}
+
+.zoneNomPersonnage {
+    display: inline-block;
+    height: 4em;
+    text-align: center;
+    max-width: 400px;
+}
+
+.zoneNomPersonnage > div#TXT_NOM {
+    padding-top: 0.1em;
+    padding-left:10px;
+    padding-right:10px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.zoneNomPersonnage > img {
+    margin-top:2px;
+    display: block;
+    width:100%;
+}
+
+.zoneNomPersonnage > div#LBL_NOM {
+    display: block;
+    text-transform : uppercase;
+    color: #ac8a3c;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/******************************************
+Les cases unique
+*******************************************/
+
+.case1 {
+    border-width: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: #ac8a3c;
+    margin:6px;
+    position: relative;
+    height:3.8em;
+}
+
+.grille_case1 {
+    display: flex;
+    flex-direction: row;
+    height: 2.5em;
+}
+
+.case1 > .legende_case1 {
+    background-color: #ac8a3c;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    width : 100%;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    text-transform: uppercase;
+    position: absolute;
+    bottom:0px;
+    font-size: 0.9em;
+    height: 1.3em;
+}
+
+.grille_case1 .valeur_case1 {
+    min-width: 4em;
+    background-color: red;
+}
+
+.grille_case1 > .valeur_case1:nth-child(2) {
+    border-width: 2px;
+    border-top-style: none;
+    border-left-style: solid;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-color: #ac8a3c;
+}
+
+.labelFond {
+    display: flex;
+    font-weight: bold;
+    font-size: 0.7em;
+    position: absolute;
+    bottom:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************************************
+ * Composants communs
+ ******************************************************************/
 label {
     display: inline-block;
     font-weight: bold;
@@ -11,10 +213,6 @@ label {
     font-size:75%;
     color: #777777;
     display: inline-block;
-}
-
-input:invalid {
-    background:red;
 }
 
 .labelAide {
@@ -71,63 +269,6 @@ button.btnModif {
 
 button.btnModif:hover{
     background-color: #AAAAAA;
-}
-
-/******************************************
- * Zone d'entete.
- *******************************************/
-.entete {
-    height: 6em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.logoEntete {
-    width: 4em;
-    height: 4em;
-}
-
-@media (max-width: 640px) {
-    .logoEntete {
-        display: none;
-    }
-}
-
-.logoEntete > img {
-    width: 4em;
-    height: 4em;
-    color: grey;
-}
-
-.zoneNomPersonnage {
-    display: inline-block;
-    height: 4em;
-    text-align: center;
-    max-width: 400px;
-}
-
-.zoneNomPersonnage > div.zoneTxtNomPersonnage {
-    padding-top: 0.1em;
-    padding-left:10px;
-    padding-right:10px;
-    font-weight: bold;
-    font-size: 1.4em;
-}
-
-.zoneNomPersonnage > img {
-    margin-top:2px;
-    display: block;
-    width:100%;
-}
-
-.zoneNomPersonnage > label {
-    display: block;
-    text-transform : uppercase;
-    color: #ac8a3c;
-    font-weight: bold;
-    font-size: 1em;
 }
 
 /******************************************
