@@ -1,3 +1,8 @@
+:root { 
+  --couleur-cadre: #ac8a3c;
+}
+
+
 /*****************************************
  * Style commun à la structure des pages.
  *****************************************/
@@ -63,7 +68,7 @@ Titre de page
     width: 200px;
     height:80px;
     text-align: center;
-    color: #ac8a3c;
+    color: var(--couleur-cadre);
 }
 
 .titre * {

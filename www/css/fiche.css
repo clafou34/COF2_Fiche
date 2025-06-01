@@ -130,7 +130,7 @@ button.btnModif:hover{
 .zoneNomPersonnage > label {
     display: block;
     text-transform : uppercase;
-    color: #ac8a3c;
+    color: var(--couleur-cadre);
     font-weight: bold;
     font-size: 1em;
 }
@@ -166,14 +166,14 @@ fieldset.niv1 {
     border-width: 4px;
     border:0;
     border-style: solid;
-    border-color: #ac8a3c;
+    border-color: var(--couleur-cadre);
     margin:6px;
     position: relative;
 }
 
 fieldset.niv1 > legend {
     float: left;
-    background-color: #ac8a3c;
+    background-color: var(--couleur-cadre);
     text-align: center;
     font-weight: bold;
     color: white;
@@ -197,7 +197,7 @@ fieldset.niv1 > div.groupe_multiple {
     border-style: solid;
     border-width: 2px;
     border-radius: 4px;
-    border-color: #ac8a3c;
+    border-color: var(--couleur-cadre);
     padding:8px;
     margin-top:8px;
     margin-bottom:0px;
@@ -229,13 +229,13 @@ fieldset.champs_niv1 {
     border-top:2px;
     border-bottom:0;
     border-style: solid;
-    border-color: #ac8a3c;
+    border-color: var(--couleur-cadre);
     margin:6px;
     width: 100%;
 }
 
 fieldset.champs_niv1 > legend {
-    background-color: #ac8a3c;
+    background-color: var(--couleur-cadre);
     text-align: center;
     font-weight: bold;
     color: white;
@@ -708,7 +708,7 @@ Toutes les zones de voies
 *******************************************/
 fieldset.zoneVoie > .titreVoie {
     float: left;
-    background-color: #ac8a3c;
+    background-color: var(--couleur-cadre);
     text-align: center;
     color: white;
     width : 100%;
@@ -737,7 +737,7 @@ div.groupe_voie {
     border-bottom-width: 2px;
     border-right-width: 2px;
     border-left-width: 2px;
-    border-color: #ac8a3c;
+    border-color: var(--couleur-cadre);
     padding:4px;
     margin-bottom:0px;
 }

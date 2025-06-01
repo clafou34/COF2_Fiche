@@ -29,7 +29,7 @@
                     <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
                     <div class="zoneNomPersonnage">
                         <div class="zoneTxtNomPersonnage">
-                            <input type="text" id="TXT_NOM" name="nom" maxlength="40" required>
+                            <input type="text" id="TXT_NOM" name="nom" maxlength="35" required>
                         </div>
                         <img src="./img/separateur.svg" alt="séparateur">
                         <label for="TXT_NOM">Nom du personnage</label>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div>
                                     <label for="TXT_DESCRIPTION">Description</label>
-                                    <span><textarea id="TXT_DESCRIPTION" name="description" maxlength="500"></textarea></span>
+                                    <span><textarea id="TXT_DESCRIPTION" name="description" maxlength="250"></textarea></span>
                                 </div>
                             </div>
                         </fieldset>
@@ -76,31 +76,31 @@
                             <div id="zoneCaracteristique" class="groupe_unique">
                                 <label for="SEL_AGI" class="labelSelectCarac" title="Agilité">AGI</label>
                                 <select id="SEL_AGI" name="AGI" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_AGI" name="noteAGI" class="txtNoteCarac" title="Notes et bonus pour l'agilité" maxlength="100">
+                                <input type="text" id="TXT_NOTE_AGI" name="noteAGI" class="txtNoteCarac" title="Notes et bonus pour l'agilité" maxlength="50">
 
                                 <label for="SEL_CON" class="labelSelectCarac" title="Constitution">CON</label>
                                 <select id="SEL_CON" name="CON" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_CON" name="noteCON" class="txtNoteCarac" title="Notes et bonus pour la constitution" maxlength="100">
+                                <input type="text" id="TXT_NOTE_CON" name="noteCON" class="txtNoteCarac" title="Notes et bonus pour la constitution" maxlength="50">
 
                                 <label for="SEL_FOR" class="labelSelectCarac" title="Force">FOR</label>
                                 <select id="SEL_FOR" name="FOR" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_FOR" name="noteFOR" class="txtNoteCarac" title="Notes et bonus pour la force" maxlength="100">
+                                <input type="text" id="TXT_NOTE_FOR" name="noteFOR" class="txtNoteCarac" title="Notes et bonus pour la force" maxlength="50">
 
                                 <label for="SEL_PER" class="labelSelectCarac" title="Perception">PER</label>
                                 <select id="SEL_PER" name="PER" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_PER" name="notePER" class="txtNoteCarac" title="Notes et bonus pour la perception" maxlength="100">
+                                <input type="text" id="TXT_NOTE_PER" name="notePER" class="txtNoteCarac" title="Notes et bonus pour la perception" maxlength="50">
 
                                 <label for="SEL_CHA" class="labelSelectCarac" title="Charisme">CHA</label>
                                 <select id="SEL_CHA" name="CHA" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_CHA" name="noteCHA" class="txtNoteCarac" title="Notes et bonus pour le charisme" maxlength="100">
+                                <input type="text" id="TXT_NOTE_CHA" name="noteCHA" class="txtNoteCarac" title="Notes et bonus pour le charisme" maxlength="50">
 
                                 <label for="SEL_INT" class="labelSelectCarac" title="Intelligence">INT</label>
                                 <select id="SEL_INT" name="INT" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_INT" name="noteINT" class="txtNoteCarac" title="Notes et bonus pour l'intelligence" maxlength="100">
+                                <input type="text" id="TXT_NOTE_INT" name="noteINT" class="txtNoteCarac" title="Notes et bonus pour l'intelligence" maxlength="50">
 
                                 <label for="SEL_VOL" class="labelSelectCarac" title="Volonté">VOL</label>
                                 <select id="SEL_VOL" name="VOL" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_VOL" name="noteVOL" class="txtNoteCarac" title="Notes et bonus pour la volonté" maxlength="100">
+                                <input type="text" id="TXT_NOTE_VOL" name="noteVOL" class="txtNoteCarac" title="Notes et bonus pour la volonté" maxlength="50">
                             </div>
                         </fieldset>
                         <fieldset id="ATTAQUES" class="niv1">
@@ -229,7 +229,7 @@
                                 <div class="zoneArme">
                                     <div>
                                         <label for="NOM_ARME_1">Nom</label>
-                                        <span><input type="text" id="NOM_ARME_1" class="txtNomArme" name="nomArme" maxlength="40" title="Nom de l'arme"></span>
+                                        <span><input type="text" id="NOM_ARME_1" class="txtNomArme" name="nomArme" maxlength="25" title="Nom de l'arme"></span>
                                     </div>
                                     <div>
                                         <label for="SELECT_TYPE_ATTAQUE_1">Type</label>
@@ -254,7 +254,7 @@
                                 <div class="zoneArme">
                                     <div>
                                         <label for="NOM_ARME_2">Nom</label>
-                                        <span><input type="text" id="NOM_ARME_2" class="txtNomArme" name="nomArme" maxlength="40" title="Nom de l'arme"></span>
+                                        <span><input type="text" id="NOM_ARME_2" class="txtNomArme" name="nomArme" maxlength="25" title="Nom de l'arme"></span>
                                     </div>
                                     <div>
                                         <label for="SELECT_TYPE_ATTAQUE_2">Type</label>
@@ -279,7 +279,7 @@
                                 <div class="zoneArme">
                                     <div>
                                         <label for="NOM_ARME_3">Nom</label>
-                                        <span><input type="text" id="NOM_ARME_3" class="txtNomArme" name="nomArme" maxlength="40" title="Nom de l'arme"></span>
+                                        <span><input type="text" id="NOM_ARME_3" class="txtNomArme" name="nomArme" maxlength="25" title="Nom de l'arme"></span>
                                     </div>
                                     <div>
                                         <label for="SELECT_TYPE_ATTAQUE_3">Type</label>
@@ -306,7 +306,7 @@
                             <div id="ARMURE_1" class="zoneArmure groupe_multiple">
                                 <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_1" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
                                 <label for="TXT_NOM_ARMURE_1">Nom</label>
-                                <input type="text" id="TXT_NOM_ARMURE_1" class="txtNomArmure" name="nomArmure" maxlength="40" title="Nom de l'armure">
+                                <input type="text" id="TXT_NOM_ARMURE_1" class="txtNomArmure" name="nomArmure" maxlength="25" title="Nom de l'armure">
                                 <label for="TXT_DEF_ARMURE_1">DEF</label>
                                 <span>
                                     <input type="number" id="TXT_DEF_ARMURE_1" class="txtDefArmure" name="defenseArmure" min="0" max="30" title="Défense que rajoute l'armure">
@@ -317,7 +317,7 @@
                             <div id="ARMURE_2" class="zoneArmure groupe_multiple">
                                 <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_2" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
                                 <label for="TXT_NOM_ARMURE_2">Nom</label>
-                                <input type="text" id="TXT_NOM_ARMURE_2" class="txtNomArmure" name="nomArmure" maxlength="40" title="Nom de l'armure">
+                                <input type="text" id="TXT_NOM_ARMURE_2" class="txtNomArmure" name="nomArmure" maxlength="25" title="Nom de l'armure">
                                 <label for="TXT_DEF_ARMURE_2">DEF</label>
                                 <span>
                                     <input type="number" id="TXT_DEF_ARMURE_2" class="txtDefArmure" name="defenseArmure" min="0" max="30" title="Défense que rajoute l'armure">
@@ -328,7 +328,7 @@
                             <div id="ARMURE_3" class="zoneArmure groupe_multiple">
                                 <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_3" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
                                 <label for="TXT_NOM_ARMURE_3">Nom</label>
-                                <input type="text" id="TXT_NOM_ARMURE_3" class="txtNomArmure" name="nomArmure" maxlength="40" title="Nom de l'armure">
+                                <input type="text" id="TXT_NOM_ARMURE_3" class="txtNomArmure" name="nomArmure" maxlength="25" title="Nom de l'armure">
                                 <label for="TXT_DEF_ARMURE_3">DEF</label>
                                 <span>
                                     <input type="number" id="TXT_DEF_ARMURE_3" class="txtDefArmure" name="defenseArmure" min="0" max="30" title="Défense que rajoute l'armure">
@@ -960,6 +960,7 @@
             </form>
         </dialog>
 
+        <script src="js/outils.js"></script>
         <script src="lib/DOMPurify/purify.min.js"></script>
         <script src="data/armes.js"></script>
         <script src="data/caracteristiques.js"></script>

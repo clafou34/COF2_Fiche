@@ -14,121 +14,248 @@
                     <div><span>O</span><span>UBLIEE</span><span>S</span></div>
                     <div>FANTASY 2e</div>
                 </div>
+                <div class="zoneNomPersonnage">
+                    <div id="TXT_NOM"></div>
+                    <img src="./img/separateur.svg" alt="séparateur">
+                    <div id="LBL_NOM">Nom du personnage</div>
+                </div>
             </header>
             <main>
-                <div class="entete">
-                    <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
-                    <div class="zoneNomPersonnage">
-                        <div id="TXT_NOM"></div>
-                        <img src="./img/separateur.svg" alt="séparateur">
-                        <div id="LBL_NOM">Nom du personnage</div>
-                    </div>
-                    <div class="logoEntete"><img src="./img/swords.svg" alt="Epées"></div>
-                </div>
                 <div class="col_container">
                     <div class="colonne">
-                        <fieldset id="PERSONNALITE" class="niv1">
-                            <legend>PERSONNALIT&Eacute;</legend>
-                            <div id="zonePersonnalite" class="groupe_unique">
-                                <div>
-                                    <label for="SEL_PEUPLE">PEUPLE</label>
-                                    <span><select id="SEL_PEUPLE" name="idPeuple"></select></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_NIVEAU">Niveau</label>
-                                    <span><input type="number" id="TXT_NIVEAU" name="niveau" min="1" max="30" maxlength="2"></span>
-                                </div>
-                                <div>
-                                    <label for="SEL_FAMILLE">Famille</label>
-                                    <span><select id="SEL_FAMILLE" name="idFamille"></select></span>
-                                </div>
-                                <div>
-                                    <label for="SEL_PROFIL">Profil</label>
-                                    <span><select id="SEL_PROFIL" name="idProfil"></select></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_IDEAL">Idéal héroîque</label>
-                                    <span><input type="text" id="TXT_IDEAL" name="idealHeroique" maxlength="100"></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_TRAVERS">Travers</label>
-                                    <span><input type="text" id="TXT_TRAVERS" name="travers" maxlength="100"></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_DESCRIPTION">Description</label>
-                                    <span><textarea id="TXT_DESCRIPTION" name="description" maxlength="500"></textarea></span>
+                        <div id="peuple_niv" class="ligne_niv1">
+                            <div>
+                                <div class="case3">
+                                    <div class="legende_case"><span>Peuple</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_PEUPLE"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </fieldset>
-                        <fieldset id="CARAC" class="niv1">
-                            <legend>Caractéristiques</legend>
-                            <div id="zoneCaracteristique" class="groupe_unique">
-                                <label for="SEL_AGI" class="labelSelectCarac" title="Agilité">AGI</label>
-                                <select id="SEL_AGI" name="AGI" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_AGI" name="noteAGI" class="txtNoteCarac" title="Notes et bonus pour l'agilité" maxlength="100">
-
-                                <label for="SEL_CON" class="labelSelectCarac" title="Constitution">CON</label>
-                                <select id="SEL_CON" name="CON" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_CON" name="noteCON" class="txtNoteCarac" title="Notes et bonus pour la constitution" maxlength="100">
-
-                                <label for="SEL_FOR" class="labelSelectCarac" title="Force">FOR</label>
-                                <select id="SEL_FOR" name="FOR" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_FOR" name="noteFOR" class="txtNoteCarac" title="Notes et bonus pour la force" maxlength="100">
-
-                                <label for="SEL_PER" class="labelSelectCarac" title="Perception">PER</label>
-                                <select id="SEL_PER" name="PER" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_PER" name="notePER" class="txtNoteCarac" title="Notes et bonus pour la perception" maxlength="100">
-
-                                <label for="SEL_CHA" class="labelSelectCarac" title="Charisme">CHA</label>
-                                <select id="SEL_CHA" name="CHA" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_CHA" name="noteCHA" class="txtNoteCarac" title="Notes et bonus pour le charisme" maxlength="100">
-
-                                <label for="SEL_INT" class="labelSelectCarac" title="Intelligence">INT</label>
-                                <select id="SEL_INT" name="INT" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_INT" name="noteINT" class="txtNoteCarac" title="Notes et bonus pour l'intelligence" maxlength="100">
-
-                                <label for="SEL_VOL" class="labelSelectCarac" title="Volonté">VOL</label>
-                                <select id="SEL_VOL" name="VOL" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_VOL" name="noteVOL" class="txtNoteCarac" title="Notes et bonus pour la volonté" maxlength="100">
-                            </div>
-                        </fieldset>
-                        <fieldset id="ATTAQUES" class="niv1">
-                            <legend>ATTAQUES</legend>
-                            <div id="zoneAttaque" class="groupe_unique">
-                                <div>
-                                    <label for="TXT_ATT_CONTACT">CONTACT</label>
-                                    <input type="text" id="TXT_ATT_CONTACT" disabled>
-                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttContactNiv" title="Règle : Niveau au maximum à 10."></span>
-                                    <span class="labelAide">+ FOR:</span><span class="labelAide valeurAide" id="lblAttContactFor"></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_ATT_DISTANCE">DISTANCE</label>
-                                    <input type="text" id="TXT_ATT_DISTANCE" disabled>
-                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttDistanceNiv" title="Règle : Niveau au maximum à 10."></span>
-                                    <span class="labelAide">+ AGI:</span><span class="labelAide valeurAide" id="lblAttContactAgi"></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_ATT_MAGIQUE">MAGIQUE</label>
-                                    <input type="text" id="TXT_ATT_MAGIQUE" disabled>
-                                    <span class="labelAide">= NIV.:</span><span class="labelAide valeurAide" id="lblAttMagiqueNiv" title="Règle : Niveau au maximum à 10."></span>
-                                    <span class="labelAide">+ VOL:</span><span class="labelAide valeurAide" id="lblAttContactVol"></span>
+                            <div>
+                                <div class="case2">
+                                    <div class="legende_case"><span>NIV.</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_NIVEAU"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </fieldset>
+                        </div>
+                        <section class="groupe_zones">
+                            <h2>Caractéristiques</h2>
+                            <div id="caracteristiques">
+                                <div class="case2">
+                                    <div class="legende_case"><span>AGI</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_AGI"></span>
+                                            <span class="labelFond">Valeur</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NOTE_AGI"></span>
+                                            <span class="labelFond">Notes</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="case2">
+                                    <div class="legende_case"><span>CON</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_CON"></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NOTE_CON"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="case2">
+                                    <div class="legende_case"><span>FOR</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_FOR"></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NOTE_FOR"></span>
+                                        </div>
+                                    </div>
+                                </div>  
+
+                                <div class="case2">
+                                    <div class="legende_case"><span>PER</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_PER"></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NOTE_PER"></span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="case2">
+                                    <div class="legende_case"><span>CHA</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_CHA"></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NOTE_CHA"></span>
+                                        </div>
+                                    </div>
+                                </div>  
+
+                                <div class="case2">
+                                    <div class="legende_case"><span>INT</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_INT"></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NOTE_INT"></span>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="case2">
+                                    <div class="legende_case"><span>VOL</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_VOL"></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NOTE_VOL"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="case3">
+                                    <div class="legende_case"><span>Famille</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_FAMILLE"></span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div>
+                                <div class="case3">
+                                    <div class="legende_case"><span>Profil</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_PROFIL"></span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div> 
+
+                            <div>
+                                <div class="case3">
+                                    <div class="legende_case"><span>Idéal héroîque</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_IDEAL"></span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div> 
+
+                            <div>
+                                <div class="case3">
+                                    <div class="legende_case"><span>Travers</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_TRAVERS"></span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div id="zone_description">
+                                <div class="case1">
+                                    <div class="legende_case"><span>Description</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_DESCRIPTION"></span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div> 
+                        </section>
+
+                        <section class="groupe_zones">
+                            <h2>ATTAQUES</h2>
+                            <div id="zoneAttaque" >
+                                <div class="case2">
+                                    <div class="legende_case"><span>CONTACT</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_CONTACT_TOTAL"></span>
+                                            <span class="labelFond">TOTAL</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_CONTACT_NIV"></span>
+                                            <span class="labelFond">NIV.</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_CONTACT_FOR"></span>
+                                            <span class="labelFond">FOR.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="case2">
+                                    <div class="legende_case"><span>DISTANCE</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_DISTANCE_TOTAL"></span>
+                                            <span class="labelFond">TOTAL</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_DISTANCE_NIV"></span>
+                                            <span class="labelFond">NIV.</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_DISTANCE_AGI"></span>
+                                            <span class="labelFond">AGI.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="case2">
+                                    <div class="legende_case"><span>MAGIQUE</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_MAGIQUE_TOTAL"></span>
+                                            <span class="labelFond">TOTAL</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_MAGIQUE_NIV"></span>
+                                            <span class="labelFond">NIV.</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_MAGIQUE_VOL"></span>
+                                            <span class="labelFond">VOL.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                     <div class="colonne">
                         <div class="ligne_niv1">
                             <div class="case1">
-                                <div class="legende_case1"><span>INIT</span></div>
-                                <div class="grille_case1">
-                                    <div class="valeur_case1"><span id="TXT_INITIATIVE"></span></div>
-                                </div>
-                            </div>
-                            <div class="case1">
-                                <div class="legende_case1"><span>PTS DE VIGUEUR</span></div>
-                                <div class="grille_case1">
-                                    <div class="valeur_case1"><span id="TXT_PTS_VIGUEUR_ACTUELS"></span></div>
-                                    <div class="valeur_case1">
+                                <div class="legende_case"><span>PTS DE VIGUEUR</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case"><span id="TXT_PTS_VIGUEUR_ACTUELS"></span></div>
+                                    <div class="valeur_case">
                                         <span id="TXT_PTS_VIGUEUR_MAX"></span>
                                         <span class="labelFond">MAX</span>
                                     </div>
@@ -136,55 +263,56 @@
                             </div>
                         </div>
                         <div class="ligne_niv1">
-                            <fieldset id="zoneDefense" class="champs_niv1" title="Défense">
-                                <legend>DEF</legend>
-                                <div>
-                                    <input type="text" id="TXT_DEFENSE" disabled title="Défense totale">
-                                    <span class="labelAide">=&nbsp;</span><span class="labelAide valeurAide">10</span>
-                                    <span class="labelAide">+ AGI:</span><span id="lblAgiDefense" class="labelAide valeurAide"></span>
-                                    <span class="labelAide">+ ARMURE: </span><span id="lblDefenseArmure" class="labelAide valeurAide" title="Somme des défenses des armures portées"></span>
-                                    <span class="labelAide">+ AUTRE: </span><input type="number" id="TXT_DEF_AUTRE" name="defenseAutre" min="-10" max="30" title="Autre bonus de défense">
+                            <div class="case1">
+                                <div class="legende_case"><span>PTS DE CHANCE</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case"><span id="TXT_PTS_CHANCE_ACTUELS"></span></div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_PTS_CHANCE_MAX"></span>
+                                        <span class="labelFond">MAX</span>
+                                    </div>
                                 </div>
-                            </fieldset>
+                                <span class="labelAide">(+10 à un test)</span>
+                            </div>
+
+                            <div class="case1">
+                                <div class="legende_case"><span>POINTS DE MANA</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case"><span id="TXT_PTS_MANA_ACTUELS"></span></div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_PTS_MANA_MAX"></span>
+                                        <span class="labelFond">MAX</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+
+
                         <div class="ligne_niv1">
-                            <fieldset id="zonePointsChance" class="champs_niv1" title="Points de chance">
-                                <legend>PTS DE CHANCE</legend>
-                                <div class="gridChance">
-                                    <label class="labelDessous" for="TXT_PTS_CHANCE_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_PTS_CHANCE_ACTUELS" name="chanceActuelle" min="0" max="30" title="Nombre de points de chance actuels">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_PTS_CHANCE_MAX">MAX</label>
-                                    <input type="number" id="TXT_PTS_CHANCE_MAX" name="chanceMax" min="0" max="30" title="Nombre de points de chance maximum">
-                                    <span class="labelAide">(+10 à un test)</span>
+                            <div id="zoneDesRecuperation" class="case1">
+                                <div class="legende_case"><span>Dés de récupération</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <span id="TXT_DES_RECUP_ACTUELS"></span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DES_RECUP_MAX"></span>
+                                        <span class="labelFond">MAX</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DES_RECUP"></span>
+                                        <span class="labelFond">Type de dés</span>
+                                    </div>
                                 </div>
-                            </fieldset>
-                            <fieldset id="zonePointsDeMana" class="champs_niv1" title="Points de mana">
-                                <legend>POINTS DE MANA</legend>
-                                <div class="gridMana">
-                                    <label class="labelDessous" for="TXT_PTS_MANA_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_PTS_MANA_ACTUELS" name="manaActuelle" min="0" max="99" title="Nombre de points de mana actuels">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_PTS_MANA_MAX">MAX</label>
-                                    <input type="number" id="TXT_PTS_MANA_MAX" name="manaMax" min="0" max="99" title="Nombre de points de mana maximum">
-                                </div>
-                            </fieldset>
+                                <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
+                            </div>
+
+
                         </div>
-                        <div class="ligne_niv1">
-                            <fieldset id="zoneDesRecuperation" class="champs_niv1" title="Dés de récupération">
-                                <legend>DES DE RECUPERATION</legend>
-                                <div class="gridRecuperation">
-                                    <label class="labelDessous" for="TXT_DES_RECUP_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_DES_RECUP_ACTUELS" name="recuperationActuelle" min="0" max="30" title="Nombre de dés de récupération actuel">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_DES_RECUP_MAX">MAX</label>
-                                    <input type="number" id="TXT_DES_RECUP_MAX" name="recuperationMax" min="0" max="30" title="Nombre de dés de récupération maximum">
-                                    <label class="labelDessous" for="TXT_DES_RECUP">TYPE DE DES</label>
-                                    <input type="text" id="TXT_DES_RECUP" disabled>
-                                    <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
-                                </div>
-                            </fieldset>
-                        </div>
+
+
+
                         <div class="ligne_niv1">
                             <fieldset id="EQUIPEMENT" class="champs_niv1">
                                 <legend>EQUIPEMENT</legend>
@@ -193,146 +321,201 @@
                                 </div>
                             </fieldset>
                         </div>
-                        <fieldset id="zoneBourse" class="niv1">
-                            <legend>BOURSE</legend>
-                            <div class="groupe_unique">
-                                <span>
-                                    <label for="TXT_NB_PO">PO </label>
-                                    <input type="number" id="TXT_NB_PO" name="PO" min="0" max="1000000000" title="Nombre de pièces d'or (1 PO = 10 PA)">
-                                </span>
-                                <span>
-                                    <label for="TXT_NB_PA">PA </label>
-                                    <input type="number" id="TXT_NB_PA" name="PA" min="0" max="1000000000" title="Nombre de pièces d'argent (1 PA = 10 PC)">
-                                </span>
-                                <span>
-                                    <label for="TXT_NB_PC">PC </label>
-                                    <input type="number" id="TXT_NB_PC" name="PC" min="0" max="1000000000" title="Nombre de pièces de cuivre">
-                                </span>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="colonne">
-                        <fieldset id="ARMES" class="niv1">
-                            <legend>ARMES</legend>
-                            <div id="ARME_1" class="groupe_multiple">
-                                <div class="zoneArme">
-                                    <div>
-                                        <label for="NOM_ARME_1">Nom</label>
-                                        <span><input type="text" id="NOM_ARME_1" class="txtNomArme" name="nomArme" maxlength="40" title="Nom de l'arme"></span>
+
+
+                        <div class="ligne_niv1">
+                            <div id="zoneBourse" class="case1">
+                                <div class="legende_case"><span>BOURSE</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <span id="TXT_NB_PO"></span>
+                                        <span class="labelFond">PO</span>
                                     </div>
-                                    <div>
-                                        <label for="SELECT_TYPE_ATTAQUE_1">Type</label>
-                                        <span>
-                                            <select id="SELECT_TYPE_ATTAQUE_1" class="selectTypeAttaque" name="typeAttaqueArme"></select>
-                                            <span class="txtDesAttaqueArme labelAide"></span>
-                                        </span>
+                                    <div class="valeur_case">
+                                        <span id="TXT_NB_PA"></span>
+                                        <span class="labelFond">PA</span>
                                     </div>
-                                    <div>
-                                        <label for="DM_ARME_1">DM</label>
-                                        <span class="detailArme">
-                                            <input type="text" id="DM_ARME_1" class="txtDmArme" name="dmArme" maxlength="10" title="DM infligés par l'arme (ex : 2d6)">
-                                            <span title="Caractéristiques spéciales / Portée">
-                                                <label for="TXT_NOTE_ARME_1">Info</label>
-                                                <input type="text" id="TXT_NOTE_ARME_1" name="noteArme" class="txtNoteArme" maxlength="50" title="Complément sur l'arme">
-                                            </span>
-                                        </span>
+                                    <div class="valeur_case">
+                                        <span id="TXT_NB_PC"></span>
+                                        <span class="labelFond">PC</span>
                                     </div>
                                 </div>
                             </div>
-                            <div id="ARME_2" class="groupe_multiple">
-                                <div class="zoneArme">
-                                    <div>
-                                        <label for="NOM_ARME_2">Nom</label>
-                                        <span><input type="text" id="NOM_ARME_2" class="txtNomArme" name="nomArme" maxlength="40" title="Nom de l'arme"></span>
+                        </div>
+
+
+                        <div id="ligneInitDef" class="ligne_niv1">
+                            <div class="case2">
+                                <div class="legende_case"><span>INIT.</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case"><span id="TXT_INITIATIVE"></span></div>
+                                </div>
+                            </div>
+
+                            <div class="case2">
+                                <div class="legende_case"><span>DEF</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_TOTAL"></span>
+                                        <span class="labelFond">TOTAL</span>
                                     </div>
-                                    <div>
-                                        <label for="SELECT_TYPE_ATTAQUE_2">Type</label>
-                                        <span>
-                                            <select id="SELECT_TYPE_ATTAQUE_2" class="selectTypeAttaque" name="typeAttaqueArme"></select>
-                                            <span class="txtDesAttaqueArme labelAide"></span>
-                                        </span>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_INITIAL">10</span>
+                                        <span class="labelFond">MIN.</span>
                                     </div>
-                                    <div>
-                                        <label for="DM_ARME_2">DM</label>
-                                        <span class="detailArme">
-                                            <input type="text" id="DM_ARME_2" class="txtDmArme" name="dmArme" maxlength="10" title="DM infligés par l'arme (ex : 2d6)">
-                                            <span title="Caractéristiques spéciales / Portée">
-                                                <label for="TXT_NOTE_ARME_2">Info</label>
-                                                <input type="text" id="TXT_NOTE_ARME_2" name="noteArme" class="txtNoteArme" maxlength="50" title="Complément sur l'arme">
-                                            </span>
-                                        </span>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_AGI"></span>
+                                        <span class="labelFond">AGI</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_ARMURE"></span>
+                                        <span class="labelFond">ARMU.</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_AUTRE"></span>
+                                        <span class="labelFond">AUTRE</span>
                                     </div>
                                 </div>
                             </div>
-                            <div id="ARME_3" class="groupe_multiple">
-                                <div class="zoneArme">
-                                    <div>
-                                        <label for="NOM_ARME_3">Nom</label>
-                                        <span><input type="text" id="NOM_ARME_3" class="txtNomArme" name="nomArme" maxlength="40" title="Nom de l'arme"></span>
+                        </div>
+
+                        <section class="groupe_zones">
+                            <h2>ARMES</h2>
+                            <div id="tableauArmes">
+                                <div>
+                                    <div class="case2">
+                                        <div class="legende_case"><span>1</span></div>
+                                        <div class="grille_case">
+                                            <div class="valeur_case">
+                                                <span></span>
+                                                <span class="labelFond">Nom</span>
+                                            </div>
+                                            <div class="valeur_case">
+                                                <span></span>
+                                                <span class="labelFond">Type</span>
+                                            </div>
+                                            <div class="valeur_case">
+                                                <span></span>
+                                                <span class="labelFond">DM</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label for="SELECT_TYPE_ATTAQUE_3">Type</label>
-                                        <span>
-                                            <select id="SELECT_TYPE_ATTAQUE_3" class="selectTypeAttaque" name="typeAttaqueArme"></select>
-                                            <span class="txtDesAttaqueArme labelAide"></span>
-                                        </span>
+                                    <div class="valeur_case note_arme">
+                                        <span></span>
                                     </div>
-                                    <div>
-                                        <label for="DM_ARME_3">DM</label>
-                                        <span class="detailArme">
-                                            <input type="text" id="DM_ARME_3" class="txtDmArme" name="dmArme" maxlength="10" title="DM infligés par l'arme (ex : 2d6)">
-                                            <span title="Caractéristiques spéciales / Portée">
-                                                <label for="TXT_NOTE_ARME_3">Info</label>
-                                                <input type="text" id="TXT_NOTE_ARME_3" name="noteArme" class="txtNoteArme" maxlength="50" title="Complément sur l'arme">
-                                            </span>
-                                        </span>
+                                </div>
+                                <div>
+                                    <div class="case2">
+                                        <div class="legende_case"><span>2</span></div>
+                                        <div class="grille_case">
+                                            <div class="valeur_case">
+                                                <span></span>
+                                            </div>
+                                            <div class="valeur_case">
+                                                <span></span>
+                                            </div>
+                                            <div class="valeur_case">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="valeur_case note_arme">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="case2">
+                                        <div class="legende_case"><span>3</span></div>
+                                        <div class="grille_case">
+                                            <div class="valeur_case">
+                                                <span></span>
+                                            </div>
+                                            <div class="valeur_case">
+                                                <span></span>
+                                            </div>
+                                            <div class="valeur_case">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="valeur_case note_arme">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>                            
+
+
+
+
+
+
+                        </section>
+                        <section class="groupe_zones">
+                            <h2>ARMURES</h2>
+                            <div id="tableauArmures">
+                                <div class="case2">
+                                    <div class="legende_case"><span>1</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span></span>
+                                            <span class="labelFond">Nom</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                            <span class="labelFond">Port.</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                            <span class="labelFond">DEF</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                            <span class="labelFond">AGI MAX</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case2">
+                                    <div class="legende_case"><span>2</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case2">
+                                    <div class="legende_case"><span>3</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </fieldset>
-                        <fieldset id="ARMURES" class="niv1">
-                            <legend>ARMURES</legend>
-                            <div id="ARMURE_1" class="zoneArmure groupe_multiple">
-                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_1" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
-                                <label for="TXT_NOM_ARMURE_1">Nom</label>
-                                <input type="text" id="TXT_NOM_ARMURE_1" class="txtNomArmure" name="nomArmure" maxlength="40" title="Nom de l'armure">
-                                <label for="TXT_DEF_ARMURE_1">DEF</label>
-                                <span>
-                                    <input type="number" id="TXT_DEF_ARMURE_1" class="txtDefArmure" name="defenseArmure" min="0" max="30" title="Défense que rajoute l'armure">
-                                    <label for="TXT_AGI_ARMURE_1">AGI. MAX.</label>
-                                    <input type="number" id="TXT_AGI_ARMURE_1" class="txtAgiArmure" name="agiliteMaxArmure" min="0" max="30" title="Agilité maximale imposée par l'armure">
-                                </span>
-                            </div>
-                            <div id="ARMURE_2" class="zoneArmure groupe_multiple">
-                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_2" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
-                                <label for="TXT_NOM_ARMURE_2">Nom</label>
-                                <input type="text" id="TXT_NOM_ARMURE_2" class="txtNomArmure" name="nomArmure" maxlength="40" title="Nom de l'armure">
-                                <label for="TXT_DEF_ARMURE_2">DEF</label>
-                                <span>
-                                    <input type="number" id="TXT_DEF_ARMURE_2" class="txtDefArmure" name="defenseArmure" min="0" max="30" title="Défense que rajoute l'armure">
-                                    <label for="TXT_AGI_ARMURE_2">AGI. MAX.</label>
-                                    <input type="number" id="TXT_AGI_ARMURE_2" class="txtAgiArmure" name="agiliteMaxArmure" min="0" max="30" title="Agilité maximale imposée par l'armure">
-                                </span>
-                            </div>
-                            <div id="ARMURE_3" class="zoneArmure groupe_multiple">
-                                <span class="zoneChkArmure"><input type="checkbox" id="CHK_ARMURE_3" value="Oui" title="Armure portée" class="chkArmure" name="selectionArmure"></span>
-                                <label for="TXT_NOM_ARMURE_3">Nom</label>
-                                <input type="text" id="TXT_NOM_ARMURE_3" class="txtNomArmure" name="nomArmure" maxlength="40" title="Nom de l'armure">
-                                <label for="TXT_DEF_ARMURE_3">DEF</label>
-                                <span>
-                                    <input type="number" id="TXT_DEF_ARMURE_3" class="txtDefArmure" name="defenseArmure" min="0" max="30" title="Défense que rajoute l'armure">
-                                    <label for="TXT_AGI_ARMURE_3">AGI. MAX.</label>
-                                    <input type="number" id="TXT_AGI_ARMURE_3" class="txtAgiArmure" name="agiliteMaxArmure" min="0" max="30" title="Agilité maximale imposée par l'armure">
-                                </span>
-                            </div>
-                        </fieldset>
+                        </section>
                     </div>
                 </div>
                 <div class="col_container">
                     <div class="colonne">
                         <fieldset class="zoneVoie niv1"  data-categ-voie="peuple">
                             <legend class="titreVoie">
-                                <button class="btnModif" type="button"></button>
                                 <span class="lblNomZoneVoie">Voie du peuple</span> : 
                                 <span class="lblNomVoie"></span>
                                 <span class="lblTypeVoie"></span>
@@ -345,7 +528,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -358,7 +540,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -371,7 +552,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -384,7 +564,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -397,7 +576,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -412,7 +590,6 @@
                     <div class="colonne">
                         <fieldset class="zoneVoie niv1" data-num-voie-profil="1" data-categ-voie="profil">
                             <legend class="titreVoie">
-                                <button class="btnModif" type="button"></button>
                                 <span class="lblNomZoneVoie">Voie 1</span> : 
                                 <span class="lblNomVoie"></span>
                                 <span class="lblTypeVoie"></span>
@@ -424,7 +601,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <div class="displayCommentaireCapacite"></div>
@@ -437,7 +613,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -450,7 +625,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -463,7 +637,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -476,7 +649,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -491,7 +663,6 @@
                     <div class="colonne">
                         <fieldset class="zoneVoie niv1" data-num-voie-profil="2"  data-categ-voie="profil">
                             <legend class="titreVoie">
-                                <button class="btnModif" type="button"></button>
                                 <span class="lblNomZoneVoie">Voie 2</span> : 
                                 <span class="lblNomVoie"></span>
                                 <span class="lblTypeVoie"></span>
@@ -503,7 +674,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -516,7 +686,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -529,7 +698,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -542,7 +710,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -555,7 +722,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -573,7 +739,6 @@
                     <div class="colonne">
                         <fieldset class="zoneVoie niv1" data-num-voie-profil="3"  data-categ-voie="profil">
                             <legend class="titreVoie">
-                                <button class="btnModif" type="button"></button>
                                 <span class="lblNomZoneVoie">Voie 3</span> : 
                                 <span class="lblNomVoie"></span>
                                 <span class="lblTypeVoie"></span>
@@ -585,7 +750,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -598,7 +762,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -611,7 +774,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -624,7 +786,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -637,7 +798,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -652,7 +812,6 @@
                     <div class="colonne">
                         <fieldset class="zoneVoie niv1" data-num-voie-profil="4"  data-categ-voie="profil">
                             <legend class="titreVoie">
-                                <button class="btnModif" type="button"></button>
                                 <span class="lblNomZoneVoie">Voie 4</span> : 
                                 <span class="lblNomVoie"></span>
                                 <span class="lblTypeVoie"></span>
@@ -664,7 +823,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -677,7 +835,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -690,7 +847,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -703,7 +859,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -716,7 +871,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -731,7 +885,6 @@
                     <div class="colonne">
                         <fieldset class="zoneVoie niv1" data-num-voie-profil="5"  data-categ-voie="profil">
                             <legend class="titreVoie">
-                                <button class="btnModif" type="button"></button>
                                 <span class="lblNomZoneVoie">Voie 5</span> : 
                                 <span class="lblNomVoie"></span>
                                 <span class="lblTypeVoie"></span>
@@ -743,7 +896,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -756,7 +908,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -769,7 +920,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -782,7 +932,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -795,7 +944,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -812,7 +960,6 @@
                     <div class="colonne">
                         <fieldset class="zoneVoie zoneVoiePrestige niv1" data-categ-voie="prestige">
                             <legend class="titreVoie">
-                                <button class="btnModif" type="button"></button>
                                 <span class="lblNomZoneVoie">Voie de prestige</span> : 
                                 <span class="lblNomVoie"></span>
                                 <span class="lblTypeVoie"></span>
@@ -824,7 +971,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -837,7 +983,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -850,7 +995,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -863,7 +1007,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -876,7 +1019,6 @@
                             <div class="zoneCapacite groupe_voie">
                                 <div class="contenuCapacite">
                                     <span><input type="checkbox" class="chkCapacite" name="selectionCapacite" value="Oui"></span>
-                                    <button class="btnModif" type="button"></button>
                                     <span class="displayTitreCapacite"></span>
                                     <span class="displayDescriptionCapacite"></span>
                                     <span class="displayCommentaireCapacite"></span>
@@ -892,63 +1034,8 @@
             </main>
         </form>
 
-        <dialog id="dlgVoie">
-            <div class="dlgEntete">
-                <div title="Titre de la fenêtre">Modification de la voie</div>
-                <button id="dlgVoieFerme" title="Fermer sans valider"></button>
-            </div>
-            <form id="DLG_VOIE_FORM">
-                <div class="groupe_unique">
-                    <label for="DLGVOIE_SEL_TYPE_VOIE">Type de voie</label>
-                    <span><select class="dlgVoieSelectTypeVoie" id="DLGVOIE_SEL_TYPE_VOIE"></select></span>
-                    <label>Nom de la voie</label>
-                    <span>
-                        <input type="text" id="DLGVOIE_TXT_NOM" title="Nom de la voie" maxlength="40">
-                        <span class="dlgVoieDisplayNom dlgVoieDisplay"></span>
-                        <select class="dlgVoieSelectVoie" id="DLGVOIE_SEL_VOIE"></select>
-                    </span>
-                </div>
-                <div class="dlgPied">
-                    <button type="submit" id="dlgVoieOK"><span>OK</span></button>
-                </div>
-            </form>
-        </dialog>
 
-
-
-        <dialog id="dlgCapacite">
-            <div class="dlgEntete">
-                <div title="Titre de la fenêtre">Modification de la capacité</div>
-                <button id="dlgCapaciteFerme" title="Fermer sans valider"></button>
-            </div>
-            <form  id="DLG_CAPACITE_FORM">
-                <div class="groupe_unique">
-                    <label for="DLGCAPACITE_TXT_RANG">Rang</label>
-                    <span>
-                        <input type="number" id="DLGCAPACITE_TXT_RANG" title="Rang de la capacité" min="1" max="20">
-                        <span class="dlgCapaciteDisplayRang dlgCapaciteDisplay"></span>
-                    </span>
-                    <label for="DLGCAPACITE_TXT_NOM">Nom</label>
-                    <span>
-                        <input type="text" id="DLGCAPACITE_TXT_NOM"  maxlength="40" title="Nom de la capacité">
-                        <span class="dlgCapaciteDisplayNom dlgCapaciteDisplay"></span>
-                    </span>
-                    <label for="DLGCAPACITE_TXT_DESCRIPTION">Description</label>
-                    <span>
-                        <textarea id="DLGCAPACITE_TXT_DESCRIPTION" maxlength="500"></textarea>
-                        <span class="dlgCapaciteDisplayDescription dlgCapaciteDisplay"></span>
-                    </span>
-                    <label for="DLGCAPACITE_TXT_COMPLEMENT">Complément</label>
-                    <span>
-                        <textarea id="DLGCAPACITE_TXT_COMPLEMENT" maxlength="500"></textarea>
-                    </span>
-                </div>
-                <div class="dlgPied">
-                    <button type="submit" id="dlgCapaciteOK"><span>OK</span></button>
-                </div>
-            </form>
-        </dialog>
-
+        <script src="js/outils.js"></script>
         <script src="js/impression.js"></script>
         <script src="data/armes.js"></script>
         <script src="data/caracteristiques.js"></script>

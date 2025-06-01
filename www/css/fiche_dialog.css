@@ -3,14 +3,14 @@ dialog:open::backdrop {
 }
 
 dialog {
-    border-color: #ac8a3c;
+    border-color: var(--couleur-cadre);
     padding-top: 2em;
     border-width: 4px;
 }
 
 dialog .dlgEntete {
-    background-color: #ac8a3c;;
-    border-bottom: 2px solid #ac8a3c;
+    background-color: var(--couleur-cadre);;
+    border-bottom: 2px solid var(--couleur-cadre);
     width : 100%;
     position: absolute;
     left: 0;
@@ -39,14 +39,14 @@ dialog .dlgEntete button {
     padding-right:0;
     border-width: 1px;
     border-style: solid;
-    border-color: #ac8a3c;
+    border-color: var(--couleur-cadre);
     width : 17px;
     height : 18px;
     font-size: 16px;
     vertical-align: middle;
     text-align: center;
     font-weight: bold;
-    background-color: #ac8a3c;
+    background-color: var(--couleur-cadre);
     transition-duration: 0.4s;
     outline: none;
 }

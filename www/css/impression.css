@@ -1,27 +1,72 @@
+:root {
+    --couleur-cadre: #ac8a3c;
+    --couleur-secondaire: #999999;
+}
+
 /*****************************************
  * Style commun à la structure des pages.
  *****************************************/
 * {
     box-sizing: border-box;
     font-family: 'Courier New', monospace;
+    color-adjust: exact!important;
+    -webkit-print-color-adjust: exact!important;
+    print-color-adjust: exact!important;
+}
+
+body {
+    max-width:21cm;
+    margin:0;
 }
 
 
-/******************************************************
-Titre de page
-*******************************************************/
+header, main, footer {
+    border:0;
+    margin:0;
+    padding:0
+}
+
+@media screen {
+    body {
+        max-width:19.5cm;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    header, main, footer {
+        background:url(../img/fond_fiche3.jpg);
+        padding-right: 0.5cm;
+        padding-left: 0.5cm;
+    }
+
+}
+
+/******************************************
+ * Header : Logo
+ *******************************************/
+
+header {
+    display: flex;
+    height:3cm;
+}
+
+
+
+/******************************************
+ * Header : Logo
+ *******************************************/
 
 @font-face {
-  font-family: COF2Titre;
-  src: url(../font/Candal.ttf);
-  font-weight: bold;
+    font-family: COF2Titre;
+    src: url(../font/Candal.ttf);
+    font-weight: bold;
 }
 
 .titre  {
-    width: 200px;
-    height:80px;
+    width: 5.5cm;
+    height:2cm;
     text-align: center;
-    color: #ac8a3c;
+    color: var(--couleur-cadre);
 }
 
 .titre * {
@@ -30,886 +75,522 @@ Titre de page
 }
 
 .titre div:nth-child(1) {
-    font-size:25px;
+    font-size:0.7cm;
 
 }
 
 .titre div:nth-child(2) {
-    font-size:25px;
+    font-size:0.7cm;
     position: relative;
-    top: -29px;
+    top: -0.75cm;
 }
 
 .titre div:nth-child(3) {
-    font-size:12px;
+    font-size:0.32cm;
     position: relative;
-    top: -48px;
+    top: -1.25cm;
 }
 
 .titre div span:nth-child(1) {
-    font-size:34px;
+    font-size:0.9cm;
 }
 
 .titre div span:nth-child(2) {
-    vertical-align:5px;
+    vertical-align:0.1cm;
 }
 
 .titre div span:nth-child(3) {
-    font-size:34px;
+    font-size:0.9cm;
 }
 
 /******************************************
- * Zone d'entete.
+ * Header : Nom du personnage
  *******************************************/
-.entete {
-    height: 6em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.logoEntete {
-    width: 4em;
-    height: 4em;
-}
-
-.logoEntete > img {
-    width: 4em;
-    height: 4em;
-    color: grey;
-}
-
 .zoneNomPersonnage {
-    display: inline-block;
-    height: 4em;
+    height: 0.8cm;
     text-align: center;
-    max-width: 400px;
+    width: 100%;
 }
 
 .zoneNomPersonnage > div#TXT_NOM {
-    padding-top: 0.1em;
-    padding-left:10px;
-    padding-right:10px;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 0.6cm;
+    overflow: hidden;
+    width:10cm;
+    margin-top:0.2cm;
+    margin-left:auto;
+    margin-right:0;
 }
 
 .zoneNomPersonnage > img {
     margin-top:2px;
     display: block;
-    width:100%;
+    width:10cm;
+    margin-left:auto;
+    margin-right:0;
 }
 
 .zoneNomPersonnage > div#LBL_NOM {
     display: block;
     text-transform : uppercase;
-    color: #ac8a3c;
+    color: var(--couleur-cadre);
     font-weight: bold;
     font-size: 1em;
+    width:10cm;
+    margin-left:auto;
+    margin-right:0;
 }
 
 /******************************************
-Les cases unique
-*******************************************/
-
-.case1 {
-    border-width: 2px;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-color: #ac8a3c;
-    margin:6px;
-    position: relative;
-    height:3.8em;
-}
-
-.grille_case1 {
-    display: flex;
-    flex-direction: row;
-    height: 2.5em;
-}
-
-.case1 > .legende_case1 {
-    background-color: #ac8a3c;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    width : 100%;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-    text-transform: uppercase;
-    position: absolute;
-    bottom:0px;
-    font-size: 0.9em;
-    height: 1.3em;
-}
-
-.grille_case1 .valeur_case1 {
-    min-width: 4em;
-    background-color: red;
-}
-
-.grille_case1 > .valeur_case1:nth-child(2) {
-    border-width: 2px;
-    border-top-style: none;
-    border-left-style: solid;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-color: #ac8a3c;
-}
-
-.labelFond {
-    display: flex;
-    font-weight: bold;
-    font-size: 0.7em;
-    position: absolute;
-    bottom:0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*****************************************************************
- * Composants communs
- ******************************************************************/
-label {
-    display: inline-block;
-    font-weight: bold;
-    font-size:85%;
-    margin-top: 4px;
-}
-
-.labelDessous {
-    padding-top: 0px;
-    padding-bottom: 2px;
-    font-size:75%;
-    color: #777777;
-    display: inline-block;
-}
-
-.labelAide {
-    padding-top: 0px;
-    padding-bottom: 2px;
-    font-size:80%;
-    color: #444444;
-    display: inline-block;
-}
-
-.valeurAide {
-    font-weight: bold;
-    text-align: center;
-    display: inline-block;
-    margin:0;
-    padding:0;
-}
-
-textarea {
-    font-size:80%;
-}
-
-select {
-    background-color: #DDDDDD;
-}
-
-select:disabled {
-    appearance: none;
-    border-style: none;
-    color: black;
-    font-weight: bold;
-    font-size: 90%;
-    color: #444444;
-    background-color: rgba(1,1,1,0);
-}
-
-button.btnModif {
-    background:url(../img/icone_crayon.png);
-    background-repeat: no-repeat;
-    background-size: 1.3em 1.3em;
-    background-position-x: center;
-    background-position-y: center;
-    height: 1.3em;
-    width: 1.3em;
-    vertical-align: middle;
-    border:0;
-    padding:0;
-    margin:0;
-    border-radius: 4px;
-    display: inline-block;
-    box-sizing: border-box;
-    font-size:0.9em;
-}
-
-button.btnModif:hover{
-    background-color: #AAAAAA;
-}
-
-/******************************************
-Les colonnes
-*******************************************/
+ * Colonnes
+ ******************************************/
 div.col_container {
     display: flex;
     flex-direction: row;
-    row-gap: 4px;
+    row-gap: 1cm;
 }
 
-@media (max-width: 900px) {
-    div.col_container {
-        flex-direction: column;
-    }
+.colonne:first-child {
+    width:7cm;
+    margin-right: 0.7cm;
 }
 
-.colonne {
+.colonne:nth-child(2) {
     min-width: 290px;
     width:100%;
+    margin:0.1cm;
 }
+
+
 
 /******************************************
-Les groupes de champs
-*******************************************/
-
-fieldset.niv1 {
-    padding-right: 0;
-    padding-left: 0;
-    padding-top: 1.5em;
-    border-width: 4px;
-    border:0;
-    border-style: solid;
-    border-color: #ac8a3c;
-    margin:6px;
-    position: relative;
-}
-
-fieldset.niv1 > legend {
-    float: left;
-    background-color: #ac8a3c;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    width : 100%;
-    padding-top: 0.2em;
-    padding-bottom: 0.1em;
-    text-transform: uppercase;
-    position: absolute;
-    top:0px;
-    height: 1.5em;
-}
-
-fieldset.niv1 > div.groupe_unique {
-    margin-top: 8px;
-    padding-left : 10px;
-    padding-right : 10px;
-    width:100%;
-}
-
-fieldset.niv1 > div.groupe_multiple {
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 4px;
-    border-color: #ac8a3c;
-    padding:8px;
-    margin-top:8px;
-    margin-bottom:0px;
-}
-
-/********************************************
-Ligne de niveau 1
-*********************************************/
+ * Lignes
+ ******************************************/
 .ligne_niv1 {
     display: flex;
-    flex-wrap: nowrap;
-    margin:0;
-    padding:0;
-    width: 100%;
 }
 
 /******************************************
-Les champs isolés de niveau 1
-*******************************************/
-
-fieldset.champs_niv1 {
-    position: relative;
-    padding-right: 0;
-    padding-left: 0;
-    padding-top:0;
-    padding-bottom: 1.3em;
-    border-right: 2px;
-    border-left: 2px;
-    border-top:2px;
-    border-bottom:0;
-    border-style: solid;
-    border-color: #ac8a3c;
-    margin:6px;
-    width: 100%;
+ * Groupe de zones
+ ******************************************/
+.groupe_zones > h2 {
+    background-color: var(--couleur-cadre);
+    text-align: center;
+    font-size:0.40cm;
+    font-weight: bold;
+    color: white;
+    width : 100%;
+    padding-top: 0.05cm;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    margin-top:0;
+    margin-bottom: 0.2cm;
 }
 
-fieldset.champs_niv1 > legend {
-    background-color: #ac8a3c;
+.groupe_zones {
+    margin-bottom: 0.4cm;
+}
+
+/******************************************
+Les cases avec label dessous et encadré
+*******************************************/
+
+.case1 {
+    display: inline-block;
+    border-width: 0.07cm;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: var(--couleur-cadre);
+    margin: 0;
+    position: relative;
+    height:1.4cm;
+}
+
+.case1 > .grille_case {
+    display: flex;
+    flex-direction: row;
+    border:0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0.1cm;
+}
+
+.case1 > .legende_case {
+    background-color: var(--couleur-cadre);
     text-align: center;
     font-weight: bold;
     color: white;
     width : 100%;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
+    padding-top: 0.05cm;
+    padding-bottom: 0.05cm;
     text-transform: uppercase;
     position: absolute;
-    bottom: 0;
-    font-size: 0.9em;
-    height: 1.3em;
+    bottom:0;
+    font-size: 0.3cm;
+    border:0;
 }
 
-fieldset.champs_niv1 > div {
-    padding-top: 10px;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-/******************************************
-Zone de la personnalité
-*******************************************/
-
-#zonePersonnalite > div {
-    display: grid;
-    grid-template-columns: 8em auto;
-    vertical-align: middle;
-    margin-bottom : 4px;
-}
-
-#zonePersonnalite input#TXT_NIVEAU {
-    width: 4em;
-}
-
-#zonePersonnalite input#TXT_IDEAL {
-    width: 100%;
-}
-
-#zonePersonnalite input#TXT_TRAVERS {
-    width: 100%;
-}
-
-#zonePersonnalite textarea {
-    width: 100%;
-    height: 6em;
-    resize : vertical;
-}
-
-/******************************************
-Zone des caractéristiques.
-*******************************************/
-fieldset#CARAC #zoneCaracteristique {
-    display: grid;
-    grid-template-columns: 2.5em 3em auto;
-    column-gap: 0.5em;
-    row-gap: 0.3em;
-    width: 100%;
-}
-
-fieldset#CARAC > div > .labelSelectCarac {
-    float: left;
-    width: 3em;
-}
-
-fieldset#CARAC .txtNoteCarac {
-    min-width: 3em;
-}
-
-/******************************************
-Zone des attaques
-*******************************************/
-#zoneAttaque {
-    width: 100%;
+.case1 > .labelAide {
+    position: absolute;
+    bottom: -0.4cm;
+    font-size: 0.25cm;
     text-align: center;
+    width : 100%;
+    color: var(--couleur-cadre);
 }
 
-fieldset#ATTAQUES > div > div > label {
-    width: 5em;
-    text-align: left;
+.case1:has(.labelAide) {
+    margin-bottom: 0.35cm;
 }
 
-fieldset#ATTAQUES span.caractAtt {
-    display: inline-block;
-    width: 4em;
-}
-
-fieldset#ATTAQUES > div > div input {
-    width: 2em;
-    text-align: right;
-}
-
-fieldset#ATTAQUES .valeurAide {
-    width: 1.5em;
-}
-
-/*******************************************
-Sous-zone de l'initiative
-********************************************/
-fieldset#zoneInitiative {
-    width : 50%;
-}
-
-fieldset#zoneInitiative div {
-    text-align: center;
-}
-
-fieldset#zoneInitiative input#TXT_INITIATIVE {
-    width: 4em;
-}
-
-/*******************************************
-Sous-zone des points de vigueur
-*********************************************/
-fieldset#zoneVigueur {
-    width : 50%;
-    text-align: center;
-}
-
-.gridVigueur {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2'
-        'label1 . label2';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    width: 9em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gridVigueur label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
-}
-
-.gridVigueur input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridVigueur span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridVigueur label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridVigueur input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-
-/*******************************************
-Sous-zone de la défense
-*********************************************/
-#zoneDefense {
-    text-align: center;
-}
-
-#zoneDefense input#TXT_DEFENSE {
-    width: 2em;
-}
-
-#zoneDefense input#TXT_DEF_AGI {
-    width: 2em;
-}
-
-#zoneDefense input#TXT_DEF_ARMURE {
-    width: 2em;
-}
-
-#zoneDefense input#TXT_DEF_AUTRE {
-    width: 4em;
-}
-
-/*******************************************
-Sous-zone de la chance
-*********************************************/
-fieldset#zonePointsChance {
-    width : 50%;
-    text-align: center;
-}
-
-.gridChance {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2'
-        'label1 . label2'
-        'aide aide aide';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    width: 8em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gridChance label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
-}
-
-.gridChance input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridChance span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridChance label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridChance input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridChance span:nth-of-type(2) {
-    grid-area: aide;
-    text-align: center;
-    max-width: 10em;
-}
-
-
-/********************************************
-Sous-zone des point de MANA
-**********************************************/
-fieldset#zonePointsDeMana {
-    width : 50%;
-    text-align: center;
-}
-
-.gridMana {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2'
-        'label1 . label2';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    width: 8em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gridMana label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
-}
-
-.gridMana input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridMana span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridMana label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridMana input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-/*******************************************
-Sous-zone du dés de récupération
-*********************************************/
-.gridRecuperation {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2 . input3'
-        'label1 . label2 . label3'
-        'aide aide aide aide aide';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    max-width: 18em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gridRecuperation label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
-}
-
-.gridRecuperation input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridRecuperation span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridRecuperation label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridRecuperation input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridRecuperation label:nth-of-type(3)  {
-    grid-area: label3;
-    justify-self: center;
-    width: 8em;
-    text-align: center;
-}
-
-.gridRecuperation input:nth-of-type(3) {
-    grid-area: input3;
-    justify-self: center;
-    width: 3em;
-}
-
-.gridRecuperation span:nth-of-type(2) {
-    grid-area: aide;
-    justify-self: center;
-}
-
-/******************************************
-Zone de l'équipement
-*******************************************/
-fieldset#EQUIPEMENT div {
-    padding-left : 4px;
-    padding-right : 4px;
-    width:100%;
-}
-
-fieldset#EQUIPEMENT textarea {
-    width: 100%;
-    height: 6em;
-    resize: vertical;
-}
-
-/******************************************
-Zone de la bourse
-*******************************************/
-
-fieldset#zoneBourse input {
-    width:5em;
-}
-
-fieldset#zoneBourse > div {
-    padding-left: 4px;
-    padding-right: 4px;
+.case1 > .grille_case > .valeur_case {
+    border-left-width: 0.07cm;
+    border-color: var(--couleur-cadre);
+    border-top-style: none;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-right-style: none;
+    min-width: 1.3cm;
+    position: relative;
+    height:0.9cm;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
-fieldset#zoneBourse > div > span {
-    margin-left: 6px;
-    margin-right: 6px;
-    margin-bottom: 4px;
+.case1 > .grille_case > .valeur_case:first-child {
+    border-left-style: none;
+    border-left-width: 0;
 }
 
-fieldset#zoneBourse input#TXT_NB_PO {
-    margin-right: 1.5em;
+.case1 > .grille_case > .valeur_case > span {
+    font-weight: bold;
+    margin-top: 0.05cm;
+    font-size : 0.55cm;
 }
 
-fieldset#zoneBourse input#TXT_NB_PA {
-    margin-right: 1.5em;
-}
-
-/******************************************
-Zone des armes
-*******************************************/
-
-div.zoneArme > div {
-    display: grid;
-    grid-template-columns: 2em auto;
-    column-gap: 0.5em;
-    width: 100%;
-    margin-bottom: 4px;
-}
-
-div.zoneArme input.txtNomArme {
-    width: 100%;
-}
-
-fieldset#ARMES input.txtDmArme {
-    width:3em;
-    margin-right:1.5em;
-}
-
-fieldset#ARMES input.txtAttaqueArme {
-    width:2em;
-}
-
-fieldset#ARMES .detailArme {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-fieldset#ARMES .detailArme > span {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-}
-
-fieldset#ARMES .detailArme > span > label {
-    margin-right: 0.5em;
-    flex-grow: 1;
-}
-
-fieldset#ARMES .detailArme > span > input  {
-    width:100%;
-    flex-grow: 2;
-}
-
-/******************************************
-Zone des armures
-*******************************************/
-fieldset#ARMURES .zoneArmure {
-    display: grid;
-    grid-template-columns: 2em 3em auto ;
-    column-gap: 0.5em;
-    row-gap: 0.3em;
-    width: 100%;
-}
-
-fieldset#ARMURES .zoneChkArmure {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-}
-
-fieldset#ARMURES input.txtDefArmure {
-    width:4em;
-    margin-right: 1em;
-}
-
-fieldset#ARMURES input.txtAgiArmure {
-    width:4em;
-}
-
-/******************************************
-Toutes les zones de voies
-*******************************************/
-fieldset.zoneVoie > .titreVoie {
-    float: left;
-    background-color: #ac8a3c;
+.case1 > .grille_case > .valeur_case > .labelFond {
+    font-weight: bold;
+    font-size: 0.31cm;
+    position: absolute;
+    bottom: 0;
     text-align: center;
+    color: #999999;
+}
+
+
+/******************************************
+Les cases avec label à gauche
+*******************************************/
+.case2 {
+    display: flex;
+    flex-direction: row;
+    border-width: 0;
+    border-style: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0.1cm;
+    position: relative;
+    height:0.85cm;
+}
+
+.case2:has(.grille_case > .valeur_case > .labelFond) {
+    margin-top: 0.4cm;
+}
+
+.case2 > .grille_case {
+    display: flex;
+    flex-direction: row;
+    border:0;
+}
+
+.case2 > .legende_case {
+    background-color: var(--couleur-cadre);
+    text-align: center;
+    font-weight: bold;
     color: white;
+    text-transform: uppercase;
+    padding-left: 0.1cm;
+    padding-right: 0.1cm;
+    padding-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.case2 > .grille_case > .valeur_case {
+    border-width: 0.07cm;
+    border-top-style: solid;
+    border-right-style: none;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-color : var(--couleur-secondaire);
+    min-width: 1.1cm;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.case2 > .grille_case > .valeur_case:nth-child(1) {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-color: var(--couleur-cadre);
+}
+
+.case2 > .grille_case > .valeur_case:nth-child(2) {
+    margin-left: 0.1cm;
+}
+
+.case2 > .grille_case > .valeur_case:last-child {
+    border-right-style: solid;
+}
+
+.case2 > .grille_case > .valeur_case > span {
+    font-weight: bold;
+    margin-top: 0.05cm;
+    font-size : 0.55cm;
+}
+
+.case2 > .grille_case > .valeur_case > .labelFond {
+    font-weight: bold;
+    font-size: 0.31cm;
+    position: absolute;
+    bottom: 0.78cm;
+    text-align: center;
+    color: var(--couleur-cadre);
+}
+
+/******************************************
+Les cases avec label dessous et non encadré
+*******************************************/
+.case3 {
+    border: none;
+    margin: 0;
+    position: relative;
+    margin-bottom: 0.5cm;
+}
+
+.case3 > .legende_case {
+    text-align: left;
+    font-weight: bold;
     width : 100%;
     text-transform: uppercase;
+    font-size: 0.3cm;
+    color: var(--couleur-cadre);
+    border:0;
     position: absolute;
-    top:0px;
+    bottom : -0.35cm;
+    border-top-style: solid;
+    border-top-width: 0.05cm;
+    border-top-color: var(--couleur-cadre);
+    padding-left: 0.1cm;
 }
 
-fieldset.zoneVoie > .titreVoie > .lblNomVoie {
-    font-weight: bold;
+.case3 > .grille_case > .valeur_case {
+    border: none;
 }
 
-fieldset.zoneVoie > .titreVoie .lblTypeVoie {
+.case3 > .grille_case > .valeur_case > span {
     font-weight: normal;
-    font-size: 0.8em;
-    vertical-align: top;
+    font-size : 0.45cm;
 }
 
-div.zoneCapacite {
-    padding: 0;
+/*********************************************************
+ * Zone peuple et niveau
+ *********************************************************/
+div.ligne_niv1#peuple_niv > div:first-child {
+    flex-grow: 3;
+    margin-right: 0.5cm;
 }
 
-div.groupe_voie {
+
+/*********************************************************
+ * Zone des caractéristiques
+ *********************************************************/
+
+div#caracteristiques {
+    margin-bottom: 0.3cm;
+}
+
+div#caracteristiques > div.case2 > div.grille_case {
+    width: 100%;
+    overflow: hidden;
+}
+
+div#caracteristiques > div.case2 > div.grille_case > div.valeur_case:nth-child(2) {
+    width: 100%;
+
+}
+
+div#caracteristiques > div.case2 > div.grille_case > div.valeur_case:nth-child(2) > span:first-child {
+    font-weight: normal;
+    font-size:0.30cm;
+    overflow: hidden;
+}
+
+/*********************************************************
+ * Zone de la description
+ *********************************************************/
+
+div#zone_description > .case1 {
+    margin-top: 0.4cm;
+    margin-bottom: 0.5cm;
+    width:100%;
+    height: 3.6cm;
+}
+
+div#zone_description > .case1 > .grille_case > .valeur_case {
+    width:100%;
+    height: 3cm;
+}
+
+div#zone_description > .case1 > .grille_case > .valeur_case > #TXT_DESCRIPTION {
+    font-weight: normal;
+    font-size:0.30cm;
+    overflow: hidden;
+}
+
+/*********************************************************
+ * Zone de la attaque
+ *********************************************************/
+
+div#zoneAttaque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#zoneAttaque > .case2:first-child {
+    margin-top: 0.4cm;
+}
+
+div#zoneAttaque > .case2:nth-child(2) {
+    margin-top: 0.6cm;
+}
+
+div#zoneAttaque > .case2:nth-child(3) {
+    margin-top: 0.6cm;
+}
+
+div#zoneAttaque > .case2 > .legende_case {
+    width:2.6cm;
+    margin-bottom: 0;
+}
+
+/*********************************************************
+ * Zone des dés de récupération
+ *********************************************************/
+div#zoneDesRecuperation > div.grille_case > div:nth-child(3) {
+    width:2.8cm;
+}
+
+/*********************************************************
+ * Ligne INIT et DEF
+ *********************************************************/
+div#ligneInitDef {
+  display: flex;
+  justify-content: space-around;
+}
+
+div#ligneInitDef > div:first-child {
+    margin-top: 0.4cm;
+}
+
+/*********************************************************
+ * Zone des armes
+ *********************************************************/
+div#tableauArmes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#tableauArmes > legende_case {
+    width: 0.5cm;
+}
+
+div#tableauArmes > div > .case2 > .grille_case > div > span:first-child {
+    padding-top: 0.1cm;
+    font-size : 0.38cm;
+}
+
+div#tableauArmes > div > .case2 > .grille_case > div:first-child {
+    width:5.9cm;
+}
+
+div#tableauArmes > div > .case2 > .grille_case > div:first-child > span:first-child {
+    font-weight: normal;
+}
+
+div#tableauArmes > div > .case2 > .grille_case > div:nth-child(2) {
+    width:2.1cm;
+}
+
+div#tableauArmes > div > .case2 > .grille_case > div:nth-child(2) > span:first-child {
+    font-weight: normal;
+}
+
+div#tableauArmes > div > .case2 > .grille_case > div:nth-child(3) {
+    width:1.8cm;
+}
+
+div#tableauArmes > div > .note_arme {
+    border-width: 0.07cm;
     border-style: solid;
-    border-top-width: 0;
-    border-bottom-width: 2px;
-    border-right-width: 2px;
-    border-left-width: 2px;
-    border-color: #ac8a3c;
-    padding:4px;
-    margin-bottom:0px;
+    border-color : var(--couleur-secondaire);
+    height:0.65cm;
+    padding-left:0.2cm;
+    padding-right:0.2cm;
+    margin-left: 0.5cm;
 }
 
-div.contenuCapacite > .displayTitreCapacite {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size:75%;
-    color: black;
-    font-weight: bold;
+div#tableauArmes > div > .note_arme:first-child {
+    margin-bottom: 0.3cm;
 }
 
-div.contenuCapacite > .displayDescriptionCapacite {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size:75%;
-    color: black;
-    word-break: break-word;
+div#tableauArmes > div > .note_arme:nth-child(2) {
+    margin-bottom: 0.3cm;
 }
 
-div.contenuCapacite > .displayCommentaireCapacite {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-size:75%;
-    font-style: italic;
-    color: black;
-    margin-top:0.5em;
-    word-break: break-word;
-    white-space: pre-wrap;
-    display: none;
+div#tableauArmes > div > .note_arme > span {
+    font-weight: normal;
+    font-size:0.30cm;
+    overflow: hidden;
 }
 
-div.contenuCapacite > .displayCommentaireCapacite::before {
-    content: "Commentaire:";
-    text-decoration: underline;
-    margin-right : 1em;
+/*********************************************************
+ * Zone des armures
+ *********************************************************/
+
+div#tableauArmures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+div#tableauArmures > .case2 > .grille_case > div:first-child {
+    width:6cm;
+}
 
+div#tableauArmures > .case2 > .grille_case > div:first-child > span:first-child {
+    font-weight: normal;
+    padding-top: 0.1cm;
+    font-size : 0.38cm;
+}
+
+div#tableauArmures > .case2 > .grille_case > div:nth-child(2) {
+    width:1.3cm;
+}
+div#tableauArmures > .case2 > .grille_case > div:nth-child(3) {
+    width:1.3cm;
+}
+div#tableauArmures > .case2 > .grille_case > div:nth-child(4) {
+    width:1.5cm;
+}
