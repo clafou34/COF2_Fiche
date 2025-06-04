@@ -247,6 +247,12 @@ function impressionInitAvecJSON(parObjPersonnage) {
     else
         document.getElementById("TXT_DES_RECUP").innerText = "";
 
+    // Description
+    if (objPersonnage.equipement !== undefined)
+        document.getElementById("TXT_EQUIPEMENT").innerText = objPersonnage.equipement;
+    else
+        document.getElementById("TXT_EQUIPEMENT").innerText = "";
+
     // Bourse
     if (objPersonnage.PO !== undefined)
         document.getElementById("TXT_NB_PO").innerText = objPersonnage.PO;

@@ -249,8 +249,10 @@
                             </div>
                         </section>
                     </div>
+
                     <div class="colonne">
-                        <div class="ligne_niv1">
+
+                        <div id="ligneVigueurRecuperation" class="ligne_niv1">
                             <div class="case1">
                                 <div class="legende_case"><span>PTS DE VIGUEUR</span></div>
                                 <div class="grille_case">
@@ -261,8 +263,27 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div id="zoneDesRecuperation" class="case1">
+                                <div class="legende_case"><span>Dés de récupération</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <span id="TXT_DES_RECUP_ACTUELS"></span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DES_RECUP_MAX"></span>
+                                        <span class="labelFond">MAX</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DES_RECUP"></span>
+                                        <span class="labelFond">Type de dés</span>
+                                    </div>
+                                </div>
+                                <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
+                            </div>
                         </div>
-                        <div class="ligne_niv1">
+
+                        <div id="ligneChanceMana" class="ligne_niv1">
                             <div class="case1">
                                 <div class="legende_case"><span>PTS DE CHANCE</span></div>
                                 <div class="grille_case">
@@ -286,63 +307,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-                        <div class="ligne_niv1">
-                            <div id="zoneDesRecuperation" class="case1">
-                                <div class="legende_case"><span>Dés de récupération</span></div>
-                                <div class="grille_case">
-                                    <div class="valeur_case">
-                                        <span id="TXT_DES_RECUP_ACTUELS"></span>
-                                    </div>
-                                    <div class="valeur_case">
-                                        <span id="TXT_DES_RECUP_MAX"></span>
-                                        <span class="labelFond">MAX</span>
-                                    </div>
-                                    <div class="valeur_case">
-                                        <span id="TXT_DES_RECUP"></span>
-                                        <span class="labelFond">Type de dés</span>
-                                    </div>
-                                </div>
-                                <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
-                            </div>
-
-
-                        </div>
-
-
-
-                        <div class="ligne_niv1">
-                            <fieldset id="EQUIPEMENT" class="champs_niv1">
-                                <legend>EQUIPEMENT</legend>
-                                <div>
-                                    <textarea id="TXT_EQUIPEMENT" name="equipement" maxlength="500"></textarea>
-                                </div>
-                            </fieldset>
-                        </div>
-
-
-                        <div class="ligne_niv1">
-                            <div id="zoneBourse" class="case1">
-                                <div class="legende_case"><span>BOURSE</span></div>
-                                <div class="grille_case">
-                                    <div class="valeur_case">
-                                        <span id="TXT_NB_PO"></span>
-                                        <span class="labelFond">PO</span>
-                                    </div>
-                                    <div class="valeur_case">
-                                        <span id="TXT_NB_PA"></span>
-                                        <span class="labelFond">PA</span>
-                                    </div>
-                                    <div class="valeur_case">
-                                        <span id="TXT_NB_PC"></span>
-                                        <span class="labelFond">PC</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
 
                         <div id="ligneInitDef" class="ligne_niv1">
                             <div class="case2">
@@ -443,13 +407,8 @@
                                     </div>
                                 </div>
                             </div>                            
-
-
-
-
-
-
                         </section>
+
                         <section class="groupe_zones">
                             <h2>ARMURES</h2>
                             <div id="tableauArmures">
@@ -510,6 +469,41 @@
                                 </div>
                             </div>
                         </section>
+
+                        <section id="ligneEquipement" class="groupe_zones">
+                            <h2>EQUIPEMENT</h2>
+                            <div>
+                                <div id="zone_equipement">
+                                    <div class="case1">
+                                        <div class="legende_case"><span>Objets</span></div>
+                                        <div class="grille_case">
+                                            <div class="valeur_case">
+                                                <span id="TXT_EQUIPEMENT"></span>
+                                            </div>
+                                        </div>
+                                    </div>                                
+                                </div> 
+
+                                <div id="zoneBourse" class="case1">
+                                    <div class="legende_case"><span>BOURSE</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_NB_PO"></span>
+                                            <span class="labelFond">PO</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NB_PA"></span>
+                                            <span class="labelFond">PA</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_NB_PC"></span>
+                                            <span class="labelFond">PC</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                     </div>
                 </div>
                 <div class="col_container">
