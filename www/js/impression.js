@@ -295,4 +295,36 @@ function impressionInitAvecJSON(parObjPersonnage) {
         }
         indexArmure++;
     }
+    
+    // Voies
+    let varTabZoneVoie = document.querySelectorAll(".zoneVoie");
+
+    console.log("Nombre de zone de voies : " + varTabZoneVoie.length);
+    let indexVoie=0;
+    for (let varZoneVoie of varTabZoneVoie) {
+        varTxtNomVoie = varZoneVoie.getElementsByClassName("txtNomVoie")[0];
+        varTxtTypeVoie = varZoneVoie.getElementsByClassName("txtTypeVoie")[0];
+        
+        varTxtNomVoie.innerText = objPersonnage.voies[indexVoie].nomVoie;
+        if(objPersonnage.voies[indexVoie].idTypeVoie === "HYBRIDE")
+            varTxtTypeVoie.innerText = "HYBRIDE";
+        else if (objPersonnage.voies[indexVoie].idTypeVoie === "PERSO")
+            varTxtTypeVoie.innerText = "PERSO";
+        else if (objPersonnage.voies[indexVoie].idTypeVoie === "STANDARD")
+            varTxtTypeVoie.innerText = "";
+        else if (objPersonnage.idFamille !== undefined) {// on est sur une famille
+            let varObjFamille = searchObjectById(dataFamilles.familles, objPersonnage.idFamille);
+            if (varObjFamille !== null) {
+                let varIdGroupeVoieFamille = varObjFamille.groupe_voies;
+                let varObjGroupeVoie = searchObjectById(dataVoies.groupesVoies, varIdGroupeVoieFamille);
+                let varObjVoieFamille = searchObjectById(varObjGroupeVoie.voies, objPersonnage.voies[indexVoie].idTypeVoie);
+                varTxtTypeVoie.innerText = varObjVoieFamille.nom;
+            }
+        }
+        else
+            varTxtTypeVoie.innerText = "";
+        
+        indexVoie++;
+    }
+
 }

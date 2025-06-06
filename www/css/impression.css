@@ -42,7 +42,7 @@ header, main, footer {
 }
 
 /******************************************
- * Header : Logo
+ * Header
  *******************************************/
 
 header {
@@ -149,14 +149,15 @@ div.col_container {
     display: flex;
     flex-direction: row;
     row-gap: 1cm;
+    break-after: page;
 }
 
-.colonne:first-child {
+div.col_container .colonne:first-child {
     width:7cm;
     margin-right: 0.7cm;
 }
 
-.colonne:nth-child(2) {
+div.col_container .colonne:nth-child(2) {
     min-width: 290px;
     width:100%;
 }
@@ -183,7 +184,7 @@ div.col_container {
     padding-top: 0.05cm;
     padding-bottom: 0;
     text-transform: uppercase;
-    margin-top:0;
+    margin-top:0.5cm;
     margin-bottom: 0.2cm;
 }
 
@@ -653,4 +654,58 @@ div#tableauArmures > .case2 > .grille_case > div:nth-child(4) {
     border-right-style: solid;
     border-top-style: solid;
     height:1.1cm;
+}
+
+/*********************************************************
+ * Voies
+ *********************************************************/
+
+div.conteneur_colonnes_voies {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.2cm;
+    margin-bottom: 0.15cm;
+    margin-top: 0.15cm
+}
+
+div.conteneur_colonnes_voies .colonne {
+    width:100%;
+}
+
+.zoneVoie {
+    border-width: 0.07cm;
+    border-top-style: none;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: none;
+    border-color : var(--couleur-cadre);
+}
+
+.zoneVoie > h2 {
+    background-color: var(--couleur-cadre);
+    text-align: center;
+    font-size:0.3cm;
+    font-weight: bold;
+    color: white;
+    width : 100%;
+    padding-top: 0.05cm;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    margin-top:0;
+    margin-bottom: 0;
+}
+
+.zoneVoie > h2 > .txtTypeVoie {
+    font-weight: normal;
+    font-size: 0.2cm;
+    vertical-align: top;
+    margin-left:0.1cm;
+}
+
+
+.zoneVoie > .zoneCapacite {
+    border-bottom-width: 0.07cm;
+    border-bottom-style: solid;
+    border-color : var(--couleur-cadre);
+    min-height: 1cm;
 }

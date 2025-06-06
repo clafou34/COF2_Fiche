@@ -729,9 +729,7 @@ fieldset.zoneVoie > .titreVoie .lblTypeVoie {
 
 div.zoneCapacite {
     padding: 0;
-}
 
-div.groupe_voie {
     border-style: solid;
     border-top-width: 0;
     border-bottom-width: 2px;
