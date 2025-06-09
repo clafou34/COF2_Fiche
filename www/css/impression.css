@@ -15,7 +15,7 @@
 }
 
 body {
-    max-width:21cm;
+
     margin:0;
 }
 
@@ -28,15 +28,15 @@ header, main, footer {
 
 @media screen {
     body {
-        max-width:19.5cm;
+        max-width:20cm;
         margin-left:auto;
         margin-right:auto;
     }
 
     header, main, footer {
         background:url(../img/fond_fiche3.jpg);
-        padding-right: 0.5cm;
-        padding-left: 0.5cm;
+        padding-right: 0.4cm;
+        padding-left: 0.4cm;
     }
 
 }
@@ -153,8 +153,8 @@ div.col_container {
 }
 
 div.col_container .colonne:first-child {
-    width:7cm;
-    margin-right: 0.7cm;
+    width:7.6cm;
+    margin-right: 0.4cm;
 }
 
 div.col_container .colonne:nth-child(2) {
@@ -357,10 +357,12 @@ Les cases avec label à gauche
 Les cases avec label dessous et non encadré
 *******************************************/
 .case3 {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
     border: none;
     margin: 0;
-    position: relative;
-    margin-bottom: 0.5cm;
+    margin-bottom: 0.3cm;
 }
 
 .case3 > .legende_case {
@@ -371,16 +373,16 @@ Les cases avec label dessous et non encadré
     font-size: 0.3cm;
     color: var(--couleur-cadre);
     border:0;
-    position: absolute;
-    bottom : -0.35cm;
     border-top-style: solid;
     border-top-width: 0.05cm;
+    padding-top: 0.05cm;
     border-top-color: var(--couleur-cadre);
     padding-left: 0.1cm;
 }
 
 .case3 > .grille_case > .valeur_case {
     border: none;
+    min-height: 0.5cm;
 }
 
 .case3 > .grille_case > .valeur_case > span {
@@ -417,8 +419,9 @@ div#caracteristiques > div.case2 > div.grille_case > div.valeur_case:nth-child(2
 
 div#caracteristiques > div.case2 > div.grille_case > div.valeur_case:nth-child(2) > span:first-child {
     font-weight: normal;
-    font-size:0.30cm;
+    font-size:0.29cm;
     overflow: hidden;
+    padding-left: 0.1cm;
 }
 
 /*********************************************************
@@ -521,35 +524,41 @@ div#tableauArmes {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-left: 0.1cm;
+    padding-right: 0.1cm;
 }
 
-div#tableauArmes > legende_case {
+div#tableauArmes div {
+    width: 100%;
+}
+
+div#tableauArmes > div > .case2 > .legende_case {
     width: 0.5cm;
 }
 
 div#tableauArmes > div > .case2 > .grille_case > div > span:first-child {
     padding-top: 0.1cm;
-    font-size : 0.38cm;
+    font-size : 0.35cm;
 }
 
 div#tableauArmes > div > .case2 > .grille_case > div:first-child {
-    width:5.9cm;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div#tableauArmes > div > .case2 > .grille_case > div:first-child > span:first-child {
-    font-weight: normal;
+    padding:0;
+    text-align: center;
 }
 
 div#tableauArmes > div > .case2 > .grille_case > div:nth-child(2) {
-    width:2.1cm;
-}
-
-div#tableauArmes > div > .case2 > .grille_case > div:nth-child(2) > span:first-child {
-    font-weight: normal;
+    width:2.3cm;
 }
 
 div#tableauArmes > div > .case2 > .grille_case > div:nth-child(3) {
-    width:1.8cm;
+    width:2cm;
 }
 
 div#tableauArmes > div > .note_arme {
@@ -560,14 +569,11 @@ div#tableauArmes > div > .note_arme {
     padding-left:0.2cm;
     padding-right:0.2cm;
     margin-left: 0.5cm;
-}
-
-div#tableauArmes > div > .note_arme:first-child {
     margin-bottom: 0.3cm;
-}
-
-div#tableauArmes > div > .note_arme:nth-child(2) {
-    margin-bottom: 0.3cm;
+    width: auto;
+    height: auto;
+    min-height: 0.7cm;
+    padding-bottom:0.05cm;
 }
 
 div#tableauArmes > div > .note_arme > span {
@@ -585,16 +591,32 @@ div#tableauArmures {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 0.3cm;
+    padding-left: 0.1cm;
+    padding-right: 0.1cm;
+}
+
+div#tableauArmures > .case2 {
+    width:100%;
+}
+
+div#tableauArmures > .case2 > .grille_case {
+    width:100%;
+}
+
+div#tableauArmures > .case2 > .grille_case > div {
+    padding: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div#tableauArmures > .case2 > .grille_case > div:first-child {
-    width:6cm;
+    width:100%;
 }
 
-div#tableauArmures > .case2 > .grille_case > div:first-child > span:first-child {
-    font-weight: normal;
-    padding-top: 0.1cm;
-    font-size : 0.38cm;
+div#tableauArmures > .case2 > .grille_case > div > span:first-child {
+    font-size : 0.35cm;
 }
 
 div#tableauArmures > .case2 > .grille_case > div:nth-child(2) {
@@ -604,8 +626,9 @@ div#tableauArmures > .case2 > .grille_case > div:nth-child(3) {
     width:1.3cm;
 }
 div#tableauArmures > .case2 > .grille_case > div:nth-child(4) {
-    width:1.5cm;
+    width:1.3cm;
 }
+
 
 /*********************************************************
  * Ligne Equipement / Bourse
@@ -613,12 +636,15 @@ div#tableauArmures > .case2 > .grille_case > div:nth-child(4) {
 
 #ligneEquipement {
     margin-top:0.5cm;
+
 }
 
 #ligneEquipement > div {
     display: flex;
     flex-direction: row;
     column-gap: 0.3cm;
+    padding-left: 0.1cm;
+    padding-right: 0.1cm;
 }
 
 #zone_equipement {
@@ -660,18 +686,6 @@ div#tableauArmures > .case2 > .grille_case > div:nth-child(4) {
  * Voies
  *********************************************************/
 
-div.conteneur_colonnes_voies {
-    display: flex;
-    flex-direction: row;
-    column-gap: 0.2cm;
-    margin-bottom: 0.15cm;
-    margin-top: 0.15cm
-}
-
-div.conteneur_colonnes_voies .colonne {
-    width:100%;
-}
-
 .zoneVoie {
     border-width: 0.07cm;
     border-top-style: none;
@@ -679,6 +693,8 @@ div.conteneur_colonnes_voies .colonne {
     border-left-style: solid;
     border-bottom-style: none;
     border-color : var(--couleur-cadre);
+    margin-bottom: 0.2cm;
+    break-inside: avoid;
 }
 
 .zoneVoie > h2 {
@@ -707,5 +723,41 @@ div.conteneur_colonnes_voies .colonne {
     border-bottom-width: 0.07cm;
     border-bottom-style: solid;
     border-color : var(--couleur-cadre);
-    min-height: 1cm;
+    min-height: 0.6cm;
+    font-size: 0.25cm;
+    padding-top: 0.1cm;
+    padding-left: 0.1cm;
+    padding-bottom: 0.1cm;
 }
+
+.zoneVoie > .zoneCapacite .selectionCapacite {
+    border-width: 0.04cm;
+    border-color: var(--couleur-secondaire);
+    border-style: solid;
+    width:0.3cm;
+    height:0.3cm;
+    float: left;
+    margin-right: 0.1cm;
+    font-size: 0.1cm;
+}
+
+.zoneVoie > .zoneCapacite .selectionCapacite:not(:empty) {
+    background-color: black;
+}
+
+.zoneVoie > .zoneCapacite .lblComplementCapacite {
+    text-decoration: underline;
+}
+
+.zoneVoie > .zoneCapacite .txtTitreCapacite {
+    font-weight: bold;
+}
+
+.zoneVoie > .zoneCapacite .lblComplementCapacite:before {
+    content:"Commentaire:"
+}
+
+.zoneVoie > .zoneCapacite .commentaireCapacite:has( .txtComplementCapacite:empty) {
+    display:none;
+}
+

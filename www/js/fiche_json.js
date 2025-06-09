@@ -124,7 +124,7 @@ function ficheConstruireJSON() {
         objPersonnage.voies.push(varObjVoie);
     }
 
-    //console.log(JSON.stringify(objPersonnage, null, 2));
+    console.log(JSON.stringify(objPersonnage, null, 2));
     
     return objPersonnage;
 }

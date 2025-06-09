@@ -220,28 +220,6 @@ function videZonesCapacites(parZoneVoie) {
     }
 }
 
-/********************************************************************
- * Retourne la voie appartenant au groupe dont l'identifiant est passé en
- * paramètre (parIdGroupe) et dont l'identifiant de voie est parIdVoie.
- * @param {object} parIdVoie : Identifiant de la voie.
- * @param {object} parIdGroupe : Identifiant de groupe de voie.
- ********************************************************************/
-function getVoieWithGroupe(parIdVoie, parIdGroupe) {
-    // Recherche du groupe
-    let varObjGroupe = searchObjectById(dataVoies.groupesVoies, parIdGroupe);
-    if (varObjGroupe === null) {
-        return null;
-    }
-
-    // Recherche de la voie
-    let varObjVoie = searchObjectById(varObjGroupe.voies, parIdVoie);
-    if (varObjVoie === null) {
-        return null;
-    }
-
-    return varObjVoie;
-}
-
 /****************************************************************
  Cette fonction remplie la liste de choix des peuples.
  ****************************************************************/

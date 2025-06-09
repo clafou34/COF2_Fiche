@@ -274,7 +274,14 @@ function impressionInitAvecJSON(parObjPersonnage) {
         let varTabValeurCase = varLigneArme.querySelectorAll("div.valeur_case > span:first-child");
         if (objPersonnage.armes[indexArme] !== undefined) {
             varTabValeurCase[0].innerText = objPersonnage.armes[indexArme].nomArme;
-            varTabValeurCase[1].innerText = searchObjectById(dataTypeArme.items, objPersonnage.armes[indexArme].typeAttaqueArme).text;
+            let varTxtValeurAttaque = "1d20";
+            if (objPersonnage.armes[indexArme].typeAttaqueArme === "CONTACT")
+                varTxtValeurAttaque = varTxtValeurAttaque + (varAttContactTotal > 0 ? "+" + varAttContactTotal : varAttContactTotal);
+            else if (objPersonnage.armes[indexArme].typeAttaqueArme === "DISTANCE")
+                varTxtValeurAttaque = varTxtValeurAttaque + (varAttDistanceTotal > 0 ? "+" + varAttDistanceTotal : varAttDistanceTotal);
+            else
+                varTxtValeurAttaque = "";
+            varTabValeurCase[1].innerText = varTxtValeurAttaque;
             varTabValeurCase[2].innerText = objPersonnage.armes[indexArme].dmArme;
             varTabValeurCase[3].innerText = objPersonnage.armes[indexArme].noteArme;
         }
@@ -298,20 +305,24 @@ function impressionInitAvecJSON(parObjPersonnage) {
     
     // Voies
     let varTabZoneVoie = document.querySelectorAll(".zoneVoie");
-
-    console.log("Nombre de zone de voies : " + varTabZoneVoie.length);
     let indexVoie=0;
     for (let varZoneVoie of varTabZoneVoie) {
-        varTxtNomVoie = varZoneVoie.getElementsByClassName("txtNomVoie")[0];
-        varTxtTypeVoie = varZoneVoie.getElementsByClassName("txtTypeVoie")[0];
+        let varTxtNomVoie = varZoneVoie.getElementsByClassName("txtNomVoie")[0];
+        let varTxtTypeVoie = varZoneVoie.getElementsByClassName("txtTypeVoie")[0];
         
         varTxtNomVoie.innerText = objPersonnage.voies[indexVoie].nomVoie;
-        if(objPersonnage.voies[indexVoie].idTypeVoie === "HYBRIDE")
+        if(objPersonnage.voies[indexVoie].idTypeVoie === "HYBRIDE") {
             varTxtTypeVoie.innerText = "HYBRIDE";
-        else if (objPersonnage.voies[indexVoie].idTypeVoie === "PERSO")
+            remplirZoneCapaciteStandard(varZoneVoie,objPersonnage.voies[indexVoie]);
+        }
+        else if (objPersonnage.voies[indexVoie].idTypeVoie === "PERSO") {
             varTxtTypeVoie.innerText = "PERSO";
-        else if (objPersonnage.voies[indexVoie].idTypeVoie === "STANDARD")
+            remplirZoneCapacitePerso(varZoneVoie,objPersonnage.voies[indexVoie]);
+        }
+        else if (objPersonnage.voies[indexVoie].idTypeVoie === "STANDARD") {
             varTxtTypeVoie.innerText = "";
+            remplirZoneCapaciteStandard(varZoneVoie,objPersonnage.voies[indexVoie]);
+        }
         else if (objPersonnage.idFamille !== undefined) {// on est sur une famille
             let varObjFamille = searchObjectById(dataFamilles.familles, objPersonnage.idFamille);
             if (varObjFamille !== null) {
@@ -320,6 +331,7 @@ function impressionInitAvecJSON(parObjPersonnage) {
                 let varObjVoieFamille = searchObjectById(varObjGroupeVoie.voies, objPersonnage.voies[indexVoie].idTypeVoie);
                 varTxtTypeVoie.innerText = varObjVoieFamille.nom;
             }
+            remplirZoneCapaciteFamille(varZoneVoie,objPersonnage.voies[indexVoie]);
         }
         else
             varTxtTypeVoie.innerText = "";
@@ -327,4 +339,125 @@ function impressionInitAvecJSON(parObjPersonnage) {
         indexVoie++;
     }
 
+}
+
+function remplirZoneCapaciteFamille(parZoneVoie, parObjVoieJson) {
+    let indexCapacite = 0;
+    let varTabObjCapacite = parObjVoieJson.capacites;
+
+    // On récupère la voie standard du peuple
+    let varObjVoiePeuple = getVoieWithGroupe(parObjVoieJson.idVoie, parObjVoieJson.idGroupeVoie);
+    if (varObjVoiePeuple === null) {
+        console.warn("Le détail de la voie de peuple \"" + parObjVoieJson.idVoie + "\" n'a pas été trouvé.");
+        return;
+    }
+
+    // On récupère la voie de la famille
+    let varObjVoieFamille = getVoieWithGroupe(parObjVoieJson.idTypeVoie, parObjVoieJson.idGroupeVoie);
+    if (varObjVoieFamille === null) {
+        console.warn("Le détail de la voie de famille \"" + parObjVoieJson.idTypeVoie + "\" n'a pas été trouvé.");
+        return;
+    }
+
+
+    for(let varZoneCapacite of parZoneVoie.getElementsByClassName("zoneCapacite")) {
+        let varChkCapacite = varZoneCapacite.getElementsByClassName("selectionCapacite")[0];
+        let varTxtTitreCapacite = varZoneCapacite.getElementsByClassName("txtTitreCapacite")[0];
+        let varTxtDescriptionCapacite = varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0];
+        let varTxtComplementCapacite = varZoneCapacite.getElementsByClassName("txtComplementCapacite")[0];
+        
+        if(varTabObjCapacite[indexCapacite].selectionCapacite === "1") {
+                varChkCapacite.innerText="X";
+            }
+            
+        let varTitreCapacite="";
+        if(varObjVoieFamille.capacites[indexCapacite].rang!=="")
+            varTitreCapacite = varTitreCapacite + varObjVoieFamille.capacites[indexCapacite].rang + ". ";
+        varTitreCapacite = varTitreCapacite + varObjVoieFamille.capacites[indexCapacite].nom;
+        if(varTitreCapacite!=="") 
+            varTitreCapacite = varTitreCapacite + " : ";
+        varTxtTitreCapacite.innerText = varTitreCapacite;
+        
+        let varDescriptionCapacite = varObjVoieFamille.capacites[indexCapacite].description;
+        if(indexCapacite === 0) {
+            varDescriptionCapacite = varDescriptionCapacite + "<br> <b><u> Capacité du peuple :</u> " + varObjVoiePeuple.capacites[indexCapacite].nom + " </b>: " + varObjVoiePeuple.capacites[indexCapacite].description;
+        }
+        varTxtDescriptionCapacite.innerHTML = varDescriptionCapacite;
+            
+        varTxtComplementCapacite.innerText = varTabObjCapacite[indexCapacite].complementCapacite;
+        
+        indexCapacite++;
+    }
+
+}
+
+
+function remplirZoneCapaciteStandard(parZoneVoie, parObjVoieJson) {
+    let indexCapacite = 0;
+    let varTabObjCapacite = parObjVoieJson.capacites;
+
+    // On récupère la voie
+    let varObjVoie = getVoieWithGroupe(parObjVoieJson.idVoie, parObjVoieJson.idGroupeVoie);
+    if (varObjVoie === null) {
+        console.warn("Le détail de la voie \"" + parObjVoieJson.idVoie + "\" n'a pas été trouvé.");
+        return;
+    }
+
+    for(let varZoneCapacite of parZoneVoie.getElementsByClassName("zoneCapacite")) {
+        let varChkCapacite = varZoneCapacite.getElementsByClassName("selectionCapacite")[0];
+        let varTxtTitreCapacite = varZoneCapacite.getElementsByClassName("txtTitreCapacite")[0];
+        let varTxtDescriptionCapacite = varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0];
+        let varTxtComplementCapacite = varZoneCapacite.getElementsByClassName("txtComplementCapacite")[0];
+        
+        if(varTabObjCapacite[indexCapacite].selectionCapacite === "1") {
+                varChkCapacite.innerText="X";
+            }
+            
+        let varTitreCapacite="";
+        if(varObjVoie.capacites[indexCapacite].rang!=="")
+            varTitreCapacite = varTitreCapacite + varObjVoie.capacites[indexCapacite].rang + ". ";
+        varTitreCapacite = varTitreCapacite + varObjVoie.capacites[indexCapacite].nom;
+        if(varTitreCapacite!=="") 
+            varTitreCapacite = varTitreCapacite + " : ";
+        varTxtTitreCapacite.innerText = varTitreCapacite;
+        
+        varTxtDescriptionCapacite.innerText = varObjVoie.capacites[indexCapacite].description;
+            
+        varTxtComplementCapacite.innerText = varTabObjCapacite[indexCapacite].complementCapacite;
+        
+        indexCapacite++;
+    }
+
+}
+
+
+function remplirZoneCapacitePerso(parZoneVoie, parObjVoieJson) {
+        let indexCapacite = 0;
+        let varTabObjCapacitePerso = parObjVoieJson.capacites;
+        
+        for(let varZoneCapacite of parZoneVoie.getElementsByClassName("zoneCapacite")) {
+            let varChkCapacite = varZoneCapacite.getElementsByClassName("selectionCapacite")[0];    
+            let varTxtTitreCapacite = varZoneCapacite.getElementsByClassName("txtTitreCapacite")[0];
+            let varTxtDescriptionCapacite = varZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0];
+            let varTxtComplementCapacite = varZoneCapacite.getElementsByClassName("txtComplementCapacite")[0];
+            
+            if(varTabObjCapacitePerso[indexCapacite].selectionCapacite === "1") {
+                varChkCapacite.innerText="X";
+            }
+        
+            let varTitreCapacite="";
+            if(varTabObjCapacitePerso[indexCapacite].rangCapacite!=="")
+                varTitreCapacite = varTitreCapacite + varTabObjCapacitePerso[indexCapacite].rangCapacite + ". ";
+            varTitreCapacite = varTitreCapacite + varTabObjCapacitePerso[indexCapacite].nomCapacite;
+            if(varTitreCapacite!=="") 
+                varTitreCapacite = varTitreCapacite + " : ";
+            
+            varTxtTitreCapacite.innerText = varTitreCapacite;
+            varTxtDescriptionCapacite.innerText = varTabObjCapacitePerso[indexCapacite].descriptionCapacite;
+            varTxtComplementCapacite.innerText = varTabObjCapacitePerso[indexCapacite].complementCapacite;
+            
+            indexCapacite++;
+        }
+    
+    
 }
