@@ -1,5 +1,24 @@
-:root { 
-  --couleur-cadre: #ac8a3c;
+/*
+ * Couleurs communes
+ */
+:root {
+    --couleur-cadre: #ac8a3c;
+    --couleur-secondaire: #999999;
+}
+
+/*
+ * Pas d'affichage des flèches sur les champs "number".
+ */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 

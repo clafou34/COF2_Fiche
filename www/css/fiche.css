@@ -212,7 +212,143 @@ Ligne de niveau 1
     margin:0;
     padding:0;
     width: 100%;
+    padding-right:15px;
+    padding-left:15px;
 }
+
+/******************************************
+Les cases avec label à gauche
+*******************************************/
+.case2 {
+    display: flex;
+    flex-direction: row;
+    border-width: 0;
+    border-style: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 4px;
+    position: relative;
+    height:1.6em;
+}
+
+.case2:has(.grille_case > .valeur_case > .labelFond) {
+    margin-top: 1.4em;
+}
+
+.case2 > .grille_case {
+    display: flex;
+    flex-direction: row;
+    border:0;
+}
+
+.case2 > .legende_case {
+    background-color: var(--couleur-cadre);
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    text-transform: uppercase;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin:0;
+}
+
+.case2 > .grille_case > .valeur_case {
+    border-width: 2px;
+    border-top-style: solid;
+    border-right-style: none;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-color : var(--couleur-secondaire);
+    min-width: 3em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.case2 > .grille_case > .valeur_case:nth-child(1) {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-color: var(--couleur-cadre);
+}
+
+.case2 > .grille_case > .valeur_case:nth-child(2) {
+    margin-left: 0.1cm;
+}
+
+.case2 > .grille_case > .valeur_case:last-child {
+    border-right-style: solid;
+}
+
+.case2 > .grille_case > .valeur_case > input {
+    border:0;
+    width:100%;
+    height:100%;
+    text-align: center;
+}
+
+.case2 > .grille_case > .valeur_case > select {
+    border:0;
+    width:100%;
+    height:100%;
+    text-align: center;
+    background-color: white;
+}
+
+.case2 > .grille_case > .valeur_case > .labelFond {
+    font-weight: bold;
+    font-size: 0.72em;
+    position: absolute;
+    top: -1.4em;
+    text-align: center;
+    color: var(--couleur-cadre);
+}
+
+/******************************************
+Les cases avec label dessous et non encadré
+*******************************************/
+.case3 {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    border: none;
+    margin: 0;
+}
+
+.case3 > .legende_case {
+    text-align: left;
+    font-weight: bold;
+    width : 100%;
+    text-transform: uppercase;
+    font-size: 0.72em;
+    color: var(--couleur-cadre);
+    border:0;
+    border-top-style: solid;
+    border-top-width: 0.05cm;
+    padding-top: 0.05cm;
+    border-top-color: var(--couleur-cadre);
+    padding-left: 0.1cm;
+    margin:0;
+}
+
+.case3 > .grille_case > .valeur_case {
+    border: none;
+    min-height: 0.5cm;
+}
+
+.case3 > .grille_case > .valeur_case > select {
+    border: none;
+    width: 100%;
+    background:none;
+}
+
 
 /******************************************
 Les champs isolés de niveau 1
@@ -256,6 +392,18 @@ fieldset.champs_niv1 > div {
 }
 
 /******************************************
+Ligne "Peuple" et "Niveau"
+*******************************************/
+#peuple_niv > div:first-child {
+    width:100%;
+}
+
+#peuple_niv > div:nth-child(2) {
+    margin-left:20px;
+}
+
+
+/******************************************
 Zone de la personnalité
 *******************************************/
 
@@ -264,10 +412,6 @@ Zone de la personnalité
     grid-template-columns: 8em auto;
     vertical-align: middle;
     margin-bottom : 4px;
-}
-
-#zonePersonnalite input#TXT_NIVEAU {
-    width: 4em;
 }
 
 #zonePersonnalite input#TXT_IDEAL {
@@ -287,22 +431,20 @@ Zone de la personnalité
 /******************************************
 Zone des caractéristiques.
 *******************************************/
-fieldset#CARAC #zoneCaracteristique {
-    display: grid;
-    grid-template-columns: 2.5em 3em auto;
-    column-gap: 0.5em;
-    row-gap: 0.3em;
-    width: 100%;
+
+fieldset#CARAC .case2 > .grille_case {
+    width:100%;
 }
 
-fieldset#CARAC > div > .labelSelectCarac {
-    float: left;
-    width: 3em;
+fieldset#CARAC .case2 > .grille_case > .valeur_case:nth-child(2) {
+    width:100%;
+    text-align: left;
 }
 
-fieldset#CARAC .txtNoteCarac {
-    min-width: 3em;
+fieldset#CARAC .case2 > .grille_case > .valeur_case > input {
+    text-align: left;
 }
+
 
 /******************************************
 Zone des attaques

@@ -9,6 +9,7 @@ function ficheInitEventListners() {
     document.getElementById("btnSauver").addEventListener('click', btnSauverOnClick);
     document.getElementById("btnImprimer").addEventListener('click', btnImprimerOnClick);
     document.getElementById("btnQuitter").addEventListener('click', btnQuitterOnClick);
+    document.getElementById("SEL_PEUPLE").addEventListener('change', selPeupleOnChange);
     document.getElementById("SEL_FAMILLE").addEventListener('change', selFamilleOnChange);
     document.getElementById("SEL_PROFIL").addEventListener('change', selProfilOnChange);
     document.getElementById("TXT_NIVEAU").addEventListener('change', txtNiveauOnChange);

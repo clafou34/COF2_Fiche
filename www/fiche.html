@@ -38,17 +38,29 @@
                 </div>
                 <div class="col_container">
                     <div class="colonne">
+                        <div id="peuple_niv" class="ligne_niv1">
+                            <div>
+                                <div class="case3">
+                                    <label for="SEL_PEUPLE" class="legende_case"><span>Peuple</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_PEUPLE" name="idPeuple" title="Peuple du personnage"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="case2">
+                                <label for="TXT_NIVEAU" class="legende_case"><span>NIV.</span></label>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_NIVEAU" name="niveau" min="1" max="30" maxlength="2" title="Niveau du personnage">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <fieldset id="PERSONNALITE" class="niv1">
                             <legend>PERSONNALIT&Eacute;</legend>
                             <div id="zonePersonnalite" class="groupe_unique">
-                                <div>
-                                    <label for="SEL_PEUPLE">PEUPLE</label>
-                                    <span><select id="SEL_PEUPLE" name="idPeuple"></select></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_NIVEAU">Niveau</label>
-                                    <span><input type="number" id="TXT_NIVEAU" name="niveau" min="1" max="30" maxlength="2"></span>
-                                </div>
                                 <div>
                                     <label for="SEL_FAMILLE">Famille</label>
                                     <span><select id="SEL_FAMILLE" name="idFamille"></select></span>
@@ -74,33 +86,92 @@
                         <fieldset id="CARAC" class="niv1">
                             <legend>Caractéristiques</legend>
                             <div id="zoneCaracteristique" class="groupe_unique">
-                                <label for="SEL_AGI" class="labelSelectCarac" title="Agilité">AGI</label>
-                                <select id="SEL_AGI" name="AGI" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_AGI" name="noteAGI" class="txtNoteCarac" title="Notes et bonus pour l'agilité" maxlength="50">
+                                <div class="case2">
+                                    <label for="SEL_AGI" class="legende_case"><span>AGI</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_AGI" name="AGI" class="selectCaract"></select>
+                                            <span class="labelFond">Valeur</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_NOTE_AGI" name="noteAGI" class="txtNoteCarac" title="Notes et bonus pour l'agilité" maxlength="50">
+                                            <span class="labelFond">Notes</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <label for="SEL_CON" class="labelSelectCarac" title="Constitution">CON</label>
-                                <select id="SEL_CON" name="CON" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_CON" name="noteCON" class="txtNoteCarac" title="Notes et bonus pour la constitution" maxlength="50">
+                                <div class="case2">
+                                    <label for="SEL_CON" class="legende_case"><span>CON</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_CON" name="CON" class="selectCaract"></select>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_NOTE_CON" name="noteCON" class="txtNoteCarac" title="Notes et bonus pour la constitution" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <label for="SEL_FOR" class="labelSelectCarac" title="Force">FOR</label>
-                                <select id="SEL_FOR" name="FOR" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_FOR" name="noteFOR" class="txtNoteCarac" title="Notes et bonus pour la force" maxlength="50">
+                                <div class="case2">
+                                    <label for="SEL_FOR" class="legende_case"><span>FOR</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_FOR" name="FOR" class="selectCaract"></select>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_NOTE_FOR" name="noteFOR" class="txtNoteCarac" title="Notes et bonus pour la force" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <label for="SEL_PER" class="labelSelectCarac" title="Perception">PER</label>
-                                <select id="SEL_PER" name="PER" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_PER" name="notePER" class="txtNoteCarac" title="Notes et bonus pour la perception" maxlength="50">
+                                <div class="case2">
+                                    <label for="SEL_PER" class="legende_case"><span>PER</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_PER" name="PER" class="selectCaract"></select>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_NOTE_PER" name="notePER" class="txtNoteCarac" title="Notes et bonus pour la perception" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <label for="SEL_CHA" class="labelSelectCarac" title="Charisme">CHA</label>
-                                <select id="SEL_CHA" name="CHA" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_CHA" name="noteCHA" class="txtNoteCarac" title="Notes et bonus pour le charisme" maxlength="50">
+                                <div class="case2">
+                                    <label for="SEL_CHA" class="legende_case"><span>CHA</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_CHA" name="CHA" class="selectCaract"></select>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_NOTE_CHA" name="noteCHA" class="txtNoteCarac" title="Notes et bonus pour le charisme" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <label for="SEL_INT" class="labelSelectCarac" title="Intelligence">INT</label>
-                                <select id="SEL_INT" name="INT" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_INT" name="noteINT" class="txtNoteCarac" title="Notes et bonus pour l'intelligence" maxlength="50">
+                                <div class="case2">
+                                    <label for="SEL_INT" class="legende_case"><span>INT</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_INT" name="INT" class="selectCaract"></select>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_NOTE_INT" name="noteINT" class="txtNoteCarac" title="Notes et bonus pour l'intelligence" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <label for="SEL_VOL" class="labelSelectCarac" title="Volonté">VOL</label>
-                                <select id="SEL_VOL" name="VOL" class="selectCaract"></select>
-                                <input type="text" id="TXT_NOTE_VOL" name="noteVOL" class="txtNoteCarac" title="Notes et bonus pour la volonté" maxlength="50">
+                                <div class="case2">
+                                    <label for="SEL_VOL" class="legende_case"><span>VOL</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_VOL" name="VOL" class="selectCaract"></select>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_NOTE_VOL" name="noteVOL" class="txtNoteCarac" title="Notes et bonus pour la volonté" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </fieldset>
                         <fieldset id="ATTAQUES" class="niv1">

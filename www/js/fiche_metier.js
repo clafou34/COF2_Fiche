@@ -397,7 +397,7 @@ function gereVoiePeuple(parZoneVoie) {
     if (varTxtIdTypeVoie.value === "") {
         reinitVoiePeuple(parZoneVoie);
     }
-
+    
     // Récupération du type de voie
     let varStrTypeVoie = varTxtIdTypeVoie.value;
 
