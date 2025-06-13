@@ -71,9 +71,9 @@ function remplirAttaqueArme() {
         let varDesAttaque = " => 1d20 + ";
         let varTypeAttaque = varZoneArme.querySelector(".selectTypeAttaque").value;
         if (varTypeAttaque === "CONTACT") {
-            varDesAttaque = varDesAttaque + document.getElementById("TXT_ATT_CONTACT").value;
+            varDesAttaque = varDesAttaque + document.getElementById("TXT_ATT_CONTACT_TOTAL").innerText;
         } else if (varTypeAttaque === "DISTANCE") {
-            varDesAttaque = varDesAttaque + document.getElementById("TXT_ATT_DISTANCE").value;
+            varDesAttaque = varDesAttaque + document.getElementById("TXT_ATT_DISTANCE_TOTAL").innerText;
         } else
             varDesAttaque = "";
         varZoneArme.querySelector(".txtDesAttaqueArme").innerText = varDesAttaque;
@@ -96,29 +96,29 @@ function remplirAttaques() {
         if (varNiveau > 10)
             varNiveau = 10;
         // On rempli les labels des niveaux
-        document.getElementById("lblAttContactNiv").innerText = varNiveau;
-        document.getElementById("lblAttDistanceNiv").innerText = varNiveau;
-        document.getElementById("lblAttMagiqueNiv").innerText = varNiveau;
+        document.getElementById("TXT_ATT_CONTACT_NIV").innerText = varNiveau;
+        document.getElementById("TXT_ATT_DISTANCE_NIV").innerText = varNiveau;
+        document.getElementById("TXT_ATT_MAGIQUE_NIV").innerText = varNiveau;
     } else
         console.warn("Impossible de mettre à jour les scores d'attaque car le niveau est invalide.");
     if (!isNaN(document.getElementById("SEL_FOR").value)) {
         varForce = Number(document.getElementById("SEL_FOR").value);
-        document.getElementById("lblAttContactFor").innerText = varForce;
+        document.getElementById("TXT_ATT_CONTACT_FOR").innerText = varForce;
     } else
         console.warn("Impossible de mettre à jour les scores d'attaque car la caractéristique FOR est invalide.");
     if (!isNaN(document.getElementById("SEL_AGI").value)) {
         varAgilite = Number(document.getElementById("SEL_AGI").value);
-        document.getElementById("lblAttContactAgi").innerText = varAgilite;
+        document.getElementById("TXT_ATT_DISTANCE_AGI").innerText = varAgilite;
     } else
         console.warn("Impossible de mettre à jour les scores d'attaque car la caractéristique AGI est invalide.");
     if (!isNaN(document.getElementById("SEL_VOL").value)) {
         varVolonte = Number(document.getElementById("SEL_VOL").value);
-        document.getElementById("lblAttContactVol").innerText = varVolonte;
+        document.getElementById("TXT_ATT_MAGIQUE_VOL").innerText = varVolonte;
     } else
         console.warn("Impossible de mettre à jour les scores d'attaque car la caractéristique VOL est invalide.");
-    document.getElementById("TXT_ATT_CONTACT").value = varNiveau + varForce;
-    document.getElementById("TXT_ATT_DISTANCE").value = varNiveau + varAgilite;
-    document.getElementById("TXT_ATT_MAGIQUE").value = varNiveau + varVolonte;
+    document.getElementById("TXT_ATT_CONTACT_TOTAL").innerText = (varNiveau + varForce).toString();
+    document.getElementById("TXT_ATT_DISTANCE_TOTAL").innerText = (varNiveau + varAgilite).toString();
+    document.getElementById("TXT_ATT_MAGIQUE_TOTAL").innerText = (varNiveau + varVolonte).toString();
     remplirAttaqueArme();
 }
 

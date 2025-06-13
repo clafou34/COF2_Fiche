@@ -276,9 +276,9 @@ function impressionInitAvecJSON(parObjPersonnage) {
             varTabValeurCase[0].innerText = objPersonnage.armes[indexArme].nomArme;
             let varTxtValeurAttaque = "1d20";
             if (objPersonnage.armes[indexArme].typeAttaqueArme === "CONTACT")
-                varTxtValeurAttaque = varTxtValeurAttaque + (varAttContactTotal > 0 ? "+" + varAttContactTotal : varAttContactTotal);
+                varTxtValeurAttaque = varTxtValeurAttaque + (varAttContactTotal >= 0 ? "+" + varAttContactTotal : varAttContactTotal);
             else if (objPersonnage.armes[indexArme].typeAttaqueArme === "DISTANCE")
-                varTxtValeurAttaque = varTxtValeurAttaque + (varAttDistanceTotal > 0 ? "+" + varAttDistanceTotal : varAttDistanceTotal);
+                varTxtValeurAttaque = varTxtValeurAttaque + (varAttDistanceTotal >= 0 ? "+" + varAttDistanceTotal : varAttDistanceTotal);
             else
                 varTxtValeurAttaque = "";
             varTabValeurCase[1].innerText = varTxtValeurAttaque;

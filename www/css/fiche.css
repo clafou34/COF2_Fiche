@@ -302,6 +302,14 @@ Les cases avec label à gauche
     background-color: white;
 }
 
+.case2 > .grille_case > .valeur_case > span {
+   font-weight: bold; 
+   color : var(--couleur-secondaire);
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .case2 > .grille_case > .valeur_case > .labelFond {
     font-weight: bold;
     font-size: 0.72em;
@@ -449,29 +457,15 @@ fieldset#CARAC .case2 > .grille_case > .valeur_case > input {
 /******************************************
 Zone des attaques
 *******************************************/
-#zoneAttaque {
-    width: 100%;
-    text-align: center;
+#zoneAttaque > .case2 > .legende_case {
+    width: 6em;    
 }
 
-fieldset#ATTAQUES > div > div > label {
-    width: 5em;
-    text-align: left;
+#zoneAttaque > .case2 {
+    justify-content: center;
 }
 
-fieldset#ATTAQUES span.caractAtt {
-    display: inline-block;
-    width: 4em;
-}
 
-fieldset#ATTAQUES > div > div input {
-    width: 2em;
-    text-align: right;
-}
-
-fieldset#ATTAQUES .valeurAide {
-    width: 1.5em;
-}
 
 /*******************************************
 Sous-zone de l'initiative

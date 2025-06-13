@@ -28,7 +28,7 @@ header, main, footer {
 
 @media screen {
     body {
-        max-width:20cm;
+        width:20cm;
         margin-left:auto;
         margin-right:auto;
     }
