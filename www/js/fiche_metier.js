@@ -21,7 +21,7 @@ function initSelectCaracteristiques() {
  ********************************************************************/
 function remplirDefense() {
     let varValeurAgi = Number(document.getElementById("SEL_AGI").value);
-    document.getElementById("lblAgiDefense").innerText = String(varValeurAgi);
+    document.getElementById("TXT_DEF_AGI").innerText = String(varValeurAgi);
     // Récupération de la somme des armures sélectionnées
     let tabZoneArmure = document.getElementsByClassName("zoneArmure");
     let defArmure = 0;
@@ -34,7 +34,7 @@ function remplirDefense() {
         }
         ;
     }
-    document.getElementById("lblDefenseArmure").innerText = String(defArmure);
+    document.getElementById("TXT_DEF_ARMURE").innerText = String(defArmure);
     // Récupération des autres bonus
     let defAutre = 0;
     let txtDefAutre = document.getElementById("TXT_DEF_AUTRE").value;
@@ -43,7 +43,7 @@ function remplirDefense() {
     }
 
 // Affichage
-    document.getElementById("TXT_DEFENSE").value = String(10 + varValeurAgi + defArmure + defAutre);
+    document.getElementById("TXT_DEF_TOTALE").innerText = String(10 + varValeurAgi + defArmure + defAutre);
 }
 
 
@@ -265,7 +265,7 @@ function remplirDesRecuperation() {
     let selFamille = document.getElementById("SEL_FAMILLE");
     let varObjFamille = searchObjectById(dataFamilles.familles, selFamille.value);
     if (varObjFamille !== null) {
-        document.getElementById("TXT_DES_RECUP").value = varObjFamille.des_de_recup;
+        document.getElementById("TXT_DES_RECUP").innerText = varObjFamille.des_de_recup;
     }
 
 }

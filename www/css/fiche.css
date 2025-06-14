@@ -217,6 +217,102 @@ Ligne de niveau 1
 }
 
 /******************************************
+Les cases avec label dessous et encadré
+*******************************************/
+
+.case1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: relative;
+}
+
+.case1 > .grille_case {
+    order:1;
+    display: flex;
+    flex-direction: row;
+    border:0;
+    margin:0;
+}
+
+.case1 > .legende_case {
+    order:2;
+    background-color: var(--couleur-cadre);
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    width : 100%;
+    padding-top:0.2em;
+    text-transform: uppercase;
+    height:1.6em;
+    font-size: 0.72em;
+}
+
+.case1 > .labelAide {
+    order:3;
+    margin-top:0.1em;
+    font-size: 0.72em;
+    text-align: center;
+    width : 100%;
+    color: var(--couleur-cadre);
+}
+
+.case1 > .grille_case > .valeur_case {
+    border-width: 2px;
+    border-color: var(--couleur-cadre);
+    border-top-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-right-style: none;
+    min-width: 3.5em;
+    position: relative;
+    min-height:2.3em;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.case1 > .grille_case > .valeur_case:last-child {
+    border-right-style: solid;
+}
+
+.case1 > .grille_case > .valeur_case > input {
+    width:100%;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    padding-bottom: 0.4em;
+}
+
+.case1 > .grille_case > .valeur_case > textarea {
+    width:100%;
+    height: 6em;
+    resize : vertical;
+    min-height:2.4em;
+    border: none;
+}
+
+.case1 > .grille_case > .valeur_case > span:first-child {
+    font-weight: bold;
+    font-size: 1em;
+    color : var(--couleur-secondaire);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.4em;
+}
+
+.case1 > .grille_case > .valeur_case > .labelFond {
+    font-weight: bold;
+    font-size: 0.72em;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    color: #999999;
+}
+
+/******************************************
 Les cases avec label à gauche
 *******************************************/
 .case2 {
@@ -269,6 +365,7 @@ Les cases avec label à gauche
     position: relative;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 
 .case2 > .grille_case > .valeur_case:nth-child(1) {
@@ -292,6 +389,8 @@ Les cases avec label à gauche
     width:100%;
     height:100%;
     text-align: center;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 .case2 > .grille_case > .valeur_case > select {
@@ -300,12 +399,14 @@ Les cases avec label à gauche
     height:100%;
     text-align: center;
     background-color: white;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 .case2 > .grille_case > .valeur_case > span {
-   font-weight: bold; 
-   color : var(--couleur-secondaire);
-   display: flex;
+    font-weight: bold;
+    color : var(--couleur-secondaire);
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -359,47 +460,6 @@ Les cases avec label dessous et non encadré
 
 
 /******************************************
-Les champs isolés de niveau 1
-*******************************************/
-
-fieldset.champs_niv1 {
-    position: relative;
-    padding-right: 0;
-    padding-left: 0;
-    padding-top:0;
-    padding-bottom: 1.3em;
-    border-right: 2px;
-    border-left: 2px;
-    border-top:2px;
-    border-bottom:0;
-    border-style: solid;
-    border-color: var(--couleur-cadre);
-    margin:6px;
-    width: 100%;
-}
-
-fieldset.champs_niv1 > legend {
-    background-color: var(--couleur-cadre);
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    width : 100%;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-    text-transform: uppercase;
-    position: absolute;
-    bottom: 0;
-    font-size: 0.9em;
-    height: 1.3em;
-}
-
-fieldset.champs_niv1 > div {
-    padding-top: 10px;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-/******************************************
 Ligne "Peuple" et "Niveau"
 *******************************************/
 #peuple_niv > div:first-child {
@@ -447,10 +507,16 @@ fieldset#CARAC .case2 > .grille_case {
 fieldset#CARAC .case2 > .grille_case > .valeur_case:nth-child(2) {
     width:100%;
     text-align: left;
+
 }
 
 fieldset#CARAC .case2 > .grille_case > .valeur_case > input {
     text-align: left;
+}
+
+fieldset#CARAC .case2 > .grille_case > .valeur_case:nth-child(2) > input {
+    font-weight: normal;
+    font-size: 0.8em;
 }
 
 
@@ -458,312 +524,72 @@ fieldset#CARAC .case2 > .grille_case > .valeur_case > input {
 Zone des attaques
 *******************************************/
 #zoneAttaque > .case2 > .legende_case {
-    width: 6em;    
+    width: 6em;
 }
 
 #zoneAttaque > .case2 {
     justify-content: center;
 }
 
-
-
-/*******************************************
-Sous-zone de l'initiative
-********************************************/
-fieldset#zoneInitiative {
-    width : 50%;
+/**************************************************
+Ligne "Points de vigueur" et  "dés de récupération"
+***************************************************/
+#vigueur_recup {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 8px;
 }
 
-fieldset#zoneInitiative div {
-    text-align: center;
+#zoneDesRecuperation > .grille_case > .valeur_case:nth-child(3) {
+    width:6em;
 }
 
-fieldset#zoneInitiative input#TXT_INITIATIVE {
-    width: 4em;
+/**************************************************
+Ligne "Chance" et  "Mana"
+***************************************************/
+#chance_mana {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 8px;
+  margin-top: 8px;
 }
 
-/*******************************************
-Sous-zone des points de vigueur
-*********************************************/
-fieldset#zoneVigueur {
-    width : 50%;
-    text-align: center;
+/**************************************************
+Ligne "Initiative" et  "Defense"
+***************************************************/
+#initiative_defense {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 8px;  
 }
 
-.gridVigueur {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2'
-        'label1 . label2';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    width: 9em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+#initiative_defense > .case2 {
+    margin-top: 1em;
 }
 
-.gridVigueur label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
+#initiative_defense > .case2:nth-child(2) > .grille_case > .valeur_case {
+    min-width: 2.7em;
 }
 
-.gridVigueur input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridVigueur span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridVigueur label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridVigueur input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-
-/*******************************************
-Sous-zone de la défense
-*********************************************/
-#zoneDefense {
-    text-align: center;
-}
-
-#zoneDefense input#TXT_DEFENSE {
-    width: 2em;
-}
-
-#zoneDefense input#TXT_DEF_AGI {
-    width: 2em;
-}
-
-#zoneDefense input#TXT_DEF_ARMURE {
-    width: 2em;
-}
-
-#zoneDefense input#TXT_DEF_AUTRE {
-    width: 4em;
-}
-
-/*******************************************
-Sous-zone de la chance
-*********************************************/
-fieldset#zonePointsChance {
-    width : 50%;
-    text-align: center;
-}
-
-.gridChance {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2'
-        'label1 . label2'
-        'aide aide aide';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    width: 8em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gridChance label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
-}
-
-.gridChance input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridChance span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridChance label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridChance input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridChance span:nth-of-type(2) {
-    grid-area: aide;
-    text-align: center;
-    max-width: 10em;
-}
-
-
-/********************************************
-Sous-zone des point de MANA
-**********************************************/
-fieldset#zonePointsDeMana {
-    width : 50%;
-    text-align: center;
-}
-
-.gridMana {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2'
-        'label1 . label2';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    width: 8em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gridMana label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
-}
-
-.gridMana input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridMana span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridMana label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridMana input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-/*******************************************
-Sous-zone du dés de récupération
-*********************************************/
-.gridRecuperation {
-    display: grid;
-    grid-template-areas:
-        'input1 separateur input2 . input3'
-        'label1 . label2 . label3'
-        'aide aide aide aide aide';
-    column-gap: 0;
-    grid-template-columns: 4em 1em 4em;
-    max-width: 18em;
-    padding-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gridRecuperation label:nth-of-type(1) {
-    grid-area: label1;
-    justify-self: center;
-}
-
-.gridRecuperation input:nth-of-type(1) {
-    grid-area: input1;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridRecuperation span:nth-of-type(1) {
-    grid-area: separateur;
-    justify-self: center;
-}
-
-.gridRecuperation label:nth-of-type(2)  {
-    grid-area: label2;
-    justify-self: center;
-}
-
-.gridRecuperation input:nth-of-type(2) {
-    grid-area: input2;
-    justify-self: center;
-    width: 4em;
-}
-
-.gridRecuperation label:nth-of-type(3)  {
-    grid-area: label3;
-    justify-self: center;
-    width: 8em;
-    text-align: center;
-}
-
-.gridRecuperation input:nth-of-type(3) {
-    grid-area: input3;
-    justify-self: center;
-    width: 3em;
-}
-
-.gridRecuperation span:nth-of-type(2) {
-    grid-area: aide;
-    justify-self: center;
-}
-
-/******************************************
-Zone de l'équipement
-*******************************************/
-fieldset#EQUIPEMENT div {
-    padding-left : 4px;
-    padding-right : 4px;
-    width:100%;
-}
-
-fieldset#EQUIPEMENT textarea {
+/**************************************************
+Ligne "Equipement"
+***************************************************/
+#ligneEquipement > .case1 {
     width: 100%;
-    height: 6em;
-    resize: vertical;
 }
 
-/******************************************
-Zone de la bourse
-*******************************************/
-
-fieldset#zoneBourse input {
-    width:5em;
+#ligneEquipement > .case1 > .grille_case {
+    width: 100%;
 }
 
-fieldset#zoneBourse > div {
-    padding-left: 4px;
-    padding-right: 4px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-fieldset#zoneBourse > div > span {
-    margin-left: 6px;
-    margin-right: 6px;
-    margin-bottom: 4px;
-}
-
-fieldset#zoneBourse input#TXT_NB_PO {
-    margin-right: 1.5em;
-}
-
-fieldset#zoneBourse input#TXT_NB_PA {
-    margin-right: 1.5em;
+#ligneEquipement > .case1 > .grille_case > .valeur_case {
+    width: 100%;
 }
 
 /******************************************

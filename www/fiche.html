@@ -234,85 +234,145 @@
                         </fieldset>
                     </div>
                     <div class="colonne">
-                        <div class="ligne_niv1">
-                            <fieldset id="zoneInitiative" class="champs_niv1" title="Initiative">
-                                <legend>INIT</legend>
-                                <div>
-                                    <input type="number" id="TXT_INITIATIVE" name="initiative" min="0" max="30" title="Nombre de point d'initiative">
+
+                        <div id="vigueur_recup" class="ligne_niv1">
+                            <div class="case1">
+                                <div class="legende_case"><span>PTS DE VIGUEUR</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_PTS_VIGUEUR_ACTUELS" name="vigueurActuelle"  min="0" max="30" title="Nombre de points de vigueur actuels">
+                                    </div>
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_PTS_VIGUEUR_MAX" name="vigueurMax"  min="0" max="30" title="Nombre de points de vigueur maximum">
+                                        <span class="labelFond">MAX</span>
+                                    </div>
                                 </div>
-                            </fieldset>
-                            <fieldset id="zoneVigueur" class="champs_niv1" title="Points de vigueur">
-                                <legend>PTS DE VIGUEUR</legend>
-                                <div class="gridVigueur">
-                                    <label class="labelDessous" for="TXT_PTS_VIGUEUR_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_PTS_VIGUEUR_ACTUELS" name="vigueurActuelle"  min="0" max="30" title="Nombre de points de vigueur actuels">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_PTS_VIGUEUR_MAX">MAX</label>
-                                    <input type="number" id="TXT_PTS_VIGUEUR_MAX" name="vigueurMax"  min="0" max="30" title="Nombre de points de vigueur maximum">
+                            </div>
+
+                            <div id="zoneDesRecuperation" class="case1">
+                                <div class="legende_case"><span>Dés de récupération</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_DES_RECUP_ACTUELS" name="recuperationActuelle" min="0" max="30" title="Nombre de dés de récupération actuel">
+                                    </div>
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_DES_RECUP_MAX" name="recuperationMax" min="0" max="30" title="Nombre de dés de récupération maximum">
+                                        <span class="labelFond">MAX</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DES_RECUP"></span>
+                                        <span class="labelFond">Type de dés</span>
+                                    </div>
                                 </div>
-                            </fieldset>
+                                <span class="labelAide">Recup. PV = (d + 1/2 NIV.) PV</span>
+                            </div>
                         </div>
-                        <div class="ligne_niv1">
-                            <fieldset id="zoneDefense" class="champs_niv1" title="Défense">
-                                <legend>DEF</legend>
-                                <div>
-                                    <input type="text" id="TXT_DEFENSE" disabled title="Défense totale">
-                                    <span class="labelAide">=&nbsp;</span><span class="labelAide valeurAide">10</span>
-                                    <span class="labelAide">+ AGI:</span><span id="lblAgiDefense" class="labelAide valeurAide"></span>
-                                    <span class="labelAide">+ ARMURE: </span><span id="lblDefenseArmure" class="labelAide valeurAide" title="Somme des défenses des armures portées"></span>
-                                    <span class="labelAide">+ AUTRE: </span><input type="number" id="TXT_DEF_AUTRE" name="defenseAutre" min="-10" max="30" title="Autre bonus de défense">
+
+                        <div id="chance_mana" class="ligne_niv1">
+                            <div class="case1">
+                                <div class="legende_case"><span>PTS DE CHANCE</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_PTS_CHANCE_ACTUELS" name="chanceActuelle" min="0" max="30" title="Nombre de points de chance actuels">
+                                    </div>
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_PTS_CHANCE_MAX" name="chanceMax" min="0" max="30" title="Nombre de points de chance maximum">
+                                        <span class="labelFond">MAX</span>
+                                    </div>
                                 </div>
-                            </fieldset>
+                                <span class="labelAide">(+10 à un test)</span>
+                            </div>
+
+                            <div class="case1">
+                                <div class="legende_case"><span>POINTS DE MANA</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_PTS_MANA_ACTUELS" name="manaActuelle" min="0" max="99" title="Nombre de points de mana actuels">
+                                    </div>
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_PTS_MANA_MAX" name="manaMax" min="0" max="99" title="Nombre de points de mana maximum">
+                                        <span class="labelFond">MAX</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ligne_niv1">
-                            <fieldset id="zonePointsChance" class="champs_niv1" title="Points de chance">
-                                <legend>PTS DE CHANCE</legend>
-                                <div class="gridChance">
-                                    <label class="labelDessous" for="TXT_PTS_CHANCE_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_PTS_CHANCE_ACTUELS" name="chanceActuelle" min="0" max="30" title="Nombre de points de chance actuels">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_PTS_CHANCE_MAX">MAX</label>
-                                    <input type="number" id="TXT_PTS_CHANCE_MAX" name="chanceMax" min="0" max="30" title="Nombre de points de chance maximum">
-                                    <span class="labelAide">(+10 à un test)</span>
+
+
+                        <div id="initiative_defense" class="ligne_niv1">
+
+                            <div class="case2">
+                                <div class="legende_case"><span>INIT.</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_INITIATIVE" name="initiative" min="0" max="30" title="Nombre de point d'initiative">
+                                    </div>
                                 </div>
-                            </fieldset>
-                            <fieldset id="zonePointsDeMana" class="champs_niv1" title="Points de mana">
-                                <legend>POINTS DE MANA</legend>
-                                <div class="gridMana">
-                                    <label class="labelDessous" for="TXT_PTS_MANA_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_PTS_MANA_ACTUELS" name="manaActuelle" min="0" max="99" title="Nombre de points de mana actuels">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_PTS_MANA_MAX">MAX</label>
-                                    <input type="number" id="TXT_PTS_MANA_MAX" name="manaMax" min="0" max="99" title="Nombre de points de mana maximum">
+                            </div>
+
+                            <div class="case2">
+                                <div class="legende_case"><span>DEF</span></div>
+                                <div class="grille_case">
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_TOTALE"></span>
+                                        <span class="labelFond">TOTAL</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_MIN">10</span>
+                                        <span class="labelFond">MIN.</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_AGI"></span>
+                                        <span class="labelFond">AGI</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <span id="TXT_DEF_ARMURE"></span>
+                                        <span class="labelFond">ARMU.</span>
+                                    </div>
+                                    <div class="valeur_case">
+                                        <input type="number" id="TXT_DEF_AUTRE" name="defenseAutre" min="-10" max="30" title="Autre bonus de défense">
+                                        <span class="labelFond">AUTRE</span>
+                                    </div>
                                 </div>
-                            </fieldset>
+                            </div>
+
                         </div>
-                        <div class="ligne_niv1">
-                            <fieldset id="zoneDesRecuperation" class="champs_niv1" title="Dés de récupération">
-                                <legend>DES DE RECUPERATION</legend>
-                                <div class="gridRecuperation">
-                                    <label class="labelDessous" for="TXT_DES_RECUP_ACTUELS">ACTUELS</label>
-                                    <input type="number" id="TXT_DES_RECUP_ACTUELS" name="recuperationActuelle" min="0" max="30" title="Nombre de dés de récupération actuel">
-                                    <span>/</span>
-                                    <label class="labelDessous" for="TXT_DES_RECUP_MAX">MAX</label>
-                                    <input type="number" id="TXT_DES_RECUP_MAX" name="recuperationMax" min="0" max="30" title="Nombre de dés de récupération maximum">
-                                    <label class="labelDessous" for="TXT_DES_RECUP">TYPE DE DES</label>
-                                    <input type="text" id="TXT_DES_RECUP" disabled>
-                                    <span class="labelAide">Restauration PV = (d + 1/2 NIV.) PV</span>
+
+
+                        <fieldset id="EQUIPEMENT" class="niv1">
+                            <legend>EQUIPEMENT</legend>
+                            <div id="ligneEquipement" class="ligne_niv1">
+
+                                <div class="case1">
+                                    <div class="legende_case"><span>Objets</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <textarea id="TXT_EQUIPEMENT" name="equipement" maxlength="500" title="Liste des équipements"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
-                            </fieldset>
-                        </div>
-                        <div class="ligne_niv1">
-                            <fieldset id="EQUIPEMENT" class="champs_niv1">
-                                <legend>EQUIPEMENT</legend>
-                                <div>
-                                    <textarea id="TXT_EQUIPEMENT" name="equipement" maxlength="500"></textarea>
+                            </div>
+                            <div id="ligneBourse" class="ligne_niv1">
+                                <div id="zoneBourse" class="case1">
+                                    <div class="legende_case"><span>BOURSE</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <input type="number" id="TXT_NB_PO" name="PO" min="0" max="1000000000" title="Nombre de pièces d'or (1 PO = 10 PA)">
+                                            <span class="labelFond">PO</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="number" id="TXT_NB_PA" name="PA" min="0" max="1000000000" title="Nombre de pièces d'argent (1 PA = 10 PC)">
+                                            <span class="labelFond">PA</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <input type="number" id="TXT_NB_PC" name="PC" min="0" max="1000000000" title="Nombre de pièces de cuivre">
+                                            <span class="labelFond">PC</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </fieldset>
-                        </div>
-                        <fieldset id="zoneBourse" class="niv1">
-                            <legend>BOURSE</legend>
-                            <div class="groupe_unique">
+
+                            </div>
+
+                            <!--<div class="groupe_unique">
                                 <span>
                                     <label for="TXT_NB_PO">PO </label>
                                     <input type="number" id="TXT_NB_PO" name="PO" min="0" max="1000000000" title="Nombre de pièces d'or (1 PO = 10 PA)">
@@ -325,7 +385,7 @@
                                     <label for="TXT_NB_PC">PC </label>
                                     <input type="number" id="TXT_NB_PC" name="PC" min="0" max="1000000000" title="Nombre de pièces de cuivre">
                                 </span>
-                            </div>
+                            </div> -->
                         </fieldset>
                     </div>
                     <div class="colonne">
