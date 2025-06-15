@@ -307,7 +307,6 @@ Les cases avec label à gauche
     text-transform: uppercase;
     padding-left: 0.1cm;
     padding-right: 0.1cm;
-    padding-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -393,11 +392,13 @@ Les cases avec label dessous et non encadré
 .case3 > .grille_case > .valeur_case {
     border: none;
     min-height: 0.5cm;
+    overflow: hidden;
 }
 
 .case3 > .grille_case > .valeur_case > span {
     font-weight: normal;
     font-size : 0.45cm;
+    white-space:nowrap;
 }
 
 /*********************************************************

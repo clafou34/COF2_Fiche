@@ -19,9 +19,9 @@
                     <div>FANTASY 2e</div>
                 </div>
                 <div class="barreBoutons">
-                    <button id="btnSauver" type="button" title="Enregistrer la fiche"><span class="iconeBouton"><img src="img/sauver.svg"></span><span class="texteBouton">Enregistrer</span></button>
-                    <button id="btnImprimer" type="button" title="Enregistrer la fiche"><span class="iconeBouton"><img src="img/imprimer.svg"></span><span class="texteBouton">Imprimer</span></button>
-                    <button id="btnQuitter" type="button" title="Ferme la fiche"><span class="iconeBouton"><img src="img/fermer.svg"></span><span class="texteBouton">Fermer</span></button>
+                    <button id="btnSauver" type="button" title="Enregistrer la fiche"><span class="iconeBouton"><img src="img/sauver.svg" alt="Icone sauvegarder"></span><span class="texteBouton">Enregistrer</span></button>
+                    <button id="btnImprimer" type="button" title="Enregistrer la fiche"><span class="iconeBouton"><img src="img/imprimer.svg" alt="Icone imprimer"></span><span class="texteBouton">Imprimer</span></button>
+                    <button id="btnQuitter" type="button" title="Ferme la fiche"><span class="iconeBouton"><img src="img/fermer.svg" alt="Icone fermer"></span><span class="texteBouton">Fermer</span></button>
                 </div>
             </header>
             <main>
@@ -40,7 +40,7 @@
                     <div class="colonne">
                         <div id="peuple_niv" class="ligne_niv1">
                             <div>
-                                <div class="case3">
+                                <div class="case3"  title="Peuple du personnage">
                                     <label for="SEL_PEUPLE" class="legende_case"><span>Peuple</span></label>
                                     <div class="grille_case">
                                         <div class="valeur_case">
@@ -53,39 +53,14 @@
                                 <label for="TXT_NIVEAU" class="legende_case"><span>NIV.</span></label>
                                 <div class="grille_case">
                                     <div class="valeur_case">
-                                        <input type="number" id="TXT_NIVEAU" name="niveau" min="1" max="30" maxlength="2" title="Niveau du personnage">
+                                        <input type="number" id="TXT_NIVEAU" name="niveau" min="1" max="30" title="Niveau du personnage">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <fieldset id="PERSONNALITE" class="niv1">
-                            <legend>PERSONNALIT&Eacute;</legend>
-                            <div id="zonePersonnalite" class="groupe_unique">
-                                <div>
-                                    <label for="SEL_FAMILLE">Famille</label>
-                                    <span><select id="SEL_FAMILLE" name="idFamille"></select></span>
-                                </div>
-                                <div>
-                                    <label for="SEL_PROFIL">Profil</label>
-                                    <span><select id="SEL_PROFIL" name="idProfil"></select></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_IDEAL">Idéal héroîque</label>
-                                    <span><input type="text" id="TXT_IDEAL" name="idealHeroique" maxlength="100"></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_TRAVERS">Travers</label>
-                                    <span><input type="text" id="TXT_TRAVERS" name="travers" maxlength="100"></span>
-                                </div>
-                                <div>
-                                    <label for="TXT_DESCRIPTION">Description</label>
-                                    <span><textarea id="TXT_DESCRIPTION" name="description" maxlength="250"></textarea></span>
-                                </div>
-                            </div>
-                        </fieldset>
                         <fieldset id="CARAC" class="niv1">
                             <legend>Caractéristiques</legend>
-                            <div id="zoneCaracteristique" class="groupe_unique">
+                            <div id="zoneCaracteristique">
                                 <div class="case2">
                                     <label for="SEL_AGI" class="legende_case"><span>AGI</span></label>
                                     <div class="grille_case">
@@ -171,73 +146,68 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div id="ligne_famille_produit" class="ligne_niv1">
+                                <div class="case3" title="Famille du personnage">
+                                    <label for="SEL_FAMILLE" class="legende_case"><span>Famille</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_FAMILLE" name="idFamille"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="case3" title="Profil du personnage">
+                                    <label for="SEL_PROFIL" class="legende_case"><span>Profil</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <select id="SEL_PROFIL" name="idProfil"></select>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
-                        </fieldset>
-                        <fieldset id="ATTAQUES" class="niv1">
-                            <legend>ATTAQUES</legend>
-                            <div id="zoneAttaque" class="groupe_unique">
-                                <div class="case2">
-                                    <div class="legende_case"><span>CONTACT</span></div>
-                                    <div class="grille_case">
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_CONTACT_TOTAL"></span>
-                                            <span class="labelFond">TOTAL</span>
-                                        </div>
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_CONTACT_NIV"></span>
-                                            <span class="labelFond">NIV.</span>
-                                        </div>
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_CONTACT_FOR"></span>
-                                            <span class="labelFond">FOR.</span>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="case2">
-                                    <div class="legende_case"><span>DISTANCE</span></div>
+                            <div id="ligne_ideal" class="ligne_niv1">
+                                <div class="case3" title="Idéal héroîque du personnage">
+                                    <label for="TXT_IDEAL" class="legende_case"><span>Idéal héroîque</span></label>
                                     <div class="grille_case">
                                         <div class="valeur_case">
-                                            <span id="TXT_ATT_DISTANCE_TOTAL"></span>
-                                            <span class="labelFond">TOTAL</span>
-                                        </div>
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_DISTANCE_NIV"></span>
-                                            <span class="labelFond">NIV.</span>
-                                        </div>
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_DISTANCE_AGI"></span>
-                                            <span class="labelFond">AGI.</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="case2">
-                                    <div class="legende_case"><span>MAGIQUE</span></div>
-                                    <div class="grille_case">
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_MAGIQUE_TOTAL"></span>
-                                            <span class="labelFond">TOTAL</span>
-                                        </div>
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_MAGIQUE_NIV"></span>
-                                            <span class="labelFond">NIV.</span>
-                                        </div>
-                                        <div class="valeur_case">
-                                            <span id="TXT_ATT_MAGIQUE_VOL"></span>
-                                            <span class="labelFond">VOL.</span>
+                                            <input type="text" id="TXT_IDEAL" name="idealHeroique" maxlength="50">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div id="ligne_travers" class="ligne_niv1">
+                                <div class="case3" title="Travers du personnage">
+                                    <label for="TXT_TRAVERS" class="legende_case"><span>Travers</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <input type="text" id="TXT_TRAVERS" name="travers" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="ligne_description" class="ligne_niv1">
+                                <div class="case1" title="Description du personnage">
+                                    <label for="TXT_DESCRIPTION" class="legende_case"><span>Description</span></label>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <textarea id="TXT_DESCRIPTION" name="description" maxlength="250"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
                         </fieldset>
                     </div>
+                    
                     <div class="colonne">
-
                         <div id="vigueur_recup" class="ligne_niv1">
                             <div class="case1">
-                                <div class="legende_case"><span>PTS DE VIGUEUR</span></div>
+                                <label for="TXT_PTS_VIGUEUR_ACTUELS" class="legende_case"><span>PTS DE VIGUEUR</span></label>
                                 <div class="grille_case">
                                     <div class="valeur_case">
                                         <input type="number" id="TXT_PTS_VIGUEUR_ACTUELS" name="vigueurActuelle"  min="0" max="30" title="Nombre de points de vigueur actuels">
@@ -250,7 +220,7 @@
                             </div>
 
                             <div id="zoneDesRecuperation" class="case1">
-                                <div class="legende_case"><span>Dés de récupération</span></div>
+                                <label for="TXT_DES_RECUP_ACTUELS" class="legende_case"><span>Dés de récupération</span></label>
                                 <div class="grille_case">
                                     <div class="valeur_case">
                                         <input type="number" id="TXT_DES_RECUP_ACTUELS" name="recuperationActuelle" min="0" max="30" title="Nombre de dés de récupération actuel">
@@ -270,7 +240,7 @@
 
                         <div id="chance_mana" class="ligne_niv1">
                             <div class="case1">
-                                <div class="legende_case"><span>PTS DE CHANCE</span></div>
+                                <label for="TXT_PTS_CHANCE_ACTUELS" class="legende_case"><span>PTS DE CHANCE</span></label>
                                 <div class="grille_case">
                                     <div class="valeur_case">
                                         <input type="number" id="TXT_PTS_CHANCE_ACTUELS" name="chanceActuelle" min="0" max="30" title="Nombre de points de chance actuels">
@@ -284,7 +254,7 @@
                             </div>
 
                             <div class="case1">
-                                <div class="legende_case"><span>POINTS DE MANA</span></div>
+                                <label for="TXT_PTS_MANA_ACTUELS" class="legende_case"><span>POINTS DE MANA</span></label>
                                 <div class="grille_case">
                                     <div class="valeur_case">
                                         <input type="number" id="TXT_PTS_MANA_ACTUELS" name="manaActuelle" min="0" max="99" title="Nombre de points de mana actuels">
@@ -337,16 +307,76 @@
 
                         </div>
 
+                        <fieldset id="ATTAQUES" class="niv1">
+                            <legend>ATTAQUES</legend>
+                            <div class="ligne_niv1">
+                                <div class="case2">
+                                    <div class="legende_case"><span>CONTACT</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_CONTACT_TOTAL"></span>
+                                            <span class="labelFond">TOTAL</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_CONTACT_NIV"></span>
+                                            <span class="labelFond">NIV.</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_CONTACT_FOR"></span>
+                                            <span class="labelFond">FOR.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ligne_niv1">
+                                <div class="case2">
+                                    <div class="legende_case"><span>DISTANCE</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_DISTANCE_TOTAL"></span>
+                                            <span class="labelFond">TOTAL</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_DISTANCE_NIV"></span>
+                                            <span class="labelFond">NIV.</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_DISTANCE_AGI"></span>
+                                            <span class="labelFond">AGI.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ligne_niv1">
+                                <div class="case2">
+                                    <div class="legende_case"><span>MAGIQUE</span></div>
+                                    <div class="grille_case">
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_MAGIQUE_TOTAL"></span>
+                                            <span class="labelFond">TOTAL</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_MAGIQUE_NIV"></span>
+                                            <span class="labelFond">NIV.</span>
+                                        </div>
+                                        <div class="valeur_case">
+                                            <span id="TXT_ATT_MAGIQUE_VOL"></span>
+                                            <span class="labelFond">VOL.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
 
                         <fieldset id="EQUIPEMENT" class="niv1">
                             <legend>EQUIPEMENT</legend>
                             <div id="ligneEquipement" class="ligne_niv1">
 
-                                <div class="case1">
-                                    <div class="legende_case"><span>Objets</span></div>
+                                <div class="case1" title="Liste des équipements">
+                                    <label for="TXT_EQUIPEMENT" class="legende_case"><span>Objets</span></label>
                                     <div class="grille_case">
                                         <div class="valeur_case">
-                                            <textarea id="TXT_EQUIPEMENT" name="equipement" maxlength="500" title="Liste des équipements"></textarea>
+                                            <textarea id="TXT_EQUIPEMENT" name="equipement" maxlength="500"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -372,20 +402,6 @@
 
                             </div>
 
-                            <!--<div class="groupe_unique">
-                                <span>
-                                    <label for="TXT_NB_PO">PO </label>
-                                    <input type="number" id="TXT_NB_PO" name="PO" min="0" max="1000000000" title="Nombre de pièces d'or (1 PO = 10 PA)">
-                                </span>
-                                <span>
-                                    <label for="TXT_NB_PA">PA </label>
-                                    <input type="number" id="TXT_NB_PA" name="PA" min="0" max="1000000000" title="Nombre de pièces d'argent (1 PA = 10 PC)">
-                                </span>
-                                <span>
-                                    <label for="TXT_NB_PC">PC </label>
-                                    <input type="number" id="TXT_NB_PC" name="PC" min="0" max="1000000000" title="Nombre de pièces de cuivre">
-                                </span>
-                            </div> -->
                         </fieldset>
                     </div>
                     <div class="colonne">
@@ -1075,7 +1091,7 @@
                 <button id="dlgVoieFerme" title="Fermer sans valider"></button>
             </div>
             <form id="DLG_VOIE_FORM">
-                <div class="groupe_unique">
+                <div>
                     <label for="DLGVOIE_SEL_TYPE_VOIE">Type de voie</label>
                     <span><select class="dlgVoieSelectTypeVoie" id="DLGVOIE_SEL_TYPE_VOIE"></select></span>
                     <label>Nom de la voie</label>
@@ -1099,7 +1115,7 @@
                 <button id="dlgCapaciteFerme" title="Fermer sans valider"></button>
             </div>
             <form  id="DLG_CAPACITE_FORM">
-                <div class="groupe_unique">
+                <div>
                     <label for="DLGCAPACITE_TXT_RANG">Rang</label>
                     <span>
                         <input type="number" id="DLGCAPACITE_TXT_RANG" title="Rang de la capacité" min="1" max="20">
