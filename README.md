@@ -21,3 +21,5 @@ Les fonctionnalités qu'il serait bien de rajouter
 - Capacité à partager les fiches.
 - Gestion du référentiel des armes et armures du livre de base.
 - Capacité à désactiver des voies (pour l'usage avec de règles simplifiées).
+
+L'application peut être testée ici : https://toucafe.fr/fiche-cof2/
