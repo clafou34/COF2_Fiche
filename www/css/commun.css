@@ -25,6 +25,7 @@ input[type=number] {
 /*****************************************
  * Style commun à la structure des pages.
  *****************************************/
+
 * {
     box-sizing: border-box;
     font-family: 'Courier New', monospace;
@@ -58,6 +59,7 @@ header {
 main {
     padding-top:0.5em;
     z-index:0;
+    min-height: 80vh;
 }
 
 footer {

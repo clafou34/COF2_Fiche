@@ -728,5 +728,5 @@ function ficheImpression() {
  * Sortie de la fiche sans enregistrer.
  *******************************************************************************/
 function ficheQuitter() {
-    window.location.href = "gestion.html";
+    window.location.href = "index.html";
 }
