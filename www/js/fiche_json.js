@@ -124,7 +124,7 @@ function ficheConstruireJSON() {
         objPersonnage.voies.push(varObjVoie);
     }
 
-    console.log(JSON.stringify(objPersonnage, null, 2));
+    //console.log(JSON.stringify(objPersonnage, null, 2));
     
     return objPersonnage;
 }
@@ -137,6 +137,7 @@ function ficheConstruireJSON() {
 function ficheInitAvecJSON(parObjPersonnage) {
     
     let objPersonnage = parObjPersonnage;
+    //console.log(JSON.stringify(objPersonnage, null, 2));
 
     // Nom du personnage
     if (objPersonnage.commun === undefined)

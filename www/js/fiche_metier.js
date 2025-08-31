@@ -145,7 +145,7 @@ function afficherTextCapacite(parZoneCapacite) {
     let varValeurNomCapacite = parZoneCapacite.getElementsByClassName("txtNomCapacite")[0].value;
     let varValeurDescriptionCapacite = parZoneCapacite.getElementsByClassName("txtDescriptionCapacite")[0].value;
     let varValeurComplementCapacite = parZoneCapacite.getElementsByClassName("txtComplementCapacite")[0].value;
-
+    
     // Affichage du titre de la capacité
     let varTitreCapacite = "";
     if ((varValeurRangCapacite !== null) && (varValeurRangCapacite !== ""))
@@ -410,9 +410,6 @@ function gereVoiePeuple(parZoneVoie) {
         parZoneVoie.getElementsByClassName("lblNomVoie")[0].innerText = varTxtNomVoie.value;
         parZoneVoie.getElementsByClassName("lblTypeVoie")[0].innerText = "";
     } else if (varStrTypeVoie === "PERSO") {
-        // On vide les zones de capacités
-        videZonesCapacites(parZoneVoie);
-
         // On affiche le nom de la voie personnalisée
         parZoneVoie.getElementsByClassName("lblNomVoie")[0].innerText = varTxtNomVoie.value;
         parZoneVoie.getElementsByClassName("lblTypeVoie")[0].innerText = "PERSO";

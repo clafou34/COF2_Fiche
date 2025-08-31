@@ -115,7 +115,6 @@ function fichier_getMeta(parIdFichier) {
     // Récupération du tableau des fichiers.
     let varTabMetaFichier = [];
     try {
-        console.log("Fichier Brut : " + fichier_Prefix);
         varTabMetaFichier = JSON.parse(localStorage.getItem(fichier_Prefix));
     }
     catch(err) {
