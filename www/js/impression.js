@@ -162,16 +162,28 @@ function impressionInitAvecJSON(parObjPersonnage) {
     // Attaque
     document.getElementById("TXT_ATT_CONTACT_NIV").innerText = document.getElementById("TXT_NIVEAU").innerText;
     document.getElementById("TXT_ATT_CONTACT_FOR").innerText = document.getElementById("TXT_FOR").innerText;
-    let varAttContactTotal = parseInt(document.getElementById("TXT_NIVEAU").innerText) + parseInt(document.getElementById("TXT_FOR").innerText);
-    document.getElementById("TXT_ATT_CONTACT_TOTAL").innerText = (varAttContactTotal > 0 ? "+" + varAttContactTotal : varAttContactTotal);
+    if(isNaN(parseInt(document.getElementById("TXT_NIVEAU").innerText)))
+        document.getElementById("TXT_ATT_CONTACT_TOTAL").innerText = "";
+    else {
+        let varAttContactTotal = parseInt(document.getElementById("TXT_NIVEAU").innerText) + parseInt(document.getElementById("TXT_FOR").innerText);
+        document.getElementById("TXT_ATT_CONTACT_TOTAL").innerText = (varAttContactTotal > 0 ? "+" + varAttContactTotal : varAttContactTotal);
+    }
     document.getElementById("TXT_ATT_DISTANCE_NIV").innerText = document.getElementById("TXT_NIVEAU").innerText;
     document.getElementById("TXT_ATT_DISTANCE_AGI").innerText = document.getElementById("TXT_AGI").innerText;
-    let varAttDistanceTotal = parseInt(document.getElementById("TXT_NIVEAU").innerText) + parseInt(document.getElementById("TXT_AGI").innerText);
-    document.getElementById("TXT_ATT_DISTANCE_TOTAL").innerText = (varAttDistanceTotal > 0 ? "+" + varAttDistanceTotal : varAttDistanceTotal);
+    if(isNaN(parseInt(document.getElementById("TXT_NIVEAU").innerText)))
+        document.getElementById("TXT_ATT_DISTANCE_TOTAL").innerText = "";
+    else {
+        let varAttDistanceTotal = parseInt(document.getElementById("TXT_NIVEAU").innerText) + parseInt(document.getElementById("TXT_AGI").innerText);
+        document.getElementById("TXT_ATT_DISTANCE_TOTAL").innerText = (varAttDistanceTotal > 0 ? "+" + varAttDistanceTotal : varAttDistanceTotal);
+    }
     document.getElementById("TXT_ATT_MAGIQUE_NIV").innerText = document.getElementById("TXT_NIVEAU").innerText;
     document.getElementById("TXT_ATT_MAGIQUE_VOL").innerText = document.getElementById("TXT_VOL").innerText;
-    let varAttMagiqueTotal = parseInt(document.getElementById("TXT_NIVEAU").innerText) + parseInt(document.getElementById("TXT_VOL").innerText);
-    document.getElementById("TXT_ATT_MAGIQUE_TOTAL").innerText = (varAttMagiqueTotal > 0 ? "+" + varAttMagiqueTotal : varAttMagiqueTotal);
+    if(isNaN(parseInt(document.getElementById("TXT_NIVEAU").innerText)))
+        document.getElementById("TXT_ATT_MAGIQUE_TOTAL").innerText;
+    else {
+        let varAttMagiqueTotal = parseInt(document.getElementById("TXT_NIVEAU").innerText) + parseInt(document.getElementById("TXT_VOL").innerText);
+        document.getElementById("TXT_ATT_MAGIQUE_TOTAL").innerText = (varAttMagiqueTotal > 0 ? "+" + varAttMagiqueTotal : varAttMagiqueTotal);
+    }
 
     // Initiative
     if ((objPersonnage.initiative !== undefined) && (objPersonnage.initiative !== ""))
